@@ -121,10 +121,10 @@ Routine.handleCreateFormSubmission = function() {
     var formData = $(this).serialize()
     $.post(url, formData)
     .done(function(response) {
-      $('#newly-created-routine').html('')
+      $('#preview-routine').html('')
       let newRoutine = new Routine(response)
       let routineHtml = newRoutine.formatPreview()
-      $('#newly-created-routine').html(routineHtml)
+      $('#preview-routine').html(routineHtml)
     })
   })
 }
