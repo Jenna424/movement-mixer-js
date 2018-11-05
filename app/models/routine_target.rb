@@ -1,0 +1,2 @@
+class RoutineTarget < ApplicationRecord
+end
