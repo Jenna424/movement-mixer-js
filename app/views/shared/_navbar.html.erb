@@ -16,6 +16,7 @@
           <li><%= link_to "Log In", login_path %></li>
         <% else %>
           <li><%= link_to "Create a Workout Routine", new_routine_path, class: "new-routine" %></li>
+          <li><%= link_to "View All Workouts", routines_path, class: "all-routines" %></li>
           <li><%= link_to "Log Out", logout_path, method: :delete %></li>
         <% end %>
       </ul>
