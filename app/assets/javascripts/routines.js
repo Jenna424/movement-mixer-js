@@ -15,3 +15,21 @@ function Routine(routine) {
 $(function() {
   Routine.compileTemplates()
 })
+
+Routine.compileTemplates = function() {
+  // Routine Handlebars Template
+  Routine.routineTemplateSource = $('#routine-template').html();
+  Routine.routineTemplateFunction = Handlebars.compile(Routine.routineTemplateSource);
+  // Movement Handlebars Template
+  Routine.movementTemplateSource = $('#movement-template').html();
+  Routine.movementTemplateFunction = Handlebars.compile(Routine.movementTemplateSource);
+  // Equipment Handlebars Template
+  Routine.equipmentTemplateSource = $('#equipment-template').html();
+  Routine.equipmentTemplateFunction = Handlebars.compile(Routine.equipmentTemplateSource);
+  // Target Handlebars Template
+  Routine.targetTemplateSource = $('#target-template').html();
+  Routine.targetTemplateFunction = Handlebars.compile(Routine.targetTemplateSource);
+  // Training Handlebars Template
+  Routine.trainingTemplateSource = $('#training-template').html();
+  Routine.trainingTemplateFunction = Handlebars.compile(Routine.trainingTemplateSource);
+}
