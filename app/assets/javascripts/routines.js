@@ -41,3 +41,29 @@ Routine.bindClickEventHandlers = function() {
   Routine.addTargetAreaHandler()
   Routine.addTrainingTypeHandler()
 }
+
+Routine.addMovementHandler = function() {
+  $('#add-movement').on('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var inputs = $("[name^='routine[movements_attributes]']")
+    var lastInput = inputs.last()
+    var lastId = lastInput.attr("id")
+    var idParts = lastInput.attr("id").split("_")
+    var idNumber = idParts[3]
+    var newIdNumber = parseInt(idParts[3]) + 1
+    var movementHtmlFields = Routine.movementTemplateFunction({id: newIdNumber})
+    $('#add-movement').before(movementHtmlFields)
+  })
+}
+// User clicks <button id="add-movement"> to add another movement in the form to create a new workout routine
+// I hijack the click event of that button by binding a new click event to it
+// Stop the default behavior
+// Stop event propagation
+// The variable inputs stores an array of <input> fields to create a movement,
+// whose name attribute value begins with the string "routine[movements_attributes]"
+// which are the fields that I need to reproduce to add another movement to the routine
+// Get the last <input> to eventually grab its id
+// An id looks something like: "routine_movements_attributes_0_movement_routines_reps"
+// Splitting this id string at the underscore: ["routine", "movements", "attributes", "0", "movement", "routines", "reps"]
+// The element at index 3 is the id number!
