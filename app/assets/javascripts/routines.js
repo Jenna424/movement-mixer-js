@@ -128,3 +128,7 @@ Routine.handleCreateFormSubmission = function() {
     })
   })
 }
+
+Routine.prototype.formatPreview = function() {
+  return Routine.routineTemplateFunction(this) // this refers to the JSON routine object on which we're calling the formatPreview() prototype method
+}
