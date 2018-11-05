@@ -28,6 +28,24 @@ class Routine < ApplicationRecord
       end
     end
   end
+
+  def targets_attributes=(targets_attributes)
+    targets_attributes.values.each do |targets_attribute|
+      if !targets_attribute["focus"].blank?
+        target_area = Target.find_or_create_by(focus: targets_attribute["focus"])
+        self.routine_targets.build(routine: self, target: target_area)
+      end
+    end
+  end
+
+  def trainings_attributes=(trainings_attributes)
+    trainings_attributes.values.each do |trainings_attribute|
+      if !trainings_attribute["fitness_type"].blank?
+        training_type = Training.find_or_create_by(fitness_type: trainings_attribute["fitness_type"])
+        self.routine_trainings.build(routine: self, training: training_type)
+      end
+    end
+  end
 end
 
 # Many-to-Many Relationship between routines and movements:
@@ -37,3 +55,11 @@ end
 # Many-to-Many Relationship between routines and equipment
 # Many pieces of equipment can be used in a single workout routine,
 # and an individual piece of equipment is utilized in several different workouts.
+
+# Many-to-Many Relationship between routines and target areas
+# A single workout routine can target several areas of the body,
+# and workouts can be grouped by body focus. (e.g. all core workouts)
+
+# Many-to-Many Relationship between routines and training types
+# A single workout routine can combine several different training types (e.g. Cardio & HIIT)
+# and workouts can be grouped by training type (e.g. all strength training workouts)
