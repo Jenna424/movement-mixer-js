@@ -134,3 +134,10 @@ Routine.handleCreateFormSubmission = function() {
 Routine.prototype.formatPreview = function() {
   return Routine.routineTemplateFunction(this) // this refers to the JSON routine object on which we're calling the formatPreview() prototype method
 }
+
+Routine.getRoutines = function() {
+  $('ul.navbar-nav').on('click', "a.all-routines", function(e) {
+    e.preventDefault();
+    console.log('hijacked the view routines link')
+  })
+}
