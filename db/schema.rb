@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_181001) do
+ActiveRecord::Schema.define(version: 2018_11_05_181130) do
 
   create_table "equipment", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2018_11_05_181001) do
     t.integer "routine_id"
     t.integer "weight"
     t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "movement_routines", force: :cascade do |t|
+    t.integer "movement_id"
+    t.integer "routine_id"
+    t.text "technique"
+    t.integer "sets"
+    t.integer "reps"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

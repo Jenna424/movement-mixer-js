@@ -1,0 +1,2 @@
+class MovementRoutine < ApplicationRecord
+end
