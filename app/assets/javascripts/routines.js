@@ -40,6 +40,7 @@ Routine.bindClickEventHandlers = function() {
   Routine.addEquipmentHandler()
   Routine.addTargetAreaHandler()
   Routine.addTrainingTypeHandler()
+  Routine.handleCreateFormSubmission()
 }
 
 Routine.addMovementHandler = function() {
@@ -111,3 +112,20 @@ Routine.addTrainingTypeHandler = function() {
     var trainingTypeHtml = Routine.trainingTemplateFunction({ indexPosition: newIndexPosition })
     $('#add-training').before(trainingTypeHtml)
   })
+}
+
+Routine.handleCreateFormSubmission = function() {
+  $('#new_routine').submit(function(e) {
+    console.log('HIJACKED THE CREATE ROUTINE FORM SUBMISSION')
+    e.preventDefault() // prevent the default form submit action
+    var url = $(this).attr('action') // "/routines"
+    var formData = $(this).serialize()
+    $.post(url, formData)
+    .done(function(response) {
+      $('#newly-created-routine').html('')
+      let newRoutine = new Routine(response)
+      let routineHtml = newRoutine.formatPreview()
+      $('#newly-created-routine').html(routineHtml)
+    })
+  })
+}
