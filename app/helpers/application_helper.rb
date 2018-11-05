@@ -1,4 +1,17 @@
 module ApplicationHelper
+  def entitle_page(text)
+    content_for :title do
+      text += " | " if text.present?
+      text += "Movement Mixer"
+    end
+  end
+
+  def validation_errors_for(object = nil) # object is AR instance or nil by default
+    if object && object.errors.any?
+      render partial: "shared/error_explanation_div", locals: { object: object }
+    end
+  end
+
   def set_class_for(flash_type)
     case flash_type
     when "error"
