@@ -1,10 +1,22 @@
 class RoutinesController < ApplicationController
   def new
-	@routine = Routine.new # instance for form_for to wrap around
-	@routine.movements.build
-	@routine.equipment.build
-	@routine.targets.build
-	@routine.trainings.build
+	  @routine = Routine.new # instance for form_for to wrap around
+	  @routine.movements.build
+	  @routine.equipment.build
+	  @routine.targets.build
+	  @routine.trainings.build
+  end
+
+  def create
+    @routine = current_user.routines.build(routine_params)
+    if @routine.save
+      render json: @routine
+    else
+      render :new
+    end
+  end
+
+  def show
   end
 
   def edit
@@ -20,7 +32,7 @@ class RoutinesController < ApplicationController
         :user_id,
         :movements_attributes => [
           :name,
-          :movement_routines => [:technique, :sets, :reps]
+          :movement_routines => [:reps, :sets, :technique]
         ],
         :equipment_attributes => [
           :name,
