@@ -1,0 +1,26 @@
+<%= form_for routine do |f| %>
+	<div class="field">
+		<%= f.label :title %>:
+		<%= f.text_field :title, placeholder: "Enter the title of your new workout routine...", class: "form-control" %>
+	</div>
+
+	<br>
+
+	<div class="field">
+		<%= f.label :difficulty_level, "How would you rate the difficulty level of this workout?" %>:
+		<%= f.select :difficulty_level, options_for_select(["Beginner", "Intermediate", "Advanced"], prompt: "Difficulty Level") %>
+	</div>
+
+	<br>
+
+	<div class="field">
+		<%= f.label :duration, "How long will it take to perform this workout routine?" %>
+		<%= f.number_field :duration, min: 1 %> minutes
+	</div>
+
+	<br>
+	
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>
