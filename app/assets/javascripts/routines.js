@@ -11,3 +11,7 @@ function Routine(routine) {
   this.trainings = routine.trainings
   this.user = routine.user
 }
+
+$(function() {
+  Routine.compileTemplates()
+})
