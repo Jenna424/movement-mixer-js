@@ -1,3 +1,21 @@
 <h1>Create a Workout Routine</h1>
 
 <%= render partial: 'form', locals: { routine: @routine } %>
+
+<hr>
+
+<script id="movement-template" type="text/x-handlebars-template">
+  <%= render 'movement_fields' %>
+</script>
+
+<script id="equipment-template" type="text/x-handlebars-template">
+  <%= render 'equipment_fields' %>
+</script>
+
+<script id="target-template" type="text/x-handlebars-template">
+	<%= render 'target_fields' %>
+</script>
+
+<script id="training-template" type="text/x-handlebars-template">
+	<%= render 'training_fields' %>
+</script>
