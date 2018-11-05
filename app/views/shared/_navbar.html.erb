@@ -11,6 +11,13 @@
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <% if !logged_in? %>
+          <li><%= link_to "Register Now!", signup_path %></li>
+          <li><%= link_to "Log In", login_path %></li>
+        <% else %>
+          <li><%= link_to "Create a Workout Routine", new_routine_path, class: "new-routine" %></li>
+          <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
