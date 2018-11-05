@@ -1,6 +1,10 @@
 class RoutinesController < ApplicationController
   def new
-  	@routine = Routine.new # instance for form_for to wrap around
+	@routine = Routine.new # instance for form_for to wrap around
+	@routine.movements.build
+	@routine.equipment.build
+	@routine.targets.build
+	@routine.trainings.build
   end
 
   def edit
