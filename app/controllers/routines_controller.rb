@@ -1,4 +1,9 @@
 class RoutinesController < ApplicationController
+  def index
+    @routines = Routine.all
+    render json: @routines
+  end
+  
   def new
 	  @routine = Routine.new # instance for form_for to wrap around
 	  @routine.movements.build
