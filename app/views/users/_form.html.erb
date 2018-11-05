@@ -1,0 +1,49 @@
+<%= form_for user do |f| %>
+
+  <%= validation_errors_for(user) %>
+
+  <br>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+   </div>
+
+   <br>
+
+   <div class="field">
+     <%= f.label :email %><br>
+     <%= f.text_field :email %>
+   </div>
+
+   <br>
+
+   <div class="field">
+     <%= f.label :password %><br>
+     <%= f.password_field :password %>
+   </div>
+
+   <br>
+
+   <div class="field">
+     <%= f.label :password_confirmation, "Password Confirmation" %><br>
+     <%= f.password_field :password_confirmation %>
+   </div>
+
+   <hr>
+
+   <% if user.id.nil? || user.unassigned? %>
+     <div class="well well-lg">
+       <h4>Request a role in the Movement Mixer community:</h4>
+       <br>
+         <%= f.radio_button :role_requested, "client" %>
+         <%= f.label :role_requested_client, "Client" %>: As a client, you can create custom workout routines tailored to your personal fitness goals!<br><br>
+         <%= f.radio_button :role_requested, "trainer" %>
+         <%= f.label :role_requested_trainer, "Trainer" %>: As a trainer, you can help clients achieve their fitness goals by improving their workout routines and providing training tips!<br><br>
+     </div>
+   <% end %>
+
+   <div class="actions">
+     <%= f.submit %>
+   </div>
+<% end %>
