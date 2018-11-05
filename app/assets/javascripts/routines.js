@@ -116,7 +116,6 @@ Routine.addTrainingTypeHandler = function() {
 
 Routine.handleCreateFormSubmission = function() {
   $('#new_routine').submit(function(e) {
-    console.log('HIJACKED THE CREATE ROUTINE FORM SUBMISSION')
     e.preventDefault() // prevent the default form submit action
     var url = $(this).attr('action') // "/routines"
     var formData = $(this).serialize()
