@@ -1,0 +1,2 @@
+class EquipmentRoutine < ApplicationRecord
+end
