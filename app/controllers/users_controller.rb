@@ -1,8 +1,16 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show]
   skip_before_action :login_required, only: [:new, :create]
 
   def new
     @user = User.new # instance for form_for to wrap around
+  end
+
+  def show
+    respond_to do |f|
+      f.html # implicitly renders app/views/users/show.html.erb
+      f.json { render json: @user, include: ['routines'] }
+    end
   end
 
   def create
@@ -18,15 +26,19 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(
-      :name,
-      :email,
-      :password,
-      :password_confirmation,
-      :role_requested,
-      :role,
-      :trainer_id
-    )
-  end
+    def set_user
+      @user = User.find(params[:id])
+    end
+
+    def user_params
+      params.require(:user).permit(
+        :name,
+        :email,
+        :password,
+        :password_confirmation,
+        :role_requested,
+        :role,
+        :trainer_id
+      )
+    end
 end
