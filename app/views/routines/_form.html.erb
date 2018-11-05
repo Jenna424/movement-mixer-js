@@ -19,7 +19,85 @@
 	</div>
 
 	<br>
-	
+
+	<div class="movement-fields">
+		<%= f.fields_for :movements do |m| %>
+			<%= m.label :name, "Add an exercise movement to your workout routine" %>:
+			<%= m.text_field :name, placeholder: "Enter an exercise...", class: "form-control" %>
+			<br>
+			<%= m.fields_for :movement_routines do |mr| %>
+				<%= mr.label :technique, "Describe your technique for performing this exercise" %>:
+				<br>
+				<%= mr.text_area :technique %>
+				<br>
+				<%= mr.label :sets, "Number of Sets" %>:
+				<%= mr.number_field :sets %>
+				<br>
+				<%= mr.label :reps, "Number of Reps" %>:
+				<%= mr.number_field :reps %>
+			<% end %>
+		<% end %>
+	</div>
+
+	<br><br>
+
+	<button id="add-movement" class="btn btn-default btn-sm" data-add-type=movement>+ Exercise</button>
+
+
+	<br><br>
+
+
+	<div class="equipment-fields">
+		<%= f.fields_for :equipment do |e| %>
+			<%= e.label :name, "What type of equipment, if any, will you use during this workout?" %>:
+			<%= e.text_field :name, placeholder: "Enter a piece of equipment...", class: "form-control" %>
+			<br>
+			<%= e.fields_for :equipment_routines do |er| %>
+				<%= er.label :quantity %>:
+				<%= er.number_field :quantity, min: 1 %>
+				<br>
+				<%= er.label :weight %>:
+				<%= er.number_field :weight, min: 1, step: 'any' %> lbs
+			<% end %>
+		<% end %>
+	</div>
+
+	<br><br>
+
+
+	<button id="add-equipment" class="btn btn-default btn-sm" data-add-type=equipment>+ Equipment</button>
+
+	<br><br>
+
+
+	<div class="target-fields">
+		<%= f.fields_for :targets do |target_field| %>
+			<%= target_field.label :focus, "Which area(s) of the body will this workout target?" %>
+			<%= target_field.text_field :focus, placeholder: "Where will you feel the burn?", class: "form-control" %>
+		<% end %>
+	</div>
+
+	<br><br>
+
+	<button id="add-target" class="btn btn-default btn-sm" data-add-type=target>+ Target Area</button>
+
+	<br><br>
+
+
+	<div class="training-fields">
+		<%= f.fields_for :trainings do |training_field| %>
+			<%= training_field.label :fitness_type, "Which training type(s) will this workout implement?" %>
+			<%= training_field.text_field :fitness_type, placeholder: "Feature a fitness type...", class: "form-control" %>
+		<% end %>
+	</div>
+
+	<br><br>
+
+	<button id="add-training" class="btn btn-default btn-sm" data-add-type=training>+ Training Type</button>
+
+	<br><br>
+
+
 	<div class="actions">
 		<%= f.submit %>
 	</div>
