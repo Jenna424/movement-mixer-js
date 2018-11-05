@@ -97,3 +97,17 @@ Routine.addTargetAreaHandler = function() {
     $('#add-target').before(targetAreaHtml)
   })
 }
+
+Routine.addTrainingTypeHandler = function() {
+  $('#add-training').on('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var trainingTypeFieldsToReplicate = $("[name^='routine[trainings_attributes']");
+    var lastTrainingTypeInput = trainingTypeFieldsToReplicate.last();
+    var lastId = lastTrainingTypeInput.attr("id");
+    var idParts = lastId.split("_");
+    var lastIndexPosition = idParts[3];
+    var newIndexPosition = parseInt(lastIndexPosition) + 1;
+    var trainingTypeHtml = Routine.trainingTemplateFunction({ indexPosition: newIndexPosition })
+    $('#add-training').before(trainingTypeHtml)
+  })
