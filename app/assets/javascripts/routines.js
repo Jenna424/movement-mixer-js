@@ -67,3 +67,18 @@ Routine.addMovementHandler = function() {
 // An id looks something like: "routine_movements_attributes_0_movement_routines_reps"
 // Splitting this id string at the underscore: ["routine", "movements", "attributes", "0", "movement", "routines", "reps"]
 // The element at index 3 is the id number!
+
+Routine.addEquipmentHandler = function() {
+  $('#add-equipment').on('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var equipmentFieldsToReplicate = $("[name^='routine[equipment_attributes']");
+    var lastEquipmentInput = equipmentFieldsToReplicate.last(); // The last <input> pertaining to equipment
+    var lastId = lastEquipmentInput.attr('id'); // lastId stores a string like "routine_equipment_attributes_0_equipment_routines_weight"
+    var idParts = lastId.split("_"); // idParts stores array ["routine", "equipment", "attributes", "0", "equipment", "routines", "weight"]
+    var lastIndexPosition = idParts[3]; // "0"
+    var newIndexPosition = parseInt(lastIndexPosition) + 1;
+    var equipmentHtmlFields = Routine.equipmentTemplateFunction({indexPosition: newIndexPosition})
+    $('#add-equipment').before(equipmentHtmlFields)
+  })
+}
