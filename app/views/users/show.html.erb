@@ -5,6 +5,6 @@
 	<%= @user.name %> designed <%= @user.routines.count %> workout <%= 'routine'.pluralize(@user.routines.count) %> to date!
 </p>
 
-<%= link_to "View #{@user.name}'s Workouts", user_path(@user), class: "js-user-workouts", data: {id: @user.id } %>
+<%= link_to "View #{@user.name}'s Workouts", user_path(@user), class: "user-workouts", data: {id: @user.id } %>
 
 <br><br>
