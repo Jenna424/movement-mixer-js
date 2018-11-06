@@ -8,3 +8,8 @@ function User(user) {
 $(function() {
 	User.compileUserWorkoutsTemplate()
 })
+
+User.compileUserWorkoutsTemplate = function() {
+	User.userWorkoutsTemplateSource = $('#user-workouts-template').html()
+	User.userWorkoutsTemplateFunction = Handlebars.compile(User.userWorkoutsTemplateSource)
+}
