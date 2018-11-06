@@ -3,5 +3,5 @@ $(function() {
 })
 
 Movement.bindClickEventHandler = function() {
-	
+	Movement.handleIndexLinkClick()
 }
