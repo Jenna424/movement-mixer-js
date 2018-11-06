@@ -14,8 +14,10 @@ function Routine(routine) {
 
 $(function() {
   if ($('#routine-template')) {
+    console.log("Found the routine Handlebars template!")
     Routine.compileTemplates()
   } else if ($('#user-workouts-template')) {
+    console.log("Found the user workouts template")
     User.compileWorkoutsTemplate()
   } else {
     console.log("No templates here")
