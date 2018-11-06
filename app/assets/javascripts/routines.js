@@ -12,7 +12,19 @@ function Routine(routine) {
   this.user = routine.user
 }
 
-
+$(function() {
+  if ($('#routine-template').length) {
+    Routine.compileTemplates()
+    console.log('compiled all templates needed for routine form')
+  } else if ($('#user-workouts-template').length) {
+    User.compileUserWorkoutsTemplate()
+    console.log('compiled the user workouts template')
+  } else if ($('#technique-template').length) {
+    User.compileTechniqueTemplate()
+    console.log('compiled the technique template')
+  }
+  Routine.bindClickEventHandlers()
+})
 
 Routine.compileTemplates = function() {
   // Routine Handlebars Template (found in app/views/routines/new.html.erb)
