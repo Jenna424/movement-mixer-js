@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     respond_to do |f|
-      f.html # implicitly renders app/views/users/show.html.erb
+      f.html
       f.json { render json: @user, include: ['routines'] }
     end
   end
