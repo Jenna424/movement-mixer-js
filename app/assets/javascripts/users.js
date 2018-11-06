@@ -4,3 +4,7 @@ function User(user) {
 	this.role = user.role
 	this.routines = user.routines
 }
+
+$(function() {
+	User.compileUserWorkoutsTemplate()
+})
