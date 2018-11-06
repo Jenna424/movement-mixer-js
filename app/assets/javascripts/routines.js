@@ -12,17 +12,7 @@ function Routine(routine) {
   this.user = routine.user
 }
 
-$(function() {
-  if ($('#routine-template')) {
-    console.log("Found the routine Handlebars template!")
-    Routine.compileTemplates()
-  } else if ($('#user-workouts-template')) {
-    console.log("Found the user workouts template")
-    User.compileWorkoutsTemplate()
-  } else {
-    console.log("No templates here")
-  }
-})
+
 
 Routine.compileTemplates = function() {
   // Routine Handlebars Template (found in app/views/routines/new.html.erb)
@@ -42,6 +32,11 @@ Routine.compileTemplates = function() {
   Routine.trainingTemplateFunction = Handlebars.compile(Routine.trainingTemplateSource);
 }
 
+Routine.compileTechniqueTemplate = function() {
+  Routine.techniqueTemplateSource = $('#technique-template').html()
+  Routine.techniqueTemplateFunction = Handlebars.compile(Routine.techniqueTemplateSource)
+}
+
 Routine.bindClickEventHandlers = function() {
   Routine.addMovementHandler()
   Routine.addEquipmentHandler()
@@ -54,7 +49,8 @@ Routine.bindClickEventHandlers = function() {
 Routine.addMovementHandler = function() {
   $('#add-movement').on('click', function(e) {
     e.preventDefault();
-    e.stopPropagation();
+    console.log('hijacked the click event')
+    //e.stopPropagation();
     var inputs = $("[name^='routine[movements_attributes]']")
     var lastInput = inputs.last()
     var lastId = lastInput.attr("id")
@@ -124,7 +120,8 @@ Routine.addTrainingTypeHandler = function() {
 
 Routine.handleCreateFormSubmission = function() {
   $('#new_routine').submit(function(e) {
-    e.preventDefault() // prevent the default form submit action
+    e.preventDefault()
+    console.log('HIJACKED THE SUBMIT ACTION OF FORM TO CREATE NEW ROUTINE')
     var url = $(this).attr('action') // "/routines"
     var formData = $(this).serialize()
     $.post(url, formData)
