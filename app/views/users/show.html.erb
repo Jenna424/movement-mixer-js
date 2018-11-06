@@ -8,3 +8,15 @@
 <%= link_to "View #{@user.name}'s Workouts", user_path(@user), class: "user-workouts", data: {id: @user.id } %>
 
 <br><br>
+
+<div id="user-routines">
+	<ul>
+	</ul>
+</div>
+
+<script id="user-workouts-template" type="text/x-handlebars-template">
+	<a href="/routines/{{this.id}}">{{this.title}}</a> |
+	<small><strong>Difficulty</strong>: {{difficulty_level}}</small> |
+	<small><strong>Duration</strong>: {{duration}} minutes</small>
+	<hr>
+</script>
