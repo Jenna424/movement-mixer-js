@@ -13,8 +13,13 @@ function Routine(routine) {
 }
 
 $(function() {
-  Routine.compileTemplates()
-  Routine.bindClickEventHandlers()
+  if ($('#routine-template')) {
+    Routine.compileTemplates()
+  } else if ($('#user-workouts-template')) {
+    User.compileWorkoutsTemplate()
+  } else {
+    console.log("No templates here")
+  }
 })
 
 Routine.compileTemplates = function() {

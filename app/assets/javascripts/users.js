@@ -49,5 +49,3 @@ User.loadUserWorkouts = function() {
 		})
 	})
 }
-
-

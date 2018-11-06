@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fitness_type: MyString
+  string: MyString
+
+two:
+  fitness_type: MyString
+  string: MyString

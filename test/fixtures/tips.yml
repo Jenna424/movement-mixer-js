@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  movement_id: 1
+  user_id: 1
+  proper_form: MyText
+  breathing_technique: MyText
+  modification: MyText
+  challenge: MyText
+
+two:
+  movement_id: 1
+  user_id: 1
+  proper_form: MyText
+  breathing_technique: MyText
+  modification: MyText
+  challenge: MyText

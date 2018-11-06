@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <%= @routine.title %><small><em> — a workout designed by <%= @routine.user.name %></em></small>
+      </h3>
+      <br>
+      <p><span class="glyphicon glyphicon-time"></span> <strong>Duration</strong>: <%= @routine.duration %> minutes</p>
+      <p><span class="glyphicon glyphicon-signal"></span> <strong>Difficulty Level</strong>: <%= @routine.difficulty_level %></p>
+    </div>
+
+    <div class="panel-body">
+      <% @routine.movements.each do |movement| %>
+        <div>
+          <h5>Exercise #<%= movement.position_in_routine(@routine) %>: <%= link_to movement.name, movement_path(movement) %></h5>
+          <p><strong>Sets</strong>: <%= movement.movement_routines.find_by(routine: @routine).sets %></p>
+          <p><strong>Reps</strong>: <%= movement.movement_routines.find_by(routine: @routine).reps %></p>
+          <div id="movement-<%= movement.id %>">
+            <p><strong>Technique</strong>: <%= truncate(movement.movement_routines.find_by(routine: @routine).technique) %></p>
+            <button class="js-technique" data-routine-id="<%= @routine.id %>" data-movement-id="<%= movement.id %>">Show full technique...</button>
+          </div>
+        </div>
+        <hr>
+      <% end %>
+    </div>
+</div>
+
+<script id="technique-template" type="text/x-handlebars-template">
+  <div class="well well-sm">
+    <h4>Your Personal Technique</h4>
+    <p>{{technique}}</p>
+  </div>
+</script>

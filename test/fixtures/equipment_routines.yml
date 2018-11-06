@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  equipment_id: 1
+  routine_id: 1
+  weight: 1
+  quantity: 1
+
+two:
+  equipment_id: 1
+  routine_id: 1
+  weight: 1
+  quantity: 1
