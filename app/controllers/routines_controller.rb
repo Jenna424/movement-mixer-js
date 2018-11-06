@@ -1,4 +1,6 @@
 class RoutinesController < ApplicationController
+  before_action :set_routine, only: [:show, :edit, :update, :destroy]
+
   def index
     @routines = Routine.all
     render json: @routines
@@ -28,6 +30,10 @@ class RoutinesController < ApplicationController
   end
 
   private
+
+    def set_routine
+      @routine = Routine.find(params[:id])
+    end
 
   	def routine_params
       params.require(:routine).permit(
