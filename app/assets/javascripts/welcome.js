@@ -1,4 +1,4 @@
-// My home.js file will contain JS code for the navigation links
+// My welcome.js file will contain JS code for the navigation links
 // The navigation links will change depending on who the current user is (unassigned/client/trainer/admin)
 // In handleExerciseGuideClick(), due to event delegation, call jQuery .on() method directly on the <ul class="nav navbar-nav">,
 // a stable element that is always on the page
