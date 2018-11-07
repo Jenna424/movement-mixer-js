@@ -181,10 +181,10 @@ Routine.handleShowFullTechnique = function() {
     jqXhrObject.done(function(response) {
       var mrs = response.movement_routines
       var array = mrs.filter(function(mrObject){ 
-        return (parseInt(mrObject.movement_id) === movementId)
+        return mrObject.movement_id === movementId
       })
       var technique = array[0].technique
-      return technique
+      console.log(technique)
     })
   })
 }
