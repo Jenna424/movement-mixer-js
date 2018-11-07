@@ -1,7 +1,5 @@
-$(function() {
-	Movement.bindClickEventHandler()
-})
-
-Movement.bindClickEventHandler = function() {
-	Movement.handleIndexLinkClick()
+function Movement(movement) {
+	this.id = movement.id
+	this.name = movement.name
+	this.tips = movement.tips
 }
