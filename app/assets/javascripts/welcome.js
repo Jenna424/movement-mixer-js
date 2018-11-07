@@ -15,7 +15,10 @@ function handleExerciseGuideClick() {
 	fetch(`/movements.json`)
 	  .then(response => response.json())
 	  .then(movementsArray => {
-	  	console.log(movementsArray)
+	  	movementsArray.forEach(function(movementObject) {
+	  	  let newMove = new Movement(movementObject)
+	  	  let moveHtml = newMove.formatMoveForIndex()
+	  	})
 	  })
 	})
 }
