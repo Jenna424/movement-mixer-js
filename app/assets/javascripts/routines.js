@@ -160,3 +160,7 @@ Routine.handleWorkoutsIndex = function() {
     })
   })
 }
+
+Routine.prototype.formatForIndex = function() {
+  return Routine.listWorkoutTemplateFunction(this)
+}
