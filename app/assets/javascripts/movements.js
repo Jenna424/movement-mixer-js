@@ -6,14 +6,41 @@ function Movement(movement) {
 	this.routines = movement.routines
 }
 
-Movement.compileListMoveTemplate = function() {
-  Movement.listMoveTemplateSource = $('#list-move-template').html()
-  Movement.listMoveTemplateFunction = Handlebars.compile(Movement.listMoveTemplateSource)
+$(function() {
+	Movement.bindClickEventHandlers()
+})
+
+Movement.bindClickEventHandlers = function() {
+	Movement.handleExerciseIndex()
+}
+
+Movement.compileListExerciseTemplate = function() {
+  Movement.listExerciseTemplateSource = $('#list-exercise-template').html()
+  Movement.listExerciseTemplateFunction = Handlebars.compile(Movement.listExerciseTemplateSource)
 }
 
 Movement.prototype.formatMoveForIndex = function() {
-  return Movement.listMoveTemplateFunction(this)
+	return Movement.listExerciseTemplateFunction(this)
 }
+
+Movement.handleExerciseIndex = function() {
+  $('ul.nav').on('click', 'a.all-movements', function(e) {
+    e.preventDefault();
+  	history.replaceState(null, null, "movements")
+  	fetch(`/movements.json`)
+      .then(response => response.json())
+      .then(movementsArray => {
+        $('div.container').html('')
+        $('div.container').append('<h4>Guide to Exercise</h4><br>')
+        movementsArray.forEach(function(movementObject) {
+          let newMove = new Movement(movementObject)
+          let moveHtml = newMove.formatMoveForIndex()
+          $('div.container').append(moveHtml)
+        })
+      })
+  })
+}
+
 // In the context of formatMoveForIndex() prototype method,
-// this refers to the JSON movement object (see newMove in welcome.js file) 
+// this refers to the JSON movement object
 // on which formatMoveForIndex() is called
