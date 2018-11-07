@@ -6,6 +6,10 @@ function User(user) {
 	this.tips = user.tips
 }
 
+$(function() {
+  User.loadUserWorkouts();
+})
+
 User.compileUserWorkoutsTemplate = function() {
 	User.userWorkoutsTemplateSource = $('#user-workouts-template').html()
 	User.userWorkoutsTemplateFunction = Handlebars.compile(User.userWorkoutsTemplateSource)
@@ -34,13 +38,13 @@ User.compileUserWorkoutsTemplate = function() {
 User.loadUserWorkouts = function() {
   $('.user-workouts').on('click', function(e) {
   	e.preventDefault();
-	var $ul = $('#user-routines ul')
-	$ul.html('') // empty out the <ul> in case it contains any stale routines
-	var id = $(this).attr('data-id')
+	var $div = $('#user-routines');
+	$div.html('') // empty out the <div id="user-routines"> in case it contains any stale routines
+	var id = $(this).attr('data-id');
 	$.get(`/users/${id}.json`)
 	.done(function(response) {
-		response.routines.forEach(function(routineObject) {
-	  	$ul.append(User.userWorkoutsTemplateFunction(routineObject))
+	  response.routines.forEach(function(routineObject) {
+	  	$div.append(User.userWorkoutsTemplateFunction(routineObject))
 	  })
 	})
   })
