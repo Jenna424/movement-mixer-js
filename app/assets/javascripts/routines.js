@@ -144,12 +144,12 @@ Routine.handleCreateFormSubmission = function() {
 Routine.prototype.formatPreview = function() {
   return Routine.routineTemplateFunction(this) // this refers to the JSON routine object on which we're calling the formatPreview() prototype method
 }
-
+// The link to View All Workouts is found in the navbar, which changes depending on if the viewer is logged in
 Routine.handleWorkoutsIndex = function() {
-  $('ul.navbar-nav').on('click', "a.all-routines", function(e) { // This link is in navigation, which changes depending on if current user is logged in
+  $('ul.nav').on('click', 'a.all-routines', function(e) {
     e.preventDefault();
-    history.replaceState(null, null, "/routines")
-    fetch(`/routines.js`)
+    history.replaceState(null, null, "routines")
+    fetch(`/routines.json`)
     .then(response => response.json())
     .then(routinesArray => {
       routinesArray.forEach(function(routineObject) {
