@@ -5,11 +5,6 @@ function User(user) {
 	this.routines = user.routines
 }
 
-$(function() {
-	User.compileUserWorkoutsTemplate()
-	User.loadUserWorkouts()
-})
-
 User.compileUserWorkoutsTemplate = function() {
 	User.userWorkoutsTemplateSource = $('#user-workouts-template').html()
 	User.userWorkoutsTemplateFunction = Handlebars.compile(User.userWorkoutsTemplateSource)
