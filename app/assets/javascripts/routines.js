@@ -39,13 +39,18 @@ Routine.compileTechniqueTemplate = function() {
   Routine.techniqueTemplateFunction = Handlebars.compile(Routine.techniqueTemplateSource)
 }
 
+Routine.compileListWorkoutTemplate = function() {
+  Routine.listWorkoutTemplateSource = $('#list-workout-template').html()
+  Routine.listWorkoutTemplateFunction = Handlebars.compile(Routine.listWorkoutTemplateSource)
+}
+
 Routine.bindClickEventHandlers = function() {
   Routine.addMovementHandler()
   Routine.addEquipmentHandler()
   Routine.addTargetAreaHandler()
   Routine.addTrainingTypeHandler()
   Routine.handleCreateFormSubmission()
-  Routine.handleRoutinesIndex()
+  Routine.handleWorkoutsIndex()
 }
 
 Routine.addMovementHandler = function() {
@@ -140,10 +145,10 @@ Routine.prototype.formatPreview = function() {
   return Routine.routineTemplateFunction(this) // this refers to the JSON routine object on which we're calling the formatPreview() prototype method
 }
 
-Routine.handleRoutinesIndex = function() {
+Routine.handleWorkoutsIndex = function() {
   $('ul.navbar-nav').on('click', "a.all-routines", function(e) { // This link is in navigation, which changes depending on if current user is logged in
     e.preventDefault();
-    history.pushState(null, null, "routines")
+    history.replaceState(null, null, "/routines")
     fetch(`/routines.js`)
     .then(response => response.json())
     .then(routinesArray => {
@@ -154,12 +159,4 @@ Routine.handleRoutinesIndex = function() {
       })
     })
   })
-}
-
-Routine.prototype.formatForIndex = function() {
-  let routineHtml = 
-  `
-  <a href="/routines/${this.id}" data-id="${this.id}" class="show-workout"><h3>${this.title}</h3></a>
-  `
-  return routineHtml
 }
