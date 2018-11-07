@@ -31,16 +31,16 @@ User.compileUserWorkoutsTemplate = function() {
 // I'm inserting each routine object's key/value pair data into the Handlebars template to replace the variables inside Handlebars delimiters {{}}
 // and then appending the resulting HTML for each one into <ul> within <div id="user-routines">
 User.loadUserWorkouts = function() {
-	$('.user-workouts').on('click', function(e) {
-		e.preventDefault();
-		var $ul = $('#user-routines ul')
-		$ul.html('') // empty out the <ul> in case it contains any stale routines
-		var id = $(this).attr('data-id')
-		$.get(`/users/${id}.json`)
-		.done(function(response) {
-			response.routines.forEach(function(routineObject) {
-				$ul.append(User.userWorkoutsTemplateFunction(routineObject))
-			})
-		})
+  $('.user-workouts').on('click', function(e) {
+  	e.preventDefault();
+	var $ul = $('#user-routines ul')
+	$ul.html('') // empty out the <ul> in case it contains any stale routines
+	var id = $(this).attr('data-id')
+	$.get(`/users/${id}.json`)
+	.done(function(response) {
+		response.routines.forEach(function(routineObject) {
+	  	$ul.append(User.userWorkoutsTemplateFunction(routineObject))
+	  })
 	})
+  })
 }
