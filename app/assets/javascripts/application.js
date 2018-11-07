@@ -30,5 +30,7 @@ function checkIfTemplatesExist() {
   } else if ($('#technique-template').length) {
   	User.compileTechniqueTemplate()
   	console.log('compiled the technique template')
+  } else if ($('#list-move-template').length) {
+    Movement.compileListMoveTemplate()
   }
 }
