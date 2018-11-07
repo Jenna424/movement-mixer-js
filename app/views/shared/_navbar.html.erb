@@ -26,7 +26,11 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<script id="list-move-template" type="text/x-handlebars-template">
+<!-- User clicks "Read Exercise Guide" link in navbar, and I use the Handlebars template below 
+when I make my AJAX GET request to "/movements" using fetch() in the function Movement.handleExerciseIndex,
+which is defined in movements.js file -->
+
+<script id="list-exercise-template" type="text/x-handlebars-template">
   <a href="/movements/{{id}}">{{name}}</a>
   <br>
   <small>Training Tips Available: {{tips.length}}</small>
