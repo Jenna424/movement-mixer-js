@@ -6,13 +6,13 @@ function Movement(movement) {
 	this.routines = movement.routines
 }
 
-Movement.compileListMovementTemplate = function() {
-  Movement.listMovementTemplateSource = $('#list-movement-template').html()
-  Movement.listMovementTemplateFunction = Handlebars.compile(Movement.listMovementTemplateSource)
+Movement.compileListMoveTemplate = function() {
+  Movement.listMoveTemplateSource = $('#list-move-template').html()
+  Movement.listMoveTemplateFunction = Handlebars.compile(Movement.listMoveTemplateSource)
 }
 
 Movement.prototype.formatMoveForIndex = function() {
-  return Movement.listMovementTemplateFunction(this)
+  return Movement.listMoveTemplateFunction(this)
 }
 // In the context of formatMoveForIndex() prototype method,
 // this refers to the JSON movement object (see newMove in welcome.js file) 
