@@ -15,8 +15,12 @@
           <p><strong>Sets</strong>: <%= movement.movement_routines.find_by(routine: @routine).sets %></p>
           <p><strong>Reps</strong>: <%= movement.movement_routines.find_by(routine: @routine).reps %></p>
           <div id="movement-<%= movement.id %>">
+            <!-- I can show/hide the button, or I can replace the button with the whole technique content -->
             <p><strong>Technique</strong>: <%= truncate(movement.movement_routines.find_by(routine: @routine).technique) %></p>
             <button class="js-technique" data-routine-id="<%= @routine.id %>" data-movement-id="<%= movement.id %>">Show full technique...</button>
+            <br><br>
+            <%= button_tag "Edit Exercise", class: "btn btn-primary btn-sm edit-exercise", method: "get", url: "/routines/#{@routine.id}/movements/#{movement.id}/edit" %>
+            <%= button_tag "Delete Exercise", class: "btn btn-danger btn-sm delete-exercise", method: "delete", url: "/routines/#{@routine.id}/movements/#{movement.id}" %>
           </div>
         </div>
         <hr>
