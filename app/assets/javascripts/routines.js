@@ -174,17 +174,18 @@ Routine.prototype.formatForIndex = function() {
 Routine.handleShowFullTechnique = function() {
   $('div.panel-body').on('click', '.js-technique', function(e) {
     e.preventDefault();
-    console.log("Hijacked the click of the button to show full technique")
     var routineId = $(this).data('routine-id')
     var movementId = $(this).data('movement-id')
-    jqXhrObject = $.get(`/routines/${routineId}.json`)
-    jqXhrObject.done(function(response) {
-      var mrs = response.movement_routines
-      var array = mrs.filter(function(mrObject){ 
+    $.get(`/routines/${routineId}.json`)
+    .done(function(response) {
+      var mrsArray = response.movement_routines
+      var filteredArray = mrsArray.filter(function(mrObject){ 
         return mrObject.movement_id === movementId
       })
-      var technique = array[0].technique
-      console.log(technique)
+      var technique = filteredArray[0].technique
+      var $div = $(`#movement-${movementId}`)
+      $div.html('')
+      $div.append(technique)
     })
   })
 }
