@@ -19,18 +19,3 @@
 $(function() {
   checkIfTemplatesExist()
 })
-
-function checkIfTemplatesExist() {
-  if ($('#routine-template').length) {
-  	Routine.compileTemplates()
-	console.log('COMPILED ALL TEMPLATES FOR ROUTINE FORM FROM APPLICATION.JS')
-  } else if ($('#user-workouts-template').length) {
-  	User.compileUserWorkoutsTemplate()
-	console.log('COMPILED THE USER WORKOUTS TEMPLATE FROM APPLICATION.JS')
-  } else if ($('#technique-template').length) {
-  	Routine.compileTechniqueTemplate()
-  	console.log('compiled the technique template')
-  } else if ($('#list-move-template').length) {
-    Movement.compileListMoveTemplate()
-  }
-}
