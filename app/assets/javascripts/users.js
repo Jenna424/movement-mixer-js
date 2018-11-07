@@ -3,6 +3,7 @@ function User(user) {
 	this.email = user.email
 	this.role = user.role
 	this.routines = user.routines
+	this.tips = user.tips
 }
 
 User.compileUserWorkoutsTemplate = function() {
