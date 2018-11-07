@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy # logging out the user
     session.clear # session[:user_id] = nil
-    redirect_to root_url, flash: { success: "Thanks for using OCDefeat! Goodbye for now." }
+    redirect_to root_url, flash: { success: "Thanks for using Movement Mixer! Goodbye for now." }
   end
 
   private
