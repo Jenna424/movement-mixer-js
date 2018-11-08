@@ -25,32 +25,3 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-<!-- User clicks "View All Workouts" link in navbar, and I use the Handlebars template below 
-when I make my AJAX GET request to "/routines" using fetch() in the function Routine.handleWorkoutsIndex,
-which is defined in routines.js file -->
-
-<script id="list-workout-template" type="text/x-handlebars-template">
-  <span><a href="/routines/{{id}}">{{title}}</a></span>
-  <br>
-  <small>~ designed by {{user.name}} ~</small>
-  <br>
-  <small><strong>Difficulty Level</strong>: {{difficulty_level}}</small>
-  <br>
-  <small><strong>Duration</strong>: {{duration}} minutes</small>
-  <hr>
-</script>
-
-<!-- User clicks "Read Exercise Guide" link in navbar, and I use the Handlebars template below 
-when I make my AJAX GET request to "/movements" using fetch() in the function Movement.handleExerciseIndex,
-which is defined in movements.js file -->
-
-<script id="list-exercise-template" type="text/x-handlebars-template">
-  <a href="/movements/{{id}}">{{name}}</a>
-  <br>
-  <small>Training Tips Available: {{tips.length}}</small>
-  <br>
-  <small>Workouts in which Performed: {{routines.length}}</small>
-  <br>
-  <hr>     
-</script>
