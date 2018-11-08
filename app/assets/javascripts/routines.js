@@ -52,6 +52,7 @@ Routine.bindClickEventHandlers = function() {
   Routine.handleCreateFormSubmission()
   Routine.handleWorkoutsIndex()
   Routine.handleShowFullTechnique()
+  Routine.handleHideTechnique()
 }
 
 Routine.addMovementHandler = function() {
@@ -196,5 +197,24 @@ Routine.handleShowFullTechnique = function() {
       //var $hideButton = $(`button[class='js-hide-technique'][data-movement-id='${movementId}']`)
       //$hideButton.attr("disabled", false);
     })
+  })
+}
+
+Routine.handleHideTechnique = function() {
+  $('div.panel-default').on('click', '.js-hide-technique', function(e) {
+    e.preventDefault()
+    console.log("clicked hide movement's technique")
+    var $hideButton = $(this);
+    console.log($hideButton)
+    var movementId = $hideButton.data('movement-id')
+    var techniqueDiv = $(`div#technique-move-${movementId}`);
+    if (techniqueDiv.text().trim().length) { // If there is technique text inside <div>
+      techniqueDiv.html('') // empty out the <div>
+      var $showButton = $(`#show-technique-${movementId}`)
+      console.log($showButton)
+      $showButton.show()
+    } else {
+      console.log('The div was empty to begin with!')
+    }
   })
 }
