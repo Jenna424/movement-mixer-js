@@ -172,20 +172,29 @@ Routine.prototype.formatForIndex = function() {
 // When clicked, this button should add that movement's technique for that routine
 // Technique is stored on the movement_routines join table 
 Routine.handleShowFullTechnique = function() {
-  $('div.panel-body').on('click', '.js-technique', function(e) {
+  $('div.panel-default').on('click', '.js-show-technique', function(e) {
     e.preventDefault();
+    var $button = $(this); // $button stores the button that was clicked
+    console.log($button)
     var routineId = $(this).data('routine-id')
     var movementId = $(this).data('movement-id')
     $.get(`/routines/${routineId}.json`)
     .done(function(response) {
+      $button.hide()
+      //$(`button[data-movement-id='${movementId}']`).hide();
+      var $div = $(`#technique-move-${movementId}`);
+      $div.html('') // clear out the <div id="toggle-technique">
       var mrsArray = response.movement_routines
       var filteredArray = mrsArray.filter(function(mrObject){ 
         return mrObject.movement_id === movementId
       })
       var technique = filteredArray[0].technique
-      var $div = $(`#movement-${movementId}`)
-      $div.html('')
+      //var $div = $(`#movement-${movementId}`)
+      //$div.html('')
+      $div.append("<h5><em>Your Unique Technique</em>:</h5>")
       $div.append(technique)
+      //var $hideButton = $(`button[class='js-hide-technique'][data-movement-id='${movementId}']`)
+      //$hideButton.attr("disabled", false);
     })
   })
 }
