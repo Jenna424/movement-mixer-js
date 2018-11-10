@@ -54,6 +54,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def access
+    authorize current_user
+    @users = User.all
+    @trainers = User.by_role("trainer") # used when admin assigns trainer to client
+    @future_clients = User.all.awaiting_assignment("trainer", 1)
+    @future_trainers = User.all.awaiting_assignment("client", 2)
+  end
+
   private
 
     def set_user
