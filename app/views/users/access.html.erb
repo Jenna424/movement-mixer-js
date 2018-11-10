@@ -10,4 +10,21 @@
       <th scope="col">Delete Account</th>
     </tr>
   </thead>
+  <tbody>
+    <%= render partial: "users/user_row", collection: @users, as: :user, locals: { trainers: @trainers } %>
+  </tbody>
 </table>
+
+<div class="well well-lg">
+  <label>Users Awaiting Role Assignment:</label>
+
+  <br><br>
+
+  <p><em>Future Clients:</em></p>
+
+  <%= render partial: "users/users_ul", locals: { users: @future_clients } %>
+
+  <p><em>Future Trainers:</em></p>
+
+  <%= render partial: "users/users_ul", locals: { users: @future_trainers } %>
+</div>
