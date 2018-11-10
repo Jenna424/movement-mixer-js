@@ -3,6 +3,10 @@ class UserPolicy < ApplicationPolicy
     true unless user
   end
 
+  def create?
+    new?
+  end
+
   def show?
     if user.admin? # An admin can see every user show page
       true
