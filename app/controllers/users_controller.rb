@@ -24,6 +24,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    authorize @user # retrieved from before_action :set_user
+    if current_user.admin? && @user.unassigned? && params[:user][:role] != "unassigned"
+      if @user.update_attributes(permitted_attributes(@user))
+        redirect_to access_path, flash: { success: "#{@user.name} was successfully assigned the role of #{@user.role}!" }
+      end
+    elsif current_user.admin? && @user.trainer.nil? && !params[:user][:trainer_id].nil?
+      if @user.update_attributes(permitted_attributes(@user))
+        redirect_to access_path, flash: { success: "Personal Trainer #{User.by_role("trainer").find(params[:user][:trainer_id]).name} is now helping #{@user.name} achieve fitness goals!" }
+      end
+    elsif @user.update_attributes(permitted_attributes(@user))
+      redirect_to user_path(@user), flash: { success: "User information was successfully updated!" }
+    else
+      flash.now[:error] = "Your attempt to edit user information was unsuccessful. Please try again."
+      render :edit
+    end
+  end
+
   private
 
     def set_user
