@@ -23,4 +23,9 @@
       <%= "N/A" %>
     <% end %>
   </td>
+  <td>
+    <%= link_to user_path(user), method: :delete, data: { confirm: "This account will be permanently deleted. Do you want to proceed?" } do %>
+      <%= content_tag(:icon, nil, class: "glyphicon glyphicon-remove") %> Delete Account
+    <% end %>
+  </td>
 </tr>
