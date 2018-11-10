@@ -11,4 +11,16 @@
       <%= user.role.capitalize %>
     <% end %>
   </td>
+  <td>
+    <% if user.client? && user.trainer.nil? %>
+      <%= form_for(user) do |f| %>
+        <%= f.select(:trainer_id, trainers.map {|trainer| [trainer.name, trainer.id]}, include_blank: "Choose Trainer") %>
+        <%= f.submit "Assign to Client" %>
+      <% end %>
+    <% elsif user.trainer %>
+      <%= user.trainer.name %>
+    <% else %>
+      <%= "N/A" %>
+    <% end %>
+  </td>
 </tr>
