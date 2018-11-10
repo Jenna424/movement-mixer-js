@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new # instance for form_for to wrap around
+    authorize @user
   end
 
   def show
