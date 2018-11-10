@@ -43,6 +43,10 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
+  def access?
+    user.admin?
+  end
+
   private
 
     def oneself # the user logged in is the selfsame user (record) whose profile is being viewed
