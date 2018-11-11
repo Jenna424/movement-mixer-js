@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :routines do
   	resources :results
   end
-  resources :movements, only: [:index, :show]
+  resources :movements, only: [:index, :show] do
+    resources :tips
+  end
   # Custom Routes:
   # On the routine show page, if the current user designed the workout,
   # that user should be able to click the edit button / delete button next to each movement that comprises the workout
