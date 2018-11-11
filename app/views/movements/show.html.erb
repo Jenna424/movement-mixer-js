@@ -2,4 +2,8 @@
 
 <% if current_user.trainer? %>
   <h3>Add Training Tips</h3>
+
+  <%= form_for([@movement, @tip]) do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  <% end %>
 <% end %>
