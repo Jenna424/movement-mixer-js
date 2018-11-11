@@ -7,6 +7,20 @@ class TipPolicy < ApplicationPolicy
     tip_owner
   end
 
+  def permitted_attributes # user_id cannot be changed
+    if tip_owner
+      [:proper_form, :breathing_technique, :modification, :challenge]
+    end
+  end
+
+  def update?
+    edit?
+  end
+
+  def destroy? # Only the trainer who created the training tip guide can delete the training tip guide
+    tip_owner
+  end
+
   private
 
     def tip_owner
