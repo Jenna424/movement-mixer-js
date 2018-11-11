@@ -8,7 +8,6 @@ class MovementsController < ApplicationController
   end
 
   def update # PATCH "/routines/:routine_id/movements/:movement_id" => 'movements#update'
-    
   end
 
   def destroy # DELETE "/routines/:routine_id/movements/:movement_id" => 'movements#destroy'
