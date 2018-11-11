@@ -19,6 +19,7 @@ $(function() {
 
 Tip.bindClickEventHandlers = function() {
   Tip.handleFormSubmission()
+  Tip.getTips()
 }
 
 Tip.handleFormSubmission = function() {
