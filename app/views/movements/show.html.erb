@@ -21,6 +21,8 @@
 	  <%= f.label :challenge, "How can you make this exercise more challenging?" %>
       <%= f.text_area :challenge, placeholder: "Add a challenge...", class: "form-control" %>
 	</div>
+	<br>
+	<%= f.submit "Submit Training Tips", class: "btn btn-default btn-sm", data: { disable_with: false } %>
   <% end %>
 
 <% end %>
