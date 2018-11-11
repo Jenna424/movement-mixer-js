@@ -33,4 +33,9 @@ function checkIfTemplatesExist() {
     Routine.compileListWorkoutTemplate()
     console.log("Compiled the List Workout Template found in _navbar partial!")
   }
+
+  if (tipTemplateExists) {
+    Tip.compileTipTemplate()
+    console.log("Compiled the Training Tip Template")
+  }
 }
