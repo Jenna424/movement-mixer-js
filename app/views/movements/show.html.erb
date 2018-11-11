@@ -2,7 +2,11 @@
 
 <div id="latest-tip"></div>
 
-<div id="all-tips"></div>
+<div id="training-tips"></div>
+
+<%= link_to "Read All Training Tips", movement_tips_path(@movement), class: "all-tips" %>
+
+<br>
 
 <% if current_user.trainer? %>
   <h4>Add Training Tips to Properly Perform This Exercise</h4>
