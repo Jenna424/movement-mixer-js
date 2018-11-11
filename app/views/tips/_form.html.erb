@@ -1,0 +1,5 @@
+<%= form_with(model: tip, local: true, url: (tip.new_record? ? [movement, tip]: tip)) do |tip_builder| %>
+  <div class="actions">
+    <%= tip_builder.submit %>
+  </div>
+<% end %>
