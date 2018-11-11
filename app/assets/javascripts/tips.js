@@ -16,3 +16,7 @@ Tip.compileTipTemplate = function() {
 $(function() {
   Tip.bindClickEventHandlers()
 })
+
+Tip.bindClickEventHandlers = function() {
+  Tip.handleTipSubmission()
+}
