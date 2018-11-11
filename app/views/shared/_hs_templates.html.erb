@@ -30,16 +30,18 @@ which is defined in movements.js file -->
 <!-- The Handlebars template found inside the <script> tag below is used when a trainer creates a series of training tips for an exercise movement on the movement show page -->
 
 <script id="tip-template" type="text/x-handlebars-template">
-  <h4>Training Guide for Properly Performing: {{movement.name}}</h4>
-  <small><em>A Series of Training Tips from Professional Trainer {{user.name}}</em></small>
-  <span><strong>Use Proper Form</strong></span>:
-  <br>
-  <p>{{proper_form}}</p>
-  <span><strong>Practice Healthy and Effective Breathing Patterns</strong></span>:
-  <br>
-  <p>{{breathing_technique}}</p>
-  <span><strong>Feeling Overexerted? Modify the Movement</strong>:</span>
-  <p>{{modification}}</p>
-  <span><strong>Feeling Energetic? Take Things Up a Notch with This Challenge</strong>:</span>
-  <p>{{challenge}}</p>
+  <div class="well well-sm">
+    <h5>Training Guide for Properly Performing: {{movement.name}}</h5>
+    <small>~A Series of Training Tips from Professional Trainer {{user.name}}~</small>
+    <br>
+    <span><strong>Use proper form</strong></span>:
+    <p>{{proper_form}}</p>
+    <span><strong>Practice effective breathing patterns</strong></span>:
+    <br>
+    <p>{{breathing_technique}}</p>
+    <span><strong>Feeling overexerted? Modify the movement</strong>:</span>
+    <p>{{modification}}</p>
+    <span><strong>Feeling energetic? Take things up a notch with this challenge</strong>:</span>
+    <p>{{challenge}}</p>
+  </div>
 </script>
