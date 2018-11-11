@@ -19,7 +19,7 @@ $(function() {
 
 Tip.bindClickEventHandlers = function() {
   Tip.handleFormSubmission()
-  Tip.getTips()
+  Tip.getGuides()
 }
 
 Tip.handleFormSubmission = function() {
@@ -44,7 +44,7 @@ Tip.prototype.formatShow = function() {
 }
 // In the context of formatShow prototype method, this refers to the JSON tip object on which formatShow() is called
 
-Tip.getTips = function() {
+Tip.getGuides = function() {
   $('.all-guides').on('click', function(e) {
     e.preventDefault()
     console.log("hijacked Read All Training Tips link click!")
