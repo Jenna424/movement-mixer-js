@@ -10,6 +10,11 @@ class TipsController < ApplicationController
     end
   end
 
+  def index
+    @tips = Tip.all
+    render json: @tips
+  end
+
   private
 
     def tip_params
