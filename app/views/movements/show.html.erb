@@ -12,6 +12,15 @@
     <div class="field">
       <%= f.label :breathing_technique, "Train your clients to use proper breathing techniques when performing this exercise" %>:
       <%= f.text_area :breathing_technique, placeholder: "Add training tip to describe effective breathing patterns...", class: "form-control" %>
+    </div>
+    <div class="field">
+	  <%= f.label :modification, "How can you modify this exercise?" %>:
+	  <%= f.text_area :modification, placeholder: "Add a modification...", class: "form-control" %>
+	</div>
+	<div class="field">
+	  <%= f.label :challenge, "How can you make this exercise more challenging?" %>
+      <%= f.text_area :challenge, placeholder: "Add a challenge...", class: "form-control" %>
 	</div>
   <% end %>
+
 <% end %>
