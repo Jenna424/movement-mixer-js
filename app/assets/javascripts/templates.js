@@ -7,8 +7,9 @@ function checkIfTemplatesExist() {
   var routineTemplateExists = $('#routine-template').length
   var userWorkoutsTemplateExists = $('#user-workouts-template').length
   var techniqueTemplateExists = $('#technique-template').length
-  var listWorkoutTemplateExists = $('#list-workout-template').length // <script id="list-workout-template"> is found in _navbar.html.erb file
-  var listExerciseTemplateExists = $('#list-exercise-template').length // <script id="list-exercise-template"> is found in _navbar.html.erb file
+  var listWorkoutTemplateExists = $('#list-workout-template').length
+  var listExerciseTemplateExists = $('#list-exercise-template').length
+  var tipTemplateExists = $('#tip-template').length
   // Conditionally compile Handlebars templates, depending on if the Handlebars template is present in the current DOM
   if (routineTemplateExists) { // User creates a new workout routine at "/routines/new", where these HS templates are rendered
     Routine.compileTemplates()
