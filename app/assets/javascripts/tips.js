@@ -28,6 +28,7 @@ Tip.handleFormSubmission = function() {
     var formData = $(this).serialize()
     $.post(url, formData)
     .done(function(response) {
+      $('#new_tip').find('input[type=text], textarea').val('');
       $div = $('#latest-tip') // $div variable stores jQuery object of <div id="latest-tip">
       $div.html('') // empty out <div id="latest-tip"> in case it contains a stale tip
       var newTip = new Tip(response) // response is JSON object representation of @tip AR instance just created in tips#create. Due to belongs_to :movement and belongs_to :user macros in TipSerializer, the response also includes data about the movement and user to which the tip belongs
