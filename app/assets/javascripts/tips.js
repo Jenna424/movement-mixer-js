@@ -36,3 +36,8 @@ Tip.handleFormSubmission = function() {
     })
   })
 }
+
+Tip.prototype.formatShow = function() {
+  return Tip.tipTemplateFunction(this)
+}
+// In the context of formatShow prototype method, this refers to the JSON tip object on which formatShow() is called
