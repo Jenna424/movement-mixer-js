@@ -12,3 +12,7 @@ Tip.compileTipTemplate = function() {
   Tip.tipTemplateSource = $('#tip-template').html()
   Tip.tipTemplateFunction = Handlebars.compile(Tip.tipTemplateSource)
 }
+
+$(function() {
+  Tip.bindClickEventHandlers()
+})
