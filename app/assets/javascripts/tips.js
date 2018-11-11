@@ -7,3 +7,8 @@ function Tip(tip) {
   this.movement = tip.movement
   this.user = tip.user
 }
+
+Tip.compileTipTemplate = function() {
+  Tip.tipTemplateSource = $('#tip-template').html()
+  Tip.tipTemplateFunction = Handlebars.compile(Tip.tipTemplateSource)
+}
