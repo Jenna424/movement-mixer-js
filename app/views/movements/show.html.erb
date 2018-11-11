@@ -5,24 +5,38 @@
 
   <%= form_for([@movement, @tip]) do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
+
     <div class="field">
       <%= f.label :proper_form, "Train your clients to use proper form when performing this exercise" %>:
       <%= f.text_area :proper_form, placeholder: "Add training tip to achieve proper form...", class: "form-control" %>
     </div>
+
+    <br>
+
     <div class="field">
-      <%= f.label :breathing_technique, "Train your clients to use proper breathing techniques when performing this exercise" %>:
+      <%= f.label :breathing_technique, "Train your clients to use proper breathing techniques" %>:
       <%= f.text_area :breathing_technique, placeholder: "Add training tip to implement effective breathing patterns...", class: "form-control" %>
     </div>
+
+    <br>
+
     <div class="field">
-	  <%= f.label :modification, "How can you modify this exercise?" %>:
+	  <%= f.label :modification, "How can you modify this exercise?" %>
 	  <%= f.text_area :modification, placeholder: "Add a modification...", class: "form-control" %>
 	</div>
+
+	<br>
+
 	<div class="field">
 	  <%= f.label :challenge, "How can you make this exercise more challenging?" %>
       <%= f.text_area :challenge, placeholder: "Add a challenge...", class: "form-control" %>
 	</div>
+
 	<br>
-	<%= f.submit "Submit Training Tips", class: "btn btn-default btn-sm", data: { disable_with: false } %>
+
+	<div class="actions">
+	  <%= f.submit "Submit Training Tips", class: "btn btn-default btn-sm", data: { disable_with: false } %>
+	</div>
   <% end %>
 
 <% end %>
