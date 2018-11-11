@@ -1,7 +1,7 @@
 <h1><%= @movement.name %></h1>
 
 <% if current_user.trainer? %>
-  <h4>Add Training Tips for Executing This Exercise</h4>
+  <h4>Add Training Tips to Properly Perform This Exercise</h4>
   <div class="well well-sm col-xs-6">
   	<%= render partial: "tips/form", locals: { movement: @movement, tip: @tip } %>
   </div>
