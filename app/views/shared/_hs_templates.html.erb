@@ -60,6 +60,8 @@ which is defined in movements.js file -->
     <span><strong>Feeling energetic? Take things up a notch with this challenge</strong>:</span>
     <p>{{challenge}}</p>
     <br>
-    <button class="btn btn-default btn-sm edit-guide" data-id="{{id}}">Edit Guide</button>
+    <% if current_user && current_user.trainer? %>
+      <button class="btn btn-default btn-sm edit-guide" data-id="{{id}}">Edit Guide</button>
+    <% end %>
   </div>
 </script>
