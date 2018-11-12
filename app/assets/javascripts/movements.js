@@ -51,7 +51,8 @@ Movement.handleNextExercise = function() {
       $divContainer.html('')
       .then(response => response.json())
       .then(nextMovementObject => {
-        console.log(nextMovementObject)
+        let newMovement = new Movement(nextMovementObject)
+        let movementHtml = newMovement.formatShow()
       })
   })
 }
