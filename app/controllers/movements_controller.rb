@@ -1,6 +1,6 @@
 class MovementsController < ApplicationController
   before_action :set_movement, only: [:show, :next]
-  
+
   def index
   	@movements = policy_scope(Movement)
   	render json: @movements
@@ -15,8 +15,7 @@ class MovementsController < ApplicationController
   def destroy # DELETE "/routines/:routine_id/movements/:movement_id" => 'movements#destroy'
   end
 
-  def show
-    @movement = Movement.find(params[:id])
+  def show # @movement is retrieved from before_action :set_movement
     @guide = Guide.new
   	respond_to do |format|
   	  format.html
