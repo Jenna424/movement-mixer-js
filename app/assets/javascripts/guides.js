@@ -7,3 +7,8 @@ function Guide(guide) {
   this.movement = guide.movement
   this.user = guide.user
 }
+
+Guide.compileGuideTemplate = function() {
+  Guide.guideTemplateSource = $('#training-guide-template').html()
+  Guide.guideTemplateFunction = Handlebars.compile(Guide.guideTemplateSource)
+}
