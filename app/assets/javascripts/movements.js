@@ -45,7 +45,8 @@ Movement.handleExerciseIndex = function() {
 Movement.handleNextExercise = function() {
   $('.js-next-move').on('click', function(e) {
     e.preventDefault()
-    console.log("Hijacked click event of Next Exercise button!")
+    let currentMoveId = $(this).data('id')
+    
   })
 }
 
