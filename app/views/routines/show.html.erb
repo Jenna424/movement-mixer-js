@@ -36,5 +36,8 @@
         </div>
         <hr>
       <% end %>
+      <% if policy(@routine).edit? %>
+        <%= link_to "Edit Workout", edit_routine_path(@routine), class: 'edit-workout btn btn-default btn-sm', data: {id: @routine.id} %>
+      <% end %>
     </div>
 </div>
