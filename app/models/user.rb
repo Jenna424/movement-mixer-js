@@ -6,7 +6,7 @@ class User < ApplicationRecord
   belongs_to :trainer, class_name: "User", optional: true
   
   has_many :routines
-  has_many :training_guides
+  has_many :guides
 
   has_secure_password
 
