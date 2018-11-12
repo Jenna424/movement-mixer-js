@@ -33,14 +33,6 @@ class RoutinesController < ApplicationController
   def edit
   end
 
-  def update
-    if @routine.update(routine_params)
-      redirect_to routine_path(@routine)
-    else
-      render :edit
-    end
-  end
-
   private
 
     def set_routine
@@ -55,11 +47,11 @@ class RoutinesController < ApplicationController
         :user_id,
         :movements_attributes => [
           :name,
-          :movement_routines_attributes => [:reps, :sets, :technique]
+          :movement_routines => [:reps, :sets, :technique]
         ],
         :equipment_attributes => [
           :name,
-          :equipment_routines_attributes => [:quantity, :weight]
+          :equipment_routines => [:quantity, :weight]
         ],
         :targets_attributes => [:focus],
         :trainings_attributes => [:fitness_type]
