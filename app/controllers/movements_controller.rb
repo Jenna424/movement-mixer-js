@@ -15,7 +15,7 @@ class MovementsController < ApplicationController
 
   def show
     @movement = Movement.find(params[:id])
-    @tip = Tip.new # instance for form to wrap around
+    @guide = Guide.new
   	respond_to do |format|
   	  format.html
   	  format.json {render json: @movement}
