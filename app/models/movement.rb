@@ -2,7 +2,7 @@ class Movement < ApplicationRecord
   has_many :guides, dependent: :destroy
   has_many :movement_routines, dependent: :destroy
   has_many :routines, through: :movement_routines
-  accepts_nested_attributes_for :movement_routines, reject_if: :all_blank
+  #accepts_nested_attributes_for :movement_routines, reject_if: :all_blank
 
   # Instance method #position_in_routine(routine) is called on a movement instance (self)
   # to find its numeric position in the specified routine passed in as the method's argument
