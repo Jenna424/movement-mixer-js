@@ -1,4 +1,6 @@
 class MovementsController < ApplicationController
+  before_action :set_movement, only: [:show, :next]
+  
   def index
   	@movements = policy_scope(Movement)
   	render json: @movements
