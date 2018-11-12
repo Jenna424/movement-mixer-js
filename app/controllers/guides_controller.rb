@@ -1,4 +1,9 @@
 class GuidesController < ApplicationController
+  def new # GET '/movements/:movement_id/guides/new'=> 'guides#new'
+    @movement = Movement.find(params[:movement_id]) # finding the parent
+    @guide = Guide.new # instance for nested resource form to wrap around
+  end
+
   def create # POST '/movements/:movement_id/guides' => 'guides#create'
     @movement = Movement.find(params[:movement_id]) # finding the parent movement instance
     @guide = @movement.guides.build(guide_params)
