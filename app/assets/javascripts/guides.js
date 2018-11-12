@@ -62,7 +62,7 @@ Guide.getGuides = function() {
       var $div = $('#training-guides')
       $div.html('')
       guidesArray.forEach(function(guideObject) {
-        let newGuide = new Guide(guide)
+        let newGuide = new Guide(guideObject)
         let guideHtml = newGuide.formatGuideForIndex()
         $div.append(guideHtml)
       })
