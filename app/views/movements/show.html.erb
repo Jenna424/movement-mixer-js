@@ -14,3 +14,9 @@
   	<%= render partial: "guides/form", locals: { movement: @movement, guide: @guide } %>
   </div>
 <% end %>
+
+<br>
+
+<%= button_tag "Previous Exercise", class: "js-previous-move btn btn-default btn-sm", data: {id: @movement.id} %>
+
+<%= button_tag "Next Exercise", class: "js-next-move btn btn-default btn-sm", data: {id: @movement.id} %>
