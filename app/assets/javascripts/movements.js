@@ -42,6 +42,13 @@ Movement.handleExerciseIndex = function() {
   })
 }
 
+Movement.handleNextExercise = function() {
+  $('.js-next-move').on('click', function(e) {
+    e.preventDefault()
+    console.log("Hijacked click event of Next Exercise button!")
+  })
+}
+
 // In the context of formatMoveForIndex() prototype method,
 // this refers to the JSON movement object
 // on which formatMoveForIndex() is called
