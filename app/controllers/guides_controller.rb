@@ -11,7 +11,7 @@ class GuidesController < ApplicationController
     if @guide.save
       render json: @guide
     else
-      render "movements/show" # Exercise movement show page contains form to try creating a training guide belonging to that exercise movement again
+      render "new" # present form to try creating a training guide belonging to the movement again
     end
   end
 
