@@ -66,6 +66,10 @@ Movement.handleShowExercise = function() {
 // The response is a JSON object representation of the movement instance we want to view without redirecting to show page
 // The response also includes data about the guides that belong to the movement due to has_many :guides in MovementSerializer
 
+Movement.prototype.formatShow = function() {
+  return Movement.showExerciseTemplateFunction(this)
+}
+
 Movement.handleNextExercise = function() {
   $(document).on('click', '.js-next-move', function(e) {
     var currentMoveId = $(this).data('id')
