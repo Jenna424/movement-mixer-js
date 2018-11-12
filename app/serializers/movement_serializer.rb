@@ -2,5 +2,5 @@ class MovementSerializer < ActiveModel::Serializer
   attributes :id, :name
   has_many :movement_routines
   has_many :routines
-  has_many :tips
+  has_many :guides
 end
