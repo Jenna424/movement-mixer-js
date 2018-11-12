@@ -12,3 +12,12 @@ Guide.compileGuideTemplate = function() {
   Guide.guideTemplateSource = $('#training-guide-template').html()
   Guide.guideTemplateFunction = Handlebars.compile(Guide.guideTemplateSource)
 }
+
+$(function() {
+  Guide.bindClickEventHandlers()
+})
+
+Guide.bindClickEventHandlers = function() {
+  Guide.handleFormSubmission()
+  Guide.getGuides()
+}
