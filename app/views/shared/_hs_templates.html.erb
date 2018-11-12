@@ -18,15 +18,13 @@ when I make my AJAX GET request to "/movements" using fetch() in the function Mo
 which is defined in movements.js file -->
 
 <script id="list-exercise-template" type="text/x-handlebars-template">
-  <div id="display-move-{{id}}">
-    <a class="show-exercise" data-id="{{id}}" href="/movements/{{id}}">{{name}}</a>
-    <br>
-    <small>Training Tips Available: {{tips.length}}</small>
-    <br>
-    <small>Workouts in which Performed: {{routines.length}}</small>
-    <br>
-    <hr>
-  </div>     
+  <a class="show-exercise" data-id="{{id}}" href="/movements/{{id}}">{{name}}</a>
+  <br>
+  <small>Training Tips Available: {{tips.length}}</small>
+  <br>
+  <small>Workouts in which Performed: {{routines.length}}</small>
+  <br>
+  <hr>     
 </script>
 
 <script id="show-exercise-template" type="text/x-handlebars-template">
