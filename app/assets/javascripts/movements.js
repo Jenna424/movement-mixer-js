@@ -43,7 +43,7 @@ Movement.handleExerciseIndex = function() {
 }
 
 Movement.handleNextExercise = function() {
-  $('div.container').on('click', '.js-next-move', function(e) {
+  $(document).on('click', '.js-next-move', function(e) {
     var currentMoveId = $(this).data('id')
     fetch(`/movements/${currentMoveId}/next`)
       .then(response => response.json())
