@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   get '/access' => 'users#access'
+  get '/movements/:id/next' => 'movements#next'
   
   resources :users, except: [:new]
   resources :routines do
