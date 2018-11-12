@@ -47,10 +47,13 @@ Movement.handleExerciseIndex = function() {
       })
   })
 }
+// The response is a JSON object representation of the movement instance we want to view without redirecting to show page
+// The response also includes data about the guides that belong to the movement due to has_many :guides in MovementSerializer
 
 Movement.handleNextExercise = function() {
   $(document).on('click', '.js-next-move', function(e) {
     var currentMoveId = $(this).data('id')
+    console.log(currentMoveId)
     fetch(`/movements/${currentMoveId}/next`)
       .then(response => response.json())
       .then(nextMovementObject => {
@@ -58,21 +61,11 @@ Movement.handleNextExercise = function() {
         let $divContainer = $('div.container')
         $divContainer.html('')
         let newMovement = new Movement(nextMovementObject)
+        console.log(newMovement)
         let movementHtml = newMovement.formatShow()
         $divContainer.html(movementHtml)
       })
   })
-}
-
-Movement.prototype.formatShow = function() {
-  let exerciseHtml = `
-  <h3>${this.name}</h3>
-  <a class="all-guides" href="movements/{{this.id}}/guides">View All Training Guides</a>
-  <br><br>
-  <button class="js-previous-move btn btn-default btn-sm" data-id="${this.id}">Previous Exercise</button>
-  <button class="js-next-move btn btn-default btn-sm" data-id="${this.id}">Next Exercise</button>
-  `
-  return exerciseHtml
 }
 
 // In the context of formatMoveForIndex() prototype method,
