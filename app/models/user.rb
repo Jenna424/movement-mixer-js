@@ -5,8 +5,8 @@ class User < ApplicationRecord
   has_many :clients, class_name: "User", foreign_key: "trainer_id"
   belongs_to :trainer, class_name: "User", optional: true
   
-  has_many :routines
-  has_many :guides
+  has_many :routines, dependent: :destroy
+  has_many :guides, dependent: :destroy
 
   has_secure_password
 
