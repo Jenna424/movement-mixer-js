@@ -135,7 +135,7 @@ Routine.handleCreateFormSubmission = function() {
     $.post(url, formData)
     .done(function(response) {
       $('#preview-routine').html('')
-      $('#new_routine').find('input[type=text], textarea').val('');
+      $('#new_routine').find('input[type=text], textarea, input[type=number]').val('');
       let newRoutine = new Routine(response)
       let routineHtml = newRoutine.formatPreview()
       $('#preview-routine').html(routineHtml)
