@@ -47,6 +47,22 @@ Movement.handleExerciseIndex = function() {
       })
   })
 }
+
+Movement.handleShowExercise = function() {
+  $(document).on('click', 'a.show-exercise', function(e) {
+    e.preventDefault()
+    var $divContainer = $('div.container')
+    var id = $(this).attr('data-id')
+    history.replaceState(null, null, `/movements/${id}`)
+    $.get(`/movements/${id}`)
+    .done(function(response) {
+      $divContainer.html('')
+      var newMovement = new Movement(response)
+      var movementHtml = newMovement.formatShow()
+      $divContainer.html(movementHtml)
+    })
+  })
+}
 // The response is a JSON object representation of the movement instance we want to view without redirecting to show page
 // The response also includes data about the guides that belong to the movement due to has_many :guides in MovementSerializer
 
