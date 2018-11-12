@@ -19,4 +19,9 @@ class Movement < ApplicationRecord
     movement ? movement : Movement.first
   end
 
+  def previous
+    movement = Movement.where("id < ?", id).first
+    movement ? movement : Movement.first
+  end
+
 end
