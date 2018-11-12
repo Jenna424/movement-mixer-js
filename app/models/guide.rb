@@ -1,4 +1,4 @@
-class Tip < ApplicationRecord
+class Guide < ApplicationRecord
   belongs_to :movement
   belongs_to :user
   validates :proper_form, presence: true
