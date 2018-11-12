@@ -69,3 +69,7 @@ Guide.getGuides = function() {
     })
   })
 }
+
+Guide.prototype.formatGuideForIndex = function() {
+  return Guide.guideTemplateFunction(this)
+}
