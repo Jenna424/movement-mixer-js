@@ -47,11 +47,11 @@ class RoutinesController < ApplicationController
         :user_id,
         :movements_attributes => [
           :name,
-          :movement_routines => [:reps, :sets, :technique]
+          :movement_routines_attributes => [:reps, :sets, :technique]
         ],
         :equipment_attributes => [
           :name,
-          :equipment_routines => [:quantity, :weight]
+          :equipment_routines_attributes => [:quantity, :weight]
         ],
         :targets_attributes => [:focus],
         :trainings_attributes => [:fitness_type]
