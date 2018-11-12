@@ -33,6 +33,14 @@ class RoutinesController < ApplicationController
   def edit
   end
 
+  def update
+    if @routine.update(routine_params)
+      redirect_to routine_path(@routine)
+    else
+      render :edit
+    end
+  end
+
   private
 
     def set_routine
