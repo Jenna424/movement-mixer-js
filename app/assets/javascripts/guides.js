@@ -49,3 +49,7 @@ Guide.handleFormSubmission = function() {
 // response is a JSON object representation of the AR guide instance that was just created in guides#create
 // Due to belongs_to :movement and belongs_to :user macros in GuideSerializer,
 // the response also contains data about the movement and user instances to which the guide instance belongs
+
+Guide.prototype.formatShow = function() {
+  return Guide.guideTemplateFunction(this)
+}
