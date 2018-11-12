@@ -12,6 +12,7 @@ $(function() {
 
 Movement.bindClickEventHandlers = function() {
 	Movement.handleExerciseIndex()
+  Movement.handleShowExercise()
   Movement.handleNextExercise()
 }
 
