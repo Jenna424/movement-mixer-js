@@ -14,6 +14,7 @@ Movement.bindClickEventHandlers = function() {
 	Movement.handleExerciseIndex()
   Movement.handleShowExercise()
   Movement.handleNextExercise()
+  Movement.handlePreviousExercise()
 }
 
 Movement.compileListExerciseTemplate = function() {
@@ -82,6 +83,22 @@ Movement.handleNextExercise = function() {
         $divContainer.html('')
         let newMovement = new Movement(nextMovementObject)
         console.log(newMovement)
+        let movementHtml = newMovement.formatShow()
+        $divContainer.html(movementHtml)
+      })
+  })
+}
+
+Movement.handlePreviousExercise = function() {
+  $(document).on('click', '.js-previous-move', function(e) {
+    var currentMoveId = $(this).data('id')
+    fetch(`/movements/${currentMoveId}/previous`)
+      .then(response => response.json())
+      .then(previousMovementObject => {
+        history.replaceState(null, null, `/movements/${previousMovementObject.id}`)
+        let $divContainer = $('div.container')
+        $divContainer.html('')
+        let newMovement = new Movement(previousMovementObject)
         let movementHtml = newMovement.formatShow()
         $divContainer.html(movementHtml)
       })
