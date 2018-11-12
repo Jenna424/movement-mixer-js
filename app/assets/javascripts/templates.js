@@ -9,7 +9,7 @@ function checkIfTemplatesExist() {
   var techniqueTemplateExists = $('#technique-template').length
   var listWorkoutTemplateExists = $('#list-workout-template').length
   var listExerciseTemplateExists = $('#list-exercise-template').length
-  var tipTemplateExists = $('#tip-template').length
+  var trainingGuideTemplateExists = $('#training-guide').length
   // Conditionally compile Handlebars templates, depending on if the Handlebars template is present in the current DOM
   if (routineTemplateExists) { // User creates a new workout routine at "/routines/new", where these HS templates are rendered
     Routine.compileTemplates()
