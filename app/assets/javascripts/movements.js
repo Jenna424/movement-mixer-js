@@ -20,6 +20,11 @@ Movement.compileListExerciseTemplate = function() {
   Movement.listExerciseTemplateFunction = Handlebars.compile(Movement.listExerciseTemplateSource)
 }
 
+Movement.compileShowExerciseTemplate = function() {
+  Movement.showExerciseTemplateSource = $('#show-exercise-template').html()
+  Movement.showExerciseTemplateFunction = Handlebars.compile(Movement.showExerciseTemplateSource)
+}
+
 Movement.prototype.formatMoveForIndex = function() {
 	return Movement.listExerciseTemplateFunction(this)
 }
@@ -61,6 +66,8 @@ Movement.handleNextExercise = function() {
 Movement.prototype.formatShow = function() {
   let exerciseHtml = `
   <h3>${this.name}</h3>
+  <a class="all-guides" href="movements/{{this.id}}/guides">View All Training Guides</a>
+  <br><br>
   <button class="js-previous-move btn btn-default btn-sm" data-id="${this.id}">Previous Exercise</button>
   <button class="js-next-move btn btn-default btn-sm" data-id="${this.id}">Next Exercise</button>
   `
