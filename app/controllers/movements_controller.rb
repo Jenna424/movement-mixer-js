@@ -28,6 +28,11 @@ class MovementsController < ApplicationController
     render json: @next_move
   end
 
+  def previous # @movement is retrieved from before_action :set_movement
+    @previous_move = @movement.previous
+    render json: @previous_move
+  end
+
   private
 
     def set_movement
