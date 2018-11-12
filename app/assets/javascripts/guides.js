@@ -53,3 +53,19 @@ Guide.handleFormSubmission = function() {
 Guide.prototype.formatShow = function() {
   return Guide.guideTemplateFunction(this)
 }
+
+Guide.getGuides = function() {
+  $('.all-guides').on('click', function(e) {
+    e.preventDefault()
+    $.get($(this).attr('href'))
+    .done(function(guidesArray) {
+      var $div = $('#training-guides')
+      $div.html('')
+      guidesArray.forEach(function(guideObject) {
+        let newGuide = new Guide(guide)
+        let guideHtml = newGuide.formatGuideForIndex()
+        $div.append(guideHtml)
+      })
+    })
+  })
+}
