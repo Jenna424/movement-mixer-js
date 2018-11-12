@@ -57,8 +57,8 @@ Guide.prototype.formatShow = function() {
 Guide.getGuides = function() {
   $(document).on('click', '.all-guides', function(e) {
     e.preventDefault()
-    var movementId = $(this).attr('data-id')
-    $.get(`/movements/${movementId}/guides`)
+    var url = $(this).attr('href') // "/movements/:movement_id/guides"
+    $.get(url)
     .done(function(guidesArray) {
       var $div = $('#training-guides')
       $div.html('')
