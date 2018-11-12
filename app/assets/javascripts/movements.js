@@ -53,6 +53,7 @@ Movement.handleNextExercise = function() {
       .then(nextMovementObject => {
         let newMovement = new Movement(nextMovementObject)
         let movementHtml = newMovement.formatShow()
+        $divContainer.html(movementHtml)
       })
   })
 }
