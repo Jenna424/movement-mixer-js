@@ -42,20 +42,13 @@ Movement.handleExerciseIndex = function() {
   })
 }
 
-Movement.handleNextExercise = function() {
-  $('.js-next-move').on('click', function(e) {
-    e.preventDefault()
-    let currentMoveId = $(this).data('id')
-    fetch(`/movements/${currentMoveId}/next`)
-      var $divContainer = $('div.container')
-      $divContainer.html('')
-      .then(response => response.json())
-      .then(nextMovementObject => {
-        let newMovement = new Movement(nextMovementObject)
-        let movementHtml = newMovement.formatShow()
-        $divContainer.html(movementHtml)
-      })
-  })
+Movement.prototype.formatShow = function() {
+  let exerciseHtml = `
+  <h3>${this.name}</h3>
+  <button class="js-previous-move btn btn-default btn-sm" data-id="${this.id}">Previous Exercise</button>
+  <button class="js-next-move btn btn-default btn-sm" data-id="${this.id}">Next Exercise</button>
+  `
+  return exerciseHtml
 }
 
 // In the context of formatMoveForIndex() prototype method,
