@@ -18,7 +18,7 @@ when I make my AJAX GET request to "/movements" using fetch() in the function Mo
 which is defined in movements.js file -->
 
 <script id="list-exercise-template" type="text/x-handlebars-template">
-  <a class="show-exercise" href="/movements/{{id}}">{{name}}</a>
+  <a class="show-exercise" data-id="{{id}}" href="/movements/{{id}}">{{name}}</a>
   <br>
   <small>Training Tips Available: {{tips.length}}</small>
   <br>
