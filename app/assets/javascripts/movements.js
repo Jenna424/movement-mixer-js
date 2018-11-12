@@ -47,6 +47,8 @@ Movement.handleNextExercise = function() {
     e.preventDefault()
     let currentMoveId = $(this).data('id')
     fetch(`/movements/${currentMoveId}/next`)
+      var $divContainer = $('div.container')
+      $divContainer.html('')
       .then(response => response.json())
       .then(nextMovementObject => {
         console.log(nextMovementObject)
