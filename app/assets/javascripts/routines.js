@@ -150,7 +150,7 @@ Routine.prototype.formatPreview = function() {
 Routine.handleWorkoutsIndex = function() {
   $('ul.nav').on('click', 'a.all-routines', function(e) {
     e.preventDefault();
-    history.replaceState(null, null, "routines")
+    history.replaceState(null, null, "/routines")
     fetch(`/routines.json`)
       .then(response => response.json())
       .then(routinesArray => {
