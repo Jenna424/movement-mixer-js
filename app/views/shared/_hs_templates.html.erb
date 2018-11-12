@@ -18,22 +18,24 @@ when I make my AJAX GET request to "/movements" using fetch() in the function Mo
 which is defined in movements.js file -->
 
 <script id="list-exercise-template" type="text/x-handlebars-template">
-  <a class="show-exercise" data-id="{{id}}" href="/movements/{{id}}">{{name}}</a>
-  <br>
-  <small>Training Tips Available: {{tips.length}}</small>
-  <br>
-  <small>Workouts in which Performed: {{routines.length}}</small>
-  <br>
-  <hr>     
+  <div id="display-move-{{id}}">
+    <a class="show-exercise" data-id="{{id}}" href="/movements/{{id}}">{{name}}</a>
+    <br>
+    <small>Training Tips Available: {{tips.length}}</small>
+    <br>
+    <small>Workouts in which Performed: {{routines.length}}</small>
+    <br>
+    <hr>
+  </div>     
 </script>
 
 <script id="show-exercise-template" type="text/x-handlebars-template">
   <h1>{{name}}</h1>
-  <a class="all-guides" href="movements/{{id}}/guides">View All Training Guides</a>
+  <a class="all-guides" href="movements/{{id}}/guides" data-id="{{id}}">View All Training Guides</a>
   <div id="training-guides"></div>
   <br><br>
-  <button class="js-previous-move btn btn-default btn-sm" data-id: {{id}}>Previous Exercise</button>
-  <button class="js-next-move btn btn-default btn-sm" data-id: {{id}}>Next Exercise</button>
+  <button class="js-previous-move btn btn-default btn-sm" data-id="{{id}}">Previous Exercise</button>
+  <button class="js-next-move btn btn-default btn-sm" data-id="{{id}}">Next Exercise</button>
 </script>
 
 <!-- The Handlebars template found inside the <script> tag below is used when a trainer creates a series of training tips for an exercise movement on the movement show page -->
