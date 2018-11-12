@@ -29,6 +29,7 @@ Guide.handleFormSubmission = function() {
     var formData = $(this).serialize()
     $.post(url, formData)
     .done(function(response) {
+      $('#new_guide').find('textarea').val('');
       var $displayGuideDiv = $('#display-guide')
       $displayGuideDiv.html('')
       let newGuide = new Guide(response)
@@ -60,6 +61,7 @@ Guide.getGuides = function() {
     var movementId = $(this).attr('data-id')
     $.get(`/movements/${movementId}/guides`)
     .done(function(guidesArray) {
+      console.log(guidesArray)
       var $div = $('#training-guides')
       $div.html('')
       guidesArray.forEach(function(guideObject) {
