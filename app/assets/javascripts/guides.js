@@ -25,15 +25,15 @@ Guide.bindClickEventHandlers = function() {
 Guide.handleFormSubmission = function() {
   $('#new_guide').on('submit', function(e) {
     e.preventDefault()
-    var url = $(this).attr('action') // "/movements/:movement_id/guides"
+    var url = $(this).attr('action')
     var formData = $(this).serialize()
     $.post(url, formData)
     .done(function(response) {
-      var $div = $('#display-guide')
-      $div.html('')
-      var newGuide = new Guide(response)
-      var guideHtml = newGuide.formatShow()
-      $div.html(guideHtml)
+      var $displayGuideDiv = $('#display-guide')
+      $displayGuideDiv.html('')
+      let newGuide = new Guide(response)
+      let guideHtml = newGuide.formatShow()
+      $displayGuideDiv.html(guideHtml)
     })
   })
 }
