@@ -42,6 +42,22 @@ Movement.handleExerciseIndex = function() {
   })
 }
 
+Movement.handleNextExercise = function() {
+  $('div.container').on('click', '.js-next-move', function(e) {
+    var currentMoveId = $(this).data('id')
+    fetch(`/movements/${currentMoveId}/next`)
+      .then(response => response.json())
+      .then(nextMovementObject => {
+        history.replaceState(null, null, `/movements/${nextMovementObject.id}`)
+        let $divContainer = $('div.container')
+        $divContainer.html('')
+        let newMovement = new Movement(nextMovementObject)
+        let movementHtml = newMovement.formatShow()
+        $divContainer.html(movementHtml)
+      })
+  })
+}
+
 Movement.prototype.formatShow = function() {
   let exerciseHtml = `
   <h3>${this.name}</h3>
