@@ -1,6 +1,6 @@
 class Movement < ApplicationRecord
   has_many :guides, dependent: :destroy
-  has_many :movement_routines
+  has_many :movement_routines, dependent: :destroy
   has_many :routines, through: :movement_routines
 
   # Instance method #position_in_routine(routine) is called on a movement instance (self)

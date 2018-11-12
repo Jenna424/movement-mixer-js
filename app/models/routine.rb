@@ -1,13 +1,13 @@
 class Routine < ApplicationRecord
   belongs_to :user
   has_many :results
-  has_many :equipment_routines
+  has_many :equipment_routines, dependent: :destroy
   has_many :equipment, through: :equipment_routines
-  has_many :movement_routines
+  has_many :movement_routines, dependent: :destroy
   has_many :movements, through: :movement_routines
-  has_many :routine_targets
+  has_many :routine_targets, dependent: :destroy
   has_many :targets, through: :routine_targets
-  has_many :routine_trainings
+  has_many :routine_trainings, dependent: :destroy
   has_many :trainings, through: :routine_trainings
 
   def movements_attributes=(movements_attributes)
