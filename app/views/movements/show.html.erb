@@ -11,6 +11,6 @@
 <% if current_user.trainer? %>
   <h4>Add Training Tips to Properly Perform This Exercise</h4>
   <div class="well well-sm col-xs-6">
-  	<%= render partial: "tips/form", locals: { movement: @movement, tip: @tip } %>
+  	<%= render partial: "guides/form", locals: { movement: @movement, guide: @guide } %>
   </div>
 <% end %>
