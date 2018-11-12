@@ -14,4 +14,9 @@ class Movement < ApplicationRecord
   	self.movement_routines.find_by(routine: routine).technique
   end
 
+  def next
+    movement = Movement.where("id > ?", id).first
+    movement ? movement : Movement.first
+  end
+
 end
