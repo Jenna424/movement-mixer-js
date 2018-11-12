@@ -11,7 +11,10 @@
     <div class="panel-body">
       <% @routine.movements.each do |movement| %>
         <div>
-          <h5>Exercise #<%= movement.position_in_routine(@routine) %>: <%= link_to movement.name, movement_path(movement) %></h5>
+          <h5>
+            Exercise #<%= movement.position_in_routine(@routine) %>: 
+            <%= link_to movement.name, movement_path(movement), class: "show-exercise", data: {id: movement.id} %>
+          </h5>
           <p><strong>Sets</strong>: <%= movement.movement_routines.find_by(routine: @routine).sets %></p>
           <p><strong>Reps</strong>: <%= movement.movement_routines.find_by(routine: @routine).reps %></p>
         </div>
