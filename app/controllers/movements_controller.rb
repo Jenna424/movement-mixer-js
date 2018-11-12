@@ -22,4 +22,10 @@ class MovementsController < ApplicationController
   	  format.json {render json: @movement}
   	end
   end
+
+  private
+
+    def set_movement
+      @movement = Movement.find(params[:id])
+    end
 end
