@@ -44,18 +44,6 @@ Tip.prototype.formatShow = function() {
 }
 // In the context of formatShow prototype method, this refers to the JSON tip object on which formatShow() is called
 
-Tip.getGuides = function() {
-  $('.all-guides').on('click', function(e) {
-    e.preventDefault()
-    console.log("hijacked Read All Training Tips link click!")
-    var url = $(this).attr('href') // "/movements/:movement_id/tips"
-    $.get(url)
-    .done(function(tipsArray) {
-      var $div = $('#training-tips');
-      $div.html('')
-      tipsArray.forEach(function(tipObject) {
-        $div.append(tipObject.formatTipForIndex())
-      })
-    })
-  })
+Tip.prototype.formatIndex = function() {
+  return Tip.compileTipTemplateFunction(this)
 }
