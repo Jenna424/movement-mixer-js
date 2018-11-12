@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   get '/access' => 'users#access'
   get '/movements/:id/next' => 'movements#next'
+  get '/movements/:id/previous' => 'movements#previous'
   
   resources :users, except: [:new]
   resources :routines do
