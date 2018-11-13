@@ -46,4 +46,9 @@ function checkIfTemplatesExist() {
     Movement.compileShowExerciseTemplate()
     console.log("Compiled the Show Exercise Template")
   }
+
+  if (editExerciseTemplateExists) {
+    Routine.compileEditExerciseTemplate()
+    console.log("Compiled the Edit Exercise Template")
+  }
 }
