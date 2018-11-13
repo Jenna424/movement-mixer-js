@@ -53,6 +53,7 @@ Routine.bindClickEventHandlers = function() {
   Routine.handleWorkoutsIndex()
   Routine.handleShowFullTechnique()
   Routine.handleHideTechnique()
+  Routine.handleEditExercise()
 }
 
 Routine.addMovementHandler = function() {
