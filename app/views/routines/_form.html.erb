@@ -83,6 +83,14 @@
 
 	<label>Which training type(s) will this workout implement?</label>
 
+	<div class="training-type-checkboxes">
+	  <%= hidden_field_tag "routine[training_ids][]", nil %>
+	  <% Training.all.each do |training_type| %>
+	    <%= check_box_tag "routine[training_ids][]", training_type.id, routine.training_ids.include?(training_type.id), id: dom_id(training_type) %>
+	    <%= label_tag dom_id(training_type), training_type.fitness_type %><br>
+	  <% end %>
+	</div>
+
 	<div class="actions">
 		<%= f.submit %>
 	</div>
