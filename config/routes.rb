@@ -16,11 +16,11 @@ Rails.application.routes.draw do
     resources :guides
   end
   # Custom Routes:
-  # On the routine show page, if the current user designed the workout,
-  # that user should be able to click the edit button / delete button next to each movement that comprises the workout
-  # to edit just the attributes on the movement_routines join table (technique, sets and reps) /
-  # or to delete the join model association between their workout routine and that exercise movement
-  get '/routines/:routine_id/movements/:movement_id/edit' => 'movements#edit'
-  patch '/routines/:routine_id/movements/:movement_id' => 'movements#update'
+  # On the routine show page, if the current user designed the workout routine,
+  # that user should be able to click the Edit Exercise Link that is found next to each exercise movement in the workout
+  # to edit the user-submittable attributes on the movement_routines join table (technique, sets and reps)
+  get '/routines/:routine_id/movements/:movement_id/edit' => 'routines#edit_movement_routines'
+  patch '/routines/:routine_id/movements/:movement_id' => 'routines#update_movement_routines'
+
   delete '/routines/:routine_id/movements/:movement_id' => 'movements#destroy'
 end
