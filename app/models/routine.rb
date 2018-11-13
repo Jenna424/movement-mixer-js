@@ -17,7 +17,7 @@ class Routine < ApplicationRecord
     movements_attributes.values.each do |movements_attribute|
       if !movements_attribute["name"].blank?
         movement = Movement.find_or_create_by(name: movements_attribute["name"])
-        if mr = MovementRoutine.find_by(routine: self, movement: movement)
+        if mr = MovementRoutine.find_by(movement: movement, routine: self)
           mr.update(
            technique: movements_attribute["movement_routines"]["technique"],
            sets: movements_attribute["movement_routines"]["sets"],
@@ -25,8 +25,8 @@ class Routine < ApplicationRecord
           )
         else
           self.movement_routines.build(
-            routine: self,
-            movement: movement, 
+            movement: movement,
+            routine: self, 
             technique: movements_attribute["movement_routines"]["technique"],
             sets: movements_attribute["movement_routines"]["sets"],
             reps: movements_attribute["movement_routines"]["reps"]
