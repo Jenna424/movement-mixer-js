@@ -10,6 +10,9 @@ class Routine < ApplicationRecord
   has_many :routine_trainings, dependent: :destroy
   has_many :trainings, through: :routine_trainings
 
+  accepts_nested_attributes_for :movement_routines, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :equipment_routines, reject_if: :all_blank, allow_destroy: true
+
   def movements_attributes=(movements_attributes)
     movements_attributes.values.each do |movements_attribute|
       if !movements_attribute["name"].blank?
