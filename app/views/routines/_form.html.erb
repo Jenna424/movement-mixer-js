@@ -69,6 +69,8 @@
 
 	<br><br>
 
+	<label>Which area(s) of the body will this workout target?</label>
+
 	<div class="target-area-checkboxes">
 	  <%= hidden_field_tag "routine[target_ids][]", nil %>
 	  <% Target.all.each do |target_area| %>
