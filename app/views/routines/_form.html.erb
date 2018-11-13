@@ -70,34 +70,6 @@
 	<br><br>
 
 
-	<div class="target-fields">
-		<%= f.fields_for :targets do |target_field| %>
-			<%= target_field.label :focus, "Which area(s) of the body will this workout target?" %>
-			<%= target_field.text_field :focus, placeholder: "Where will you feel the burn?", class: "form-control" %>
-		<% end %>
-	</div>
-
-	<br><br>
-
-	<button id="add-target" class="btn btn-default btn-sm" data-add-type=target>+ Target Area</button>
-
-	<br><br>
-
-
-	<div class="training-fields">
-		<%= f.fields_for :trainings do |training_field| %>
-			<%= training_field.label :fitness_type, "Which training type(s) will this workout implement?" %>
-			<%= training_field.text_field :fitness_type, placeholder: "Feature a fitness type...", class: "form-control" %>
-		<% end %>
-	</div>
-
-	<br><br>
-
-	<button id="add-training" class="btn btn-default btn-sm" data-add-type=training>+ Training Type</button>
-
-	<br><br>
-
-
 	<div class="actions">
 		<%= f.submit %>
 	</div>
