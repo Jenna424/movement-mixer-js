@@ -40,7 +40,14 @@ class Routine < ApplicationRecord
     equipment_attributes.values.each do |equipment_attribute|
       if !equipment_attribute["name"].blank?
         equipment = Equipment.find_or_create_by(name: equipment_attribute["name"])
-        self.equipment_routines.build(routine: self, equipment: equipment, quantity: equipment_attribute["equipment_routines"]["quantity"], weight: equipment_attribute["equipment_routines"]["weight"])
+        if er = EquipmentRoutine.find_by(equipment: equipment, routine: self)
+          er.update(
+            quantity: equipment_attribute["equipment_routines"]["quantity"],
+            weight: equipment_attribute["equipment_routines"]["weight"]
+          )
+        else
+          self.equipment_routines.build(equipment: equipment, routine: self, quantity: equipment_attribute["equipment_routines"]["quantity"], weight: equipment_attribute["equipment_routines"]["weight"])
+        end
       end
     end
   end
