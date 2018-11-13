@@ -47,6 +47,17 @@ class RoutinesController < ApplicationController
     render json: movement_routine
   end
 
+  def update_movement_routine # PATCH '/routines/:routine_id/movements/:movement_id' => 'routines#update_movement_routine'
+    movement_routine = MovementRoutine.find_by(routine: params[:routine_id], movement: params[:movement_id])
+    mr_id = movement_routine.id.to_s
+    movement_routine.reps = params['routine']['movements_attributes'][mr_id]['movement_routines']['reps']
+    movement_routine.sets = params['routine']['movements_attributes'][mr_id]['movement_routines']['sets']
+    movement_routine.technique = params['routine']['movements_attributes'][mr_id]['movement_routines']['technique']
+    if movement_routine.save
+      redirect_to routine_path(movement_routine.routine), notice: "You successfully updated the #{movement_routine.movement.name}!"
+    end
+  end
+
   private
 
     def set_routine
