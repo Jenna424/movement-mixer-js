@@ -6,15 +6,6 @@ class MovementsController < ApplicationController
   	render json: @movements
   end
 
-  def edit # GET '/routines/:routine_id/movements/:movement_id/edit' => 'movements#edit'
-  end
-
-  def update # PATCH "/routines/:routine_id/movements/:movement_id" => 'movements#update'
-  end
-
-  def destroy # DELETE "/routines/:routine_id/movements/:movement_id" => 'movements#destroy'
-  end
-
   def show # @movement is retrieved from before_action :set_movement
     @guide = Guide.new # instance for form to wrap around
     render json: @movement
