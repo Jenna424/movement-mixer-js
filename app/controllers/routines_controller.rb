@@ -30,9 +30,6 @@ class RoutinesController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
     if @routine.update(routine_params)
       redirect_to routine_path(@routine), notice: "The workout routine was successfully updated!"
@@ -62,8 +59,8 @@ class RoutinesController < ApplicationController
           :name,
           :equipment_routines => [:quantity, :weight]
         ],
-        :targets_attributes => [:focus],
-        :trainings_attributes => [:fitness_type]
+        :target_ids => [],
+        :training_ids => []
       )
     end
 end
