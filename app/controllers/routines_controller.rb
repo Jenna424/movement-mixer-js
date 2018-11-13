@@ -33,13 +33,22 @@ class RoutinesController < ApplicationController
   def edit
   end
 
+  def update
+    if @routine.update(routine_params)
+      redirect_to routine_path(@routine), notice: "The workout routine was successfully updated!"
+    else
+      render :edit
+      flash.now[:error] = "Your attempt to edit this workout routine was unsuccessful. Please try again."
+    end
+  end
+
   private
 
     def set_routine
       @routine = Routine.find(params[:id])
     end
 
-  	def routine_params
+    def routine_params
       params.require(:routine).permit(
         :title,
         :difficulty_level,
