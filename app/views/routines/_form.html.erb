@@ -72,7 +72,7 @@
 	<div class="target-area-checkboxes">
 	  <%= hidden_field_tag "routine[target_ids][]", nil %>
 	  <% Target.all.each do |target_area| %>
-	    <%= check_box_tag "routine[target_ids][]", target_area.id, routine.target_ids.include?(target_area.id) %>
+	    <%= check_box_tag "routine[target_ids][]", target_area.id, routine.target_ids.include?(target_area.id), id: dom_id(target_area) %>
 	    <%= target_area.focus %><br>
 	  <% end %>
 	</div>
