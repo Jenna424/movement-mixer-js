@@ -30,7 +30,11 @@
             <!--<p><strong>Technique</strong>: <%= truncate(movement.movement_routines.find_by(routine: @routine).technique) %></p>
             <button class="js-technique btn btn-default btn-sm" data-routine-id="<%= @routine.id %>" data-movement-id="<%= movement.id %>">Show full technique...</button>-->
             <br><br>
-            <%= button_tag "Edit Exercise", class: "btn btn-primary btn-sm edit-exercise", method: "get", url: "/routines/#{@routine.id}/movements/#{movement.id}/edit" %>
+            <!-- Right below -->
+            <%= link_to "Edit Exercise", "/routines/#{@routine.id}/movements/#{movement.id}/edit", class: "edit-exercise", data: {exercise: movement.id} %>
+
+            <div id="edit-exercise-<%= movement.id %>-div"></div>
+
             <%= button_tag "Delete Exercise", class: "btn btn-danger btn-sm delete-exercise", method: "delete", url: "/routines/#{@routine.id}/movements/#{movement.id}" %>
           </div>
         </div>
