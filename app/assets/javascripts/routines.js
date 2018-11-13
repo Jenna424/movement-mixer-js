@@ -218,3 +218,8 @@ Routine.handleHideTechnique = function() {
     }
   })
 }
+
+Routine.compileEditExerciseTemplate = function() {
+  Routine.editExerciseTemplateSource = $('#edit-exercise-template').html()
+  Routine.editExerciseTemplateFunction = Handlebars.compile(Routine.editExerciseTemplateSource)
+}
