@@ -255,7 +255,7 @@ Routine.displayEditExerciseForm = function() {
 // Set movementId variable = the id of the movement I want to revise
 // Set JavaScript variable $editExerciseDiv = the jQuery object of the <div id="edit-exercise-ID OF MOVEMENT TO EDIT GOES HERE-div">,
 // which is where I will place the form to edit the technique, sets and reps join table attributes 
-// Reminder: this refers to the <a class="edit-exercise"> link that was clicked
+// Reminder: this refers to the <a class="edit-exercise"> link that was clicked, stored in the variable $linkClicked
 // Set variable url = href attribute value of this <a> link tag, which is the string URL "/routines/ROUTINE ID HERE/movements/MOVEMENT ID HERE/edit"
 // Use jQuery .get() method to send an AJAX GET request to "/routines/:routine_id/movements/:movement_id/edit".
 // The route '/routines/:routine_id/movements/:movement_id/edit' maps to the #edit_movement_routine action in RoutinesController 
@@ -272,13 +272,19 @@ Routine.displayEditExerciseForm = function() {
 // Reminder: in my application layout file, I render the partial app/views/shared/_hs_templates.html.erb
 // In this partial, I have a <script id="edit-exercise-template", inside of which I have the Handlebars template for generating the form to edit the technique, sets and reps attributes
 // In templates.js file, I conditionally compile the template by calling Routine.compileEditExerciseTemplate() if the template exists on the page
-// In Routine.compileEditExerciseTemplate, I got the HTML string source of the <script id="edit-exercise-template">, 
+// (It exists on the page because app/views/shared/_hs_templates.html.erb is rendered in my application.html.erb layout file)
+// In Routine.compileEditExerciseTemplate function, I got the HTML string source of the <script id="edit-exercise-template">, 
 // and then I passed this string HTML into Handlebars.compile()
-// to compile the string HTML along w/ any Handlebars {{}} delimiters into a function stored as Routine.editExerciseTemplateFunction
+// to compile the string HTML along w/ any Handlebars {{}} delimiters as part of a function stored as Routine.editExerciseTemplateFunction
 // I can invoke this function, passing in an object whose key names correspond to the variables between the Handlebars delimiters in the template
 // Set the variable mrHtml = Routine.editExerciseTemplateFunction(newMr), where newMr is the JS object I created with the JSON response I got back, which represents the instance of the MovementRoutine join model
 // mrHtml is the string HTML edit form with all the values filled in
 // Set this as the HTML content inside the <div id="edit-exercise-MOVEMENT ID HERE-div">
+// In the DOM, replace the Edit Exercise link that was clicked with the actual edit form w/ technique, sets and reps values filled in
+
+Routine.updateExercise = function() {
+
+}
 Routine.handleEditExercise = function() {
   Routine.displayEditExerciseForm()
   Routine.updateExercise()
