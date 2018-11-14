@@ -229,7 +229,7 @@ Routine.displayEditExerciseForm = function() {
   $(document).on('click', 'a.edit-exercise', function(e) {
     e.preventDefault()
     var $linkClicked = $(this)
-    var movementId = $(this).data('exercise')
+    var movementId = $(this).data('id')
     var $editExerciseDiv = $(`#edit-exercise-${movementId}-div`)
     var url = $(this).attr('href') // "/routines/:routine_id/movements/:movement_id/edit"
     $.get(url)
