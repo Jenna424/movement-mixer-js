@@ -27,10 +27,8 @@
         </div>
 
         <div id="movement-<%= movement.id %>"> 
-            <!--<p><strong>Technique</strong>: <%= truncate(movement.movement_routines.find_by(routine: @routine).technique) %></p>
-            <button class="js-technique btn btn-default btn-sm" data-routine-id="<%= @routine.id %>" data-movement-id="<%= movement.id %>">Show full technique...</button>-->
             <br><br>
-            <!-- Right below -->
+            
             <%= link_to "Edit Exercise", "/routines/#{@routine.id}/movements/#{movement.id}/edit", class: "edit-exercise", data: {exercise: movement.id} %>
 
             <div id="edit-exercise-<%= movement.id %>-div"></div>
