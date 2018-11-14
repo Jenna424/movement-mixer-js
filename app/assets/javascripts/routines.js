@@ -54,6 +54,7 @@ Routine.bindClickEventHandlers = function() {
   Routine.handleShowFullTechnique()
   Routine.handleHideTechnique()
   Routine.handleEditExercise()
+  Routine.handleCancelEdit()
 }
 
 Routine.addMovementHandler = function() {
@@ -312,6 +313,15 @@ Routine.updateExercise = function() {
 Routine.handleEditExercise = function() {
   Routine.displayEditExerciseForm()
   Routine.updateExercise()
+}
+
+Routine.handleCancelEdit = function() {
+  $(document).on('click', 'input.cancel-edit', function(e) {
+    var movementRoutineId = $(this).data('mr-id')
+    var movementId = $(this).data('movement-id')
+    $(`form.edit-mr-${movementRoutineId}`).hide()
+    $(`a[data-id=${movementId}]`).show()
+  })
 }
 
 
