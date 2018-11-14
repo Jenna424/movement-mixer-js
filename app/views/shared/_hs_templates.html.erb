@@ -67,6 +67,8 @@ which is defined in movements.js file -->
 </script>
 
 <script id="edit-exercise-template" type="text/x-handlebars-template">
+  <hr>
+  <h4><em>Editing {{movement.name}}</em></h4>
   <form class="edit_routine" id="edit_routine_{{routine.id}}" action="/routines/{{routine.id}}/movements/{{movement.id}}" accept-charset="UTF-8" method="post">
     <input name="utf8" type="hidden" value="✓">
     <input type="hidden" name="_method" value="patch">
@@ -90,4 +92,5 @@ which is defined in movements.js file -->
       <input type="submit" name="commit" value="Update Exercise" data-disable-with="Update Exercise" class="btn btn-default btn-sm">
     </div>
   </form>
+  <hr>
 </script>
