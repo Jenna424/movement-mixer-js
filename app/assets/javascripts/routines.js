@@ -228,17 +228,16 @@ Routine.compileEditExerciseTemplate = function() {
 Routine.displayEditExerciseForm = function() {
   $(document).on('click', 'a.edit-exercise', function(e) {
     e.preventDefault()
-    var $linkClicked = $(this)
+    var $editLinkClicked = $(this)
     var movementId = $(this).data('id')
     var $editExerciseDiv = $(`#edit-exercise-${movementId}-div`)
     var url = $(this).attr('href') // "/routines/:routine_id/movements/:movement_id/edit"
     $.get(url)
     .done(function(response) {
-      $editExerciseDiv.html('')
       let newMr = new MovementRoutine(response)
       let mrHtml = Routine.editExerciseTemplateFunction(newMr)
       $editExerciseDiv.html(mrHtml)
-      $linkClicked.hide()
+      $editLinkClicked.hide()
       $editExerciseDiv.show()
     })
   })
