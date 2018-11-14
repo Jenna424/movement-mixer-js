@@ -233,6 +233,7 @@ Routine.displayEditExerciseForm = function() {
     var url = $(this).attr('href') // "/routines/:routine_id/movements/:movement_id/edit"
     $.get(url)
     .done(function(response) {
+      $('a.edit-exercise').hide()
       $editExerciseDiv.html('')
       let newMr = new MovementRoutine(response)
       let mrHtml = Routine.editExerciseTemplateFunction(newMr)
