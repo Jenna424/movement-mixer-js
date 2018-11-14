@@ -286,7 +286,7 @@ Routine.updateExercise = function() {
     e.preventDefault()
     var $form = $(this) // the <form> we're submitting (<form class="edit-mr-SPECIFIC MR ID HERE">)
     var action = $form.attr('action') // "/routines/:routine_id/movements/:movement_id"
-    var movementId = action.split("/").pop() // .pop() removes and returns the last element in the array
+    var movementId = action.split("/").pop() // .pop() removes and returns the last element in the array (movement's id value)
     $.ajax({
       url: action,
       method: 'patch',
@@ -301,7 +301,7 @@ Routine.updateExercise = function() {
       var $repsParagraph = $(`p#move-${movementId}-reps`)
       $repsParagraph.html(`<strong>Reps</strong>: ${newMr.reps}`)
       $form.hide()
-      $(`a[data-exercise=${movementId}]`).show()
+      $(`a[data-id=${movementId}]`).show()
     })
   })
 }
