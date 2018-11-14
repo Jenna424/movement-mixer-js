@@ -238,7 +238,8 @@ Routine.displayEditExerciseForm = function() {
       let newMr = new MovementRoutine(response)
       let mrHtml = Routine.editExerciseTemplateFunction(newMr)
       $editExerciseDiv.html(mrHtml)
-      $linkClicked.replaceWith($editExerciseDiv)
+      $linkClicked.hide()
+      $editExerciseDiv.show()
     })
   })
 }
@@ -282,11 +283,13 @@ Routine.displayEditExerciseForm = function() {
 // Set this as the HTML content inside the <div id="edit-exercise-MOVEMENT ID HERE-div">
 // In the DOM, replace the Edit Exercise link that was clicked with the actual edit form w/ technique, sets and reps values filled in
 
-Routine.updateExercise = function() {
-
-}
+// The user types in new values for technique, sets and/or reps in the edit form
+// Afterward, the user clicks Update Exercise form submit button
+// Prevent the default submit action of the form, which would be a PATCH request to "/routines/:routine_id/movements/:movement_id"
+// The response
 Routine.handleEditExercise = function() {
   Routine.displayEditExerciseForm()
   Routine.updateExercise()
 }
+
 
