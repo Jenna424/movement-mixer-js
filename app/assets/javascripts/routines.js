@@ -277,4 +277,7 @@ Routine.displayEditExerciseForm = function() {
 // Set the variable mrHtml = Routine.editExerciseTemplateFunction(newMr), where newMr is the JS object I created with the JSON response I got back, which represents the instance of the MovementRoutine join model
 // mrHtml is the string HTML edit form with all the values filled in
 // Set this as the HTML content inside the <div id="edit-exercise-MOVEMENT ID HERE-div">
+Routine.handleEditExercise = function() {
+  Routine.displayEditExerciseForm()
+}
 
