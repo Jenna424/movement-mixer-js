@@ -282,7 +282,30 @@ Routine.displayEditExerciseForm = function() {
 // mrHtml is the string HTML edit form with all the values filled in
 // Set this as the HTML content inside the <div id="edit-exercise-MOVEMENT ID HERE-div">
 // In the DOM, replace the Edit Exercise link that was clicked with the actual edit form w/ technique, sets and reps values filled in
-
+Routine.updateExercise = function() {
+  $(document).on('submit', 'form.edit-mr', function(e) {
+    e.preventDefault()
+    var $form = $(this) // the <form> we're submitting (<form class="edit-mr-SPECIFIC MR ID HERE">)
+    var action = $form.attr('action') // "/routines/:routine_id/movements/:movement_id"
+    var movementId = action.split("/").pop() // .pop() removes and returns the last element in the array
+    $.ajax({
+      url: action,
+      method: 'patch',
+      data: $form.serialize(),
+      dataType: 'json'
+    })
+    .done(function(response) {
+      var newMr = new MovementRoutine(response)
+      // call a MovementRoutine formatter method here instead?
+      var $setsParagraph = $(`p#move-${movementId}-sets`)
+      $setsParagraph.html(`<strong>Sets</strong>: ${newMr.sets}`)
+      var $repsParagraph = $(`p#move-${movementId}-reps`)
+      $repsParagraph.html(`<strong>Reps</strong>: ${newMr.reps}`)
+      $form.hide()
+      $(`a[data-exercise=${movementId}]`).show()
+    })
+  })
+}
 // The user types in new values for technique, sets and/or reps in the edit form
 // Afterward, the user clicks Update Exercise form submit button
 // Prevent the default submit action of the form, which would be a PATCH request to "/routines/:routine_id/movements/:movement_id"
