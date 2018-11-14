@@ -279,5 +279,6 @@ Routine.displayEditExerciseForm = function() {
 // Set this as the HTML content inside the <div id="edit-exercise-MOVEMENT ID HERE-div">
 Routine.handleEditExercise = function() {
   Routine.displayEditExerciseForm()
+  Routine.updateExercise()
 }
 
