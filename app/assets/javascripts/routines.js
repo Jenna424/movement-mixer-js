@@ -200,8 +200,8 @@ Routine.handleHideTechnique = function() {
     var $hideTechniqueButton = $(this);
     var movementId = $hideTechniqueButton.data('movement-id')
     var $displayTechniqueDiv = $(`#move-${movementId}-technique-div`);
-    if (techniqueDiv.text().trim().length) { // If there is technique text inside <div>
-      techniqueDiv.html('') // empty out the <div>
+    if ($displayTechniqueDiv.text().trim().length) {
+      $displayTechniqueDiv.html('')
       var $showButton = $(`#show-technique-${movementId}`)
       console.log($showButton)
       $showButton.show()
