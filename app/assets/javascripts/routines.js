@@ -209,23 +209,7 @@ Routine.compileEditExerciseTemplate = function() {
   Routine.editExerciseTemplateFunction = Handlebars.compile(Routine.editExerciseTemplateSource)
 }
 
-Routine.displayEditExerciseForm = function() { // calling .on() on $(document) works too
-  $('div.panel-default').on('click', 'a.edit-exercise', function(e) {
-    e.preventDefault()
-    var $editLinkClicked = $(this)
-    var mrId = $(this).data('edit-id')
-    var $editExerciseDiv = $(`#edit-exercise-${mrId}-div`)
-    var url = $(this).attr('href') // "/routines/:routine_id/movements/:movement_id/edit"
-    $.get(url)
-    .done(function(response) {
-      let newMr = new MovementRoutine(response)
-      let mrHtml = Routine.editExerciseTemplateFunction(newMr)
-      $editExerciseDiv.html(mrHtml)
-      $editLinkClicked.hide()
-      $editExerciseDiv.show()
-    })
-  })
-}
+
 // On the routine show page, the user clicks an Edit Exercise link beside each movement that the user wants to edit in the context of that workout routine.
 // Editing an exercise just means updating the technique, sets and reps user-submittable attributes that are stored on the join table movement_routines.
 // When the user clicks the Edit Exercise link, the user sees a form to update only the technique, sets and reps of that particular exercise movement in that specific workout routine.
@@ -235,8 +219,9 @@ Routine.displayEditExerciseForm = function() { // calling .on() on $(document) w
 // Hijack the click event by calling .on() on the jQuery object of this <div>, passing in the name of the event ('click') as the 1st argument to .on()
 // The second argument passed to .on() is the <a> link element whose click event we actually want to hijack (the <a class="edit-exercise"> link)
 // Prevent the default action, which would be to redirect to "/routines/:routine_id/movements/:movement_id/edit"
-// The Edit Exercise link on the routine show page has a data-edit-id property that stores the id of the MovementRoutine instance I want to edit
+// The Edit Exercise link on the routine show page has a data-mr-id property that stores the id of the MovementRoutine instance I want to edit
 // Set mrId variable = the id of the MovementRoutine I want to revise
+// The Edit Exercise link also has a data-movement-id property that stores the id of the movement instance
 // Set JavaScript variable $editExerciseDiv = the jQuery object of the <div id="edit-exercise-ID OF MOVEMENTROUTINE TO EDIT GOES HERE-div">,
 // which is where I will place the form to edit the technique, sets and reps join table attributes 
 // Reminder: this refers to the <a class="edit-exercise"> link that was clicked, stored in the variable $editLinkClicked
