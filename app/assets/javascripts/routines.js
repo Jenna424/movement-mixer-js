@@ -171,42 +171,11 @@ Routine.prototype.formatForIndex = function() {
   return Routine.listWorkoutTemplateFunction(this)
 }
 // On the routine show page, each movement in the collection of movements that comprise the routine
-// has a Show Full Technique button
+// has a Show Technique button
 // When clicked, this button should add that movement's technique for that routine
 // Technique is stored on the movement_routines join table 
-Routine.handleShowTechnique = function() {
-  $('div.panel-default').on('click', '.js-show-technique', function() {
-    var $showTechniqueButton = $(this); // $showTechniqueButton stores the Show Technique button that was clicked, which has data-routine-id and data-movement-id properties (data attributes)
-    var routineId = $(this).data('routine-id')
-    var movementId = $(this).data('movement-id')
-    $.get(`/routines/${routineId}.json`)
-    .done(function(response) {
-      $showTechniqueButton.hide()
-      var $displayTechniqueDiv = $(`#move-${movementId}-technique-div`);
-      $displayTechniqueDiv.html('') // empty <h5> and any stale technique text from this <div>
-      var mrsArray = response.movement_routines
-      var filteredArray = mrsArray.filter(function(mrObject){ 
-        return mrObject.movement_id === movementId
-      })
-      var technique = filteredArray[0].technique
-      $displayTechniqueDiv.append("<h5><em>Your Unique Technique</em>:</h5>")
-      $displayTechniqueDiv.append(technique)
-    })
-  })
-}
 
-Routine.handleHideTechnique = function() {
-  $('div.panel-default').on('click', '.js-hide-technique', function() {
-    var $hideTechniqueButton = $(this);
-    var movementId = $hideTechniqueButton.data('movement-id')
-    var $displayTechniqueDiv = $(`#move-${movementId}-technique-div`);
-    if ($displayTechniqueDiv.text().trim().length) {
-      $displayTechniqueDiv.html('')
-      var $showTechniqueButton = $(`#show-technique-${movementId}`)
-      $showTechniqueButton.show()
-    }
-  })
-}
+
 
 Routine.compileEditExerciseTemplate = function() {
   Routine.editExerciseTemplateSource = $('#edit-exercise-template').html()
@@ -283,6 +252,7 @@ Routine.updateExercise = function() {
     })
     .done(function(response) {
       var newMr = new MovementRoutine(response)
+      var mrHtml = newMr.formatAttributes()
       // call a MovementRoutine formatter method here instead?
       var $setsParagraph = $(`p#move-${movementId}-sets`)
       $setsParagraph.html(`<strong>Sets</strong>: ${newMr.sets}`)
