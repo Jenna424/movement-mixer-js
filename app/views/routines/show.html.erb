@@ -5,6 +5,29 @@
     </h3>
     <br>
     <p><span class="glyphicon glyphicon-time"></span> <strong>Duration</strong>: <%= @routine.duration %> minutes</p>
-    <p><span class="glyphicon glyphicon-signal"></span> <strong>Difficulty Level</strong>: <%= @routine.difficulty_level%></p>
+    <p><span class="glyphicon glyphicon-signal"></span> <strong>Difficulty Level</strong>: <%= @routine.difficulty_level %></p>
+  </div>
+
+  <div class="panel-body">
+    <% @routine.movements.each do |movement| %>
+      <h5>Exercise #<%= movement.position_in_routine(@routine) %>: <%= link_to movement.name, movement_path(movement), class: "show-exercise", data: {id: movement.id} %></h5>
+
+      <button class="js-show-technique btn btn-default btn-sm" data-id="<%= mr_instance(movement, @routine).id %>">Show Technique</button>
+
+      <div id="display-technique-<%= mr_instance(movement, @routine).id %>"></div>
+
+      <p id="sets-paragraph-<%= mr_instance(movement, @routine).id %>"><strong>Sets</strong>: <%= mr_instance(movement, @routine).sets %></p>
+
+      <p id="reps-paragraph-<%= mr_instance(movement, @routine).id %>"><strong>Reps</strong>: <%= mr_instance(movement, @routine).reps %></p>
+
+      <%= link_to "Edit Exercise", "/routines/#{@routine.id}/movements/#{movement.id}/edit", class: "edit-exercise" %>
+
+      <div id="edit-exercise-<%= mr_instance(movement, @routine).id %>-div"></div>
+
+
+      <%= button_tag "Delete Exercise", class: "btn btn-danger btn-sm delete-exercise", method: "delete", url: "/routines/#{@routine.id}/movements/#{movement.id}" %>
+
+      <hr>
+    <% end %>
   </div>
 </div>
