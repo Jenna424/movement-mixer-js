@@ -176,7 +176,6 @@ Routine.prototype.formatForIndex = function() {
 // Technique is stored on the movement_routines join table 
 Routine.handleShowFullTechnique = function() {
   $('div.panel-default').on('click', '.js-show-technique', function(e) {
-    e.preventDefault();
     var $button = $(this); // $button stores the button that was clicked
     console.log($button)
     var routineId = $(this).data('routine-id')
@@ -204,7 +203,6 @@ Routine.handleShowFullTechnique = function() {
 
 Routine.handleHideTechnique = function() {
   $('div.panel-default').on('click', '.js-hide-technique', function(e) {
-    e.preventDefault()
     console.log("clicked hide movement's technique")
     var $hideButton = $(this);
     console.log($hideButton)
@@ -301,6 +299,8 @@ Routine.updateExercise = function() {
       $setsParagraph.html(`<strong>Sets</strong>: ${newMr.sets}`)
       var $repsParagraph = $(`p#move-${movementId}-reps`)
       $repsParagraph.html(`<strong>Reps</strong>: ${newMr.reps}`)
+      var $techniqueParagraph = $(`p#move-${movementId}-technique`)
+      $techniqueParagraph.html(newMr.technique)
       $form.hide()
       $(`a[data-id=${movementId}]`).show()
     })
