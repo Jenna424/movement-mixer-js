@@ -197,8 +197,7 @@ Routine.handleShowTechnique = function() {
 
 Routine.handleHideTechnique = function() {
   $('div.panel-default').on('click', '.js-hide-technique', function() {
-    var $hideButton = $(this);
-    console.log($hideButton)
+    var $hideTechniqueButton = $(this);
     var movementId = $hideButton.data('movement-id')
     var techniqueDiv = $(`div#technique-move-${movementId}`);
     if (techniqueDiv.text().trim().length) { // If there is technique text inside <div>
