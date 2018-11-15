@@ -213,9 +213,8 @@ Routine.displayEditExerciseForm = function() {
   $('div.panel-default').on('click', 'a.edit-exercise', function(e) {
     e.preventDefault()
     var $editLinkClicked = $(this)
-    var mrId = $(this).data('mr-id') // id of the MovementRoutine instance
     var movementId = $(this).data('movement-id') // id of the movement instance
-    var $editExerciseDiv = $(`#edit-exercise-${mrId}-div`)
+    var $editExerciseDiv = $(`#edit-exercise-${movementId}-div`)
     var url = $(this).attr('href') // "/routines/:routine_id/movements/:movement_id/edit"
     $.get(url)
     .done(function(response) {
@@ -224,6 +223,7 @@ Routine.displayEditExerciseForm = function() {
       $editExerciseDiv.html(mrHtml)
       $editLinkClicked.hide()
       $editExerciseDiv.show()
+      $editExerciseDiv.addClass('well well-lg')
     })
   })
 }
