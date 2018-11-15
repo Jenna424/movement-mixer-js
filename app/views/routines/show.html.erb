@@ -19,7 +19,7 @@
           <p id="move-<%= movement.id %>-reps"><strong>Reps</strong>: <%= movement.movement_routines.find_by(routine: @routine).reps %></p>
         </div>
 
-        <button id="show-technique-<%= movement.id %>"class="js-show-technique btn btn-default btn-sm" data-routine-id="<%= @routine.id %>" data-movement-id="<%= movement.id %>">Show Full Technique</button>
+        <button id="show-technique-<%= movement.id %>"class="js-show-technique btn btn-default btn-sm" data-routine-id="<%= @routine.id %>" data-movement-id="<%= movement.id %>">Show Technique</button>
 
         <button class="js-hide-technique btn btn-default btn-sm" data-routine-id="<%= @routine.id %>" data-movement-id="<%= movement.id %>">Hide Technique</button>
 
