@@ -51,7 +51,7 @@ Routine.bindClickEventHandlers = function() {
   Routine.addTrainingTypeHandler()
   Routine.handleCreateFormSubmission()
   Routine.handleWorkoutsIndex()
-  Routine.handleShowFullTechnique()
+  Routine.handleShowTechnique()
   Routine.handleHideTechnique()
   Routine.handleEditExercise()
   Routine.handleCancelEdit()
@@ -174,7 +174,7 @@ Routine.prototype.formatForIndex = function() {
 // has a Show Full Technique button
 // When clicked, this button should add that movement's technique for that routine
 // Technique is stored on the movement_routines join table 
-Routine.handleShowFullTechnique = function() {
+Routine.handleShowTechnique = function() {
   $('div.panel-default').on('click', '.js-show-technique', function(e) {
     var $showTechniqueButton = $(this); // $showTechniqueButton stores the Show Technique button that was clicked, which has data-routine-id and data-movement-id properties (data attributes)
     var routineId = $(this).data('routine-id')
