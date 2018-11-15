@@ -20,9 +20,9 @@
 
       <p id="reps-paragraph-<%= mr_instance(movement, @routine).id %>"><strong>Reps</strong>: <%= mr_instance(movement, @routine).reps %></p>
 
-      <%= link_to "Edit Exercise", "/routines/#{@routine.id}/movements/#{movement.id}/edit", class: "edit-exercise" %>
+      <a class="edit-exercise" href="/routines/<%= @routine.id %>/movements/<%= movement.id %>/edit" data-movement-id="<%= movement.id %>">Edit Exercise</a>
 
-      <div id="edit-exercise-<%= mr_instance(movement, @routine).id %>-div"></div>
+      <div id="edit-exercise-<%= movement.id %>-div"></div>
 
       <%= button_tag "Delete Exercise", class: "btn btn-danger btn-sm delete-exercise", method: "delete", url: "/routines/#{@routine.id}/movements/#{movement.id}" %>
       <hr>
