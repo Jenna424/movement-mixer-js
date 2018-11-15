@@ -192,7 +192,17 @@ Routine.handleShowTechnique = function() {
   })
 }
 
-
+Routine.handleHideTechnique = function() {
+  $('div.panel-default').on('click', '.js-hide-technique', function(e) {
+    var mrId = $(this).data('hide-id')
+    var displayTechniqueDiv = $(`#display-technique-${mrId}`)
+    displayTechniqueDiv.html('')
+    displayTechniqueDiv.removeClass('well well-lg')
+    $(this).hide()
+    var showButton = $(`[data-id=${mrId}]`)
+    showButton.show()
+  })
+}
 
 Routine.compileEditExerciseTemplate = function() {
   Routine.editExerciseTemplateSource = $('#edit-exercise-template').html()
