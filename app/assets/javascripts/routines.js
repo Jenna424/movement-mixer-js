@@ -307,7 +307,8 @@ Routine.handleCancelEdit = function() {
     var movementRoutineId = $(this).data('mr-id')
     var movementId = $(this).data('movement-id')
     $(`form.edit-mr-${movementRoutineId}`).hide()
-    $(`a[data-id=${movementId}]`).show()
+    $(`a[data-movement-id=${movementId}]`).show()
+    $(`div#edit-exercise-${movementId}-div`).removeClass('well well-lg')
   })
 }
 
