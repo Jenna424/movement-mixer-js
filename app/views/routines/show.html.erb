@@ -24,10 +24,12 @@
 
       <div id="edit-exercise-<%= mr_instance(movement, @routine).id %>-div"></div>
 
-
       <%= button_tag "Delete Exercise", class: "btn btn-danger btn-sm delete-exercise", method: "delete", url: "/routines/#{@routine.id}/movements/#{movement.id}" %>
-
       <hr>
     <% end %>
   </div>
 </div>
+
+<% if policy(@routine).edit? %>
+  <%= link_to "Edit Workout", edit_routine_path(@routine), class: 'edit-workout btn btn-default btn-sm', data: {id: @routine.id} %>
+<% end %>
