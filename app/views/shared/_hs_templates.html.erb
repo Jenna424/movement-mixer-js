@@ -1,3 +1,9 @@
+<script id="technique-template" type="text/x-handlebars-template">
+  <p><strong>Technique for Performing {{movement.name}} in <em>{{routine.title}}</em></strong>:</p>
+  <p>{{technique}}</p>
+  <button class="js-hide-technique btn btn-default btn-sm" data-hide-id="{{id}}">Hide Technique</button>
+</script>
+
 <!-- User clicks "View All Workouts" link in navbar, and I use the Handlebars template below 
 when I make my AJAX GET request to "/routines" using fetch() in the function Routine.handleWorkoutsIndex,
 which is defined in routines.js file -->
