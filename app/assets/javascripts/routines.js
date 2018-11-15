@@ -176,14 +176,12 @@ Routine.prototype.formatForIndex = function() {
 // Technique is stored on the movement_routines join table 
 Routine.handleShowFullTechnique = function() {
   $('div.panel-default').on('click', '.js-show-technique', function(e) {
-    var $button = $(this); // $button stores the button that was clicked
-    console.log($button)
+    var $showTechniqueButton = $(this); // $showTechniqueButton stores the Show Technique button that was clicked, which has data-routine-id and data-movement-id properties (data attributes)
     var routineId = $(this).data('routine-id')
     var movementId = $(this).data('movement-id')
     $.get(`/routines/${routineId}.json`)
     .done(function(response) {
-      $button.hide()
-      //$(`button[data-movement-id='${movementId}']`).hide();
+      $showTechniqueButton.hide()
       var $div = $(`#technique-move-${movementId}`);
       $div.html('') // clear out the <div id="toggle-technique">
       var mrsArray = response.movement_routines
