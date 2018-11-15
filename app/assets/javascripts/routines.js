@@ -197,7 +197,6 @@ Routine.handleShowTechnique = function() {
 
 Routine.handleHideTechnique = function() {
   $('div.panel-default').on('click', '.js-hide-technique', function() {
-    console.log("clicked hide movement's technique")
     var $hideButton = $(this);
     console.log($hideButton)
     var movementId = $hideButton.data('movement-id')
