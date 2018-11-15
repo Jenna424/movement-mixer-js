@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= @routine.title %><small><em> — a workout designed by <%= @routine.user.name %></em></small>
+    </h3>
+    <br>
+    <p><span class="glyphicon glyphicon-time"></span> <strong>Duration</strong>: <%= @routine.duration %> minutes</p>
+    <p><span class="glyphicon glyphicon-signal"></span> <strong>Difficulty Level</strong>: <%= @routine.difficulty_level%></p>
+  </div>
+</div>
