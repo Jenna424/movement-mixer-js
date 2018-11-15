@@ -202,9 +202,8 @@ Routine.handleHideTechnique = function() {
     var $displayTechniqueDiv = $(`#move-${movementId}-technique-div`);
     if ($displayTechniqueDiv.text().trim().length) {
       $displayTechniqueDiv.html('')
-      var $showButton = $(`#show-technique-${movementId}`)
-      console.log($showButton)
-      $showButton.show()
+      var $showTechniqueButton = $(`#show-technique-${movementId}`)
+      $showTechniqueButton.show()
     } else {
       console.log('The div was empty to begin with!')
     }
