@@ -20,9 +20,6 @@ function checkIfTemplatesExist() {
   } else if (userWorkoutsTemplateExists) { // Currently on user show page, where link is clicked to view that user's workout routines
     User.compileUserWorkoutsTemplate()
     console.log("Compiled the User Workouts Handlebars Template!")
-  } else if (techniqueTemplateExists) { // User is on the routine show page
-    Routine.compileTechniqueTemplate()
-    console.log("Compiled the Technique Template!")
   } else {
     console.log("The current DOM page only contains the 2 Handlebars templates found in _navbar partial.")
   }
