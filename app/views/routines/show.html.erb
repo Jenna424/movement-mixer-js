@@ -28,9 +28,9 @@
         content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:small, "Edit Exercise")
       end %>
 
-      <%= link_to "/routines/#{@routine.id}/movements/#{movement.id}", method: :delete, id: "delete-movement-#{movement.id}", data: { confirm: "Remove this exercise from your workout routine?" }, class: "btn btn-danger btn-sm" do 
-        content_tag(:span, nil, class: "glyphicon glyphicon-trash") + content_tag(:small, "Delete Exercise")
-      end %>
+      <%= button_to "/routines/#{@routine.id}/movements/#{movement.id}", class: "btn btn-danger btn-sm", id: "delete-movement-#{movement.id}", data: { confirm: "Remove this exercise from your workout routine?" }, method: :delete, form: {style: 'display:inline-block;'} do %>
+        <span class="glyphicon glyphicon-trash"></span> <small>Delete Exercise</small>
+      <% end %>
 
       <br>
       <hr>
