@@ -22,14 +22,17 @@
 
       <p id="reps-paragraph-<%= mr_instance(movement, @routine).id %>"><strong>Reps</strong>: <%= mr_instance(movement, @routine).reps %></p>
 
-      <%= link_to "/routines/#{@routine.id}/movements/#{movement.id}/edit", class: "edit-exercise btn btn-default btn-sm", 
-      data: {movement_id: movement.id } do 
+       <div id="edit-exercise-<%= movement.id %>-div"></div>
+
+      <%= link_to "/routines/#{@routine.id}/movements/#{movement.id}/edit", class: "edit-exercise btn btn-default btn-sm", data: {movement_id: movement.id } do
         content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:small, "Edit Exercise")
       end %>
-    
-      <div id="edit-exercise-<%= movement.id %>-div"></div>
 
-      
+      <%= link_to "/routines/#{@routine.id}/movements/#{movement.id}", method: :delete, id: "delete-movement-#{movement.id}", data: { confirm: "Remove this exercise from your workout routine?" }, class: "btn btn-danger btn-sm" do 
+        content_tag(:span, nil, class: "glyphicon glyphicon-trash") + content_tag(:small, "Delete Exercise")
+      end %>
+
+      <br>
       <hr>
     <% end %>
   </div>
