@@ -55,7 +55,6 @@ Routine.bindClickEventHandlers = function() {
   Routine.handleHideTechnique()
   Routine.handleEditExercise()
   Routine.handleCancelEdit()
-  Routine.handleDeleteExercise()
 }
 
 Routine.addMovementHandler = function() {
@@ -303,5 +302,3 @@ Routine.handleCancelEdit = function() {
     $(`div#edit-exercise-${movementId}-div`).removeClass('well well-lg')
   })
 }
-
-
