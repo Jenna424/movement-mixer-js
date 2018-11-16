@@ -8,7 +8,7 @@
     <p><span class="glyphicon glyphicon-signal"></span> <strong>Difficulty Level</strong>: <%= @routine.difficulty_level %></p>
   </div>
 
-  <div class="panel-body">
+  <div class="panel-body" id="workout-routine">
     <% @routine.movements.each do |movement| %>
       <div id="mr-<%= mr_instance(movement, @routine).id %>-data" data-routine-id="<%= @routine.id %>" data-movement-id="<%= movement.id %>">
         <h5>Exercise #<%= movement.position_in_routine(@routine) %>: <%= link_to movement.name, movement_path(movement), class: "show-exercise", data: {id: movement.id} %></h5>
@@ -29,7 +29,7 @@
           content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:small, " Edit Exercise")
         end %>
 
-        <%= button_to "/routines/#{@routine.id}/movements/#{movement.id}", class: "btn btn-danger btn-sm", id: "delete-movement-#{movement.id}", data: { confirm: "Remove this exercise from your workout routine?" }, method: :delete, form: {style: 'display:inline-block;'} do %>
+        <%= button_to "/routines/#{@routine.id}/movements/#{movement.id}", class: "btn btn-danger btn-sm delete-exercise", id: "delete-movement-#{movement.id}", method: :delete, data: { confirm: "Remove this exercise from your workout routine?" }, form: {style: 'display:inline-block;'} do %>
           <span class="glyphicon glyphicon-trash"></span> <small>Delete Exercise</small>
         <% end %>
 
