@@ -283,7 +283,7 @@ Routine.updateExercise = function() {
       var mrHtml = newMr.formatJoinTableAttrs()
       $form.hide()
       $(`div#edit-exercise-${movementId}-div`).removeClass('well well-lg')
-      $(`a[class='edit-exercise'][data-movement-id=${movementId}]`).show()
+      $(`a[data-movement-id=${movementId}]`).show()
     })
   })
 }
