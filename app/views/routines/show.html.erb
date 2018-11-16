@@ -11,8 +11,10 @@
   <div class="panel-body">
     <% @routine.movements.each do |movement| %>
       <h5>Exercise #<%= movement.position_in_routine(@routine) %>: <%= link_to movement.name, movement_path(movement), class: "show-exercise", data: {id: movement.id} %></h5>
-
+      
       <button class="js-show-technique btn btn-default btn-sm" data-id="<%= mr_instance(movement, @routine).id %>">Show Technique</button>
+
+      <br><br>
 
       <div id="display-technique-<%= mr_instance(movement, @routine).id %>"></div>
 
@@ -20,8 +22,11 @@
 
       <p id="reps-paragraph-<%= mr_instance(movement, @routine).id %>"><strong>Reps</strong>: <%= mr_instance(movement, @routine).reps %></p>
 
-      <a class="edit-exercise" href="/routines/<%= @routine.id %>/movements/<%= movement.id %>/edit" data-movement-id="<%= movement.id %>">Edit Exercise</a>
-
+      <%= link_to "/routines/#{@routine.id}/movements/#{movement.id}/edit", class: "edit-exercise btn btn-default btn-sm", 
+      data: {movement_id: movement.id } do 
+        content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:small, "Edit Exercise")
+      end %>
+    
       <div id="edit-exercise-<%= movement.id %>-div"></div>
 
       <%= button_tag "Delete Exercise", class: "btn btn-danger btn-sm delete-exercise", method: "delete", url: "/routines/#{@routine.id}/movements/#{movement.id}" %>
