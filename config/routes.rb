@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   get '/mrs/:id' => 'routines#show_technique'
   get '/routines/:routine_id/movements/:movement_id/edit' => 'routines#edit_movement_routine'
   patch '/routines/:routine_id/movements/:movement_id' => 'routines#update_movement_routine'
-  delete '/routines/:routine_id/movements/:movement_id' => 'movements#destroy'
+  delete '/routines/:routine_id/movements/:movement_id' => 'routines#destroy_movement_routine'
 end
