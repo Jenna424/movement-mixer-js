@@ -55,6 +55,7 @@ Routine.bindClickEventHandlers = function() {
   Routine.handleHideTechnique()
   Routine.handleEditExercise()
   Routine.handleCancelEdit()
+  Routine.handleDeleteExercise()
 }
 
 Routine.addMovementHandler = function() {
