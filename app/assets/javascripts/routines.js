@@ -280,23 +280,14 @@ Routine.updateExercise = function() {
     })
     .done(function(response) {
       var newMr = new MovementRoutine(response)
-      var mrHtml = newMr.formatAttributes()
-      // call a MovementRoutine formatter method here instead?
-      var $setsParagraph = $(`p#move-${movementId}-sets`)
-      $setsParagraph.html(`<strong>Sets</strong>: ${newMr.sets}`)
-      var $repsParagraph = $(`p#move-${movementId}-reps`)
-      $repsParagraph.html(`<strong>Reps</strong>: ${newMr.reps}`)
-      var $techniqueParagraph = $(`p#move-${movementId}-technique`)
-      $techniqueParagraph.html(newMr.technique)
+      var mrHtml = newMr.formatJoinTableAttrs()
       $form.hide()
-      $(`a[data-id=${movementId}]`).show()
+      $(`div#edit-exercise-${movementId}-div`).removeClass('well well-lg')
+      $(`a[class='edit-exercise'][data-movement-id=${movementId}]`).show()
     })
   })
 }
-// The user types in new values for technique, sets and/or reps in the edit form
-// Afterward, the user clicks Update Exercise form submit button
-// Prevent the default submit action of the form, which would be a PATCH request to "/routines/:routine_id/movements/:movement_id"
-// The response
+
 Routine.handleEditExercise = function() {
   Routine.displayEditExerciseForm()
   Routine.updateExercise()
