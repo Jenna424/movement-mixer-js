@@ -12,7 +12,7 @@ $(function() {
 })
 
 MovementRoutine.bindEventListeners = function() {
-
+  MovementRoutine.destroyListener()
 }
 
 MovementRoutine.compileTechniqueTemplate = function() {
