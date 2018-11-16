@@ -7,6 +7,14 @@ function MovementRoutine(movementRoutine) {
   this.reps = movementRoutine.reps
 }
 
+$(function() {
+  MovementRoutine.bindEventListeners()
+})
+
+MovementRoutine.bindEventListeners = function() {
+
+}
+
 MovementRoutine.compileTechniqueTemplate = function() {
   MovementRoutine.techniqueTemplateSource = $('#technique-template').html()
   MovementRoutine.techniqueTemplateFunction = Handlebars.compile(MovementRoutine.techniqueTemplateSource)
