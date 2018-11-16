@@ -20,7 +20,6 @@ MovementRoutine.prototype.formatJoinTableAttrs = function() {
   var mrId = this.id
   var $setsParagraph = $(`#sets-paragraph-${mrId}`)
   var $repsParagraph = $(`#reps-paragraph-${mrId}`)
-  var $displayTechniqueDiv = $(`#display-technique-${mrId}`)
   $setsParagraph.html(`<strong>Sets</strong>: ${this.sets}`)
   $repsParagraph.html(`<strong>Reps</strong>: ${this.reps}`)
 }
