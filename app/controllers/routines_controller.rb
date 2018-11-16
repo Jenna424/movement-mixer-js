@@ -65,6 +65,15 @@ class RoutinesController < ApplicationController
     end
   end
 
+  def destroy_movement_routine # DELETE '/routines/:routine_id/movements/:movement_id' => 'routines#destroy_movement_routine'
+    movement_routine = MovementRoutine.find_by(routine: params[:routine_id], movement: params[:movement_id])
+    movement_routine.destroy
+    respond_to do |f|
+      f.html { redirect_to routine_path(params[:routine_id])}
+      f.json { render json: movement_routine} # render JSON object representation of the MovementRoutine join model instance that was just deleted
+    end
+  end
+
   private
 
     def set_routine
