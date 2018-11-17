@@ -10,7 +10,7 @@
 
   <div class="panel-body" id="workout-routine">
     <% @routine.movements.each do |movement| %>
-      <div id="mr-<%= mr_instance(movement, @routine).id %>-data" data-routine-id="<%= @routine.id %>" data-movement-id="<%= movement.id %>">
+      <div id="mr-<%= mr_instance(movement, @routine).id %>-div" data-routine-id="<%= @routine.id %>" data-movement-id="<%= movement.id %>">
         <h5>Exercise: <%= link_to movement.name, movement_path(movement), class: "show-exercise", data: {id: movement.id} %></h5>
       
         <button class="js-show-technique btn btn-default btn-sm" data-id="<%= mr_instance(movement, @routine).id %>">Show Technique</button>
