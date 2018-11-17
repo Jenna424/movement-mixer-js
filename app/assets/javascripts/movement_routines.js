@@ -26,14 +26,18 @@ MovementRoutine.destroyListener = function() {
         data: $(this).serialize()
       })
       .done(function(response) {
-        var newMr = new MovementRoutine(response)
-        var mrId = newMr.id
-        $(`div#mr-${mrId}-data`).remove()
+        MovementRoutine.destroy()
       })
     } else {
       console.log("User did not confirm exercise deletion.")
     }
   })
+}
+
+MovementRoutine.destroy = function(json) { // json parameter of MovementRoutine.destroy function = JSON object representation of the A.R. MovementRoutine join model instance that was just destroyed = the JSON response I get back from MovementRoutine.destroyListener()
+  var newMr = new MovementRoutine(json)
+  var mrId = newMr.id
+  $(`div#mr-${mrId}-data`).remove()
 }
 
 MovementRoutine.compileTechniqueTemplate = function() {
