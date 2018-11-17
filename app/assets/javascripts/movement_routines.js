@@ -36,7 +36,11 @@ MovementRoutine.destroyListener = function() {
 
 MovementRoutine.destroy = function(json) { // json parameter of MovementRoutine.destroy function = JSON object representation of the A.R. MovementRoutine join model instance that was just destroyed = the JSON response I get back from MovementRoutine.destroyListener()
   var newMr = new MovementRoutine(json)
-  var mrId = newMr.id
+  newMr.removeMrDiv() // calling removeMrDiv() prototype method on newMr object
+}
+
+MovementRoutine.prototype.removeMrDiv = function() {
+  var mrId = this.id // this refers to the newMr JSON object on which I'm calling prototype method .removeMrDiv()
   $(`div#mr-${mrId}-data`).remove()
 }
 
