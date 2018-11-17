@@ -25,9 +25,7 @@ MovementRoutine.destroyListener = function() {
         dataType: 'json',
         data: $(this).serialize()
       })
-      .done(function(response) {
-        MovementRoutine.destroy()
-      })
+      .done(MovementRoutine.destroy)
     } else {
       console.log("User did not confirm exercise deletion.")
     }
