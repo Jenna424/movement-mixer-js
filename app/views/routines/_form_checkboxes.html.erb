@@ -1,0 +1,21 @@
+<label>Which area(s) of the body will this workout target?</label>
+
+<div class="target-area-checkboxes">
+  <%= hidden_field_tag "routine[target_ids][]", nil %>
+  <% Target.all.each do |target_area| %>
+    <%= check_box_tag "routine[target_ids][]", target_area.id, routine.target_ids.include?(target_area.id), id: dom_id(target_area) %>
+    <%= label_tag dom_id(target_area), target_area.focus %><br>
+  <% end %>
+</div>
+
+<br><br>
+
+<label>Which training type(s) will this workout implement?</label>
+
+<div class="training-type-checkboxes">
+  <%= hidden_field_tag "routine[training_ids][]", nil %>
+  <% Training.all.each do |training_type| %>
+    <%= check_box_tag "routine[training_ids][]", training_type.id, routine.training_ids.include?(training_type.id), id: dom_id(training_type) %>
+    <%= label_tag dom_id(training_type), training_type.fitness_type %><br>
+  <% end %>
+</div>
