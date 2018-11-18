@@ -311,3 +311,8 @@ Routine.handleCancelEdit = function() {
     $(`div#edit-exercise-${movementId}-div`).removeClass('well well-lg')
   })
 }
+
+Routine.compileEditEquipmentTemplate = function() {
+  Routine.editEquipmentTemplateSource = $('#edit-equipment-template').html()
+  Routine.editEquipmentTemplateFunction = Handlebars.compile(Routine.editEquipmentTemplateSource)
+}
