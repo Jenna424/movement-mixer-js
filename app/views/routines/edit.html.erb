@@ -16,7 +16,9 @@
 
 <ul>
   <% @routine.equipment.each do |equipment_piece| %>
-    <span><%= equipment_piece.name %></span>
-    <br>
+    <li>
+      <span><%= equipment_piece.name %></span>
+      <br>
+    </li>
   <% end %>
 </ul>
