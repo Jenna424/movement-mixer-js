@@ -26,12 +26,6 @@ Routine.compileTemplates = function() {
   // Equipment Handlebars Template (found in app/views/routines/_equipment_fields.html.erb)
   Routine.equipmentTemplateSource = $('#equipment-template').html();
   Routine.equipmentTemplateFunction = Handlebars.compile(Routine.equipmentTemplateSource);
-  // Target Handlebars Template (found in app/views/routines/_target_fields.html.erb)
-  Routine.targetTemplateSource = $('#target-template').html();
-  Routine.targetTemplateFunction = Handlebars.compile(Routine.targetTemplateSource);
-  // Training Handlebars Template (found in app/views/routines/_training_fields.html.erb)
-  Routine.trainingTemplateSource = $('#training-template').html();
-  Routine.trainingTemplateFunction = Handlebars.compile(Routine.trainingTemplateSource);
 }
 
 Routine.compileTechniqueTemplate = function() {
