@@ -16,7 +16,7 @@
 
 <ul>
   <% @routine.equipment.each do |equipment_piece| %>
-    <li>
+    <li id="er-<%= er_instance(equipment_piece, @routine).id %>-li">
       <span><%= equipment_piece.name %></span>
       <br>
       <div id="edit-er-<%= er_instance(equipment_piece, @routine) %>-div"></div>
