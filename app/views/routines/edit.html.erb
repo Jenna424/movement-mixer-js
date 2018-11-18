@@ -19,6 +19,10 @@
     <li>
       <span><%= equipment_piece.name %></span>
       <br>
+      <%= link_to "/ers/#{er_instance(equipment_piece, @routine).id}/edit", class: "edit-equipment btn btn-default btn-sm", 
+      data: {er_id: er_instance(equipment_piece, @routine).id } do %>
+        <span class="glyphicon glyphicon-edit"></span> <small>Edit Equipment</small>
+      <% end %>
     </li>
   <% end %>
 </ul>
