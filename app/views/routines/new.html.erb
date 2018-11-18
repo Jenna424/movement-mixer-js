@@ -30,28 +30,26 @@
 
   <br><br>
 
+  <div class="equipment-fields">
+  	<%= f.fields_for :equipment do |e| %>
+  	  <%= e.label :name, "What type of equipment, if any, will you use during this workout?" %>:
+  	  <%= e.text_field :name, placeholder: "Enter a piece of equipment...", class: "form-control" %>
+  	  <br>
+  	  <%= e.fields_for :equipment_routines do |er| %>
+  	    <%= er.label :quantity %>:
+  	    <%= er.number_field :quantity, min: 1 %>
+  	    <br>
+  	    <%= er.label :weight %>:
+  	    <%= er.number_field :weight, min: 1, step: 'any' %> lbs
+  	  <% end %>
+  	<% end %>
+  </div>
 
-	<div class="equipment-fields">
-		<%= f.fields_for :equipment do |e| %>
-			<%= e.label :name, "What type of equipment, if any, will you use during this workout?" %>:
-			<%= e.text_field :name, placeholder: "Enter a piece of equipment...", class: "form-control" %>
-			<br>
-			<%= e.fields_for :equipment_routines do |er| %>
-				<%= er.label :quantity %>:
-				<%= er.number_field :quantity, min: 1 %>
-				<br>
-				<%= er.label :weight %>:
-				<%= er.number_field :weight, min: 1, step: 'any' %> lbs
-			<% end %>
-		<% end %>
-	</div>
+  <br><br>
 
-	<br><br>
+  <button id="add-equipment" class="btn btn-default btn-sm" data-add-type=equipment>+ Equipment</button>
 
-
-	<button id="add-equipment" class="btn btn-default btn-sm" data-add-type=equipment>+ Equipment</button>
-
-	<br><br>
+  <br><br>
 
 	<%= render partial: "form_checkboxes", locals: {routine: @routine} %>
 
