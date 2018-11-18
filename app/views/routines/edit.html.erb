@@ -1,1 +1,11 @@
+<h2>Edit Workout Routine</h2>
 
+<%= form_for @routine do |f| %>
+  <%= render partial: "routine_form_fields", locals: {f: f} %>
+  <br><br>
+  <%= render partial: "form_checkboxes", locals: {routine: @routine} %>
+  <br><br>
+  <div class="actions">
+  	<%= f.submit class: "btn btn-default btn-sm" %>
+  </div>
+<% end %>
