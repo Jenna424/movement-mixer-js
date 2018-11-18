@@ -5,3 +5,7 @@ function EquipmentRoutine(equipmentRoutine) {
   this.quantity = equipmentRoutine.quantity
   this.weight = equipmentRoutine.weight
 }
+
+$(function() {
+  EquipmentRoutine.editListener()
+})
