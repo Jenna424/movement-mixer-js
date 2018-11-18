@@ -3,33 +3,32 @@
 <%= form_for @routine do |f| %>
   <%= render partial: "routine_form_fields", locals: {f: f} %>
 
-	<br>
+  <br>
 
-	<div class="movement-fields">
-		<%= f.fields_for :movements do |m| %>
-			<%= m.label :name, "Add an exercise movement to your workout routine" %>:
-			<%= m.text_field :name, placeholder: "Enter an exercise...", class: "form-control" %>
-			<br>
-			<%= m.fields_for :movement_routines do |mr| %>
-				<%= mr.label :technique, "Describe your technique for performing this exercise" %>:
-				<br>
-				<%= mr.text_area :technique %>
-				<br>
-				<%= mr.label :sets, "Number of Sets" %>:
-				<%= mr.number_field :sets %>
-				<br>
-				<%= mr.label :reps, "Number of Reps" %>:
-				<%= mr.number_field :reps %>
-			<% end %>
-		<% end %>
-	</div>
+  <div class="movement-fields">
+  	<%= f.fields_for :movements do |m| %>
+  	  <%= m.label :name, "Add an exercise movement to your workout routine" %>:
+  	  <%= m.text_field :name, placeholder: "Enter an exercise...", class: "form-control" %>
+  	  <br>
+  	  <%= m.fields_for :movement_routines do |mr| %>
+  	    <%= mr.label :technique, "Describe your technique for performing this exercise" %>:
+  	    <br>
+  	    <%= mr.text_area :technique %>
+  	    <br>
+  	    <%= mr.label :sets, "Number of Sets" %>:
+  	    <%= mr.number_field :sets %>
+  	    <br>
+  	    <%= mr.label :reps, "Number of Reps" %>:
+  	    <%= mr.number_field :reps %>
+  	  <% end %>
+  	<% end %>
+  </div>
 
-	<br><br>
+  <br><br>
 
-	<button id="add-movement" class="btn btn-default btn-sm" data-add-type=movement>+ Exercise</button>
+  <button id="add-movement" class="btn btn-default btn-sm" data-add-type=movement>+ Exercise</button>
 
-
-	<br><br>
+  <br><br>
 
 
 	<div class="equipment-fields">
