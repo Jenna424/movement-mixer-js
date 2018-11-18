@@ -55,6 +55,23 @@ Routine.bindClickEventHandlers = function() {
   Routine.handleHideTechnique()
   Routine.handleEditExercise()
   Routine.handleCancelEdit()
+  Routine.addExerciseListener()
+}
+
+Routine.addExerciseListener = function() {
+  $('.add-exercise-form').on('submit', function(e) {
+    e.preventDefault()
+    console.log("USER TRIED TO SUBMIT FORM TO ADD ANOTHER EXERCISE ON THE ROUTINE SHOW PAGE")
+    $.ajax({
+      url: $(this).attr('action'), // "/routines/:id"
+      method: 'patch',
+      dataType: 'json',
+      data: $(this).serialize()
+    })
+    .done(function(response) {
+      console.log(response)
+    })
+  })
 }
 
 Routine.addMovementHandler = function() {
