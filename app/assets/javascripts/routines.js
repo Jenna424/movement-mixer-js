@@ -62,6 +62,7 @@ Routine.addExerciseListener = function() {
       data: $(this).serialize()
     })
     .done(MovementRoutine.addMovementToRoutine) // The response to AJAX PATCH request is the JSON object representation of the MovementRoutine instance (with data about the routine and movement instances to which it belongs)
+    $('.add-exercise-form').find('input[type=text], textarea, input[type=number]').val(''); // clear the form
   })
 }
 
