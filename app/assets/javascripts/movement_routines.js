@@ -63,3 +63,14 @@ MovementRoutine.compileMrTemplate = function() {
   MovementRoutine.mrTemplateSource = $('#mr-template').html()
   MovementRoutine.mrTemplateFunction = Handlebars.compile(MovementRoutine.mrTemplateSource)
 }
+
+// The json parameter below is the JSON object representation of the MovementRoutine instance 
+// (with data about the routine and movement instances to which it belongs). 
+// This JSON object representation of the MovementRoutine instance = response to AJAX PATCH request made in Routine.addExerciseListener()
+MovementRoutine.addMovementToRoutine = function(json) {
+  var newMr = new MovementRoutine(json)
+  var mrDivHtml = MovementRoutine.mrTemplateFunction(newMr)
+  var workoutRoutineDiv = $('#workout-routine')
+  workoutRoutineDiv.append(mrDivHtml)
+  $('.add-exercise-form').find('input[type=text], textarea, input[type=number]').val('');
+}
