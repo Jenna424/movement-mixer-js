@@ -77,6 +77,11 @@ class RoutinesController < ApplicationController
     render json: movement_routine
   end
 
+  def edit_equipment_routine # get '/ers/:id/edit' => 'routines#edit_equipment_routine'
+    equipment_routine = EquipmentRoutine.find(params[:id])
+    render json: equipment_routine
+  end
+
   private
 
     def set_routine
