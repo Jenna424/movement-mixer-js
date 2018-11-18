@@ -11,7 +11,7 @@
   <div class="panel-body" id="workout-routine">
     <% @routine.movements.each do |movement| %>
       <div id="mr-<%= mr_instance(movement, @routine).id %>-div">
-        <h5>Exercise: <%= link_to movement.name, movement_path(movement), class: "show-exercise", data: {id: movement.id} %></h5>
+        <h5>Exercise: <%= link_to movement.name, movement_path(movement), class: "show-exercise" %></h5>
       
         <button class="js-show-technique btn btn-default btn-sm" data-id="<%= mr_instance(movement, @routine).id %>">Show Technique</button>
 
@@ -40,6 +40,10 @@
     <% end %>
   </div>
 </div>
+
+<%= render partial: "add_exercise_form", locals: {routine: @routine} %>
+
+<br><br>
 
 <% if policy(@routine).edit? %>
   <%= link_to "Edit Workout", edit_routine_path(@routine), class: 'edit-workout btn btn-default btn-sm', data: {id: @routine.id} %>
