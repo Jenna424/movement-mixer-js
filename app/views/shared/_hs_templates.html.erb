@@ -154,3 +154,25 @@ which is defined in movements.js file -->
     </div>
   </form>
 </script>
+
+<script id="edit-equipment-template" type="text/x-handlebars-template">
+  <form class="edit_routine edit-er edit-er-{{id}}" id="edit_routine_{{routine.id}}" action="/routines/{{routine.id}}/equipment/{{equipment.id}}" accept-charset="UTF-8" method="post">
+    <h4><em>Editing {{equipment.name}}</em></h4>
+    <input name="utf8" type="hidden" value="✓">
+    <input type="hidden" name="_method" value="patch">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div id="quantity-div">
+      <label for="routine_equipment_attributes_{{id}}_equipment_routines_quantity">How many pieces of equipment does this workout routine require?</label>:
+      <input type="number" name="routine[equipment_attributes][{{id}}][equipment_routines][quantity]" id="routine_equipment_attributes_{{id}}_equipment_routines_quantity" value="{{quantity}}">
+    </div>
+    <br>
+    <div id="weight-div">
+      <label for="routine_equipment_attributes_{{id}}_equipment_routines_weight">If applicable, how much does each piece of equipment in the set weigh?</label>:
+      <input type="number" name="routine[equipment_attributes][{{id}}][equipment_routines][weight]" id="routine_equipment_attributes_{{id}}_equipment_routines_weight" value="{{weight}}"> lbs each
+    </div>
+    <div class="actions">
+      <input type="submit" name="commit" value="Update Equipment" data-disable-with="Update Equipment" class="btn btn-default btn-sm">
+      <input type="button" class="btn btn-default btn-sm cancel-equipment-edit" data-er-id={{id}} data-equipment-id={{equipment.id}} value="X">
+    </div>
+  </form>
+</script>
