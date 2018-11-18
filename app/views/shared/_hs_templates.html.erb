@@ -46,7 +46,7 @@
     <p id="reps-paragraph-{{id}}"><strong>Reps</strong>: {{reps}}</p>
     <div id="edit-exercise-{{movement.id}}-div"></div>
     <a class="edit-exercise btn btn-default btn-sm" data-movement-id={{movement.id}} href="/routines/{{routine.id}}/movements/{{movement.id}}/edit">
-      <span class="glyphicon glyphicon-edit"></span><small> Edit Exercise</small>
+      <span class="glyphicon glyphicon-edit"></span> <small>Edit Exercise</small>
     </a>
     <form style="display:inline-block;" class="button_to" method="post" action="/routines/{{routine.id}}/movements/{{movement.id}}">
       <input type="hidden" name="_method" value="delete">
