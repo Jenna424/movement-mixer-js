@@ -9,3 +9,8 @@ function EquipmentRoutine(equipmentRoutine) {
 $(function() {
   EquipmentRoutine.editListener()
 })
+
+EquipmentRoutine.compileEditEquipmentRoutineTemplate = function() {
+  EquipmentRoutine.editEquipmentRoutineTemplateSource = $('#edit-equipment-routine-template').html()
+  EquipmentRoutine.editEquipmentRoutineTemplateFunction = Handlebars.compile(EquipmentRoutine.editEquipmentRoutineTemplateSource)
+}
