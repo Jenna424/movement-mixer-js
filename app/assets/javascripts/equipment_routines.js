@@ -96,3 +96,8 @@ EquipmentRoutine.destroy = function(json) { // json parameter of EquipmentRoutin
   var newEr = new EquipmentRoutine(json)
   newEr.eliminateLi() // calling eliminateLi() prototype method on newEr object
 }
+
+EquipmentRoutine.prototype.eliminateLi = function() {
+  var erId = this.id // this refers to the newEr JSON object on which I'm calling prototype method .eliminateLi()
+  $(`#er-${erId}-li`).remove()
+}
