@@ -112,5 +112,5 @@ EquipmentRoutine.compileErTemplate = function() {
 // This JSON object representation of the EquipmentRoutine instance = response to AJAX PATCH request made in Routine.addEquipmentListener()
 EquipmentRoutine.addEquipmentToRoutine = function(json) {
   var newEr = new EquipmentRoutine(json)
-  newEr.createAndAppendLi()
+  newEr.formatAndAppendLi()
 }
