@@ -29,7 +29,8 @@ EquipmentRoutine.editListener = function() {
   	  var newEr = new EquipmentRoutine(response)
   	  var editFormHtml = EquipmentRoutine.editEquipmentRoutineTemplateFunction(newEr)
   	  $editDiv.html(editFormHtml)
-  	  $editDiv.addClass('well well-md')
+      $editDiv.show()
+      $editDiv.addClass('well well-md')
   	  $editEquipmentLink.hide()
   	})
   })
@@ -72,4 +73,8 @@ EquipmentRoutine.prototype.formatQuantityAndWeight = function() {
   var $smallWeight = $(`small#weight-${erId}`)
   $smallQuantity.html(`<strong>Quantity</strong>: ${this.quantity}`)
   $smallWeight.html(`<strong>Weight</strong>: ${this.weight} lb(s) each`)
+}
+
+EquipmentRoutine.destroyListener = function() {
+  $('ul.required-equipment').on('click')
 }
