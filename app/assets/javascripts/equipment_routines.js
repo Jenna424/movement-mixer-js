@@ -44,10 +44,7 @@ EquipmentRoutine.updateListener = function() {
       dataType: 'json',
       data: $editEquipmentForm.serialize()
     })
-    .done(function(response){ 
-      var newEr = new EquipmentRoutine(response)
-      newEr.formatQuantityAndWeight()
-    })
+    .done(EquipmentRoutine.update)
   })
 }
 
