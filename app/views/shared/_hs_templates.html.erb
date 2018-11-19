@@ -177,3 +177,26 @@ which is defined in movements.js file -->
     </div>
   </form>
 </script>
+
+<script id="er-template" type="text/x-handlebars-template">
+  <li id="er-{{id}}-li">
+    <span><strong>{{equipment.name}}</strong></span>
+    <br>
+    <small id="quantity-{{id}}"><strong>Quantity</strong>: {{quantity}}</small>
+    <br>
+    <small id="weight-{{id}}"><strong>Weight</strong>: {{weight}} lbs each</small>
+    <br><br>
+    <div id="edit-er-{{id}}-div"></div>
+    <a href="/ers/{{id}}/edit" class="edit-equipment btn btn-default btn-sm" data-er-id={{id}}>
+      <span class="glyphicon glyphicon-edit"></span> <small>Edit Equipment</small>
+    </a>
+    <form style="display:inline-block;" class="button_to" method="post" action="/ers/{{id}}">
+      <input type="hidden" name="_method" value="delete">
+      <button class="btn btn-danger btn-sm" data-confirm="Are you sure you want to remove this piece of equipment?" type="submit">
+        <span class="glyphicon glyphicon-trash"></span> <small>Remove Equipment</small>
+      </button>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </form>
+    <br><br>
+  </li>
+</script>
