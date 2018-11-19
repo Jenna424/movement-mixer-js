@@ -34,6 +34,17 @@ EquipmentRoutine.editListener = function() {
   })
 }
 
+EquipmentRoutine.handleEditCancellation = function() {
+  $('ul.required-equipment').on('click', 'input.cancel-er-edit', function(e) {
+    var erId = $(this).data('er-id')
+    var $editFormContainer = $(`div#edit-er-${erId}-div`)
+    var $editLink = $(`a[data-er-id=${erId}]`)
+    $editFormContainer.removeClass('well well-md')
+    $editFormContainer.hide()
+    $editLink.show()
+  })
+}
+
 EquipmentRoutine.updateListener = function() {
   $('ul.required-equipment').on('submit', 'form.edit-er', function(e) {
     e.preventDefault()
