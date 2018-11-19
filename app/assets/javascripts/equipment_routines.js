@@ -45,6 +45,7 @@ EquipmentRoutine.updateListener = function() {
       data: $editEquipmentForm.serialize()
     })
     .done(EquipmentRoutine.update)
+    $editEquipmentForm.find('input[type=number]').val(''); // empty the number fields in the form to edit quantity & weight
   })
 }
 
