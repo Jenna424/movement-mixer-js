@@ -85,9 +85,7 @@ EquipmentRoutine.destroyListener = function() {
         dataType: 'json',
         data: $(this).serialize()
       })
-      .done(function(response) {
-        console.log(response)
-      })
+      .done(EquipmentRoutine.destroy)
     } else {
       console.log("The user did not confirm deletion of this piece of equipment")
     }
