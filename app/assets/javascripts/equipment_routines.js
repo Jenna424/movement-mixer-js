@@ -38,13 +38,14 @@ EquipmentRoutine.updateListener = function() {
     e.preventDefault()
     var $editEquipmentForm = $(this)
     var action = $editEquipmentForm.attr('action') // "/ers/:id", which maps to routines#update_equipment_routine
+    var erId = action.split('/')[2]
     $.ajax({
       url: action,
       method: 'patch',
       dataType: 'json',
       data: $editEquipmentForm.serialize()
     })
-    .done(function(response){
+    .done(function(response){ // response is JSON object representation of EquipmentRoutine join table instance with quantity and weight key/value pairs updated
       console.log(response)
     })
   })
