@@ -50,3 +50,9 @@ EquipmentRoutine.updateListener = function() {
     })
   })
 }
+
+EquipmentRoutine.prototype.formatQuantityAndWeight = function() {
+  var erId = this.id
+  var $smallQuantity = $(`small#quantity-${erId}`)
+  var $smallWeight = $(`small#weight-${erId}`)
+}
