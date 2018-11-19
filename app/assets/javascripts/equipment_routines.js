@@ -44,11 +44,16 @@ EquipmentRoutine.updateListener = function() {
       dataType: 'json',
       data: $editEquipmentForm.serialize()
     })
-    .done(function(response){ // response is JSON object representation of EquipmentRoutine join table instance with quantity and weight key/value pairs updated
+    .done(function(response){ 
       var newEr = new EquipmentRoutine(response)
       newEr.formatQuantityAndWeight()
     })
   })
+}
+
+EquipmentRoutine.update = function(json) { // json parameter = JSON object representation of EquipmentRoutine join table instance with quantity and weight key/value pairs updated = response from AJAX PATCH request made in EquipmentRoutine.updateListener()
+  var newEr = new EquipmentRoutine(json)
+  newEr.formatQuantityAndWeight()
 }
 
 EquipmentRoutine.prototype.formatQuantityAndWeight = function() {
