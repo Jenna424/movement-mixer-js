@@ -36,6 +36,16 @@ EquipmentRoutine.editListener = function() {
 EquipmentRoutine.updateListener = function() {
   $('ul.required-equipment').on('submit', 'form.edit-er', function(e) {
     e.preventDefault()
-    console.log("Tried to submit form to edit equipment routine")
+    var $editEquipmentForm = $(this)
+    var action = $editEquipmentForm.attr('action') // "/ers/:id", which maps to routines#update_equipment_routine
+    $.ajax({
+      url: action,
+      method: 'patch',
+      dataType: 'json',
+      data: $editEquipmentForm.serialize()
+    })
+    .done(function(response){
+      console.log(response)
+    })
   })
 }
