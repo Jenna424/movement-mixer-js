@@ -162,7 +162,7 @@ which is defined in movements.js file -->
     <input type="hidden" name="_method" value="patch">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <div id="quantity-div">
-      <label for="routine_equipment_attributes_{{id}}_equipment_routines_quantity">How many pieces of equipment does this workout routine require?</label>
+      <label for="routine_equipment_attributes_{{id}}_equipment_routines_quantity">Required Quantity</label>:
       <input type="number" name="routine[equipment_attributes][{{id}}][equipment_routines][quantity]" id="routine_equipment_attributes_{{id}}_equipment_routines_quantity" value="{{quantity}}">
     </div>
     <br>
