@@ -69,10 +69,10 @@ MovementRoutine.compileMrTemplate = function() {
 // This JSON object representation of the MovementRoutine instance = response to AJAX PATCH request made in Routine.addExerciseListener()
 MovementRoutine.addMovementToRoutine = function(json) {
   var newMr = new MovementRoutine(json)
-  newMr.createAndAppendDiv()
+  newMr.formatAndAppendDiv()
 }
 
-MovementRoutine.prototype.createAndAppendDiv = function() {
+MovementRoutine.prototype.formatAndAppendDiv = function() {
   var workoutRoutineDiv = $('#workout-routine') // get the <div> that contains all the movements in the routine
   var mrDivHtml = MovementRoutine.mrTemplateFunction(this) // store the Handlebars template w/ values injected from key/value pairs in newMr object (this)
   workoutRoutineDiv.append(mrDivHtml) // appending the <div> for the new movement/MR to the div containing all movements in the routine 
