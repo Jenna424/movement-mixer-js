@@ -38,8 +38,6 @@ EquipmentRoutine.updateListener = function() {
     e.preventDefault()
     var $editEquipmentForm = $(this)
     var action = $editEquipmentForm.attr('action') // "/ers/:id", which maps to routines#update_equipment_routine
-    var $smallQuantity = $(`small#quantity-${erId}`)
-    var $smallWeight = $(`small#weight-${erId}`)
     $.ajax({
       url: action,
       method: 'patch',
