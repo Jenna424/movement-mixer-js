@@ -48,7 +48,8 @@ EquipmentRoutine.updateListener = function() {
       data: $editEquipmentForm.serialize()
     })
     .done(function(response){ // response is JSON object representation of EquipmentRoutine join table instance with quantity and weight key/value pairs updated
-      console.log(response)
+      var newEr = new EquipmentRoutine(response)
+      
     })
   })
 }
