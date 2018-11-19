@@ -39,7 +39,6 @@ EquipmentRoutine.handleEditCancellation = function() {
     var erId = $(this).data('er-id')
     var $editFormContainer = $(`div#edit-er-${erId}-div`)
     var $editLink = $(`a[data-er-id=${erId}]`)
-    $editFormContainer.removeClass('well well-md')
     $editFormContainer.hide()
     $editLink.show()
   })
