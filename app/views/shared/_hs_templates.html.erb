@@ -157,7 +157,7 @@ which is defined in movements.js file -->
 
 <script id="edit-equipment-routine-template" type="text/x-handlebars-template">
   <form class="edit_routine edit-er edit-er-{{id}}" id="edit_routine_{{routine.id}}" action="/routines/{{routine.id}}/equipment/{{equipment.id}}" accept-charset="UTF-8" method="post">
-    <h4><em>Editing {{equipment.name}}</em></h4>
+    <h4><em>Editing Specifications for {{equipment.name}}</em></h4>
     <input name="utf8" type="hidden" value="✓">
     <input type="hidden" name="_method" value="patch">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
