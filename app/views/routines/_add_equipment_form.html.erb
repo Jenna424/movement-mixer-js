@@ -1,0 +1,23 @@
+<div class="well well-lg">
+  <h4>~Add More Exercise Equipment for Use in <em><%= routine.title %></em>~</h4>
+
+  <form class="add-equipment-form" id="edit_routine_<%= routine.id %>" action="/routines/<%= routine.id %>" accept-charset="UTF-8" method="post">
+    <input name="utf8" type="hidden" value="✓">
+    <input type="hidden" name="_method" value="patch">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div class="equipment-fields">
+      <label for="routine_equipment_attributes_0_name">Add another piece of equipment to use in this workout routine</label>:
+      <input placeholder="Enter another piece of equipment..." class="form-control" type="text" name="routine[equipment_attributes][0][name]" id="routine_equipment_attributes_0_name">
+      <br>
+      <label for="routine_equipment_attributes_0_equipment_routines_quantity">Quantity Required</label>:
+      <input type="number" name="routine[equipment_attributes][0][equipment_routines][quantity]" id="routine_equipment_attributes_0_equipment_routines_quantity">
+      <br>
+      <label for="routine_equipment_attributes_0_equipment_routines_weight">Weight Required</label>:
+      <input type="number" name="routine[equipment_attributes][0][equipment_routines][weight]" id="routine_equipment_attributes_0_equipment_routines_weight"> lb(s) per piece of equipment in the set
+    </div>
+    <br>
+    <div class="actions">
+      <input type="submit" name="commit" value="Add Equipment" class="btn btn-default btn-sm">
+    </div>
+  </form>
+</div>
