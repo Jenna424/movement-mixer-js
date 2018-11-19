@@ -15,20 +15,24 @@
 <h4>Required Exercise Equipment for <em><%= @routine.title %></em></h4>
 
 <ul class="required-equipment">
-  <% @routine.equipment.each do |equipment_piece| %>
-    <li id="er-<%= er_instance(equipment_piece, @routine).id %>-li">
-      <span><%= equipment_piece.name %></span>
-      <br>
-      <div id="edit-er-<%= er_instance(equipment_piece, @routine) %>-div"></div>
-      <%= link_to "/ers/#{er_instance(equipment_piece, @routine).id}/edit", class: "edit-equipment btn btn-default btn-sm", 
-      data: {er_id: er_instance(equipment_piece, @routine).id } do %>
-        <span class="glyphicon glyphicon-edit"></span> <small>Edit Equipment</small>
-      <% end %>
-      <%= button_to "/ers/#{er_instance(equipment_piece, @routine).id}", class: "btn btn-danger btn-sm", method: :delete, 
-      form: {style: 'display:inline-block;'}, data: { confirm: "Are you sure you want to remove this piece of equipment?"} do %>
-        <span class="glyphicon glyphicon-trash"></span> <small>Remove Equipment</small>
-      <% end %>
-      <br><br>
-    </li>
+  <% if @routine.equipment.empty? %>
+    *This workout routine does <strong>not</strong> require any exercise equipment*
+  <% else %>
+    <% @routine.equipment.each do |equipment_piece| %>
+      <li id="er-<%= er_instance(equipment_piece, @routine).id %>-li">
+        <span><%= equipment_piece.name %></span>
+        <br>
+        <div id="edit-er-<%= er_instance(equipment_piece, @routine) %>-div"></div>
+        <%= link_to "/ers/#{er_instance(equipment_piece, @routine).id}/edit", class: "edit-equipment btn btn-default btn-sm"
+        data: {er_id: er_instance(equipment_piece, @routine).id } do %>
+          <span class="glyphicon glyphicon-edit"></span> <small>Edit Equipment</small>
+        <% end %>
+        <%= button_to "/ers/#{er_instance(equipment_piece, @routine).id}", class: "btn btn-danger btn-sm", method: :delete,
+        form: {style: 'display:inline-block;'}, data: { confirm: "Are you sure you want to remove this piece of equipment?"} do %>
+          <span class="glyphicon glyphicon-trash"></span> <small>Remove Equipment</small>
+        <% end %>
+        <br><br>
+      </li>
+    <% end %>
   <% end %>
 </ul>
