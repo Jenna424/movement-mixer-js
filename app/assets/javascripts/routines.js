@@ -50,6 +50,7 @@ Routine.bindClickEventHandlers = function() {
   Routine.handleEditExercise()
   Routine.handleCancelEdit()
   Routine.addExerciseListener()
+  Routine.addEquipmentListener()
 }
 
 Routine.addExerciseListener = function() {
