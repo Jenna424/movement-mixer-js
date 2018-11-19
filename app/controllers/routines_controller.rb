@@ -88,7 +88,7 @@ class RoutinesController < ApplicationController
     equipment_routine.quantity = params['routine']['equipment_attributes'][er_id]['equipment_routines']['quantity']
     equipment_routine.weight = params['routine']['equipment_attributes'][er_id]['equipment_routines']['weight']
     
-    render json: equipment_routine if equipment_routine.update
+    render json: equipment_routine if equipment_routine.save
   end
 
   private
