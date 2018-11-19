@@ -101,3 +101,8 @@ EquipmentRoutine.prototype.eliminateLi = function() {
   var erId = this.id // this refers to the newEr JSON object on which I'm calling prototype method .eliminateLi()
   $(`#er-${erId}-li`).remove()
 }
+
+EquipmentRoutine.compileErTemplate = function() {
+  EquipmentRoutine.erTemplateSource = $('#er-template').html()
+  EquipmentRoutine.erTemplateFunction = Handlebars.compile(EquipmentRoutine.erTemplateSource)
+}
