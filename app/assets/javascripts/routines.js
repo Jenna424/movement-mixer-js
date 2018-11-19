@@ -67,6 +67,20 @@ Routine.addExerciseListener = function() {
   })
 }
 
+Routine.addEquipmentListener = function() {
+  $('.add-equipment-form').on('submit', function(e) {
+    e.preventDefault()
+    $.ajax({
+      url: $(this).attr('action'), // "/routines/:id"
+      method: 'patch',
+      dataType: 'json',
+      data: $(this).serialize()
+    })
+    .done(EquipmentRoutine.addEquipmentToRoutine)
+    $('.add-equipment-form').find('input[type=text] input[type=number]').val('')
+  })
+}
+
 Routine.addMovementHandler = function() {
   $('#add-movement').on('click', function(e) {
     e.preventDefault();
