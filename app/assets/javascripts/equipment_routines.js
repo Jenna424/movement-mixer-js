@@ -8,6 +8,7 @@ function EquipmentRoutine(equipmentRoutine) {
 
 $(function() {
   EquipmentRoutine.editListener()
+  EquipmentRoutine.handleEditCancellation()
   EquipmentRoutine.updateListener()
 })
 
