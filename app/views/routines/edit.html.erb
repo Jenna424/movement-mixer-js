@@ -24,6 +24,10 @@
       <li id="er-<%= er_instance(equipment_piece, @routine).id %>-li">
         <span><strong><%= equipment_piece.name %></strong></span>
         <br>
+        <small id="quantity-<%= er_instance(equipment_piece, @routine).id %>"><strong>Quantity</strong>: <%= er_instance(equipment_piece, @routine).quantity %></small>
+        <br>
+        <small id="weight-<%= er_instance(equipment_piece, @routine).id %>"><strong>Weight</strong>: <%= er_instance(equipment_piece, @routine).weight %> lbs each</small>
+        <br><br>
         <div id="edit-er-<%= er_instance(equipment_piece, @routine).id %>-div"></div>
         <%= link_to "/ers/#{er_instance(equipment_piece, @routine).id}/edit", class: "edit-equipment btn btn-default btn-sm",
         data: {er_id: er_instance(equipment_piece, @routine).id} do %>
