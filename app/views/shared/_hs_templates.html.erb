@@ -190,7 +190,7 @@ which is defined in movements.js file -->
     <a href="/ers/{{id}}/edit" class="edit-equipment btn btn-default btn-sm" data-er-id={{id}}>
       <span class="glyphicon glyphicon-edit"></span> <small>Edit Equipment</small>
     </a>
-    <form style="display:inline-block;" class="button_to" method="post" action="/ers/:id">
+    <form style="display:inline-block;" class="button_to" method="post" action="/ers/{{id}}">
       <input type="hidden" name="_method" value="delete">
       <button class="btn btn-danger btn-sm" data-confirm="Are you sure you want to remove this piece of equipment?" type="submit">
         <span class="glyphicon glyphicon-trash"></span> <small>Remove Equipment</small>
