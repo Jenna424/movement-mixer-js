@@ -14,7 +14,7 @@
 
 <h4>Required Exercise Equipment for <em><%= @routine.title %></em></h4>
 
-<ul>
+<ul class="required-equipment">
   <% @routine.equipment.each do |equipment_piece| %>
     <li id="er-<%= er_instance(equipment_piece, @routine).id %>-li">
       <span><%= equipment_piece.name %></span>
