@@ -32,3 +32,10 @@ EquipmentRoutine.editListener = function() {
   	})
   })
 }
+
+EquipmentRoutine.updateListener = function() {
+  $('ul.required-equipment').on('submit', 'form.edit-er', function(e) {
+    e.preventDefault()
+    console.log("Tried to submit form to edit equipment routine")
+  })
+}
