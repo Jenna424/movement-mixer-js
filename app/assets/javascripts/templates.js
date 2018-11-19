@@ -63,4 +63,8 @@ function checkIfTemplatesExist() {
   if (editEquipmentRoutineTemplateExists) {
     EquipmentRoutine.compileEditEquipmentRoutineTemplate()
   }
+
+  if (erTemplateExists) {
+    EquipmentRoutine.compileErTemplate()
+  }
 }
