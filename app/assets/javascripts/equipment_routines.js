@@ -10,6 +10,7 @@ $(function() {
   EquipmentRoutine.editListener()
   EquipmentRoutine.handleEditCancellation()
   EquipmentRoutine.updateListener()
+  EquipmentRoutine.destroyListener()
 })
 
 EquipmentRoutine.compileEditEquipmentRoutineTemplate = function() {
