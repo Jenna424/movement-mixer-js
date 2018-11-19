@@ -82,13 +82,19 @@ class RoutinesController < ApplicationController
     render json: equipment_routine
   end
 
-  def update_equipment_routine # patch '/ers/:id => 'routines#update_equipment_routine'
+  def update_equipment_routine # patch '/ers/:id' => 'routines#update_equipment_routine'
     equipment_routine = EquipmentRoutine.find(params[:id])
     er_id = params[:id].to_s
     equipment_routine.quantity = params['routine']['equipment_attributes'][er_id]['equipment_routines']['quantity']
     equipment_routine.weight = params['routine']['equipment_attributes'][er_id]['equipment_routines']['weight']
     
     render json: equipment_routine if equipment_routine.save
+  end
+
+  def destroy_equipment_routine # delete '/ers/:id' => 'routines#destroy_equipment_routine'
+    equipment_routine = EquipmentRoutine.find(params[:id])
+    equipment_routine.destroy
+    render json: equipment_routine
   end
 
   private
