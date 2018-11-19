@@ -49,7 +49,7 @@ EquipmentRoutine.updateListener = function() {
     })
     .done(function(response){ // response is JSON object representation of EquipmentRoutine join table instance with quantity and weight key/value pairs updated
       var newEr = new EquipmentRoutine(response)
-      
+      newEr.formatQuantityAndWeight()
     })
   })
 }
