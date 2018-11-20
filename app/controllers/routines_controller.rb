@@ -43,7 +43,7 @@ class RoutinesController < ApplicationController
       if @routine.update(routine_params)
         redirect_to routine_path(@routine), notice: "The workout routine was successfully updated!"
       else
-        flash.now[:error] = "Your attempt to revise this routine was unsuccessful. Please try again"
+        flash.now[:error] = "Your attempt to revise this routine was unsuccessful. Please try again."
         render :edit
       end
     else
