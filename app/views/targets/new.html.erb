@@ -1,1 +1,12 @@
-<h1>Add a Workout Target Area</h1>
+<h3>Add a Workout Target Area</h3>
+
+<%= form_for @target_area do |f| %>
+  <div class="field">
+    <%= f.label :focus, "Body Focus" %>:
+    <%= f.text_field :focus, placeholder: "Type target area here..." %>
+  </div>
+  <br>
+  <div class="actions">
+  	<%= f.submit "Create Target Area", class: "btn btn-sm btn-default" %>
+  </div>
+<% end %>
