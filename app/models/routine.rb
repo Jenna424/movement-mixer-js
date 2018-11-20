@@ -13,6 +13,12 @@ class Routine < ApplicationRecord
   accepts_nested_attributes_for :movement_routines, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :equipment_routines, reject_if: :all_blank, allow_destroy: true
 
+  validates :title, presence: true
+  validates :difficulty_level, presence: true
+  validates :duration, presence: true
+  validates :target_ids, presence: true
+  validates :training_ids, presence: true
+
   def movements_attributes=(movements_attributes)
     movements_attributes.values.each do |movements_attribute|
       if !movements_attribute["name"].blank?
