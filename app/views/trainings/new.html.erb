@@ -1,0 +1,12 @@
+<h3>Add a Fitness Training Type</h3>
+
+<%= form_for @training_type do |f| %>
+  <div class="field">
+    <%= f.label :fitness_type, "Training Type" %>:
+    <%= f.text_field :fitness_type, placeholder: "Type training type..." %>
+  </div>
+  <br>
+  <div class="actions">
+  	<%= f.submit "Create Training Type", class: "btn btn-sm btn-default" %>
+  </div>
+<% end %>
