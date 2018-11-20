@@ -38,7 +38,26 @@ class RoutinesController < ApplicationController
   def edit
   end
 
-  
+  def update
+    if !params[:routine][:title].blank? # User is updating any of the following attributes on the Edit Routine page: title, difficulty_level, duration, target_ids, training_ids
+      if @routine.update(routine_params)
+        redirect_to routine_path(@routine), notice: "The workout routine was successfully updated!"
+      else
+        flash.now[:error] = "Your attempt to revise this routine was unsuccessful. Please try again"
+        render :edit
+      end
+    else
+      if @routine.update(routine_params)
+        if request.referrer == "http://localhost:3000/routines/#{@routine.id}/edit" # User is updating equipment used in the workout on the Edit Routine page
+          last_updated_er = @routine.equipment_routines.order(:updated_at).last
+          render json: last_updated_er
+        elsif request.referrer == "http://localhost:3000/routines/#{@routine.id}" # User is updating exercise movements performed in the workout on the Routine Show page
+          last_updated_mr = @routine.movement_routines.order(:updated_at).last
+          render json: last_updated_mr
+        end
+      end
+    end 
+  end
 
   def edit_movement_routine # GET '/routines/:routine_id/movements/:movement_id/edit' => 'routines#edit_movement_routine'
     movement_routine = MovementRoutine.find_by(routine: params[:routine_id], movement: params[:movement_id])
