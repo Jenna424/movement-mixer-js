@@ -11,7 +11,10 @@ $(function() {
 Target.indexListener = function() {
   $('ul.nav').on('click', 'a.view-target-areas', function(e) {
     e.preventDefault()
-    console.log("Clicked the View Target Areas link in navigation")
+    $.get('/targets')
+    .done(function(response) {
+      console.log(response)
+    })
   })
 }
 
