@@ -15,6 +15,12 @@ Target.indexListener = function() {
     .done(Target.index)
   })
 }
+// The targetsArray parameter below is an array of all JSON target objects. This array is the JSON response I got back from the AJAX GET request sent via $.get() method in Target.indexListener()
+Target.index = function(targetsArray) {
+  targetsArray.forEach(function(targetObject) {
+    console.log(targetObject)
+  })
+}
 
 Target.createListener = function() {
   $('#new_target').on('submit', function(e) {
