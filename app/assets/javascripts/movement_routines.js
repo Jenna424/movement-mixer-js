@@ -74,6 +74,11 @@ MovementRoutine.addMovementToRoutine = function(json) {
     return this.id === `mr-${newMr.id}-div` // this refers to each <div> element in the mrDivsArray
   })
   var mrDivExists = filteredDivArray.length
+  if (mrDivExists) { // Reminder: 0 is falsy in JavaScript
+    newMr.formatJoinTableAttrs()
+  } else {
+    newMr.formatAndAppendDiv()
+  }
 }
 
 MovementRoutine.prototype.formatAndAppendDiv = function() {
