@@ -12,9 +12,7 @@ Target.indexListener = function() {
   $('ul.nav').on('click', 'a.view-target-areas', function(e) {
     e.preventDefault()
     $.get('/targets')
-    .done(function(response) {
-      console.log(response)
-    })
+    .done(Target.index)
   })
 }
 
