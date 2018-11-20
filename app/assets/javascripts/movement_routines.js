@@ -73,6 +73,7 @@ MovementRoutine.addMovementToRoutine = function(json) {
   var filteredDivArray = mrDivsArray.filter(function() {
     return this.id === `mr-${newMr.id}-div` // this refers to each <div> element in the mrDivsArray
   })
+  var mrDivExists = filteredDivArray.length
 }
 
 MovementRoutine.prototype.formatAndAppendDiv = function() {
