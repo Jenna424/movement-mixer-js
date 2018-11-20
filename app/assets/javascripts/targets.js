@@ -5,6 +5,7 @@ function Target(target) {
 
 $(function() {
   Target.createListener()
+  Target.indexListener()
 })
 
 Target.createListener = function() {
