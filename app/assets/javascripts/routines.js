@@ -44,6 +44,7 @@ Routine.bindClickEventHandlers = function() {
   Routine.addTargetAreaHandler()
   Routine.addTrainingTypeHandler()
   Routine.handleCreateFormSubmission()
+  Routine.handleEditFormSubmission()
   Routine.handleWorkoutsIndex()
   Routine.handleShowTechnique()
   Routine.handleHideTechnique()
