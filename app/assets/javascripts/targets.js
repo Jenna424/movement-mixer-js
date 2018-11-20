@@ -10,6 +10,10 @@ $(function() {
 Target.createListener = function() {
   $('#new_target').on('submit', function(e) {
   	e.preventDefault()
-  	console.log("Hijacked the submit event of the form to create a new target area!")
+  	var formData = $(this).serialize()
+  	$.post("/targets", formData)
+  	.done(function(response) {
+  	  console.log(response)
+  	})
   })
 }
