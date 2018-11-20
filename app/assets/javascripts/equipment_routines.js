@@ -110,9 +110,17 @@ EquipmentRoutine.compileErTemplate = function() {
 // The json parameter below is the JSON object representation of the EquipmentRoutine instance 
 // (with data about the routine and equipment instances to which it belongs). 
 // This JSON object representation of the EquipmentRoutine instance = response to AJAX PATCH request made in Routine.addEquipmentListener()
+
 EquipmentRoutine.addEquipmentToRoutine = function(json) {
   var newEr = new EquipmentRoutine(json)
-  newEr.formatAndAppendLi()
+  var match = $("li[id^='er']").filter(function() {
+    return this.id === `er-${newEr.id}-li`
+  })
+  if (match.length) { // I'm updating an exiting EquipmentRoutine instance, which already has an <li>
+    $(`li#er-${newEr.id}-li`).replaceWith(EquipmentRoutine.erTemplateFunction(newEr))
+  } else { // An entirely new piece of equipment was submitted, so a new <li> needs to be appended to the <ul>
+    newEr.formatAndAppendLi()
+  }
 }
 
 EquipmentRoutine.prototype.formatAndAppendLi = function() {
