@@ -38,20 +38,7 @@ class RoutinesController < ApplicationController
   def edit
   end
 
-  def update
-    if @routine.update(routine_params)
-      render json: @routine.movement_routines.last
-    end
-  end
-
-  #def update
-    #if @routine.update(routine_params)
-      #redirect_to routine_path(@routine), notice: "The workout routine was successfully updated!"
-    #else
-      #render :edit
-      #flash.now[:error] = "Your attempt to edit this workout routine was unsuccessful. Please try again."
-    #end
-  #end
+  
 
   def edit_movement_routine # GET '/routines/:routine_id/movements/:movement_id/edit' => 'routines#edit_movement_routine'
     movement_routine = MovementRoutine.find_by(routine: params[:routine_id], movement: params[:movement_id])
