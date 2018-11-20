@@ -70,6 +70,9 @@ MovementRoutine.compileMrTemplate = function() {
 MovementRoutine.addMovementToRoutine = function(json) {
   var newMr = new MovementRoutine(json)
   var mrDivsArray = $("div[id^='mr']")
+  var filteredDivArray = mrDivsArray.filter(function() {
+    return this.id === `mr-${newMr.id}-div` // this refers to each <div> element in the mrDivsArray
+  })
 }
 
 MovementRoutine.prototype.formatAndAppendDiv = function() {
