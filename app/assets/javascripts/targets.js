@@ -13,6 +13,7 @@ Target.createListener = function() {
   	var formData = $(this).serialize()
   	$.post("/targets", formData)
   	.done(Target.create)
+  	$('#new_target input[type=text]').val('')
   })
 }
 // json parameter below = JSON object representation of newly created AR target instance = response from AJAX POST request sent with $.post() method in Target.createListener()
