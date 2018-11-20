@@ -67,10 +67,7 @@ MovementRoutine.compileMrTemplate = function() {
 // The json parameter below is the JSON object representation of the MovementRoutine instance 
 // (with data about the routine and movement instances to which it belongs). 
 // This JSON object representation of the MovementRoutine instance = response to AJAX PATCH request made in Routine.addExerciseListener()
-MovementRoutine.addMovementToRoutine = function(json) {
-  var newMr = new MovementRoutine(json)
-  newMr.formatAndAppendDiv()
-}
+
 
 MovementRoutine.prototype.formatAndAppendDiv = function() {
   var workoutRoutineDiv = $('#workout-routine') // get the <div> that contains all the movements in the routine
