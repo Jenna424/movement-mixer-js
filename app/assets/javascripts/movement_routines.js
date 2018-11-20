@@ -69,6 +69,7 @@ MovementRoutine.compileMrTemplate = function() {
 // This JSON object representation of the MovementRoutine instance = response to AJAX PATCH request made in Routine.addExerciseListener()
 MovementRoutine.addMovementToRoutine = function(json) {
   var newMr = new MovementRoutine(json)
+  var mrDivsArray = $("div[id^='mr']")
 }
 
 MovementRoutine.prototype.formatAndAppendDiv = function() {
