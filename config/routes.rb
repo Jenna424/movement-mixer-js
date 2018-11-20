@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :movements, only: [:index, :show] do
     resources :guides
   end
+
+  resources :targets
+  resources :trainings
   # Custom Routes:
   # On the routine show page, if the current user designed the workout routine,
   # that user should be able to click the Edit Exercise Link that is found next to each exercise movement in the workout
