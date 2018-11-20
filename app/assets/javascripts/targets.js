@@ -12,8 +12,6 @@ Target.createListener = function() {
   	e.preventDefault()
   	var formData = $(this).serialize()
   	$.post("/targets", formData)
-  	.done(function(response) {
-  	  console.log(response)
-  	})
+  	.done(Target.create)
   })
 }
