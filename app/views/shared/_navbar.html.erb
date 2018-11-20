@@ -17,6 +17,9 @@
         <% else %>
           <% if current_user.admin? %>
             <li><%= link_to "Manage Accounts", access_path %></li>
+          <% elsif current_user.trainer? %>
+            <li><%= link_to "Add Target Area", new_target_path(@target_area) %></li>
+            <li><%= link_to "Add Training Type", new_training_path(@training_type) %></li>
           <% end %>
           <li><%= link_to "View Your Profile", user_path(current_user), class: "profile-page" %></li>
           <li><%= link_to "Design a Workout Routine", new_routine_path, class: "new-routine" %></li>
