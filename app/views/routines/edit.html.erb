@@ -1,6 +1,6 @@
 <h2>Edit Workout Routine</h2>
 
-<%= form_for @routine do |f| %>
+<%= form_for @routine, html: {class: "edit-basic-workout-info"} do |f| %>
   <%= render partial: "routine_form_fields", locals: {f: f} %>
   <br><br>
   <%= render partial: "form_checkboxes", locals: {routine: @routine} %>
