@@ -39,7 +39,7 @@ class RoutinesController < ApplicationController
   end
 
   def update
-    if !params[:routine][:title].blank? # User is updating any of the following attributes on the Edit Routine page: title, difficulty_level, duration, target_ids, training_ids
+    if !params[:routine][:title].blank? || !params[:routine][:duration].blank? || !params[:routine][:difficulty_level].blank? || !params[:routine][:target_ids].blank? || !params[:routine][:training_ids].blank? # User is updating any of the following attributes on the Edit Routine page: title, difficulty_level, duration, target_ids, training_ids
       if @routine.update(routine_params)
         redirect_to routine_path(@routine), notice: "The workout routine was successfully updated!"
       else
