@@ -31,3 +31,10 @@ Training.prototype.formatFitnessType = function() {
   var trainingTypeDiv = $('div#training-type-added')
   trainingTypeDiv.html(`<p>Movement Mixers can now design <strong>${this.fitness_type.toLowerCase()}</strong> workout routines!</p>`)
 }
+
+Training.indexListener = function() {
+  $('ul.nav').on('click', 'a.view-training-types', function(e) {
+    e.preventDefault()
+    console.log("Hijacked the click event of View Training Types link in navigation")
+  })
+}
