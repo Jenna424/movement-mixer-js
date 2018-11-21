@@ -35,6 +35,9 @@ Training.prototype.formatFitnessType = function() {
 Training.indexListener = function() {
   $('ul.nav').on('click', 'a.view-training-types', function(e) {
     e.preventDefault()
-    console.log("Hijacked the click event of View Training Types link in navigation")
+    $.get('/trainings')
+    .done(function(response) {
+      console.log(response)
+    })
   })
 }
