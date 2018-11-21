@@ -9,6 +9,11 @@ $(function() {
   Target.destroyListener()
 })
 
+Target.compileTargetTemplate = function() {
+  Target.targetTemplateSource = $('#target-template').html()
+  Target.targetTemplateFunction = Handlebars.compile(Target.targetTemplateSource)
+}
+
 Target.indexListener = function() {
   $('ul.nav').on('click', 'a.view-target-areas', function(e) {
     e.preventDefault()
