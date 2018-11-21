@@ -83,3 +83,7 @@ Target.destroy = function(json) {
   var newTarget = new Target(json)
   newTarget.deleteLi()
 }
+
+Target.prototype.deleteLi = function() { // this refers to the newTarget object on which .deleteLi() prototype method is called
+  $(`li#target-${this.id}`).remove() // find the <li> corresponding to the target that was deleted, and then remove it
+}
