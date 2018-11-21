@@ -60,3 +60,10 @@ Training.indexTrainingTypes = function(trainingTypesArray) {
     $trainingTypesList.append(Training.trainingTemplateFunction(trainingObject))
   })
 }
+
+Training.destroyListener = function() {
+  $('div.container').on('submit', 'form.delete-training-type', function(e) {
+    e.preventDefault()
+    console.log("prevented the normal delete form submit")
+  })
+}
