@@ -20,7 +20,7 @@ Target.indexListener = function() {
 Target.preparePage = function() {
   $divContainer = $('div.container') // retrieve the <div class="container"> that holds the main page content
   $divContainer.html('') // empty out the <div class="container">
-  $divContainer.html('<h4>Where You\'ll Feel the Burn</h4>') // add <h4> header to the page
+  $divContainer.html('<h3>Where You\'ll Feel the Burn</h3>') // add <h4> header to the page
   $divContainer.append('<ul class="target-areas"></ul>') // add <ul> (where target areas will be listed) to the page
 }
 // The targetsArray parameter below is an array of all JSON target objects. This array is the JSON response I got back from the AJAX GET request sent via $.get() method in Target.indexListener()
@@ -39,6 +39,7 @@ Target.prototype.formatLi = function() {
 Target.createListener = function() {
   $('#new_target').on('submit', function(e) {
   	e.preventDefault()
+    $targetAreaDiv = $('div#target-area-added')
   	var formData = $(this).serialize()
   	$.post("/targets", formData)
   	.done(Target.create)
@@ -49,4 +50,8 @@ Target.createListener = function() {
 Target.create = function(json) {
   var newTargetArea = new Target(json)
   newTargetArea.formatDiv()
+}
+
+Target.prototype.formatDiv = function() {
+  $targetAreaDiv.html(`<br><p>We can now mix movements in workouts that target <strong>${this.focus}</strong>!</p>`)
 }
