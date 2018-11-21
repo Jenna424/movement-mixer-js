@@ -64,6 +64,11 @@ Training.indexTrainingTypes = function(trainingTypesArray) {
 Training.destroyListener = function() {
   $('div.container').on('submit', 'form.delete-training-type', function(e) {
     e.preventDefault()
-    console.log("prevented the normal delete form submit")
+    $.ajax({
+      url: $(this).attr('action'), // '/trainings/:id'
+      method: 'delete',
+      dataType: 'json',
+      data: $(this).serialize()
+    })
   })
 }
