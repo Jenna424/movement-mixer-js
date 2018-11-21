@@ -8,6 +8,11 @@ $(function() {
   Training.indexListener()
 })
 
+Training.compileTrainingTemplate = function() {
+  Training.trainingTemplateSource = $('#training-template').html()
+  Training.trainingTemplateFunction = Handlebars.compile(Training.trainingTemplateSource)
+}
+
 Training.createListener = function() {
   $('#new_training').on('submit', function(e) {
     e.preventDefault()
