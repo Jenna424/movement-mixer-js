@@ -39,3 +39,9 @@ Training.indexListener = function() {
     .done(Training.indexTrainingTypes)
   })
 }
+// trainingTypesArray parameter below is an array of JSON training objects = response from from AJAX GET request sent using $.get() in Training.indexListener()
+Training.indexTrainingTypes = function(trainingTypesArray) {
+  trainingTypesArray.forEach(function(trainingObject) {
+    console.log(trainingObject)
+  })
+}
