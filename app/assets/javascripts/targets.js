@@ -16,12 +16,7 @@ Target.indexListener = function() {
   })
 }
 // The targetsArray parameter below is an array of all JSON target objects. This array is the JSON response I got back from the AJAX GET request sent via $.get() method in Target.indexListener()
-Target.index = function(targetsArray) {
-  var targetAreasList = $('ul.target-areas')
-  targetsArray.forEach(function(targetObject) {
-    targetAreasList.html('')
-  })
-}
+
 
 Target.createListener = function() {
   $('#new_target').on('submit', function(e) {
