@@ -15,5 +15,10 @@ Training.createListener = function() {
     .done(function(response) {
       console.log(response) // handle a successful response here
     })
+    .fail(function(jqXhrObject) { // handle a failure
+      var errorsArray = jqXhrObject.responseJSON.errors
+      var errorsString = errorsArray.join() // array elements are automatically comma-separated
+      alert(errorsString)
+    })
   })
 }
