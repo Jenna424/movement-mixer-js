@@ -1,10 +1,11 @@
 class TargetsController < ApplicationController
   def new
     @target_area = Target.new # instance for form_for to wrap around
+    authorize @target_area
   end
 
   def index
-    @target_areas = Target.all
+    @target_areas = policy_scope(Target)
     render json: @target_areas
   end
 
