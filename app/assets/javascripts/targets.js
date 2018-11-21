@@ -67,7 +67,7 @@ Target.destroyListener = function() {
     e.preventDefault()
     if (confirm('Are you sure you want to delete this target area?')) {
       $.ajax({
-        url: $(this).attr('action'),
+        url: $(this).attr('action'), // '/targets/:id'
         method: 'DELETE',
         dataType: 'json',
         data: $(this).serialize()
@@ -77,4 +77,9 @@ Target.destroyListener = function() {
       console.log("Deletion of target area was not confirmed")
     }
   })
+}
+// The json parameter below = JSON object representation of the AR target instance that was just destroyed = the JSON response to AJAX DELETE request sent in Target.destroyListener()
+Target.destroy = function(json) {
+  var newTarget = new Target(json)
+  newTarget.deleteLi()
 }
