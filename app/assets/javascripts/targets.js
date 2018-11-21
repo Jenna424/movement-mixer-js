@@ -32,6 +32,10 @@ Target.index = function(targetsArray) {
   })
 }
 
+Target.prototype.formatLi = function() {
+  return `<li>${this.focus}</li>` // this refers to each newTarget (from the iteration in Target.index) on which I'm calling .formatLi() prototype method
+}
+
 Target.createListener = function() {
   $('#new_target').on('submit', function(e) {
   	e.preventDefault()
