@@ -78,3 +78,7 @@ Training.destroy = function(json) {
   var newTraining = new Training(json)
   newTraining.deleteLi()
 }
+// Below, this refers to the newTraining object on which I call .deleteLi() prototype method
+Training.prototype.deleteLi = function() {
+  $(`li#training-${this.id}`).remove()
+}
