@@ -8,8 +8,9 @@ $(function() {
 })
 
 Training.createListener = function() {
-  $('.new_training').on('submit', function(e) {
+  $('#new_training').on('submit', function(e) {
   	e.preventDefault()
-  	console.log("hijacked submit action of form to create new training type")
+  	var formData = $(this).serialize()
+  	$.post('/trainings', formData)
   })
 }
