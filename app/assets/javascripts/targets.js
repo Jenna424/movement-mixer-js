@@ -24,6 +24,13 @@ Target.preparePage = function() {
   $divContainer.append('<ul class="target-areas"></ul>') // add <ul> (where target areas will be listed) to the page
 }
 // The targetsArray parameter below is an array of all JSON target objects. This array is the JSON response I got back from the AJAX GET request sent via $.get() method in Target.indexListener()
+Target.index = function(targetsArray) {
+  var targetAreasList = $('ul.target-areas')
+  targetsArray.forEach(function(targetObject) {
+    var newTarget = new Target(targetObject)
+    targetAreasList.append(newTarget.formatLi())
+  })
+}
 
 Target.createListener = function() {
   $('#new_target').on('submit', function(e) {
