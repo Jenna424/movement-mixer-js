@@ -70,5 +70,6 @@ Training.destroyListener = function() {
       dataType: 'json',
       data: $(this).serialize()
     })
+    .done(Training.destroy)
   })
 }
