@@ -73,4 +73,8 @@ function checkIfTemplatesExist() {
   if (targetTemplateExists) {
     Target.compileTargetTemplate()
   }
+
+  if (trainingTemplateExists) {
+    Training.compileTrainingTemplate()
+  }
 }
