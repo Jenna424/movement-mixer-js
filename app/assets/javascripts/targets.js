@@ -63,7 +63,7 @@ Target.prototype.formatDiv = function() {
 }
 
 Target.destroyListener = function() {
-  $('div.container').on('click', 'form.button_to', function(e) {
+  $('div.container').on('click', 'form.delete-target-area', function(e) {
     e.preventDefault()
     if (confirm('Are you sure you want to delete this target area?')) {
       $.ajax({
