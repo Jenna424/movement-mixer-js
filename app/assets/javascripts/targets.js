@@ -59,3 +59,10 @@ Target.create = function(json) {
 Target.prototype.formatDiv = function() {
   $targetAreaDiv.html(`<br><p>We can now mix movements in workouts that target <strong>${this.focus}</strong>!</p>`)
 }
+
+Target.destroyListener = function() {
+  $('div.container').on('click', '.delete-target-area', function(e) {
+    e.preventDefault()
+    console.log('clicked button to delete target area')
+  })
+}
