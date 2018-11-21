@@ -5,10 +5,10 @@ class TrainingsController < ApplicationController
   end
 
   def index
-  	@training_types = policy_scope(Training)
-  	render json: @training_types
+    @training_types = policy_scope(Training)
+    render json: @training_types
   end
-  
+
   private
 
     def training_params
