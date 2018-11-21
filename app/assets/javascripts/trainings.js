@@ -36,8 +36,6 @@ Training.indexListener = function() {
   $('ul.nav').on('click', 'a.view-training-types', function(e) {
     e.preventDefault()
     $.get('/trainings')
-    .done(function(response) {
-      console.log(response)
-    })
+    .done(Training.indexTrainingTypes)
   })
 }
