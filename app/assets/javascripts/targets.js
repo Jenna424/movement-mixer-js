@@ -48,5 +48,5 @@ Target.createListener = function() {
 // json parameter below = JSON object representation of newly created AR target instance = response from AJAX POST request sent with $.post() method in Target.createListener()
 Target.create = function(json) {
   var newTargetArea = new Target(json)
-  newTargetArea.formatAndAppendLi()
+  newTargetArea.formatDiv()
 }
