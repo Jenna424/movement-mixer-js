@@ -12,9 +12,7 @@ Training.createListener = function() {
     e.preventDefault()
     var formData = $(this).serialize()
     $.post('/trainings', formData)
-    .done(function(response) {
-      console.log(response) // handle a successful response here
-    })
+    .done(Training.create)
     .fail(function(jqXhrObject) { // handle a failure
       var errorsArray = jqXhrObject.responseJSON.errors
       var errorsString = errorsArray.join() // array elements are automatically comma-separated
