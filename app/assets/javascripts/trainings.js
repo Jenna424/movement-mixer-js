@@ -35,14 +35,14 @@ Training.prototype.formatFitnessType = function() {
 Training.preparePage = function() {
   $divContainer = $('div.container') // retrieve the <div class="container"> that holds the main page content
   $divContainer.html('') // empty out the <div class="container">
-  $divContainer.html('<h3>Fitness Training Types Implemented by Clients</h3>') // add <h3> header to the page
+  $divContainer.html('<h3>Training Types Implemented by Clients</h3>') // add <h3> header to the page
   $divContainer.append('<ul class="training-types"></ul>') // add <ul> (where training types will be listed) to the page
 }
 
 Training.indexListener = function() {
   $('ul.nav').on('click', 'a.view-training-types', function(e) {
     e.preventDefault()
-    Training.preparePage
+    Training.preparePage()
     $.get('/trainings')
     .done(Training.indexTrainingTypes)
   })
