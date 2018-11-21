@@ -33,7 +33,10 @@ Target.index = function(targetsArray) {
 }
 
 Target.prototype.formatLi = function() {
-  return `<li>${this.focus}</li>` // this refers to each newTarget (from the iteration in Target.index) on which I'm calling .formatLi() prototype method
+  return `
+  <li><h4>${this.focus}</h4></li>
+  <button class="btn btn-danger btn-sm delete-target-area" data-id=${this.id}>Delete ${this.focus}</button>
+  `
 }
 
 Target.createListener = function() {
