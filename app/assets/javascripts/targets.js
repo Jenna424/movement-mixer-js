@@ -65,5 +65,6 @@ Target.prototype.formatDiv = function() {
 Target.destroyListener = function() {
   $('div.container').on('click', 'form.button_to', function(e) {
     e.preventDefault()
+    var targetId = $(this).attr('action').split('/')[2]
   })
 }
