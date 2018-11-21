@@ -19,7 +19,7 @@ Target.indexListener = function() {
 Target.index = function(targetsArray) {
   var targetAreasList = $('ul.target-areas')
   targetsArray.forEach(function(targetObject) {
-    console.log(targetObject)
+    targetAreasList.html('')
   })
 }
 
