@@ -5,6 +5,7 @@ function Training(training) {
 
 $(function() {
   Training.createListener()
+  Training.indexListener()
 })
 
 Training.createListener = function() {
