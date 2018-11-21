@@ -36,7 +36,7 @@ Target.index = function(targetsArray) {
 Target.prototype.formatLi = function() {
   return `
   <li><h4>${this.focus}</h4></li>
-  <button class="btn btn-danger btn-sm delete-target-area" data-id=${this.id}>Delete ${this.focus}</button>
+  <button class="btn btn-danger btn-sm delete-target-area" data-id=${this.id} data-confirm: "Are you sure you want to delete this target area?">Delete ${this.focus}</button>
   `
 }
 
