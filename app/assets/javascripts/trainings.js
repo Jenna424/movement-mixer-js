@@ -28,5 +28,5 @@ Training.create = function(json) {
 // Below, this refers to the newTraining object on which I call .formatFitnessType() prototype method
 Training.prototype.formatFitnessType = function() {
   var trainingTypeDiv = $('div#training-type-added')
-  trainingTypeDiv.html(`<p>Movement Mixers can now design ${this.fitness_type} workout routines!</p>`)
+  trainingTypeDiv.html(`<p>Movement Mixers can now design <strong>${this.fitness_type.toLowerCase()}</strong> workout routines!</p>`)
 }
