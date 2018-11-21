@@ -18,6 +18,13 @@ class TrainingsController < ApplicationController
     render json: @training_types
   end
 
+  def destroy # '/trainings/:id' => 'trainings#destroy'
+    training_type = Training.find(params[:id])
+    authorize training_type
+    training_type.destroy
+    render json: training_type
+  end
+
   private
 
     def training_params
