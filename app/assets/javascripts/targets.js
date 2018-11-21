@@ -11,12 +11,19 @@ $(function() {
 Target.indexListener = function() {
   $('ul.nav').on('click', 'a.view-target-areas', function(e) {
     e.preventDefault()
+    Target.preparePage()
     $.get('/targets')
     .done(Target.index)
   })
 }
-// The targetsArray parameter below is an array of all JSON target objects. This array is the JSON response I got back from the AJAX GET request sent via $.get() method in Target.indexListener()
 
+Target.preparePage = function() {
+  $divContainer = $('div.container') // retrieve the <div class="container"> that holds the main page content
+  $divContainer.html('') // empty out the <div class="container">
+  $divContainer.html('<h4>Where You\'ll Feel the Burn</h4>') // add <h4> header to the page
+  $divContainer.append('<ul class="target-areas"></ul>') // add <ul> (where target areas will be listed) to the page
+}
+// The targetsArray parameter below is an array of all JSON target objects. This array is the JSON response I got back from the AJAX GET request sent via $.get() method in Target.indexListener()
 
 Target.createListener = function() {
   $('#new_target').on('submit', function(e) {
