@@ -8,4 +8,16 @@ class TargetPolicy < ApplicationPolicy
       end
     end
   end
+
+  def new? # Only trainers can view the form to create a new workout target area
+    user.trainer?
+  end
+
+  def create?
+    new?
+  end
+
+  def destroy? # Any trainer can delete any workout target area
+    user.trainer?
+  end
 end
