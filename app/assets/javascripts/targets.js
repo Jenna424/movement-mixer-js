@@ -39,10 +39,7 @@ Target.index = function(targetsArray) {
 }
 
 Target.prototype.formatLi = function() {
-  return `
-  <li><h4>${this.focus}</h4></li>
-  <button class="btn btn-danger btn-sm delete-target-area" data-id=${this.id} data-confirm: "Are you sure you want to delete this target area?">Delete ${this.focus}</button>
-  `
+  return Target.targetTemplateFunction(this)
 }
 
 Target.createListener = function() {
@@ -66,8 +63,7 @@ Target.prototype.formatDiv = function() {
 }
 
 Target.destroyListener = function() {
-  $('div.container').on('click', '.delete-target-area', function(e) {
+  $('div.container').on('click', 'form.button_to', function(e) {
     e.preventDefault()
-    console.log('clicked button to delete target area')
   })
 }
