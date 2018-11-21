@@ -65,6 +65,18 @@ Target.prototype.formatDiv = function() {
 Target.destroyListener = function() {
   $('div.container').on('click', 'form.button_to', function(e) {
     e.preventDefault()
-    var targetId = $(this).attr('action').split('/')[2]
+    if (confirm('Are you sure you want to delete this target area?')) {
+      $.ajax({
+        url: $(this).attr('action'),
+        method: 'DELETE',
+        dataType: 'json',
+        data: $(this).serialize()
+      })
+      .done(function(response) {
+        console.log(response)
+      })
+    } else {
+      console.log("Deletion of target area was not confirmed")
+    }
   })
 }
