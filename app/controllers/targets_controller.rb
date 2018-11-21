@@ -4,7 +4,6 @@ class TargetsController < ApplicationController
   end
 
   def index
-    @target_area = Target.new # instance for form_for to wrap around
     @target_areas = Target.all
     render json: @target_areas
   end
