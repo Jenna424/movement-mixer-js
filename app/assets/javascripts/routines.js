@@ -163,7 +163,7 @@ Routine.createListener = function() {
     .fail(function(jqXhrObject) {
       var errorsArray = jqXhrObject.responseJSON.errors
       var errorsString = errorsArray.join() // array elements are automatically comma-separated
-      alert(errorsSTring)
+      alert(errorsString)
     })
   })
 }
