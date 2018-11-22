@@ -13,7 +13,7 @@ function Routine(routine) {
 }
 
 $(function() {
-  Routine.bindClickEventHandlers()
+  Routine.bindEventHandlers()
 })
 
 Routine.compileTemplates = function() {
@@ -38,7 +38,7 @@ Routine.compileListWorkoutTemplate = function() {
   Routine.listWorkoutTemplateFunction = Handlebars.compile(Routine.listWorkoutTemplateSource)
 }
 
-Routine.bindClickEventHandlers = function() {
+Routine.bindEventHandlers = function() {
   Routine.createListener()
   Routine.addMovementHandler()
   Routine.addEquipmentHandler()
