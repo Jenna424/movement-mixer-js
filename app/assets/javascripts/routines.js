@@ -169,7 +169,12 @@ Routine.createListener = function() {
 }
 
 Routine.createWorkout = function() {
+  Routine.preparePreviewPage()
+}
 
+Routine.preparePreviewPage = function() {
+  $('#preview-routine').html('') // empty <div id="preview-routine">, where preview of newly created routine will be displayed
+  $('#new_routine').find('input[type=text], textarea, input[type=number]').val(''); // clear the <form id="new_routine">, in case the user wants to create another routine
 }
 
 //Routine.handleCreateFormSubmission = function() {
