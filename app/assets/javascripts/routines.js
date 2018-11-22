@@ -163,6 +163,10 @@ Routine.createListener = function() {
   })
 }
 
+Routine.createWorkout = function() {
+  
+}
+
 //Routine.handleCreateFormSubmission = function() {
   //$('#new_routine').on('submit', function(e) {
     //e.preventDefault()
