@@ -159,9 +159,7 @@ Routine.createListener = function() {
     e.preventDefault()
     var createFormData = $(this).serialize()
     $.post('/routines', createFormData)
-    .done(function(response) {
-      console.log(response)
-    })
+    .done(Routine.createWorkout)
   })
 }
 
