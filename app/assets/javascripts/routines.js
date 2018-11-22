@@ -185,9 +185,6 @@ Routine.prototype.formatAndAppendPreview = function() {
   $('#preview-routine').html(Routine.routineTemplateFunction(this))
 }
 
-Routine.prototype.formatPreview = function() {
-  return Routine.routineTemplateFunction(this) // this refers to the JSON routine object on which we're calling the formatPreview() prototype method
-}
 // The link to View All Workouts is found in the navbar, which changes depending on if the viewer is logged in
 Routine.handleWorkoutsIndex = function() {
   $('ul.nav').on('click', 'a.all-routines', function(e) {
