@@ -64,13 +64,17 @@ Training.indexTrainingTypes = function(trainingTypesArray) {
 Training.destroyListener = function() {
   $('div.container').on('submit', 'form.delete-training-type', function(e) {
     e.preventDefault()
-    $.ajax({
-      url: $(this).attr('action'), // '/trainings/:id'
-      method: 'delete',
-      dataType: 'json',
-      data: $(this).serialize()
-    })
-    .done(Training.destroy)
+    if (confirm('Are you sure you want to delete this training type?')) {
+      $.ajax({
+        url: $(this).attr('action'), // '/trainings/:id'
+        method: 'delete',
+        dataType: 'json',
+        data: $(this).serialize()
+      })
+      .done(Training.destroy)
+    } else {
+      console.log("Deletion of training type was not confirmed!")
+    }
   })
 }
 // json parameter is the JSON object representation of the training AR instance that was just destroyed = response from the AJAX DELETE request that was sent in Training.destroyListener()
