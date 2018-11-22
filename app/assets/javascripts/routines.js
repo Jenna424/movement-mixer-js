@@ -167,9 +167,10 @@ Routine.createListener = function() {
     })
   })
 }
-
-Routine.createWorkout = function() {
+// Below, routineResponse parameter = JSON object representation of AR routine instance that was just created = JSON response I get back from AJAX POST request sent in Routine.createListener()
+Routine.createWorkout = function(routineResponse) {
   Routine.preparePreviewPage()
+  let newRoutine = new Routine(routineResponse)
 }
 
 Routine.preparePreviewPage = function() {
