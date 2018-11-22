@@ -10,9 +10,9 @@ class TargetsController < ApplicationController
   end
 
   def create
-  	@target_area = Target.new(target_params)
-  	if @target_area.save
-  	  render json: @target_area
+  	target_area = Target.new(target_params)
+  	if target_area.save
+  	  render json: target_area
   	end
   end
 
