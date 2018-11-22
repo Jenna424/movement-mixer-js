@@ -11,6 +11,8 @@ class TargetsController < ApplicationController
 
   def create
   	target_area = Target.new(target_params)
+    authorize target_area
+    
   	if target_area.save
   	  render json: target_area, status: 201
     else
