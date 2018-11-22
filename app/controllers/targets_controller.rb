@@ -12,7 +12,7 @@ class TargetsController < ApplicationController
   def create
     target_area = Target.new(target_params)
     authorize target_area
-    
+
   	if target_area.save
   	  render json: target_area, status: 201
     else
@@ -22,6 +22,7 @@ class TargetsController < ApplicationController
 
   def destroy
     target_area = Target.find(params[:id])
+    authorize target_area
     target_area.destroy
     render json: target_area
   end
