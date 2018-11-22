@@ -44,16 +44,21 @@ Target.prototype.formatLi = function() {
 
 Target.createListener = function() {
   $('#new_target').on('submit', function(e) {
-  	e.preventDefault()
+    e.preventDefault()
     $targetAreaDiv = $('div#target-area-added')
-  	var formData = $(this).serialize()
-  	$.post("/targets", formData)
-  	.done(Target.create)
-  	$('#new_target input[type=text]').val('')
+    var formData = $(this).serialize()
+    $.post('/targets', formData)
+    .done(Target.create)
+    .fail(function(jqXhrObject) { // handle a failure
+      var errorsArray = jqXhrObject.responseJSON.errors
+      var errorsString = errorsArray.join() // array elements are automatically comma-separated
+      alert(errorsString)
+    })
   })
 }
 // json parameter below = JSON object representation of newly created AR target instance = response from AJAX POST request sent with $.post() method in Target.createListener()
 Target.create = function(json) {
+  $("input[type='text']").val('') // empty the text field where trainer types in focus after form submission (so focus presence validation does not conflict with it)
   var newTargetArea = new Target(json)
   newTargetArea.formatDiv()
 }
