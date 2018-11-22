@@ -22,9 +22,9 @@ class RoutinesController < ApplicationController
   def create
     @routine = current_user.routines.build(routine_params)
     authorize @routine
-    
+
     if @routine.save
-      render json: @routine
+      render json: @routine, status: :created # status 201 indicates routine resource created
     else
       render :new
     end
