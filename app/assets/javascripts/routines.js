@@ -39,6 +39,7 @@ Routine.compileListWorkoutTemplate = function() {
 }
 
 Routine.bindClickEventHandlers = function() {
+  Routine.createListener()
   Routine.addMovementHandler()
   Routine.addEquipmentHandler()
   Routine.addTargetAreaHandler()
