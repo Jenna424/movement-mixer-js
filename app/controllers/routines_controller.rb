@@ -21,6 +21,8 @@ class RoutinesController < ApplicationController
 
   def create
     @routine = current_user.routines.build(routine_params)
+    authorize @routine
+    
     if @routine.save
       render json: @routine
     else
