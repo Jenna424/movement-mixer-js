@@ -185,22 +185,6 @@ Routine.prototype.formatAndAppendPreview = function() {
   $('#preview-routine').html(Routine.routineTemplateFunction(this))
 }
 
-//Routine.handleCreateFormSubmission = function() {
-  //$('#new_routine').on('submit', function(e) {
-    //e.preventDefault()
-    //var url = $(this).attr('action') // "/routines"
-    //var formData = $(this).serialize()
-    //$.post(url, formData)
-    //.done(function(response) {
-      //$('#preview-routine').html('')
-      //$('#new_routine').find('input[type=text], textarea, input[type=number]').val('');
-      //let newRoutine = new Routine(response)
-      //let routineHtml = newRoutine.formatPreview()
-      //$('#preview-routine').html(routineHtml)
-    //})
-  //})
-//}
-
 Routine.prototype.formatPreview = function() {
   return Routine.routineTemplateFunction(this) // this refers to the JSON routine object on which we're calling the formatPreview() prototype method
 }
