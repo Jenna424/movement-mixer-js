@@ -1,4 +1,12 @@
 class RoutinePolicy < ApplicationPolicy
+  def new?
+    user.client? || user.trainer?
+  end
+
+  def create?
+    new?
+  end
+  
   def edit?
     routine_owner || routines_by_clients
   end
