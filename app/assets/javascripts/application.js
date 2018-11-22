@@ -16,13 +16,3 @@
 //= require activestorage
 //= require templates
 //= require_tree .
-
-function fetchErrorHandler() {
-  if (response.ok) { // In a successful response, we'll see ok: true
-    return response;
-  } else {
-    throw Error(response.statusText); // example: used to print out error.message Not Found
-  }
-}
-// Error response status codes (400s and 500s) will NOT automatically reject the promise returned by .fetch(),
-// so I must raise an error to reject the promise and delegate error handling to .catch()
