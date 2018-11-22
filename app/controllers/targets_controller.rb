@@ -13,7 +13,9 @@ class TargetsController < ApplicationController
   	target_area = Target.new(target_params)
   	if target_area.save
   	  render json: target_area, status: 201
-  	end
+    else
+      render json: { errors: target_area.errors.full_messages }, status: :unprocessable_entity # status: 422
+    end
   end
 
   def destroy
