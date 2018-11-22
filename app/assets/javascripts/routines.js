@@ -160,11 +160,14 @@ Routine.createListener = function() {
     var createFormData = $(this).serialize()
     $.post('/routines', createFormData)
     .done(Routine.createWorkout)
+    .fail(function(jqXhrObject) {
+      // handle failed response here due to failed validation of routine attributes
+    })
   })
 }
 
 Routine.createWorkout = function() {
-  
+
 }
 
 //Routine.handleCreateFormSubmission = function() {
