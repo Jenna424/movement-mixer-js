@@ -12,7 +12,7 @@ class TargetsController < ApplicationController
   def create
   	target_area = Target.new(target_params)
   	if target_area.save
-  	  render json: target_area
+  	  render json: target_area, status: 201
   	end
   end
 
