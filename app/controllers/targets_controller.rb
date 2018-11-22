@@ -10,7 +10,7 @@ class TargetsController < ApplicationController
   end
 
   def create
-  	target_area = Target.new(target_params)
+    target_area = Target.new(target_params)
     authorize target_area
     
   	if target_area.save
