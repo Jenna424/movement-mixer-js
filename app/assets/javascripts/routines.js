@@ -171,6 +171,7 @@ Routine.createListener = function() {
 Routine.createWorkout = function(routineResponse) {
   Routine.preparePreviewPage()
   let newRoutine = new Routine(routineResponse)
+  newRoutine.formatAndAppendPreview()
 }
 
 Routine.preparePreviewPage = function() {
