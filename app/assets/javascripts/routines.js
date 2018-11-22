@@ -178,6 +178,10 @@ Routine.preparePreviewPage = function() {
   $('#preview-routine').html('') // empty <div id="preview-routine">, where preview of newly created routine will be displayed
   $('#new_routine').find('input[type=text], textarea, input[type=number]').val(''); // clear the <form id="new_routine">, in case the user wants to create another routine
 }
+// Below, this refers to the newRoutine object on which we're calling the formatAndAppendPreview() prototype method
+Routine.prototype.formatAndAppendPreview = function() {
+  $('#preview-routine').html(Routine.routineTemplateFunction(this))
+}
 
 //Routine.handleCreateFormSubmission = function() {
   //$('#new_routine').on('submit', function(e) {
