@@ -15,6 +15,11 @@ MovementRoutine.bindEventListeners = function() {
   MovementRoutine.destroyListener()
 }
 
+MovementRoutine.compileEditMovementRoutineTemplate = function() {
+  MovementRoutine.editMovementRoutineTemplateSource = $('#edit-movement-routine-template').html()
+  MovementRoutine.editMovementRoutineTemplateFunction = Handlebars.compile(MovementRoutine.editMovementRoutineTemplateSource)
+}
+
 MovementRoutine.destroyListener = function() {
   $('div.panel-default').on('submit', 'form.button_to', function(e) {
     e.preventDefault()
