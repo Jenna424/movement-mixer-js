@@ -25,7 +25,7 @@
 
         <div id="edit-mr-<%= mr_instance(movement, @routine).id %>-div"></div>
 
-        <%= link_to "/mrs/{{id}}/edit", class: "edit-exercise btn btn-default btn-sm" do
+        <%= link_to "/mrs/<%= mr_instance(movement, @routine).id %>/edit", class: "edit-exercise btn btn-default btn-sm" do
           content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:small, " Edit Exercise")
         end %>
 
