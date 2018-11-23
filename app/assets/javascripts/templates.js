@@ -11,7 +11,6 @@ function checkIfTemplatesExist() {
   var listExerciseTemplateExists = $('#list-exercise-template').length
   var trainingGuideTemplateExists = $('#training-guide-template').length
   var showExerciseTemplateExists = $('#show-exercise-template').length
-  var editExerciseTemplateExists = $('#edit-exercise-template').length
   var mrTemplateExists = $('#mr-template').length
   var editEquipmentRoutineTemplateExists = $('#edit-equipment-routine-template').length
   var erTemplateExists = $('#er-template').length
