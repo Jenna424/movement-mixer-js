@@ -217,7 +217,7 @@ Routine.editExerciseListener = function() {
    var $editLinkClicked = $(this)
    var url = $(this).attr('href') // '/mrs/:id/edit'
    $.get(url)
-    .done(MovementRoutine.Form)
+    .done(MovementRoutine.displayEditMrForm)
   })
 }
 // On the routine show page, the user clicks an Edit Exercise link beside each movement that the user wants to edit in the context of that workout routine.
