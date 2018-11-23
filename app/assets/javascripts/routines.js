@@ -211,7 +211,7 @@ Routine.handleHideTechnique = function() {
   })
 }
 
-Routine.editExerciseFormListener = function() {
+Routine.editExerciseListener = function() {
   $('div.panel-default').on('click', 'a.edit-exercise', function(e) {
    e.preventDefault()
    var $editLinkClicked = $(this)
@@ -281,7 +281,7 @@ Routine.updateExercise = function() {
 }
 
 Routine.handleEditExercise = function() {
-  Routine.editExerciseFormListener()
+  Routine.editExerciseListener()
   Routine.updateExercise()
 }
 
