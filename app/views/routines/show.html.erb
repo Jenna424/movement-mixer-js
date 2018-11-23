@@ -23,7 +23,7 @@
 
         <p id="reps-paragraph-<%= mr_instance(movement, @routine).id %>"><strong>Reps</strong>: <%= mr_instance(movement, @routine).reps %></p>
 
-        <div id="edit-exercise-<%= movement.id %>-div"></div>
+        <div id="edit-mr-<%= mr_instance(movement, @routine).id %>-div"></div>
 
         <%= link_to "/routines/#{@routine.id}/movements/#{movement.id}/edit", class: "edit-exercise btn btn-default btn-sm", data: {movement_id: movement.id } do
           content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:small, " Edit Exercise")
