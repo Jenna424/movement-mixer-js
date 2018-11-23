@@ -44,11 +44,11 @@
     <div id="display-technique-{{id}}"></div>
     <p id="sets-paragraph-{{id}}"><strong>Sets</strong>: {{sets}}</p>
     <p id="reps-paragraph-{{id}}"><strong>Reps</strong>: {{reps}}</p>
-    <div id="edit-exercise-{{movement.id}}-div"></div>
-    <a class="edit-exercise btn btn-default btn-sm" data-movement-id={{movement.id}} href="/routines/{{routine.id}}/movements/{{movement.id}}/edit">
+    <div id="edit-mr-{{id}}-div"></div>
+    <a class="edit-exercise btn btn-default btn-sm" href="/mrs/{{id}}/edit">
       <span class="glyphicon glyphicon-edit"></span> <small>Edit Exercise</small>
     </a>
-    <form style="display:inline-block;" class="button_to" method="post" action="/routines/{{routine.id}}/movements/{{movement.id}}">
+    <form style="display:inline-block;" class="button_to" method="post" action="/mrs/{{id}}">
       <input type="hidden" name="_method" value="delete">
       <button class="btn btn-danger btn-sm" data-confirm="Are you sure you want to remove this exercise?" type="submit">
         <span class="glyphicon glyphicon-trash"></span> <small>Delete Exercise</small>
