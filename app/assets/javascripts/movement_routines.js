@@ -24,6 +24,8 @@ MovementRoutine.displayEditMrForm = function(mrJson) {
   let newMr = new MovementRoutine(mrJson)
   let $editMrDiv = $(`div#edit-mr-${newMr.id}-div`)
   let editMrFormHtml = MovementRoutine.editMovementRoutineTemplateFunction(newMr)
+  $editMrDiv.html(editMrFormHtml)
+  $editMrDiv.addClass('well well-md')
 }
 
 MovementRoutine.destroyListener = function() {
