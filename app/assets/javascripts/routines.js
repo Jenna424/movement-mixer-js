@@ -210,25 +210,6 @@ Routine.handleHideTechnique = function() {
     showButton.show()
   })
 }
-
-Routine.displayEditExerciseForm = function() {
-  $('div.panel-default').on('click', 'a.edit-exercise', function(e) {
-    e.preventDefault()
-    var $editLinkClicked = $(this)
-    var movementId = $(this).data('movement-id') // id of the movement instance
-    var $editExerciseDiv = $(`#edit-exercise-${movementId}-div`)
-    var url = $(this).attr('href') // "/routines/:routine_id/movements/:movement_id/edit"
-    $.get(url)
-    .done(function(response) {
-      let newMr = new MovementRoutine(response)
-      let mrHtml = Routine.editExerciseTemplateFunction(newMr)
-      $editExerciseDiv.html(mrHtml)
-      $editLinkClicked.hide()
-      $editExerciseDiv.show()
-      $editExerciseDiv.addClass('well well-lg')
-    })
-  })
-}
 // On the routine show page, the user clicks an Edit Exercise link beside each movement that the user wants to edit in the context of that workout routine.
 // Editing an exercise just means updating the technique, sets and reps user-submittable attributes that are stored on the join table movement_routines.
 // When the user clicks the Edit Exercise link, the user sees a form to update only the technique, sets and reps of that particular exercise movement in that specific workout routine.
