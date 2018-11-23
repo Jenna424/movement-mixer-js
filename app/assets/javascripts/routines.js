@@ -42,8 +42,6 @@ Routine.bindEventHandlers = function() {
   Routine.createListener()
   Routine.addMovementHandler()
   Routine.addEquipmentHandler()
-  Routine.addTargetAreaHandler()
-  Routine.addTrainingTypeHandler()
   Routine.handleWorkoutsIndex()
   Routine.handleShowTechnique()
   Routine.handleHideTechnique()
@@ -120,36 +118,6 @@ Routine.addEquipmentHandler = function() {
     var newIndexPosition = parseInt(lastIndexPosition) + 1;
     var equipmentHtmlFields = Routine.equipmentTemplateFunction({indexPosition: newIndexPosition})
     $('#add-equipment').before(equipmentHtmlFields)
-  })
-}
-
-Routine.addTargetAreaHandler = function() {
-  $('#add-target').on('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    var targetAreaFieldsToReplicate = $("[name^='routine[targets_attributes]'");
-    var lastTargetAreaInput = targetAreaFieldsToReplicate.last();
-    var lastId = lastTargetAreaInput.attr("id");
-    var idParts = lastId.split("_");
-    var lastIndexPosition = idParts[3];
-    var newIndexPosition = parseInt(lastIndexPosition) + 1;
-    var targetAreaHtml = Routine.targetTemplateFunction({indexPosition: newIndexPosition})
-    $('#add-target').before(targetAreaHtml)
-  })
-}
-
-Routine.addTrainingTypeHandler = function() {
-  $('#add-training').on('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    var trainingTypeFieldsToReplicate = $("[name^='routine[trainings_attributes']");
-    var lastTrainingTypeInput = trainingTypeFieldsToReplicate.last();
-    var lastId = lastTrainingTypeInput.attr("id");
-    var idParts = lastId.split("_");
-    var lastIndexPosition = idParts[3];
-    var newIndexPosition = parseInt(lastIndexPosition) + 1;
-    var trainingTypeHtml = Routine.trainingTemplateFunction({ indexPosition: newIndexPosition })
-    $('#add-training').before(trainingTypeHtml)
   })
 }
 
