@@ -181,6 +181,12 @@ Routine.prototype.formatAndAppendPreview = function() {
   $('#preview-routine').html(Routine.routineTemplateFunction(this))
 }
 
+Routine.revealErrors = function(jqXhrObject) {
+  var errorsArray = jqXhrObject.responseJSON.errors
+  var errorsString = errorsArray.join('\n') // join array elements (string error messages) with a line break
+  alert(`Error detection prevented your workout routine from being saved:\n\n${errorsString}`)
+}
+
 // The link to View All Workouts is found in the navbar, which changes depending on if the viewer is logged in
 Routine.handleWorkoutsIndex = function() {
   $('ul.nav').on('click', 'a.all-routines', function(e) {
