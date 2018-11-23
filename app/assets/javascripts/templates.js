@@ -57,6 +57,10 @@ function checkIfTemplatesExist() {
     MovementRoutine.compileMrTemplate()
   }
 
+  if (editMovementRoutineTemplateExists) {
+    MovementRoutine.compileEditMovementRoutineTemplate()
+  }
+
   if (editEquipmentRoutineTemplateExists) {
     EquipmentRoutine.compileEditEquipmentRoutineTemplate()
   }
