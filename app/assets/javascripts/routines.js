@@ -161,7 +161,7 @@ Routine.createListener = function() {
     .done(Routine.createWorkout)
     .fail(function(jqXhrObject) {
       var errorsArray = jqXhrObject.responseJSON.errors
-      var errorsString = errorsArray.join() // array elements are automatically comma-separated
+      var errorsString = errorsArray.join(', ') // array elements are automatically comma-separated
       alert(errorsString)
     })
   })
