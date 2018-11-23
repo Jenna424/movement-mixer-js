@@ -211,13 +211,13 @@ Routine.handleHideTechnique = function() {
   })
 }
 
-Routine.displayEditExerciseForm = function() {
+Routine.editExerciseFormListener = function() {
   $('div.panel-default').on('click', 'a.edit-exercise', function(e) {
    e.preventDefault()
    var $editLinkClicked = $(this)
    var url = $(this).attr('href') // '/mrs/:id/edit'
    $.get(url)
-    .done(MovementRoutine.fillEditForm)
+    .done(MovementRoutine.Form)
   })
 }
 // On the routine show page, the user clicks an Edit Exercise link beside each movement that the user wants to edit in the context of that workout routine.
@@ -281,7 +281,7 @@ Routine.updateExercise = function() {
 }
 
 Routine.handleEditExercise = function() {
-  Routine.displayEditExerciseForm()
+  Routine.editExerciseFormListener()
   Routine.updateExercise()
 }
 
