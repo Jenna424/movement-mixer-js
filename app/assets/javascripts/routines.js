@@ -215,6 +215,7 @@ Routine.editExerciseListener = function() {
   $('div.panel-default').on('click', 'a.edit-exercise', function(e) {
    e.preventDefault()
    var $editLinkClicked = $(this)
+   $editLinkClicked.hide()
    var url = $(this).attr('href') // '/mrs/:id/edit'
    $.get(url)
     .done(MovementRoutine.displayEditMrForm)
