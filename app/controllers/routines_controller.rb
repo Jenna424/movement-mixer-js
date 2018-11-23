@@ -61,6 +61,11 @@ class RoutinesController < ApplicationController
     end 
   end
 
+  def edit_movement_routine # get '/mrs/:id/edit'
+    movement_routine = MovementRoutine.find(params[:id])
+    render json: movement_routine
+  end
+
   #def edit_movement_routine # GET '/routines/:routine_id/movements/:movement_id/edit' => 'routines#edit_movement_routine'
     #movement_routine = MovementRoutine.find_by(routine: params[:routine_id], movement: params[:movement_id])
     #render json: movement_routine
