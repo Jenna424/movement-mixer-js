@@ -29,7 +29,7 @@
           content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:small, " Edit Exercise")
         end %>
 
-        <%= button_to "/routines/#{@routine.id}/movements/#{movement.id}", class: "btn btn-danger btn-sm", method: :delete, form: {style: 'display:inline-block;'}, data: { confirm: "Are you sure you want to remove this exercise?"} do %>
+        <%= button_to "/mrs/<%= mr_instance(movement, @routine).id %>", class: "btn btn-danger btn-sm", method: :delete, form: {style: 'display:inline-block;'}, data: { confirm: "Are you sure you want to remove this exercise?"} do %>
           <span class="glyphicon glyphicon-trash"></span> <small>Delete Exercise</small>
         <% end %>
 
