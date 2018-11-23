@@ -21,7 +21,7 @@ MovementRoutine.compileEditMovementRoutineTemplate = function() {
 }
 // Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that we're formatting the edit form for = the response from AJAX GET request to '/mrs/:id/edit' sent in Routine.editExerciseListener(), which is triggered when user clicks Edit Exercise on routine show page to edit technique/sets/reps user-submittable attributes stored on join model MovementRoutine
 MovementRoutine.displayEditMrForm = function(mrJson) {
-  console.log(mrJson)
+  let newMr = new MovementRoutine(mrJson)
 }
 
 MovementRoutine.destroyListener = function() {
