@@ -40,6 +40,7 @@ Routine.compileListWorkoutTemplate = function() {
 
 Routine.bindEventHandlers = function() {
   Routine.createListener()
+  Routine.editExerciseListener()
   Routine.addMovementHandler()
   Routine.addEquipmentHandler()
   Routine.handleWorkoutsIndex()
