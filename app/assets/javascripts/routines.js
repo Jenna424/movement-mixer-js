@@ -213,20 +213,11 @@ Routine.handleHideTechnique = function() {
 
 Routine.displayEditExerciseForm = function() {
   $('div.panel-default').on('click', 'a.edit-exercise', function(e) {
-    e.preventDefault()
-    var $editLinkClicked = $(this)
-    var movementId = $(this).data('movement-id') // id of the movement instance
-    var $editExerciseDiv = $(`#edit-exercise-${movementId}-div`)
-    var url = $(this).attr('href') // "/routines/:routine_id/movements/:movement_id/edit"
-    $.get(url)
-    .done(function(response) {
-      let newMr = new MovementRoutine(response)
-      let mrHtml = Routine.editExerciseTemplateFunction(newMr)
-      $editExerciseDiv.html(mrHtml)
-      $editLinkClicked.hide()
-      $editExerciseDiv.show()
-      $editExerciseDiv.addClass('well well-lg')
-    })
+   e.preventDefault()
+   var $editLinkClicked = $(this)
+   var url = $(this).attr('href') // '/mrs/:id/edit'
+   $.get(url)
+    .done(MovementRoutine.fillEditForm)
   })
 }
 // On the routine show page, the user clicks an Edit Exercise link beside each movement that the user wants to edit in the context of that workout routine.
