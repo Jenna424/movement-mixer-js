@@ -16,18 +16,16 @@ MovementRoutine.bindEventListeners = function() {
 }
 
 MovementRoutine.destroyListener = function() {
-  $('div.panel-default').on('click', 'form.button_to', function(e) {
+  $('div.panel-default').on('submit', 'form.button_to', function(e) {
     e.preventDefault()
     if (confirm('Are you sure you want to remove this exercise?')) {
       $.ajax({
-        url: $(this).attr('action'), // "/routines/:routine_id/movements/:movement_id" (maps to routines#destroy)
+        url: $(this).attr('action'), // delete '/mrs/:id' => 'routines#destroy_movement_routine'
         method: 'delete',
         dataType: 'json',
         data: $(this).serialize()
       })
       .done(MovementRoutine.destroy)
-    } else {
-      console.log("User did not confirm exercise deletion.")
     }
   })
 }
