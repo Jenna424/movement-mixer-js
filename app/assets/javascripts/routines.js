@@ -43,8 +43,6 @@ Routine.bindEventHandlers = function() {
   Routine.addMovementHandler()
   Routine.addEquipmentHandler()
   Routine.handleWorkoutsIndex()
-  Routine.handleShowTechnique()
-  Routine.handleHideTechnique()
   Routine.handleCancelEdit()
   Routine.addExerciseListener()
   Routine.addEquipmentListener()
@@ -175,39 +173,6 @@ Routine.handleWorkoutsIndex = function() {
 
 Routine.prototype.formatForIndex = function() {
   return Routine.listWorkoutTemplateFunction(this)
-}
-// On the routine show page, each movement in the collection of movements that comprise the routine
-// has a Show Technique button
-// When clicked, this button should add that movement's technique for that routine
-// Technique is stored on the movement_routines join table
-
-Routine.handleShowTechnique = function() {
-  $('div.panel-default').on('click', '.js-show-technique', function() {
-    var $showTechniqueButton = $(this); // $showTechniqueButton stores the Show Technique button that was clicked, which has a data-id property = id of MovementRoutine join table instance whose technique we want
-    var mrId = $showTechniqueButton.data('id')
-    var $displayTechniqueDiv = $(`#display-technique-${mrId}`)
-    $.get(`/mrs/${mrId}`)
-    .done(function(response) {
-      $showTechniqueButton.hide()
-      let newMr = new MovementRoutine(response)
-      let techniqueHtml = newMr.formatTechnique()
-      $displayTechniqueDiv.html(techniqueHtml)
-      $displayTechniqueDiv.addClass('well well-lg')
-      //$displayTechniqueDiv.after(`<button class="js-hide-technique btn btn-default btn-sm" data-hide-id=${newMr.id}>Hide Technique</button>`)
-    })
-  })
-}
-
-Routine.handleHideTechnique = function() {
-  $('div.panel-default').on('click', '.js-hide-technique', function(e) {
-    var mrId = $(this).data('hide-id')
-    var displayTechniqueDiv = $(`#display-technique-${mrId}`)
-    displayTechniqueDiv.html('')
-    displayTechniqueDiv.removeClass('well well-lg')
-    $(this).hide()
-    var showButton = $(`[data-id=${mrId}]`)
-    showButton.show()
-  })
 }
 
 Routine.handleCancelEdit = function() {
