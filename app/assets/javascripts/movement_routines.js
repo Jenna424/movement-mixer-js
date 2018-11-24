@@ -14,6 +14,7 @@ $(function() {
 MovementRoutine.bindEventListeners = function() {
   MovementRoutine.editListener()
   MovementRoutine.updateListener()
+  MovementRoutine.cancelEditListener()
   MovementRoutine.destroyListener()
   MovementRoutine.showTechniqueListener()
   MovementRoutine.hideTechniqueListener()
@@ -104,6 +105,15 @@ MovementRoutine.revealErrors = function(jqXhrObject) {
   var errorsArray = jqXhrObject.responseJSON.errors
   var errorsString = errorsArray.join('\n') // join string error message elements with a line break
   alert(`Your attempt to edit this exercise was unsuccessful:\n\n${errorsString}`)
+}
+
+MovementRoutine.cancelEditListener = function() {
+  $(document).on('click', 'input.cancel-edit', function() {
+    var mrId = $(this).data('mr-id')
+    $(`form.edit-mr-${mrId}`).hide() // hide the edit form
+    $(`a[data-mr-id=${mrId}]`).show() // display the Edit Exercise link
+    $(`div#edit-mr-${mrId}-div`).removeClass('well well-lg') // remove "well well-lg" classes of the <div> that contained the edit form
+  })
 }
 
 MovementRoutine.destroyListener = function() {
