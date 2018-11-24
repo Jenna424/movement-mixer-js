@@ -15,6 +15,8 @@ MovementRoutine.bindEventListeners = function() {
   MovementRoutine.editListener()
   MovementRoutine.updateListener()
   MovementRoutine.destroyListener()
+  MovementRoutine.showTechniqueListener()
+  MovementRoutine.hideTechniqueListener()
 }
 
 MovementRoutine.compileEditMovementRoutineTemplate = function() {
@@ -107,8 +109,11 @@ MovementRoutine.prototype.formatTechnique = function() {
 
 MovementRoutine.prototype.formatJoinTableAttrs = function() {
   var mrId = this.id
+  var $techniqueDiv = $(`#technique-div-${mrId}`)
   var $setsParagraph = $(`#sets-paragraph-${mrId}`)
   var $repsParagraph = $(`#reps-paragraph-${mrId}`)
+  $techniqueDiv.html(MovementRoutine.techniqueTemplateFunction(this))
+  $techniqueDiv.hide()
   $setsParagraph.html(`<strong>Sets</strong>: ${this.sets}`)
   $repsParagraph.html(`<strong>Reps</strong>: ${this.reps}`)
 }
