@@ -33,6 +33,14 @@ MovementRoutine.showTechniqueListener = function() {
     .done(MovementRoutine.showTechnique)
   })
 }
+// Below, mrJson parameter = JSON object representation of AR MovementRoutine instance whose technique we want = response from AJAX GET request sent in MovementRoutine.showTechniqueListener()
+MovementRoutine.showTechnique = function(mrJson) {
+  var newMr = new MovementRoutine(mrJson)
+  var mrId = newMr.id
+  var $techniqueDiv = $(`#technique-div-${mrId}`)
+  $techniqueDiv.html(MovementRoutine.techniqueTemplateFunction(newMr))
+  $techniqueDiv.addClass('well well-md')
+}
 
 MovementRoutine.compileEditMovementRoutineTemplate = function() {
   MovementRoutine.editMovementRoutineTemplateSource = $('#edit-movement-routine-template').html()
