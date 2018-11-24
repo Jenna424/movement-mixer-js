@@ -260,6 +260,20 @@ Routine.editExerciseListener = function() {
 // mrHtml is the string HTML edit form with all the values filled in
 // Set this as the HTML content inside the <div id="edit-mr-MOVEMENTROUTINE ID HERE-div">
 // In the DOM, replace the Edit Exercise link that was clicked with the actual edit form w/ technique, sets and reps values filled in
+Routine.updateExerciseListener = function() {
+  $(document).on('submit', 'form.edit-mr', function(e) {
+    e.preventDefault()
+    $.ajax({
+      url: $(this).attr('action'), // "/mrs/:id"
+      method: 'patch',
+      data: $(this).serialize(),
+      dataType: 'json'
+    })
+    .done(MovementRoutine.update)
+    .fail(MovementRoutine.revealErrors)
+  })
+}
+
 Routine.handleCancelEdit = function() {
   $(document).on('click', 'input.cancel-edit', function(e) {
     var movementRoutineId = $(this).data('mr-id')
