@@ -34,6 +34,9 @@ MovementRoutine.update = function(mrJson) {
 }
 
 MovementRoutine.revealErrors = function(jqXhrObject) {
+  var errorsArray = jqXhrObject.responseJSON.errors
+  var errorsString = errorsArray.join('\n') // join string error message elements with a line break
+  alert(`Your attempt to edit this exercise was unsuccessful:\n\n${errorsString}`)
 }
 
 MovementRoutine.destroyListener = function() {
