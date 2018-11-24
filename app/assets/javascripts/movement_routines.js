@@ -33,7 +33,7 @@ MovementRoutine.update = function(mrJson) {
   newMr.formatJoinTableAttrs()
 }
 
-MovementRoutine.revealErrors = function() {
+MovementRoutine.revealErrors = function(jqXhrObject) {
 }
 
 MovementRoutine.destroyListener = function() {
