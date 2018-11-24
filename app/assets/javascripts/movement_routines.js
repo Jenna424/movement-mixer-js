@@ -31,7 +31,7 @@ MovementRoutine.editListener = function() {
      .done(MovementRoutine.displayEditMrForm)
   })
 }
-// Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that we're formatting the edit form for = the response from AJAX GET request to '/mrs/:id/edit' sent in Routine.editExerciseListener(), which is triggered when user clicks Edit Exercise on routine show page to edit technique/sets/reps user-submittable attributes stored on join model MovementRoutine
+// Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that we're formatting the edit form for = the response from AJAX GET request to '/mrs/:id/edit' sent in MovementRoutine.editListener(), which is triggered when user clicks Edit Exercise link on routine show page to edit technique/sets/reps user-submittable attributes stored on join model MovementRoutine
 MovementRoutine.displayEditMrForm = function(mrJson) {
   let newMr = new MovementRoutine(mrJson)
   let $editMrDiv = $(`div#edit-mr-${newMr.id}-div`)
@@ -39,7 +39,27 @@ MovementRoutine.displayEditMrForm = function(mrJson) {
   $editMrDiv.html(editMrFormHtml)
   $editMrDiv.addClass('well well-md')
 }
-// Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that was just updated = JSON response from AJAX PATCH request sent in Routine.updateExerciseListener()
+
+MovementRoutine.updateListener = function() {
+  $(document).on('submit', 'form.edit-mr', function(e) {
+    e.preventDefault()
+    var $form = $(this)
+    var action = $(this).attr('action') // "/mrs/:id"
+    var mrId = action.split('/')[2]
+    $form.hide() // hide the edit-mr form once it's submitted
+    $form.parent().removeClass('well well-lg') // remove "well well-lg" classes from edit-mr form container, which = <div id="edit-mr-MR ID HERE-div">)
+    $(`a[data-mr-id=${mrId}]`).show() // show the Edit Exercise link on routine show page again, once the edit-mr form is submitted
+    $.ajax({
+      url: action, // "/mrs/:id"
+      method: 'patch',
+      data: $form.serialize(),
+      dataType: 'json'
+    })
+    .done(MovementRoutine.update)
+    .fail(MovementRoutine.revealErrors)
+  })
+}
+// Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that was just updated = JSON response from AJAX PATCH request sent in MovementRoutine.updateListener()
 MovementRoutine.update = function(mrJson) {
   var newMr = new MovementRoutine(mrJson)
   newMr.formatJoinTableAttrs()
