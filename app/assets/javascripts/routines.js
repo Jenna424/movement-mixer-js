@@ -262,6 +262,7 @@ Routine.editExerciseListener = function() {
 // In the DOM, replace the Edit Exercise link that was clicked with the actual edit form w/ technique, sets and reps values filled in
 Routine.updateExerciseListener = function() {
   $(document).on('submit', 'form.edit-mr', function(e) {
+    $(this).hide() // hide the form once it's submitted
     e.preventDefault()
     $.ajax({
       url: $(this).attr('action'), // "/mrs/:id"
