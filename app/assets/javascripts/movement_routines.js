@@ -21,6 +21,16 @@ MovementRoutine.compileEditMovementRoutineTemplate = function() {
   MovementRoutine.editMovementRoutineTemplateSource = $('#edit-movement-routine-template').html()
   MovementRoutine.editMovementRoutineTemplateFunction = Handlebars.compile(MovementRoutine.editMovementRoutineTemplateSource)
 }
+
+MovementRoutine.editListener = function() {
+  $('div.panel-default').on('click', 'a.edit-exercise', function(e) {
+   e.preventDefault()
+   $(this).hide() // hiding the Edit Exercise link that was clicked
+   var url = $(this).attr('href') // '/mrs/:id/edit'
+   $.get(url)
+     .done(MovementRoutine.displayEditMrForm)
+  })
+}
 // Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that we're formatting the edit form for = the response from AJAX GET request to '/mrs/:id/edit' sent in Routine.editExerciseListener(), which is triggered when user clicks Edit Exercise on routine show page to edit technique/sets/reps user-submittable attributes stored on join model MovementRoutine
 MovementRoutine.displayEditMrForm = function(mrJson) {
   let newMr = new MovementRoutine(mrJson)
