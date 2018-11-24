@@ -40,8 +40,6 @@ Routine.compileListWorkoutTemplate = function() {
 
 Routine.bindEventHandlers = function() {
   Routine.createListener()
-  Routine.editExerciseListener()
-  Routine.updateExerciseListener()
   Routine.addMovementHandler()
   Routine.addEquipmentHandler()
   Routine.handleWorkoutsIndex()
@@ -209,74 +207,6 @@ Routine.handleHideTechnique = function() {
     $(this).hide()
     var showButton = $(`[data-id=${mrId}]`)
     showButton.show()
-  })
-}
-
-Routine.editExerciseListener = function() {
-  $('div.panel-default').on('click', 'a.edit-exercise', function(e) {
-   e.preventDefault()
-   var $editLinkClicked = $(this)
-   $editLinkClicked.hide()
-   var url = $(this).attr('href') // '/mrs/:id/edit'
-   $.get(url)
-    .done(MovementRoutine.displayEditMrForm)
-  })
-}
-// On the routine show page, the user clicks an Edit Exercise link beside each movement that the user wants to edit in the context of that workout routine.
-// Editing an exercise just means updating the technique, sets and reps user-submittable attributes that are stored on the join table movement_routines.
-// When the user clicks the Edit Exercise link, the user sees a form to update only the technique, sets and reps of that particular exercise movement in that specific workout routine.
-// I'm going to render this form on the routine show page without a page refresh
-// Exercise movements are constantly being added/deleted from a workout routine, so due to event delegation,
-// bind the click event onto <div class="panel-default">
-// Hijack the click event by calling .on() on the jQuery object of this <div>, passing in the name of the event ('click') as the 1st argument to .on()
-// The second argument passed to .on() is the <a> link element whose click event we actually want to hijack (the <a class="edit-exercise"> link)
-// Prevent the default action, which would be to redirect to "/mrs/:id/edit"
-// The Edit Exercise link on the routine show page has a data-mr-id property that stores the id of the MovementRoutine instance I want to edit
-// Set mrId variable = the id of the MovementRoutine I want to revise
-// Set JavaScript variable $editExerciseDiv = the jQuery object of the <div id="edit-mr-ID OF MOVEMENTROUTINE TO EDIT GOES HERE-div">,
-// which is where I will place the form to edit the technique, sets and reps join table attributes 
-// Reminder: this refers to the <a class="edit-exercise"> link that was clicked, stored in the variable $editLinkClicked
-// Set variable url = href attribute value of this <a> link tag, which is the string URL "/mrs/:id/edit"
-// Use jQuery .get() method to send an AJAX GET request to "/mrs/:id/edit".
-// The route '/mrs/:id/edit' maps to the #edit_movement_routine action in RoutinesController 
-// (I defined a custom route in config/routes.rb)
-// $.get(url) returns jqXHR object, on which I call .done(), passing in the callback function
-// In routines#edit_movement_routine, I find the instance of MovementRoutine join model that belongs to the specific movement I want to edit in the specific routine
-// I render the JSON representation of this instance of MovementRoutine join model
-// The response passed to the callback function is the JSON object representation of the instance of MovementRoutine join model whose technique, sets and reps attributes I'm going to edit
-// Due to belongs_to :movement and belongs_to :routine macros in MovementRoutineSerializer,
-// the response also includes data about the movement and routine instances to which the MovementRoutine instance belongs
-// Set newMr variable = a new MovementRoutine object, created with the MovementRoutine constructor function (found in movement_routines.js file)
-// and with the JSON response of the the MovementRoutine instance passed in as the argument, so that all key/value attribute data pairs can be set in the new object
-// Reminder: in my application layout file, I render the partial app/views/shared/_hs_templates.html.erb
-// In this partial, I have a <script id="edit-mr-template", inside of which I have the Handlebars template for generating the form to edit the technique, sets and reps attributes
-// In templates.js file, I conditionally compile the template by calling Routine.compileEditMrTemplate() if the template exists on the page
-// (It exists on the page because app/views/shared/_hs_templates.html.erb is rendered in my application.html.erb layout file)
-// In Routine.compileEditMrTemplate function, I got the HTML string source of the <script id="edit-mr-template">, 
-// and then I passed this string HTML into Handlebars.compile()
-// to compile the string HTML along w/ any Handlebars {{}} delimiters as part of a function stored as Routine.editMrTemplateFunction
-// I can invoke this function, passing in an object whose key names correspond to the variables between the Handlebars delimiters in the template
-// Set the variable mrHtml = Routine.editExerciseTemplateFunction(newMr), where newMr is the JS object I created with the JSON response I got back, which represents the instance of the MovementRoutine join model
-// mrHtml is the string HTML edit form with all the values filled in
-// Set this as the HTML content inside the <div id="edit-mr-MOVEMENTROUTINE ID HERE-div">
-// In the DOM, replace the Edit Exercise link that was clicked with the actual edit form w/ technique, sets and reps values filled in
-Routine.updateExerciseListener = function() {
-  $(document).on('submit', 'form.edit-mr', function(e) {
-    e.preventDefault()
-    var $form = $(this)
-    var action = $(this).attr('action') // "/mrs/:id"
-    var mrId = action.split('/')[2]
-    $form.hide() // hide the edit-mr form once it's submitted
-    $form.parent().removeClass('well well-lg') // remove "well well-lg" classes from edit-mr form container: <div id="edit-mr-MR ID HERE-div">)
-    $(`a[data-mr-id=${mrId}]`).show() // show the Edit Exercise link on routine show page
-    $.ajax({
-      url: action, // "/mrs/:id"
-      method: 'patch',
-      data: $form.serialize(),
-      dataType: 'json'
-    })
-    .done(MovementRoutine.update)
-    .fail(MovementRoutine.revealErrors)
   })
 }
 
