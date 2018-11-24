@@ -280,15 +280,7 @@ Routine.updateExerciseListener = function() {
   })
 }
 
-Routine.handleCancelEdit = function() {
-  $(document).on('click', 'input.cancel-edit', function(e) {
-    var movementRoutineId = $(this).data('mr-id')
-    var movementId = $(this).data('movement-id')
-    $(`form.edit-mr-${movementRoutineId}`).hide()
-    $(`a[data-movement-id=${movementId}]`).show()
-    $(`div#edit-exercise-${movementId}-div`).removeClass('well well-lg')
-  })
-}
+
 
 Routine.compileEditEquipmentTemplate = function() {
   Routine.editEquipmentTemplateSource = $('#edit-equipment-template').html()
