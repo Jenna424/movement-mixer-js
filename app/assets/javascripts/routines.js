@@ -43,7 +43,6 @@ Routine.bindEventHandlers = function() {
   Routine.addMovementHandler()
   Routine.addEquipmentHandler()
   Routine.handleWorkoutsIndex()
-  Routine.handleCancelEdit()
   Routine.addExerciseListener()
   Routine.addEquipmentListener()
 }
@@ -173,15 +172,6 @@ Routine.handleWorkoutsIndex = function() {
 
 Routine.prototype.formatForIndex = function() {
   return Routine.listWorkoutTemplateFunction(this)
-}
-
-Routine.handleCancelEdit = function() {
-  $(document).on('click', 'input.cancel-edit', function() {
-    var mrId = $(this).data('mr-id')
-    $(`form.edit-mr-${mrId}`).hide()
-    $(`a[data-mr-id=${mrId}]`).show()
-    $(`div#edit-mr-${mrId}-div`).removeClass('well well-lg')
-  })
 }
 
 Routine.compileEditEquipmentTemplate = function() {
