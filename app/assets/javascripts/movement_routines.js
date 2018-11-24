@@ -49,7 +49,7 @@ MovementRoutine.hideTechniqueListener = function() {
     var $techniqueDiv = $(`#technique-div-${mrId}`) // this <div> contains the technique & Hide Technique button
     $techniqueDiv.html('') // The technique and Hide Technique button will disappear when the <div> container is emptied
     $techniqueDiv.removeClass('well well-md')
-    $(`button[data-id=${mrId}]`).show // display the Show Technique button for the technique that was just hidden
+    $(`button[data-id=${mrId}]`).show() // display the Show Technique button for the technique that was just hidden
   })
 }
 
