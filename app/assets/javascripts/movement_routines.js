@@ -20,39 +20,6 @@ MovementRoutine.bindEventListeners = function() {
   MovementRoutine.hideTechniqueListener()
 }
 
-// On the routine show page, each movement in the collection of movements that comprise the routine
-// has a Show Technique button
-// When clicked, this button should add that movement's technique for that routine
-// Technique is stored on the movement_routines join table
-
-MovementRoutine.showTechniqueListener = function() {
-  $('div.panel-default').on('click', '.js-show-technique', function() {
-    var $showTechniqueButton = $(this); // $showTechniqueButton variable stores the Show Technique button that was clicked, which has a data-id property = id of MovementRoutine join table instance whose technique we want
-    var mrId = $showTechniqueButton.data('id')
-    $showTechniqueButton.hide()
-    $.get(`/mrs/${mrId}`)
-    .done(MovementRoutine.showTechnique)
-  })
-}
-// Below, mrJson parameter = JSON object representation of AR MovementRoutine instance whose technique we want = response from AJAX GET request sent in MovementRoutine.showTechniqueListener()
-MovementRoutine.showTechnique = function(mrJson) {
-  var newMr = new MovementRoutine(mrJson)
-  var mrId = newMr.id
-  var $techniqueDiv = $(`#technique-div-${mrId}`)
-  $techniqueDiv.html(MovementRoutine.techniqueTemplateFunction(newMr))
-  $techniqueDiv.addClass('well well-md')
-}
-
-MovementRoutine.hideTechniqueListener = function() {
-  $('div.panel-default').on('click', '.js-hide-technique', function() {
-    var mrId = $(this).data('hide-id') // Hide Technique <button class="js-hide-technique"> clicked (this) has a data-hide-id property that stores the id of the MovementRoutine instance whose technique I'm hiding
-    var $techniqueDiv = $(`#technique-div-${mrId}`) // this <div> contains the technique & Hide Technique button
-    $techniqueDiv.html('') // The technique and Hide Technique button will disappear when the <div> container is emptied
-    $techniqueDiv.removeClass('well well-md')
-    $(`button[data-id=${mrId}]`).show() // display the Show Technique button for the technique that was just hidden
-  })
-}
-
 MovementRoutine.compileEditMovementRoutineTemplate = function() {
   MovementRoutine.editMovementRoutineTemplateSource = $('#edit-movement-routine-template').html()
   MovementRoutine.editMovementRoutineTemplateFunction = Handlebars.compile(MovementRoutine.editMovementRoutineTemplateSource)
@@ -144,6 +111,39 @@ MovementRoutine.prototype.deleteDiv = function() {
 MovementRoutine.compileTechniqueTemplate = function() {
   MovementRoutine.techniqueTemplateSource = $('#technique-template').html()
   MovementRoutine.techniqueTemplateFunction = Handlebars.compile(MovementRoutine.techniqueTemplateSource)
+}
+
+// On the routine show page, each movement in the collection of movements that comprise the routine
+// has a Show Technique button
+// When clicked, this button should add that movement's technique for that routine
+// Technique is stored on the movement_routines join table
+
+MovementRoutine.showTechniqueListener = function() {
+  $('div.panel-default').on('click', '.js-show-technique', function() {
+    var $showTechniqueButton = $(this); // $showTechniqueButton variable stores the Show Technique button that was clicked, which has a data-id property = id of MovementRoutine join table instance whose technique we want
+    var mrId = $showTechniqueButton.data('id')
+    $showTechniqueButton.hide()
+    $.get(`/mrs/${mrId}`)
+    .done(MovementRoutine.showTechnique)
+  })
+}
+// Below, mrJson parameter = JSON object representation of AR MovementRoutine instance whose technique we want = response from AJAX GET request sent in MovementRoutine.showTechniqueListener()
+MovementRoutine.showTechnique = function(mrJson) {
+  var newMr = new MovementRoutine(mrJson)
+  var mrId = newMr.id
+  var $techniqueDiv = $(`#technique-div-${mrId}`)
+  $techniqueDiv.html(MovementRoutine.techniqueTemplateFunction(newMr))
+  $techniqueDiv.addClass('well well-md')
+}
+
+MovementRoutine.hideTechniqueListener = function() {
+  $('div.panel-default').on('click', '.js-hide-technique', function() {
+    var mrId = $(this).data('hide-id') // Hide Technique <button class="js-hide-technique"> clicked (this) has a data-hide-id property that stores the id of the MovementRoutine instance whose technique I'm hiding
+    var $techniqueDiv = $(`#technique-div-${mrId}`) // this <div> contains the technique & Hide Technique button
+    $techniqueDiv.html('') // The technique and Hide Technique button will disappear when the <div> container is emptied
+    $techniqueDiv.removeClass('well well-md')
+    $(`button[data-id=${mrId}]`).show() // display the Show Technique button for the technique that was just hidden
+  })
 }
 
 MovementRoutine.prototype.formatTechnique = function() {
