@@ -19,6 +19,21 @@ MovementRoutine.bindEventListeners = function() {
   MovementRoutine.hideTechniqueListener()
 }
 
+// On the routine show page, each movement in the collection of movements that comprise the routine
+// has a Show Technique button
+// When clicked, this button should add that movement's technique for that routine
+// Technique is stored on the movement_routines join table
+
+MovementRoutine.showTechniqueListener = function() {
+  $('div.panel-default').on('click', '.js-show-technique', function() {
+    var $showTechniqueButton = $(this); // $showTechniqueButton variable stores the Show Technique button that was clicked, which has a data-id property = id of MovementRoutine join table instance whose technique we want
+    var mrId = $showTechniqueButton.data('id')
+    $showTechniqueButton.hide()
+    $.get(`/mrs/${mrId}`)
+    .done(MovementRoutine.showTechnique)
+  })
+}
+
 MovementRoutine.compileEditMovementRoutineTemplate = function() {
   MovementRoutine.editMovementRoutineTemplateSource = $('#edit-movement-routine-template').html()
   MovementRoutine.editMovementRoutineTemplateFunction = Handlebars.compile(MovementRoutine.editMovementRoutineTemplateSource)
