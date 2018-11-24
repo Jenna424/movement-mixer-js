@@ -75,7 +75,7 @@ class RoutinesController < ApplicationController
     if movement_routine.save
       render json: movement_routine, status: 200
     else
-      flash.now[:error] = "Your attempt to edit the #{movement_routine.movement.name} was unsuccessful. Please try again."
+      render json: { errors: movement_routine.errors.full_messages }, status: :unprocessable_entity # status code 422
     end
   end
 
