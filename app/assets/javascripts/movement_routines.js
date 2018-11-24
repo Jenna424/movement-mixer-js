@@ -27,6 +27,14 @@ MovementRoutine.displayEditMrForm = function(mrJson) {
   $editMrDiv.html(editMrFormHtml)
   $editMrDiv.addClass('well well-md')
 }
+// Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that was just updated = JSON response from AJAX PATCH request sent in Routine.updateExerciseListener()
+MovementRoutine.update = function(mrJson) {
+  var newMr = new MovementRoutine(mrJson)
+  newMr.formatJoinTableAttrs()
+}
+
+MovementRoutine.revealErrors = function() {
+}
 
 MovementRoutine.destroyListener = function() {
   $('div.panel-default').on('submit', 'form.button_to', function(e) {
