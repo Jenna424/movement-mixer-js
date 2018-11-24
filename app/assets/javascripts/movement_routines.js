@@ -132,7 +132,7 @@ MovementRoutine.showTechnique = function(mrJson) {
   var newMr = new MovementRoutine(mrJson)
   var mrId = newMr.id
   var $techniqueDiv = $(`#technique-div-${mrId}`)
-  $techniqueDiv.html(MovementRoutine.techniqueTemplateFunction(newMr))
+  $techniqueDiv.html(newMr.formatTechnique()) // formatTechnique prototype method called on newMr object is defined below
   $techniqueDiv.addClass('well well-md')
 }
 
