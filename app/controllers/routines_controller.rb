@@ -79,8 +79,8 @@ class RoutinesController < ApplicationController
     end
   end
 
-  def destroy_movement_routine # DELETE '/routines/:routine_id/movements/:movement_id' => 'routines#destroy_movement_routine'
-    movement_routine = MovementRoutine.find_by(routine: params[:routine_id], movement: params[:movement_id])
+  def destroy_movement_routine # DELETE '/mrs/:id' => 'routines#destroy_movement_routine'
+    movement_routine = MovementRoutine.find(params[:id])
     movement_routine.destroy
     render json: movement_routine
   end
