@@ -64,7 +64,7 @@ MovementRoutine.updateListener = function() {
 // Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that was just updated = JSON response from AJAX PATCH request sent in MovementRoutine.updateListener()
 MovementRoutine.update = function(mrJson) {
   var newMr = new MovementRoutine(mrJson)
-  newMr.formatJoinTableAttrs()
+  newMr.formatSetsAndReps()
 }
 
 MovementRoutine.revealErrors = function(jqXhrObject) {
@@ -107,7 +107,7 @@ MovementRoutine.prototype.formatTechnique = function() {
   return MovementRoutine.techniqueTemplateFunction(this)
 }
 
-MovementRoutine.prototype.formatJoinTableAttrs = function() {
+MovementRoutine.prototype.formatSetsAndReps = function() {
   var mrId = this.id
   var $setsParagraph = $(`#sets-paragraph-${mrId}`)
   var $repsParagraph = $(`#reps-paragraph-${mrId}`)
