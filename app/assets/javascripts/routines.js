@@ -46,7 +46,6 @@ Routine.bindEventHandlers = function() {
   Routine.handleWorkoutsIndex()
   Routine.handleShowTechnique()
   Routine.handleHideTechnique()
-  Routine.handleEditExercise()
   Routine.handleCancelEdit()
   Routine.addExerciseListener()
   Routine.addEquipmentListener()
