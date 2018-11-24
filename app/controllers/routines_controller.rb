@@ -73,7 +73,7 @@ class RoutinesController < ApplicationController
     movement_routine.sets = params['routine']['movements_attributes'][mr_id]['movement_routines']['sets']
     movement_routine.technique = params['routine']['movements_attributes'][mr_id]['movement_routines']['technique']
     if movement_routine.save
-      render json: movement_routine
+      render json: movement_routine, status: 200
     else
       flash.now[:error] = "Your attempt to edit the #{movement_routine.movement.name} was unsuccessful. Please try again."
     end
