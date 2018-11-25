@@ -39,10 +39,26 @@ Routine.compileListWorkoutTemplate = function() {
 }
 
 Routine.bindEventHandlers = function() {
+  Routine.addAssociationHandler()
   Routine.createListener()
   Routine.handleWorkoutsIndex()
   Routine.addExerciseListener()
   Routine.addEquipmentListener()
+}
+
+Routine.addAssociationHandler= function() {
+  $("button[id^='add']").on('click', function(e) {
+    e.preventDefault()
+    e.stopPropagation()
+    var association = $(this).data('add-association') // either "movements" or "equipment"
+    var fieldsToReplicate = $(`[name^='routine[${association}_attributes]']`)
+    var lastInput = fieldsToReplicate.last() // the last <input> pertaining to either movements or equipment, e.g., input#routine_movements_attributes_0_movement_routines_reps or input#routine_equipment_attributes_0_equipment_routines_weight
+    var lastId = lastInput.attr("id") // e.g. "routine_movements_attributes_0_movement_routines_reps" or "routine_equipment_attributes_0_equipment_routines_weight"
+    var idParts = lastInput.attr("id").split("_") // e.g. ["routine", "movements", "attributes", "0", "movement", "routines", "reps"] or ["routine", "equipment", "attributes", "0", "equipment", "routines", "weight"]
+    var newIdNumber = parseInt(idParts[3]) + 1
+    var associationFieldsHtml = eval(`Routine.${association}TemplateFunction({id: ${newIdNumber}})`)
+    $(this).before(`${associationFieldsHtml}<br>`)
+  })
 }
 
 Routine.addExerciseListener = function() {
