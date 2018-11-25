@@ -135,8 +135,7 @@ Routine.indexListener = function() {
   $('ul.nav').on('click', 'a.all-routines', function(e) {
     e.preventDefault();
     history.replaceState(null, null, "/routines")
-    $('div.container').html('') // clear out <div class="container"> so that I can replace its content with Index of Workout Routines
-    $('div.container').append('<h4>Index of Workout Routines</h4><br>')
+    $('div.container').html('') // empty <div class="container"> so that I can replace its content with the Index of Workout Routines
     fetch('/routines.json')
       .then(response => response.json())
       .then(Routine.indexWorkouts)
@@ -145,7 +144,8 @@ Routine.indexListener = function() {
 }
 // routinesArray parameter below = JSON object representation of AR::Relation of all routine instances
 Routine.indexWorkouts = function(routinesArray) {
-  if (routinesArray.length) { // truthy if length is > 0
+  if (routinesArray.length) { // truthy if length is > 0 (The Index of Workout Routines is NOT empty)
+    $('div.container').append('<h4>Index of Workout Routines</h4><br>')
     routinesArray.forEach(function(routineObject) {
       let newRoutine = new Routine(routineObject);
       let routineHtml = newRoutine.formatForIndex()
