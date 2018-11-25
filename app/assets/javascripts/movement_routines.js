@@ -174,7 +174,7 @@ MovementRoutine.addMovementToRoutine = function(json) {
   })
   var mrDivExists = filteredDivArray.length
   if (mrDivExists) { // Reminder: 0 is falsy in JavaScript
-    newMr.formatJoinTableAttrs()
+    newMr.formatSetsAndReps()
   } else {
     newMr.formatAndAppendDiv()
   }
