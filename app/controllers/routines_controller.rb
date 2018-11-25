@@ -7,8 +7,8 @@ class RoutinesController < ApplicationController
   end
 
   def index
-    @routines = Routine.all
-    render json: @routines
+    routines = Routine.all
+    render json: routines
   end
   
   def new
