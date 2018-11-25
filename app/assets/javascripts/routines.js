@@ -59,7 +59,7 @@ Routine.addAssociationInCreateForm= function() {
     var lastId = lastInput.attr('id') // e.g. "routine_movements_attributes_0_movement_routines_reps" or "routine_equipment_attributes_0_equipment_routines_weight"
     var idParts = lastInput.attr('id').split('_') // e.g. ["routine", "movements", "attributes", "0", "movement", "routines", "reps"] or ["routine", "equipment", "attributes", "0", "equipment", "routines", "weight"]
     var newIndexPosition = parseInt(idParts[3]) + 1
-    var associationFieldsHtml = 
+    var associationFieldsHtml = templateFn({indexPosition: `${newIndexPosition}`})
     $(this).before(`${associationFieldsHtml}<br>`)
   })
 }
