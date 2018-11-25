@@ -96,13 +96,14 @@ Routine.revealErrors = function(jqXhrObject) {
 // Explanation of Routine.addAssociationToExistingWorkout function below:
 // On the Routine Show Page, the user can add an exercise movement to a workout routine by submitting form.add-exercise-form
 // On the Routine Edit Page, the user can add a piece of equipment to a workout routine by submitting form.add-equipment-form
-// Use jQuery to find these 2 forms whose class attribute value starts with the word 'add'
+// Use jQuery to find these 2 forms whose class attribute values start with the word 'add'
 // Hijack the submit event of the form to add a new exercise movement/piece of equipment to the existing workout
 // and prevent the default submit action, which would be a normal PATCH request to "/routines/:id" (b/c I use fields_for due to many-to-many relationships)
+// set variable successCallback = MovementRoutine.addMovementToRoutine
 Routine.addAssociationToExistingWorkout = function() {
   $("form[class^='add']").on('submit', function(e) {
     e.preventDefault()
-    console.log("tried to submit form.add-exercise-form or form.add-equipment-form")
+    var successCallback = MovementRoutine.addMovementToRoutine
   })
 }
 
