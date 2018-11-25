@@ -144,11 +144,15 @@ Routine.indexListener = function() {
 }
 // routinesArray parameter below = JSON object representation of AR::Relation of all routine instances
 Routine.indexWorkouts = function(routinesArray) {
-  routinesArray.forEach(function(routineObject) {
-    let newRoutine = new Routine(routineObject);
-    let routineHtml = newRoutine.formatForIndex()
-    $('div.container').append(routineHtml)
-  })
+  if (routinesArray.length) { // truthy if length is > 0
+    routinesArray.forEach(function(routineObject) {
+      let newRoutine = new Routine(routineObject);
+      let routineHtml = newRoutine.formatForIndex()
+      $('div.container').append(routineHtml)
+    })
+  } else { // routinesArray.length === 0 (0 is falsy in JavaScript)
+    $('div.container').append('<p>The Index of Workout Routines is currently empty.</p>')
+  }
 }
 
 Routine.prototype.formatForIndex = function() {
