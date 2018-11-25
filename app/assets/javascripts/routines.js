@@ -39,13 +39,13 @@ Routine.compileListWorkoutTemplate = function() {
 }
 
 Routine.bindEventHandlers = function() {
-  Routine.addAssociationHandler()
+  Routine.addAssociationInCreateForm()
   Routine.createListener()
   Routine.addAssociationToExistingWorkout()
   Routine.handleWorkoutsIndex()
 }
-
-Routine.addAssociationHandler= function() {
+// Routine.addAssociationInCreateForm() is called when user clicks +Exercise or +Equipment buttons in the form to create a new workout routine, found in app/views/routines/new.html.erb
+Routine.addAssociationInCreateForm= function() {
   $("button[id^='add']").on('click', function(e) {
     e.preventDefault()
     e.stopPropagation()
