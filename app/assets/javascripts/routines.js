@@ -120,6 +120,7 @@ Routine.addAssociationToExistingWorkout = function() {
       data: $(this).serialize()
     })
     .done(successCallback)
+    $(this).find('input[type=text], textarea, input[type=number]').val(''); // clear the form
   })
 }
 
