@@ -100,10 +100,17 @@ Routine.revealErrors = function(jqXhrObject) {
 // Hijack the submit event of the form to add a new exercise movement/piece of equipment to the existing workout
 // and prevent the default submit action, which would be a normal PATCH request to "/routines/:id" (b/c I use fields_for due to many-to-many relationships)
 // set variable successCallback = MovementRoutine.addMovementToRoutine
+// $(this) = the form the user tried to submit = form.add-exercise-form or form.add-equipment-form
+// $(this).attr('class') retrieves the class attribute value of the form: either "add-exercise-form" or "add-equipment-form"
+// $(this).attr('class').split('-') returns either ["add", "exercise", "form"] or ["add", "equipment", "form"]
+// $(this).attr('class').split('-')[1] returns either "exercise" or "equipment"
 Routine.addAssociationToExistingWorkout = function() {
   $("form[class^='add']").on('submit', function(e) {
     e.preventDefault()
     var successCallback = MovementRoutine.addMovementToRoutine
+    if ($(this).attr('class').split('-')[1] === 'equipment') {
+      successCallback = EquipmentRoutine.addEquipmentToRoutine
+    }
   })
 }
 
