@@ -93,7 +93,7 @@ Routine.revealErrors = function(jqXhrObject) {
   var errorsString = errorsArray.join('\n') // join array elements (string error messages) with a line break
   alert(`Your attempt to edit this workout routine was unsuccessful:\n\n${errorsString}`)
 }
-// Explanation of Routine.addAssociationToExistingWorkout function below:
+// Explanation of Routine.addAssociationToExistingWorkout function below (which replaced Routine.addExerciseListener AND Routine.addEquipmentListener functions)
 // On the Routine Show Page, the user can add an exercise movement to a workout routine by submitting form.add-exercise-form
 // On the Routine Edit Page, the user can add a piece of equipment to a workout routine by submitting form.add-equipment-form
 // Use jQuery to find these 2 forms whose class attribute values start with the word 'add'
@@ -106,6 +106,7 @@ Routine.revealErrors = function(jqXhrObject) {
 // $(this).attr('class').split('-')[1] returns either "exercise" or "equipment"
 // Send AJAX PATCH request to "/routines/:id"
 // pass successCallback, (which stores either MovementRoutine.addMovementToRoutine or EquipmentRoutine.addEquipmentToRoutine) to .done() to handle a successful response to AJAX PATCH request
+// After form submission, empty textfield, textarea and numberfields in form.add-exercise-form/ empty textfield and numberfields in form.add-equipment-form
 Routine.addAssociationToExistingWorkout = function() {
   $("form[class^='add']").on('submit', function(e) {
     e.preventDefault()
@@ -120,7 +121,7 @@ Routine.addAssociationToExistingWorkout = function() {
       data: $(this).serialize()
     })
     .done(successCallback)
-    $(this).find('input[type=text], textarea, input[type=number]').val(''); // clear the form
+    $(this).find('input[type=text], textarea, input[type=number]').val('');
   })
 }
 
