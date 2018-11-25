@@ -135,7 +135,7 @@ Routine.indexListener = function() {
   $('ul.nav').on('click', 'a.all-routines', function(e) {
     e.preventDefault();
     history.replaceState(null, null, "/routines")
-    fetch(`/routines.json`)
+    fetch('/routines.json')
       .then(response => response.json())
       .then(routinesArray => {
         $('div.container').html('') // clear out <div class="container"> in the <body> of the page (so I can replace its content with Index of Workout Routines below)
