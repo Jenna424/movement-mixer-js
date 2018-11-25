@@ -137,16 +137,8 @@ Routine.indexListener = function() {
     history.replaceState(null, null, "/routines")
     fetch('/routines.json')
       .then(response => response.json())
-      .then(routinesArray => {
-        $('div.container').html('') // clear out <div class="container"> in the <body> of the page (so I can replace its content with Index of Workout Routines below)
-        $('div.container').append('<h4>Index of Workout Routines</h4><br>')
-        routinesArray.forEach(function(routineObject) {
-          let newRoutine = new Routine(routineObject);
-          let routineHtml = newRoutine.formatForIndex()
-          $('div.container').append(routineHtml)
-        })
-      })
-    })
+      .then(Routine.indexWorkouts)
+  })
 }
 
 Routine.prototype.formatForIndex = function() {
