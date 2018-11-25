@@ -41,6 +41,7 @@ Routine.compileListWorkoutTemplate = function() {
 Routine.bindEventHandlers = function() {
   Routine.addAssociationHandler()
   Routine.createListener()
+  Routine.addAssociationToExistingWorkout()
   Routine.handleWorkoutsIndex()
 }
 
