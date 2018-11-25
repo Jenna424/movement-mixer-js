@@ -140,6 +140,7 @@ Routine.indexListener = function() {
     fetch('/routines.json')
       .then(response => response.json())
       .then(Routine.indexWorkouts)
+      .catch(error => console.error('The Index of Workout Routines was not retrieved because an error was detected:\n', error));
   })
 }
 // routinesArray parameter below = JSON object representation of AR::Relation of all routine instances
