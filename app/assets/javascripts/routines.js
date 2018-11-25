@@ -42,8 +42,6 @@ Routine.bindEventHandlers = function() {
   Routine.addAssociationHandler()
   Routine.createListener()
   Routine.handleWorkoutsIndex()
-  Routine.addExerciseListener()
-  Routine.addEquipmentListener()
 }
 
 Routine.addAssociationHandler= function() {
@@ -58,34 +56,6 @@ Routine.addAssociationHandler= function() {
     var newIndexPosition = parseInt(idParts[3]) + 1
     var associationFieldsHtml = eval(`Routine.${association}TemplateFunction({indexPosition: ${newIndexPosition}})`)
     $(this).before(`${associationFieldsHtml}<br>`)
-  })
-}
-
-Routine.addExerciseListener = function() {
-  $('.add-exercise-form').on('submit', function(e) {
-    e.preventDefault()
-    $.ajax({
-      url: $(this).attr('action'), // "/routines/:id"
-      method: 'patch',
-      dataType: 'json',
-      data: $(this).serialize()
-    })
-    .done(MovementRoutine.addMovementToRoutine) // The response to AJAX PATCH request is the JSON object representation of the MovementRoutine instance (with data about the routine and movement instances to which it belongs)
-    $('.add-exercise-form').find('input[type=text], textarea, input[type=number]').val(''); // clear the form
-  })
-}
-
-Routine.addEquipmentListener = function() {
-  $('.add-equipment-form').on('submit', function(e) {
-    e.preventDefault()
-    $.ajax({
-      url: $(this).attr('action'), // "/routines/:id"
-      method: 'patch',
-      dataType: 'json',
-      data: $(this).serialize()
-    })
-    .done(EquipmentRoutine.addEquipmentToRoutine)
-    $('.add-equipment-form').find('input[type=text] input[type=number]').val('')
   })
 }
 
