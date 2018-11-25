@@ -21,8 +21,8 @@ Routine.compileTemplates = function() {
   Routine.routineTemplateSource = $('#routine-template').html();
   Routine.routineTemplateFunction = Handlebars.compile(Routine.routineTemplateSource);
   // Movement Handlebars Template (found in app/views/routines/_movement_fields.html.erb)
-  Routine.movementTemplateSource = $('#movement-template').html();
-  Routine.movementTemplateFunction = Handlebars.compile(Routine.movementTemplateSource);
+  Routine.movementsTemplateSource = $('#movements-template').html();
+  Routine.movementsTemplateFunction = Handlebars.compile(Routine.movementsTemplateSource);
   // Equipment Handlebars Template (found in app/views/routines/_equipment_fields.html.erb)
   Routine.equipmentTemplateSource = $('#equipment-template').html();
   Routine.equipmentTemplateFunction = Handlebars.compile(Routine.equipmentTemplateSource);
@@ -76,10 +76,10 @@ Routine.addEquipmentListener = function() {
 }
 
 Routine.addMovementHandler = function() {
-  $('#add-movement').on('click', function(e) {
+ $('#add-movement').on('click', function(e) {
     e.preventDefault();
     console.log('hijacked the click event')
-    //e.stopPropagation();
+    e.stopPropagation();
     var inputs = $("[name^='routine[movements_attributes]']")
     var lastInput = inputs.last()
     var lastId = lastInput.attr("id")
