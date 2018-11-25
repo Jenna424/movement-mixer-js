@@ -105,6 +105,7 @@ Routine.revealErrors = function(jqXhrObject) {
 // $(this).attr('class').split('-') returns either ["add", "exercise", "form"] or ["add", "equipment", "form"]
 // $(this).attr('class').split('-')[1] returns either "exercise" or "equipment"
 // Send AJAX PATCH request to "/routines/:id"
+// pass successCallback, (which stores either MovementRoutine.addMovementToRoutine or EquipmentRoutine.addEquipmentToRoutine) to .done() to handle a successful response to AJAX PATCH request
 Routine.addAssociationToExistingWorkout = function() {
   $("form[class^='add']").on('submit', function(e) {
     e.preventDefault()
@@ -118,6 +119,7 @@ Routine.addAssociationToExistingWorkout = function() {
       dataType: 'json',
       data: $(this).serialize()
     })
+    .done(successCallback)
   })
 }
 
