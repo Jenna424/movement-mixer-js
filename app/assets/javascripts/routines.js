@@ -42,7 +42,7 @@ Routine.bindEventHandlers = function() {
   Routine.addAssociationInCreateForm()
   Routine.createListener()
   Routine.addAssociationToExistingWorkout()
-  Routine.handleWorkoutsIndex()
+  Routine.indexListener()
 }
 // Routine.addAssociationInCreateForm() is called when user clicks +Exercise or +Equipment button in the form to create a new workout routine, found in app/views/routines/new.html.erb
 Routine.addAssociationInCreateForm= function() {
@@ -131,7 +131,7 @@ Routine.addAssociationToExistingWorkout = function() {
 }
 
 // The link to View All Workouts is found in the navbar, which changes depending on if the viewer is logged in
-Routine.handleWorkoutsIndex = function() {
+Routine.indexListener = function() {
   $('ul.nav').on('click', 'a.all-routines', function(e) {
     e.preventDefault();
     history.replaceState(null, null, "/routines")
