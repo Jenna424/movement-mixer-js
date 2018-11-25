@@ -105,6 +105,10 @@ Movement.handlePreviousExercise = function() {
   })
 }
 
+Movement.mentionMistakes = function() {
+  alert("Please ensure that your exercise movement meets all criteria:\nName must be unique and cannot be blank.\nTechnique cannot be blank.\nSets cannot be blank and must be greater than 0.\nReps cannot be blank and must be greater than 0.")
+}
+
 // In the context of formatMoveForIndex() prototype method,
 // this refers to the JSON movement object
 // on which formatMoveForIndex() is called
