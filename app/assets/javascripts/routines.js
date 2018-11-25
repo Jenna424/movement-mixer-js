@@ -40,8 +40,6 @@ Routine.compileListWorkoutTemplate = function() {
 
 Routine.bindEventHandlers = function() {
   Routine.createListener()
-  Routine.addMovementHandler()
-  Routine.addEquipmentHandler()
   Routine.handleWorkoutsIndex()
   Routine.addExerciseListener()
   Routine.addEquipmentListener()
@@ -72,48 +70,6 @@ Routine.addEquipmentListener = function() {
     })
     .done(EquipmentRoutine.addEquipmentToRoutine)
     $('.add-equipment-form').find('input[type=text] input[type=number]').val('')
-  })
-}
-
-Routine.addMovementHandler = function() {
- $('#add-movement').on('click', function(e) {
-    e.preventDefault();
-    console.log('hijacked the click event')
-    e.stopPropagation();
-    var inputs = $("[name^='routine[movements_attributes]']")
-    var lastInput = inputs.last()
-    var lastId = lastInput.attr("id")
-    var idParts = lastInput.attr("id").split("_")
-    var idNumber = idParts[3]
-    var newIdNumber = parseInt(idParts[3]) + 1
-    var movementHtmlFields = Routine.movementTemplateFunction({id: newIdNumber})
-    $('#add-movement').before(movementHtmlFields)
-  })
-}
-// User clicks <button id="add-movement"> to add another movement in the form to create a new workout routine
-// I hijack the click event of that button by binding a new click event to it
-// Stop the default behavior
-// Stop event propagation
-// The variable inputs stores an array of <input> fields to create a movement,
-// whose name attribute value begins with the string "routine[movements_attributes]"
-// which are the fields that I need to reproduce to add another movement to the routine
-// Get the last <input> to eventually grab its id
-// An id looks something like: "routine_movements_attributes_0_movement_routines_reps"
-// Splitting this id string at the underscore: ["routine", "movements", "attributes", "0", "movement", "routines", "reps"]
-// The element at index 3 is the id number!
-
-Routine.addEquipmentHandler = function() {
-  $('#add-equipment').on('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    var equipmentFieldsToReplicate = $("[name^='routine[equipment_attributes']");
-    var lastEquipmentInput = equipmentFieldsToReplicate.last(); // The last <input> pertaining to equipment
-    var lastId = lastEquipmentInput.attr('id'); // lastId stores a string like "routine_equipment_attributes_0_equipment_routines_weight"
-    var idParts = lastId.split("_"); // idParts stores array ["routine", "equipment", "attributes", "0", "equipment", "routines", "weight"]
-    var lastIndexPosition = idParts[3]; // "0"
-    var newIndexPosition = parseInt(lastIndexPosition) + 1;
-    var equipmentHtmlFields = Routine.equipmentTemplateFunction({indexPosition: newIndexPosition})
-    $('#add-equipment').before(equipmentHtmlFields)
   })
 }
 
