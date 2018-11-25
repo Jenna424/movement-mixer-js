@@ -142,6 +142,14 @@ Routine.indexListener = function() {
       .then(Routine.indexWorkouts)
   })
 }
+// routinesArray parameter below = JSON object representation of AR::Relation of all routine instances
+Routine.indexWorkouts = function(routinesArray) {
+  routinesArray.forEach(function(routineObject) {
+    let newRoutine = new Routine(routineObject);
+    let routineHtml = newRoutine.formatForIndex()
+    $('div.container').append(routineHtml)
+  })
+}
 
 Routine.prototype.formatForIndex = function() {
   return Routine.listWorkoutTemplateFunction(this)
