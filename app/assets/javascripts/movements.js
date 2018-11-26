@@ -55,17 +55,18 @@ Movement.handleExerciseIndex = function() {
 // depending on what exercise movements are included in the workout routine.
 // Also, movements are constantly being added to/deleted from a workout routine.
 // Therefore, call .on() on div.panel-body, which is always on the routine show page, and then see if the user clicked a.show-exercise
+// Prevent the default action, which would be a normal HTTP GET request to "/movements/:id"
+// Once the link to see a movement is clicked, empty out div.container, i.e., clear the page so I can eventually replace page content with info about that exercise movement
 Movement.showListener = function() {
   $('div.panel-body').on('click', 'a.show-exercise', function(e) {
     e.preventDefault()
-    console.log('clicked show exercise button for movement in routine')
     var $divContainer = $('div.container')
+    $divContainer.html('')
     var id = $(this).attr('href').split('/')[2]
     console.log(id)
     history.replaceState(null, null, `/movements/${id}`)
     $.get(`/movements/${id}`)
     .done(function(response) {
-      $divContainer.html('')
       var newMovement = new Movement(response)
       var movementHtml = newMovement.formatShow()
       $divContainer.html(movementHtml)
