@@ -36,6 +36,21 @@ Movement.indexListener = function() {
       .then(Movement.indexExercises)
   })
 }
+
+// Below, movementsArray parameter = JSON object array representation of AR::Relation of all movement instances = response from fetch('/movements.json') call sent in Movement.indexListener()
+Movement.indexExercises = function(movementsArray) {
+  var $divContainer = $('div.container')
+  if (movementsArray.length) { // The Index of Exercise Movements (i.e. Guide to Exercise) is NOT empty (0 is falsy in JavaScript)
+    $divContainer.html('<h4>Guide to Exercise</h4><br>')
+    movementsArray.forEach(function(movementObject) {
+      let newMovement = new Movement(movementObject)
+      let movementHtml = newMovement.formatMoveForIndex()
+      $divContainer.append(movementHtml)
+    })
+  } else { // movementsArray.length === 0, meaning that the Index of Exercise Movements (i.e. Guide to Exercise) is currently empty
+    $divContainer.html('<p>The Index of Exercise Movements is currently empty.</p>')
+  }
+}
 // Explanation of Movement.showListener
 // On the routine show page, the user can click a link to view a particular exercise movement included in that workout routine,
 // at which point an AJAX GET request is made to "/movements/:id", so we can see the movement's "show page" without a page refresh.
