@@ -65,22 +65,20 @@ Movement.handleExerciseIndex = function() {
 Movement.showListener = function() {
   $('div.panel-body').on('click', 'a.show-exercise', function(e) {
     e.preventDefault()
-    var $divContainer = $('div.container')
-    $divContainer.html('')
+    $('div.container').html('')
     var id = $(this).attr('href').split('/')[2]
     history.replaceState(null, null, `/movements/${id}`)
     $.get(`/movements/${id}`)
     .done(Movement.show)
   })
 }
-// Below, movementJson parameter = JSON object representation of the movement instance we want to view without redirecting to show page
+// Below, movementJson parameter = JSON object representation of the movement instance we want to view without redirecting to its show page = response to AJAX GET request sent in Movement.showListener()
+// The response also includes data about the guides that belong to the movement due to has_many :guides in MovementSerializer
 Movement.show = function(movementJson) {
   var newMovement = new Movement(movementJson)
   var movementHtml = newMovement.formatShow()
   $('div.container').append(movementHtml)
 }
-// The response is a JSON object representation of the movement instance we want to view without redirecting to show page
-// The response also includes data about the guides that belong to the movement due to has_many :guides in MovementSerializer
 
 Movement.prototype.formatShow = function() {
   return Movement.showExerciseTemplateFunction(this)
