@@ -12,10 +12,6 @@ function Routine(routine) {
   this.user = routine.user
 }
 
-$(function() {
-  Routine.bindEventHandlers()
-})
-
 Routine.compileCreateTemplates = function() {
   // Handlebars template used to generate preview of newly-created workout routine
   Routine.routineTemplateSource = $('#routine-template').html();
@@ -27,6 +23,10 @@ Routine.compileCreateTemplates = function() {
   Routine.equipmentTemplateSource = $('#equipment-template').html();
   Routine.equipmentTemplateFunction = Handlebars.compile(Routine.equipmentTemplateSource);
 }
+
+$(function() {
+  Routine.bindEventHandlers()
+})
 
 Routine.compileListWorkoutTemplate = function() {
   Routine.listWorkoutTemplateSource = $('#list-workout-template').html()
