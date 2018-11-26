@@ -33,7 +33,7 @@ Movement.indexListener = function() {
   	history.replaceState(null, null, '/movements')
   	fetch('/movements.json')
       .then(response => response.json())
-      .then(movementsArray => Movement.indexExercises)
+      .then(Movement.indexExercises)
   })
 }
 // Explanation of Movement.showListener
