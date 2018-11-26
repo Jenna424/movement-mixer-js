@@ -166,9 +166,7 @@ Routine.destroyListener = function() {
         dataType: 'json',
         data: $(this).serialize()
       })
-      .done(function(response) {
-        console.log(response)
-      })
+      .done(Routine.destroy)
     } else {
       console.log('Deletion of the workout routine was not confirmed.')
     }
