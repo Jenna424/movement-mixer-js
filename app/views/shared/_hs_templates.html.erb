@@ -95,9 +95,8 @@ which is defined in movements.js file -->
   <br>
   <% if current_user && current_user.trainer? %>
     <a href="/movements/{{id}}/guides/new" data-id="{{id}}">Create a Training Guide</a>
+    <br><br>
   <% end %>
-  <br>
-  <br><br>
   <button class="js-previous-move btn btn-default btn-sm" data-id="{{id}}">Previous Exercise</button>
   <button class="js-next-move btn btn-default btn-sm" data-id="{{id}}">Next Exercise</button>
 </script>
