@@ -104,6 +104,12 @@ class RoutinesController < ApplicationController
     render json: equipment_routine
   end
 
+  def destroy # delete '/routines/:id' => 'routines#destroy'
+    authorize @routine
+    @routine.destroy
+    render json: @routine
+  end
+
   private
 
     def set_routine
