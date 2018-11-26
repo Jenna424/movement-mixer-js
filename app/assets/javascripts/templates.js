@@ -20,7 +20,7 @@ function checkIfTemplatesExist() {
 
   // Conditionally compile Handlebars templates, depending on if the Handlebars template is present in the current DOM
   if (routineTemplateExists) { // User creates a new workout routine at "/routines/new", where these HS templates are rendered
-    Routine.compileTemplates()
+    Routine.compileCreateTemplates()
     console.log("Compiled Handlebars Templates for Routine Form")
   } else if (userWorkoutsTemplateExists) { // Currently on user show page, where link is clicked to view that user's workout routines
     User.compileUserWorkoutsTemplate()
