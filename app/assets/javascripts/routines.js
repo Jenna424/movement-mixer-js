@@ -178,3 +178,10 @@ Routine.destroy = function(routineResponse) {
   var newRoutine = new Routine(routineResponse)
   newRoutine.presentParagraph()
 }
+
+Routine.prototype.presentDeleteNoticeParagraph = function() {
+  $('div.container').append(
+    `<p>The workout routine entitled <em>${this.title}</em> was successfully deleted from Movement Mixer.</p>
+    <p>We hope you'll design another workout routine soon, ${this.user.name}!</p>`
+  )
+}
