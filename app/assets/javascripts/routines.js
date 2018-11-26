@@ -28,11 +28,6 @@ Routine.compileTemplates = function() {
   Routine.equipmentTemplateFunction = Handlebars.compile(Routine.equipmentTemplateSource);
 }
 
-Routine.compileTechniqueTemplate = function() {
-  Routine.techniqueTemplateSource = $('#technique-template').html()
-  Routine.techniqueTemplateFunction = Handlebars.compile(Routine.techniqueTemplateSource)
-}
-
 Routine.compileListWorkoutTemplate = function() {
   Routine.listWorkoutTemplateSource = $('#list-workout-template').html()
   Routine.listWorkoutTemplateFunction = Handlebars.compile(Routine.listWorkoutTemplateSource)
