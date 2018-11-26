@@ -61,6 +61,7 @@ Movement.handleExerciseIndex = function() {
 // $(this).attr('href') retrieves the string URL href attribute value, which I then split at the slash .split('/') to get an array.
 // The element at index 2 of this array = the id of the movement I want to view
 // store id of movement to be viewed in id variable
+// Using jQuery .get() method, make AJAX GET request to "/movements/id-of-movement-to-view"
 Movement.showListener = function() {
   $('div.panel-body').on('click', 'a.show-exercise', function(e) {
     e.preventDefault()
@@ -69,11 +70,7 @@ Movement.showListener = function() {
     var id = $(this).attr('href').split('/')[2]
     history.replaceState(null, null, `/movements/${id}`)
     $.get(`/movements/${id}`)
-    .done(function(response) {
-      var newMovement = new Movement(response)
-      var movementHtml = newMovement.formatShow()
-      $divContainer.html(movementHtml)
-    })
+    .done(Movement.show)
   })
 }
 // The response is a JSON object representation of the movement instance we want to view without redirecting to show page
