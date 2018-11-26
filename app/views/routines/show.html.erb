@@ -47,6 +47,12 @@
 
 <br><br>
 
+<% if policy(@routine).edit? %>
+  <%= link_to edit_routine_path(@routine), class: 'edit-workout btn btn-default btn-md', data: {id: @routine.id} do
+    content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:small, " Edit Workout Routine")
+  end %>
+<% end %>
+
 <% if policy(@routine).destroy? %>
   <%= button_to "/routines/#{@routine.id}", class: "btn btn-danger btn-md", method: :delete, form: {style: 'display:inline-block;'},
     data: { confirm: "Are you sure you want to delete this workout routine?" } do %>
