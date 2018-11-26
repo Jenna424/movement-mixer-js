@@ -54,7 +54,7 @@
 <% end %>
 
 <% if policy(@routine).destroy? %>
-  <%= button_to "/routines/#{@routine.id}", class: "btn btn-danger btn-md delete-workout", method: :delete, form: {style: 'display:inline-block;'},
+  <%= button_to routine_path(@routine), class: "btn btn-danger btn-md delete-workout", method: :delete, form: {style: 'display:inline-block;'},
     data: { confirm: "Are you sure you want to delete this workout routine?" } do %>
     <span class="glyphicon glyphicon-trash"></span> <small>Delete Workout Routine</small>
   <% end %>
