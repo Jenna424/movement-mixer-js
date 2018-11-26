@@ -33,6 +33,7 @@ Routine.bindEventHandlers = function() {
   Routine.createListener()
   Routine.addAssociationToExistingWorkout()
   Routine.indexListener()
+  Routine.destroyListener()
 }
 // Routine.addAssociationInCreateForm() is called when user clicks +Exercise or +Equipment button in the form to create a new workout routine, found in app/views/routines/new.html.erb
 Routine.addAssociationInCreateForm= function() {
