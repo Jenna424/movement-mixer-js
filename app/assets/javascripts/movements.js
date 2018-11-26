@@ -26,7 +26,7 @@ Movement.prototype.formatMoveForIndex = function() {
 	return Movement.listExerciseTemplateFunction(this)
 }
 
-Movement.handleExerciseIndex = function() {
+Movement.indexListener = function() {
   $('ul.nav').on('click', 'a.all-movements', function(e) {
     e.preventDefault();
   	history.replaceState(null, null, "/movements")
