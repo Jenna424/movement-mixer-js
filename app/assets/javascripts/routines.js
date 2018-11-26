@@ -157,5 +157,16 @@ Routine.compileListWorkoutTemplate = function() {
 }
 
 Routine.destroyListener = function() {
-  
+  $("button.delete-workout").parent().on('submit', function(e) {
+    e.preventDefault()
+    $.ajax({
+      url: $(this).attr('action'), // "/routines/:id"
+      method: 'delete',
+      dataType: 'json',
+      data: $(this).serialize()
+    })
+    .done(function(response) {
+      console.log(response)
+    })
+  })
 }
