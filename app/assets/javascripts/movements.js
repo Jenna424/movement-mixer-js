@@ -22,11 +22,6 @@ Movement.compileListExerciseTemplate = function() {
   Movement.listExerciseTemplateFunction = Handlebars.compile(Movement.listExerciseTemplateSource)
 }
 
-Movement.compileShowExerciseTemplate = function() {
-  Movement.showExerciseTemplateSource = $('#show-exercise-template').html()
-  Movement.showExerciseTemplateFunction = Handlebars.compile(Movement.showExerciseTemplateSource)
-}
-
 Movement.prototype.formatMoveForIndex = function() {
 	return Movement.listExerciseTemplateFunction(this)
 }
@@ -83,6 +78,11 @@ Movement.show = function(movementJson) {
 
 Movement.prototype.formatShow = function() {
   return Movement.showExerciseTemplateFunction(this)
+}
+
+Movement.compileShowExerciseTemplate = function() {
+  Movement.showExerciseTemplateSource = $('#show-exercise-template').html()
+  Movement.showExerciseTemplateFunction = Handlebars.compile(Movement.showExerciseTemplateSource)
 }
 
 Movement.handleNextExercise = function() {
