@@ -159,14 +159,18 @@ Routine.compileListWorkoutTemplate = function() {
 Routine.destroyListener = function() {
   $("button.delete-workout").parent().on('submit', function(e) {
     e.preventDefault()
-    $.ajax({
-      url: $(this).attr('action'), // "/routines/:id"
-      method: 'delete',
-      dataType: 'json',
-      data: $(this).serialize()
-    })
-    .done(function(response) {
-      console.log(response)
-    })
+    if (confirm('Are you sure you want to delete this workout routine?')) {
+      $.ajax({
+        url: $(this).attr('action'), // "/routines/:id"
+        method: 'delete',
+        dataType: 'json',
+        data: $(this).serialize()
+      })
+      .done(function(response) {
+        console.log(response)
+      })
+    } else {
+      console.log('Deletion of the workout routine was not confirmed.')
+    }
   })
 }
