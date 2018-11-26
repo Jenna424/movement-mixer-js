@@ -154,8 +154,3 @@ Routine.indexWorkouts = function(routinesArray) {
 Routine.prototype.formatForIndex = function() {
   return Routine.listWorkoutTemplateFunction(this)
 }
-
-Routine.compileEditEquipmentTemplate = function() {
-  Routine.editEquipmentTemplateSource = $('#edit-equipment-template').html()
-  Routine.editEquipmentTemplateFunction = Handlebars.compile(Routine.editEquipmentTemplateSource)
-}
