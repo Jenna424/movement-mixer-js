@@ -29,11 +29,11 @@ Movement.prototype.formatMoveForIndex = function() {
 Movement.indexListener = function() {
   $('ul.nav').on('click', 'a.all-movements', function(e) {
     e.preventDefault();
+    $('div.container').html('')
   	history.replaceState(null, null, '/movements')
   	fetch('/movements.json')
       .then(response => response.json())
       .then(movementsArray => {
-        $('div.container').html('')
         $('div.container').append('<h4>Guide to Exercise</h4><br>')
         movementsArray.forEach(function(movementObject) {
           let newMove = new Movement(movementObject)
