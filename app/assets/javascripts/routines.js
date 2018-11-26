@@ -16,14 +16,14 @@ $(function() {
   Routine.bindEventHandlers()
 })
 
-Routine.compileTemplates = function() {
-  // Routine Handlebars Template (found in app/views/routines/new.html.erb)
+Routine.compileCreateTemplates = function() {
+  // Handlebars template used to generate preview of newly-created workout routine
   Routine.routineTemplateSource = $('#routine-template').html();
   Routine.routineTemplateFunction = Handlebars.compile(Routine.routineTemplateSource);
-  // Movement Handlebars Template (found in app/views/routines/_movement_fields.html.erb)
+  // Handlebars template used to add an exercise movement to a workout routine that's currently being designed
   Routine.movementsTemplateSource = $('#movements-template').html();
   Routine.movementsTemplateFunction = Handlebars.compile(Routine.movementsTemplateSource);
-  // Equipment Handlebars Template (found in app/views/routines/_equipment_fields.html.erb)
+  // Handlebars template used to add a piece of equipment to a workout routine that's currently being designed
   Routine.equipmentTemplateSource = $('#equipment-template').html();
   Routine.equipmentTemplateFunction = Handlebars.compile(Routine.equipmentTemplateSource);
 }
