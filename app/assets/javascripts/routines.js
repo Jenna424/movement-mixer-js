@@ -172,3 +172,9 @@ Routine.destroyListener = function() {
     }
   })
 }
+// Below, routineResponse parameter = JSON object representation of AR routine instance that was just destroyed = response to AJAX DELETE request sent in Routine.destroyListener()
+Routine.destroy = function(routineResponse) {
+  $('div.container').html('') // empty <div class="container"> that contains the show page of the routine that was just deleted
+  var newRoutine = new Routine(routineResponse)
+  newRoutine.presentParagraph()
+}
