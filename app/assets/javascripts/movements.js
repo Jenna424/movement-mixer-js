@@ -33,14 +33,7 @@ Movement.indexListener = function() {
   	history.replaceState(null, null, '/movements')
   	fetch('/movements.json')
       .then(response => response.json())
-      .then(movementsArray => {
-        $('div.container').append('<h4>Guide to Exercise</h4><br>')
-        movementsArray.forEach(function(movementObject) {
-          let newMove = new Movement(movementObject)
-          let moveHtml = newMove.formatMoveForIndex()
-          $('div.container').append(moveHtml)
-        })
-      })
+      .then(movementsArray => Movement.indexExercises)
   })
 }
 // Explanation of Movement.showListener
