@@ -7,6 +7,7 @@
     <br>
     <p><span class="glyphicon glyphicon-time"></span> <strong>Duration</strong>: <%= @routine.duration %> minutes</p>
     <p><span class="glyphicon glyphicon-signal"></span> <strong>Difficulty Level</strong>: <%= @routine.difficulty_level %></p>
+    <p><strong>Required Equipment</strong>: <%= display_equipment_for(@routine) %></p>
   </div>
 
   <div class="panel-body" id="workout-routine">
