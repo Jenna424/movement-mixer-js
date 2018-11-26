@@ -29,7 +29,7 @@ Movement.prototype.formatMoveForIndex = function() {
 Movement.indexListener = function() {
   $('ul.nav').on('click', 'a.all-movements', function(e) {
     e.preventDefault();
-  	history.replaceState(null, null, "/movements")
+  	history.replaceState(null, null, '/movements')
   	fetch(`/movements.json`)
       .then(response => response.json())
       .then(movementsArray => {
