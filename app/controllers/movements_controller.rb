@@ -24,6 +24,6 @@ class MovementsController < ApplicationController
   private
 
     def set_movement
-      @movement = Movement.find(params[:id])
+     @movement = Movement.find(params[:id])
     end
 end
