@@ -70,7 +70,7 @@ Movement.showListener = function() {
     history.replaceState(null, null, `/movements/${id}`)
     $.get(`/movements/${id}`)
     .done(Movement.show)
-    .fail(error => console.error(`The exercise movement failed to load due to an error:\n`, error))
+    .fail(error => console.error('The exercise movement failed to load due to an error'))
   })
 }
 // Below, movementJson parameter = JSON object representation of the movement instance we want to view without redirecting to its show page = response to AJAX GET request sent in Movement.showListener()
