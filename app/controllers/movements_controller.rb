@@ -2,8 +2,8 @@ class MovementsController < ApplicationController
   before_action :set_movement, only: [:show, :next, :previous]
 
   def index
-  	@movements = policy_scope(Movement)
-  	render json: @movements
+    movements = policy_scope(Movement)
+    render json: movements
   end
 
   def show # @movement is retrieved from before_action :set_movement
