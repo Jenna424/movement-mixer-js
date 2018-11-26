@@ -176,7 +176,7 @@ Routine.destroyListener = function() {
 Routine.destroy = function(routineResponse) {
   $('div.container').html('') // empty <div class="container"> that contains the show page of the routine that was just deleted
   var newRoutine = new Routine(routineResponse)
-  newRoutine.presentParagraph()
+  newRoutine.presentDeleteNoticeParagraph()
 }
 
 Routine.prototype.presentDeleteNoticeParagraph = function() {
