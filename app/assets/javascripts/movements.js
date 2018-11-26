@@ -12,7 +12,7 @@ $(function() {
 
 Movement.bindClickEventHandlers = function() {
 	Movement.handleExerciseIndex()
-  Movement.handleShowExercise()
+  Movement.showListener()
   Movement.handleNextExercise()
   Movement.handlePreviousExercise()
 }
@@ -53,7 +53,8 @@ Movement.handleShowExercise = function() {
   $(document).on('click', 'a.show-exercise', function(e) {
     e.preventDefault()
     var $divContainer = $('div.container')
-    var id = $(this).attr('data-id')
+    var id = $(this).attr('href').split('/')[2]
+    console.log(id)
     history.replaceState(null, null, `/movements/${id}`)
     $.get(`/movements/${id}`)
     .done(function(response) {
