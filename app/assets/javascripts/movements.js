@@ -73,6 +73,12 @@ Movement.showListener = function() {
     .done(Movement.show)
   })
 }
+// Below, movementJson parameter = JSON object representation of the movement instance we want to view without redirecting to show page
+Movement.show = function(movementJson) {
+  var newMovement = new Movement(movementJson)
+  var movementHtml = newMovement.formatShow()
+  $('div.container').append(movementHtml)
+}
 // The response is a JSON object representation of the movement instance we want to view without redirecting to show page
 // The response also includes data about the guides that belong to the movement due to has_many :guides in MovementSerializer
 
