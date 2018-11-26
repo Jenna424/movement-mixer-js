@@ -155,3 +155,7 @@ Routine.compileListWorkoutTemplate = function() {
   Routine.listWorkoutTemplateSource = $('#list-workout-template').html()
   Routine.listWorkoutTemplateFunction = Handlebars.compile(Routine.listWorkoutTemplateSource)
 }
+
+Routine.destroyListener = function() {
+  
+}
