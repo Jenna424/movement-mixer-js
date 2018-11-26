@@ -48,10 +48,17 @@ Movement.handleExerciseIndex = function() {
       })
   })
 }
-
+// Explanation of Movement.showListener
+// On the routine show page, the user can click a link to view a particular exercise movement included in that workout routine,
+// at which point an AJAX GET request is made to "/movements/:id", so we can see the movement's "show page" without a page refresh.
+// The link to show a particular exercise movement is not necessarily in the DOM on initial payload, 
+// depending on what exercise movements are included in the workout routine.
+// Also, movements are constantly being added to/deleted from a workout routine.
+// Therefore, call .on() on div.panel-body, which is always on the routine show page, and then see if the user clicked a.show-exercise
 Movement.showListener = function() {
-  $(document).on('click', 'a.show-exercise', function(e) {
+  $('div.panel-body').on('click', 'a.show-exercise', function(e) {
     e.preventDefault()
+    console.log('clicked show exercise button for movement in routine')
     var $divContainer = $('div.container')
     var id = $(this).attr('href').split('/')[2]
     console.log(id)
