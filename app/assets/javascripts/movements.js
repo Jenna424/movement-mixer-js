@@ -49,7 +49,7 @@ Movement.handleExerciseIndex = function() {
   })
 }
 
-Movement.handleShowExercise = function() {
+Movement.showListener = function() {
   $(document).on('click', 'a.show-exercise', function(e) {
     e.preventDefault()
     var $divContainer = $('div.container')
