@@ -26,6 +26,15 @@ Movement.prototype.formatMoveForIndex = function() {
 	return Movement.listExerciseTemplateFunction(this)
 }
 
+Movement.indexListener = function() {
+  $('ul.nav').on('click', 'a.all-movements', function(e) {
+    e.preventDefault()
+    $('div.container').html('')
+    history.replaceState(null, null, '/movements')
+    $.get('/movements')
+    .done(Movement.indexExercises)
+  })
+}
 // Below, movementsArray parameter = JSON object array representation of AR::Relation of all movement instances = response from fetch('/movements.json') call sent in Movement.indexListener()
 Movement.indexExercises = function(movementsArray) {
   var $divContainer = $('div.container')
