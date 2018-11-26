@@ -28,11 +28,6 @@ $(function() {
   Routine.bindEventHandlers()
 })
 
-Routine.compileListWorkoutTemplate = function() {
-  Routine.listWorkoutTemplateSource = $('#list-workout-template').html()
-  Routine.listWorkoutTemplateFunction = Handlebars.compile(Routine.listWorkoutTemplateSource)
-}
-
 Routine.bindEventHandlers = function() {
   Routine.addAssociationInCreateForm()
   Routine.createListener()
@@ -153,4 +148,9 @@ Routine.indexWorkouts = function(routinesArray) {
 
 Routine.prototype.formatForIndex = function() {
   return Routine.listWorkoutTemplateFunction(this)
+}
+
+Routine.compileListWorkoutTemplate = function() {
+  Routine.listWorkoutTemplateSource = $('#list-workout-template').html()
+  Routine.listWorkoutTemplateFunction = Handlebars.compile(Routine.listWorkoutTemplateSource)
 }
