@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_125206) do
+ActiveRecord::Schema.define(version: 2018_11_12_005226) do
 
   create_table "equipment", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 2018_11_11_125206) do
     t.integer "routine_id"
     t.integer "weight"
     t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "guides", force: :cascade do |t|
+    t.integer "movement_id"
+    t.integer "user_id"
+    t.text "proper_form"
+    t.text "breathing_technique"
+    t.text "modification"
+    t.text "challenge"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -75,17 +86,6 @@ ActiveRecord::Schema.define(version: 2018_11_11_125206) do
 
   create_table "targets", force: :cascade do |t|
     t.string "focus"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "guides", force: :cascade do |t|
-    t.integer "movement_id"
-    t.integer "user_id"
-    t.text "proper_form"
-    t.text "breathing_technique"
-    t.text "modification"
-    t.text "challenge"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
