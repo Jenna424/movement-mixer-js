@@ -22,10 +22,6 @@ Movement.compileListExerciseTemplate = function() {
   Movement.listExerciseTemplateFunction = Handlebars.compile(Movement.listExerciseTemplateSource)
 }
 
-Movement.prototype.formatMoveForIndex = function() {
-	return Movement.listExerciseTemplateFunction(this)
-}
-
 Movement.indexListener = function() {
   $('ul.nav').on('click', 'a.all-movements', function(e) {
     e.preventDefault()
@@ -37,7 +33,7 @@ Movement.indexListener = function() {
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include'
     }
-    
+
     fetch('/movements', requestObject)
       .then(response => response.json())
       .then(Movement.indexExercises)
@@ -46,16 +42,20 @@ Movement.indexListener = function() {
 // Below, movementsArray parameter = JSON object array representation of AR::Relation of all movement instances = response from fetch('/movements.json') call sent in Movement.indexListener()
 Movement.indexExercises = function(movementsArray) {
   var $divContainer = $('div.container')
-  if (movementsArray.length) { // The Index of Exercise Movements (i.e. Guide to Exercise) is NOT empty (0 is falsy in JavaScript)
+  if (movementsArray.length) { // The Index of Exercise Movements (i.e. Guide to Exercise) is NOT empty
     $divContainer.html('<h4>Guide to Exercise</h4><br>')
     movementsArray.forEach(function(movementObject) {
       let newMovement = new Movement(movementObject)
       let movementHtml = newMovement.formatMoveForIndex()
       $divContainer.append(movementHtml)
     })
-  } else { // movementsArray.length === 0, meaning that the Index of Exercise Movements (i.e. Guide to Exercise) is currently empty
+  } else { // movementsArray.length === 0 (falsy value), meaning that the Index of Exercise Movements is currently empty
     $divContainer.html('<p>The Index of Exercise Movements is currently empty.</p>')
   }
+}
+
+Movement.prototype.formatMoveForIndex = function() {
+  return Movement.listExerciseTemplateFunction(this)
 }
 // Explanation of Movement.showListener
 // On the routine show page, the user can click a link to view a particular exercise movement included in that workout routine,
