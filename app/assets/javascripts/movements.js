@@ -100,7 +100,7 @@ Movement.compileShowExerciseTemplate = function() {
 }
 
 Movement.previousExerciseListener = function() {
-  $(document).on('click', 'button.js-previous-move', function(e) {
+  $('div.container').on('click', 'button.js-previous-move', function(e) {
     e.preventDefault()
     var currentMovementId = $(this).data('id')
     $('div.container').html('')
