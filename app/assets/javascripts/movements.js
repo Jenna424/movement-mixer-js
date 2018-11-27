@@ -132,6 +132,3 @@ Movement.handlePreviousExercise = function() {
       })
   })
 }
-// In the context of formatMoveForIndex() prototype method,
-// this refers to the JSON movement object
-// on which formatMoveForIndex() is called
