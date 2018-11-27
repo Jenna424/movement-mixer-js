@@ -7,6 +7,11 @@
 
 <br>
 
+<% if current_user && current_user.trainer? %>
+  <%= link_to "Create a Training Guide", new_movement_guide_path(@movement) %>
+  <br><br>
+<% end %>
+
 <button class="back btn btn-default btn-sm">
   <span class="glyphicon glyphicon-arrow-left"></span><small> Back to Workout</small>
 </button>
