@@ -14,7 +14,7 @@ Movement.bindClickEventHandlers = function() {
 	Movement.indexListener()
   Movement.showListener()
   Movement.nextExerciseListener()
-  Movement.handlePreviousExercise()
+  Movement.previousExerciseListener()
 }
 
 Movement.indexListener = function() {
