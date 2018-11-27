@@ -93,7 +93,9 @@ which is defined in routines.js file -->
     <a href="/movements/{{id}}/guides/new" data-id="{{id}}">Create a Training Guide</a>
     <br><br>
   <% end %>
-  <button class="js-previous-move btn btn-default btn-sm" data-id="{{id}}">Previous Exercise</button>
+  <button class="js-previous-move btn btn-sm btn-default" data-id="{{id}}">
+    <span class="glyphicon glyphicon-arrow-left"></span> <span>Previous Exercise</span>
+  </button>
   <button class="js-next-move btn btn-default btn-sm" data-id="{{id}}">Next Exercise</button>
 </script>
 
