@@ -102,8 +102,7 @@ Movement.compileShowExerciseTemplate = function() {
 Movement.previousExerciseListener = function() {
   $('.js-previous-move').on('click', function() {
     var currentMovementId = $(this).data('id')
-    var $divContainer = $('div.container')
-    $divContainer.html('')
+    $('div.container').html('')
     const request = {
       method: 'GET',
       headers: {'Content-Type': 'application/json'},
