@@ -17,11 +17,6 @@ Movement.bindClickEventHandlers = function() {
   Movement.handlePreviousExercise()
 }
 
-Movement.compileListExerciseTemplate = function() {
-  Movement.listExerciseTemplateSource = $('#list-exercise-template').html()
-  Movement.listExerciseTemplateFunction = Handlebars.compile(Movement.listExerciseTemplateSource)
-}
-
 Movement.indexListener = function() {
   $('ul.nav').on('click', 'a.all-movements', function(e) {
     e.preventDefault()
@@ -56,6 +51,11 @@ Movement.indexExercises = function(movementsArray) {
 
 Movement.prototype.formatMoveForIndex = function() {
   return Movement.listExerciseTemplateFunction(this)
+}
+
+Movement.compileListExerciseTemplate = function() {
+  Movement.listExerciseTemplateSource = $('#list-exercise-template').html()
+  Movement.listExerciseTemplateFunction = Handlebars.compile(Movement.listExerciseTemplateSource)
 }
 // Explanation of Movement.showListener
 // On the routine show page, the user can click a link to view a particular exercise movement included in that workout routine,
