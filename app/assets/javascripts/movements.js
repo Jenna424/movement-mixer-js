@@ -99,7 +99,7 @@ Movement.compileShowExerciseTemplate = function() {
   Movement.showExerciseTemplateFunction = Handlebars.compile(Movement.showExerciseTemplateSource)
 }
 
-Movement.handleNextExercise = function() {
+Movement.nextExerciseListener = function() {
   $(document).on('click', '.js-next-move', function(e) {
     var currentMoveId = $(this).data('id')
     console.log(currentMoveId)
@@ -117,7 +117,7 @@ Movement.handleNextExercise = function() {
   })
 }
 
-Movement.handlePreviousExercise = function() {
+Movement.previousExerciseListener = function() {
   $(document).on('click', '.js-previous-move', function(e) {
     var currentMoveId = $(this).data('id')
     fetch(`/movements/${currentMoveId}/previous`)
