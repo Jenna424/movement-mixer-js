@@ -1,5 +1,15 @@
 <h4><em>Featured Exercise Movement:</em> <%= @movement.name %></h4>
 
+<li>
+  Performed in <%= @movement.routines.count %> workout <%= "routine".pluralize(@movement.routines.count) %> designed with Movement Mixer
+</li>
+
+<li>
+  Has <%= @movement.guides.count %> training <%= "guide".pluralize(@movement.guides.count) %> available for use
+</li>
+
+<br>
+
 <%= link_to "View All Training Guides", movement_guides_path(@movement), class: "all-guides", data: {id: @movement.id} %>
 
 <div id="training-guides">
