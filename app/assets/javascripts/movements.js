@@ -111,7 +111,7 @@ Movement.previousExerciseListener = function() {
     }
     fetch(`/movements/${currentMovementId}/previous`)
       .then(response => response.json())
-      .then(Movement.presentPrevious)
+      .then(Movement.displayExercise)
   })
 }
 // Below, movementObject parameter = JSON object representation of previous/next AR movement instance in DB
