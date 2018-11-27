@@ -13,7 +13,7 @@ $(function() {
 Movement.bindClickEventHandlers = function() {
 	Movement.indexListener()
   Movement.showListener()
-  Movement.nextExerciseListener()
+  //Movement.nextExerciseListener()
   Movement.previousExerciseListener()
 }
 
@@ -97,4 +97,20 @@ Movement.prototype.formatShow = function() {
 Movement.compileShowExerciseTemplate = function() {
   Movement.showExerciseTemplateSource = $('#show-exercise-template').html()
   Movement.showExerciseTemplateFunction = Handlebars.compile(Movement.showExerciseTemplateSource)
+}
+
+Movement.previousExerciseListener = function() {
+  $('.js-previous-move').on('click', function() {
+    var currentMovementId = $(this).data('id')
+    var $divContainer = $('div.container')
+    $divContainer.html('')
+    const request = {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'},
+      credentials: 'include'
+    }
+    fetch(`/movements/${currentMovementId}/previous`)
+      .then(response => response.json())
+      .then(Movement.presentPrevious)
+  })
 }
