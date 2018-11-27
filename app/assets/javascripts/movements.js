@@ -114,3 +114,10 @@ Movement.previousExerciseListener = function() {
       .then(Movement.presentPrevious)
   })
 }
+// Below, previousMovementObject parameter = JSON object representation of previous AR movement instance in DB = response to .fetch() call in Movement.previousExerciseListener()
+Movement.presentPrevious = function(previousMovementObject) {
+  let newMovement = new Movement(previousMovementObject)
+  let movementHtml = newMovement.formatShow()
+  history.replaceState(null, null, `/movements/${newMovement.id}`)
+  $('div.container').html(movementHtml)
+}
