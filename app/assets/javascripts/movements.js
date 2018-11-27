@@ -13,8 +13,8 @@ $(function() {
 Movement.bindClickEventHandlers = function() {
 	Movement.indexListener()
   Movement.showListener()
-  //Movement.nextExerciseListener()
   Movement.previousExerciseListener()
+  Movement.nextExerciseListener()
 }
 
 Movement.indexListener = function() {
