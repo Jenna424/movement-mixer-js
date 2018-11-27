@@ -13,6 +13,7 @@ $(function() {
 Movement.bindClickEventHandlers = function() {
 	Movement.indexListener()
   Movement.showListener()
+  Movement.backToWorkoutListener()
   Movement.nextExerciseListener()
   Movement.previousExerciseListener()
 }
@@ -56,6 +57,12 @@ Movement.prototype.formatMoveForIndex = function() {
 Movement.compileListExerciseTemplate = function() {
   Movement.listExerciseTemplateSource = $('#list-exercise-template').html()
   Movement.listExerciseTemplateFunction = Handlebars.compile(Movement.listExerciseTemplateSource)
+}
+
+Movement.backToWorkoutListener = function() {
+  $('button.back').on('click', function() {
+    history.back()
+  })
 }
 // Explanation of Movement.showListener
 // On the routine show page, the user can click a link to view a particular exercise movement included in that workout routine,
