@@ -1,4 +1,14 @@
 class GuidePolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      if user.client? || user.trainer? || user.admin?
+        scope.all
+      else
+        scope.none
+      end
+    end
+  end
+  
   def create? # only trainers (users whose role = 2) can create training guides
     user.trainer?
   end
