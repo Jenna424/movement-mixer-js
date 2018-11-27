@@ -1,5 +1,12 @@
 <h4><em>Featured Exercise Movement:</em> <%= @movement.name %></h4>
 
+<%= link_to "View All Training Guides", movement_guides_path(@movement), class: "all-guides", data: {id: @movement.id} %>
+
+<div id="training-guides">
+</div>
+
+<br>
+
 <button class="back btn btn-default btn-sm">
   <span class="glyphicon glyphicon-arrow-left"></span><small> Back to Workout</small>
 </button>
