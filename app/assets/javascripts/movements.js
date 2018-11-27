@@ -98,37 +98,3 @@ Movement.compileShowExerciseTemplate = function() {
   Movement.showExerciseTemplateSource = $('#show-exercise-template').html()
   Movement.showExerciseTemplateFunction = Handlebars.compile(Movement.showExerciseTemplateSource)
 }
-
-Movement.nextExerciseListener = function() {
-  $(document).on('click', '.js-next-move', function(e) {
-    var currentMoveId = $(this).data('id')
-    console.log(currentMoveId)
-    fetch(`/movements/${currentMoveId}/next`)
-      .then(response => response.json())
-      .then(nextMovementObject => {
-        history.replaceState(null, null, `/movements/${nextMovementObject.id}`)
-        let $divContainer = $('div.container')
-        $divContainer.html('')
-        let newMovement = new Movement(nextMovementObject)
-        console.log(newMovement)
-        let movementHtml = newMovement.formatShow()
-        $divContainer.html(movementHtml)
-      })
-  })
-}
-
-Movement.previousExerciseListener = function() {
-  $(document).on('click', '.js-previous-move', function(e) {
-    var currentMoveId = $(this).data('id')
-    fetch(`/movements/${currentMoveId}/previous`)
-      .then(response => response.json())
-      .then(previousMovementObject => {
-        history.replaceState(null, null, `/movements/${previousMovementObject.id}`)
-        let $divContainer = $('div.container')
-        $divContainer.html('')
-        let newMovement = new Movement(previousMovementObject)
-        let movementHtml = newMovement.formatShow()
-        $divContainer.html(movementHtml)
-      })
-  })
-}
