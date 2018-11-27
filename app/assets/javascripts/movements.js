@@ -31,19 +31,16 @@ Movement.indexListener = function() {
     e.preventDefault()
     $('div.container').html('')
     history.replaceState(null, null, '/movements')
-
     let requestObject = {
       method: 'get',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include'
     }
-
     fetch('/movements', requestObject)
       .then(response => response.json())
       .then(Movement.indexExercises)
   })
 }
-
 // Below, movementsArray parameter = JSON object array representation of AR::Relation of all movement instances = response from fetch('/movements.json') call sent in Movement.indexListener()
 Movement.indexExercises = function(movementsArray) {
   var $divContainer = $('div.container')
