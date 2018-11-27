@@ -13,13 +13,9 @@
 <% end %>
 
 <%= button_tag class: "js-previous btn btn-sm btn-default", data: {id: @movement.id} do %>
-  <%= content_tag(:span, nil, class: "glyphicon glyphicon-triangle-left") %> <%= content_tag(:span, "Previous Exercise") %>
+  <%= content_tag(:span, nil, class: "glyphicon glyphicon-arrow-left") %> <%= content_tag(:span, "Previous Exercise") %>
 <% end %>
 
 <%= button_tag class: "js-next btn btn-sm btn-default", data: {id: @movement.id} do %>
-  <%= content_tag(:span, "Next Exercise") %> <%= content_tag(:span, nil, class: "glyphicon glyphicon-triangle-right") %>
+  <%= content_tag(:span, "Next Exercise") %> <%= content_tag(:span, nil, class: "glyphicon glyphicon-arrow-right") %>
 <% end %>
-
-<button class="back btn btn-default btn-sm">
-  <span class="glyphicon glyphicon-arrow-left"></span><small> Back to Workout</small>
-</button>
