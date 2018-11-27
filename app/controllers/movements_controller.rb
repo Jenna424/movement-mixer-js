@@ -8,8 +8,12 @@ class MovementsController < ApplicationController
 
   def show # @movement is retrieved from before_action :set_movement
     @guide = Guide.new # instance for form to wrap around
-    render json: @movement, status: 200
   end
+
+  #def show # @movement is retrieved from before_action :set_movement
+    #@guide = Guide.new # instance for form to wrap around
+    #render json: @movement, status: 200
+  #end
 
   def next # @movement is retrieved from before_action :set_movement
     @next_move = @movement.next
