@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_125206) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tips", force: :cascade do |t|
+  create_table "guides", force: :cascade do |t|
     t.integer "movement_id"
     t.integer "user_id"
     t.text "proper_form"
