@@ -128,8 +128,6 @@ Movement.nextExerciseListener = function() {
     var currentMovementId = $(this).data('id')
     $('div.container').html('')
     $.get(`/movements/${currentMovementId}/next`)
-    .done(function(response) {
-      console.log(response)
-    })
+    .done(Movement.displayExercise)
   })
 }
