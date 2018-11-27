@@ -21,7 +21,7 @@ class Movement < ApplicationRecord
   end
 
   def previous
-    movement = Movement.where("id < ?", id).first
+    movement = Movement.where("id < ?", id).last
     movement ? movement : Movement.first
   end
 
