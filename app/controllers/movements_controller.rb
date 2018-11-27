@@ -10,7 +10,7 @@ class MovementsController < ApplicationController
     @guide = Guide.new # instance for form to wrap around
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @movement, status: 200}
+      format.json { render json: @movement, status: 200 }
     end
   end
 
