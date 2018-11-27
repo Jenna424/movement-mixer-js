@@ -15,7 +15,10 @@
           <li><%= link_to "Register Now!", signup_path %></li>
           <li><%= link_to "Log In", login_path %></li>
         <% else %>
-          <% if current_user.admin? %>
+          <% if current_user.client? %>
+            <li><%= link_to "View Your Profile", user_path(current_user), class: "profile-page" %></li>
+            <li><%= link_to "Design a Workout Routine", new_routine_path, class: "new-routine" %></li>
+          <% elsif current_user.admin? %>
             <li><%= link_to "Manage Accounts", access_path %></li>
           <% elsif current_user.trainer? %>
             <li><%= link_to "View Target Areas", targets_path, class: "view-target-areas" %></li>
@@ -23,8 +26,6 @@
             <li><%= link_to "View Training Types", trainings_path, class: "view-training-types" %></li>
             <li><%= link_to "Add Training Type", new_training_path(@training_type), class: "add-training-type" %></li>
           <% end %>
-          <li><%= link_to "View Your Profile", user_path(current_user), class: "profile-page" %></li>
-          <li><%= link_to "Design a Workout Routine", new_routine_path, class: "new-routine" %></li>
           <li><%= link_to "View All Workouts", routines_path, class: "all-routines" %></li>
           <li><%= link_to "Read Exercise Guide", movements_path, class: "all-movements" %></li>
           <li><%= link_to "Log Out", logout_path, method: :delete %></li>
