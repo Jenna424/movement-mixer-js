@@ -121,3 +121,15 @@ Movement.presentPrevious = function(previousMovementObject) {
   history.replaceState(null, null, `/movements/${newMovement.id}`)
   $('div.container').html(movementHtml)
 }
+
+Movement.nextExerciseListener = function() {
+  $('div.container').on('click', 'button.js-next-move', function(e) {
+    e.preventDefault()
+    var currentMovementId = $(this).data('id')
+    $('div.container').html('')
+    $.get(`/movements/${currentMovementId}/next`)
+    .done(function(response) {
+      console.log(response)
+    })
+  })
+}
