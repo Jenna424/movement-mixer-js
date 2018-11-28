@@ -60,18 +60,10 @@ Guide.prototype.formatShow = function() {
 // Therefore, call .on() directly on div.container, which is always on the page, and then check to see if a.all-guides was clicked
 Guide.indexListener = function() {
   $('div.container').on('click', 'a.all-guides', function(e) {
-    e.preventDefault() // prevent the default action of sending a regular GET HTTP request to movement_guides_path(movement instance here)
+    e.preventDefault() // prevent the default behavior of sending a regular GET HTTP request to movement_guides_path(movement instance here)
     var movementId = $(this).data('id')
     $.get(`/movements/${movementId}/guides`)
-    .done(function(guidesArray) {
-      var $div = $('#training-guides')
-      $div.html('')
-      guidesArray.forEach(function(guideObject) {
-        let newGuide = new Guide(guideObject)
-        let guideHtml = newGuide.formatGuideForIndex()
-        $div.append(guideHtml)
-      })
-    })
+    .done(Guide.getGuides)
   })
 }
 
