@@ -54,10 +54,13 @@ Guide.handleFormSubmission = function() {
 Guide.prototype.formatShow = function() {
   return Guide.guideTemplateFunction(this)
 }
-
+// On the movement show page, there is an a.all-guides link to View All Training Guides that belong to that particular exercise movement
+// Since we can flip through movements, i.e. see next movement/previous movement using .fetch() call,
+// the link to view that movement's guides is not always present in the DOM on initial payload
+// Therefore, call .on() directly on div.container, which is always on the page, and then check to see if a.all-guides was clicked
 Guide.indexListener = function() {
-  $(document).on('click', '.all-guides', function(e) {
-    e.preventDefault()
+  $('div.container').on('click', 'a.all-guides', function(e) {
+    e.preventDefault() // prevent the default action of sending a regular GET HTTP request to movement_guides_path(movement instance here)
     var movementId = $(this).attr('data-id')
     $.get(`/movements/${movementId}/guides`)
     .done(function(guidesArray) {
