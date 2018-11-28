@@ -16,9 +16,15 @@ Guide.bindClickEventHandlers = function() {
   Guide.createListener()
   Guide.getGuidesListener()
 }
-
+// The form to create a new training guide belonging to a particular exercise movement is found on the movement show page,
+// and in the Handlebars template inside script#show-exercise-template.
+// This is because the movement show page contains buttons to view the next and previous exercise movements without a page refresh,
+// via fetch().
+// Since the user may have navigated to another movement via the Previous Exercise/Next Exercise button,
+// the form to create a new training guide belonging to that specific movement
+// might not be in the DOM when the page is initially loaded
 Guide.createListener = function() {
-  $('#new_guide').on('submit', function(e) {
+  $('div.container').on('submit', 'form#new_guide', function(e) {
     e.preventDefault()
     var url = $(this).attr('action')
     var formData = $(this).serialize()
