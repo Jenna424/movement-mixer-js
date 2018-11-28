@@ -66,6 +66,19 @@ Guide.getGuidesListener = function() {
     .done(Guide.index)
   })
 }
+// Below, the guidesArray parameter = JSON object array representation of all AR guide instances belonging to the particular exercise movement = response from AJAX GET request sent using $.get() in Guide.getGuidesListener()
+Guide.index = function(guidesArray) {
+  if (guidesArray.length) { // If guidesArray is NOT an empty collection
+    $('div#training-guides').html(`<h4>Training Guides for Performing ${guidesArray[0].movement.name}</h4>`)
+    guidesArray.forEach(function(guideObject) {
+      let newGuide = new Guide(guideObject)
+      let guideHtml = newGuide.formatGuideForIndex()
+      $('div#training-guides').append(guideHtml)
+    })
+  } else { // The collection of training guides belonging to the specific exercise movement is empty (0 is falsy in JavaScript)
+    $('a.all-guides').replaceWith('<p><em>No training guides are currently available for use.</em></p>')
+  }
+}
 
 Guide.prototype.formatGuideForIndex = function() {
   return Guide.guideTemplateFunction(this)
