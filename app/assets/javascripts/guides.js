@@ -29,14 +29,7 @@ Guide.createListener = function() {
     var url = $(this).attr('action')
     var formData = $(this).serialize()
     $.post(url, formData)
-    .done(function(response) {
-      $('#new_guide').find('textarea').val('');
-      var $displayGuideDiv = $('#display-guide')
-      $displayGuideDiv.html('')
-      let newGuide = new Guide(response)
-      let guideHtml = newGuide.formatShow()
-      $displayGuideDiv.html(guideHtml)
-    })
+    .done(Guide.generate)
   })
 }
 // Use jQuery to grab the form to create a new training guide full of training tips for a particular exercise movement
