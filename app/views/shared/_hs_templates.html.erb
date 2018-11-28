@@ -104,6 +104,36 @@ which is defined in routines.js file -->
   <% if current_user.trainer? %>
     <h4>Create a Training Guide</h4>
     <h5><em>Add training tips to properly perform {{name}}</em></h5>
+    <div class="well well-sm col-xs-6">
+      <form class="new_guide" id="new_guide" action="/movements/{{id}}/guides" accept-charset="UTF-8" method="post">
+        <input name="utf8" type="hidden" value="✓">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <input value="2" type="hidden" name="guide[user_id]" id="guide_user_id">
+        <div class="field">
+          <label for="guide_proper_form">Train your clients to use proper form when performing this exercise</label>:
+          <textarea placeholder="Add training tip to achieve proper form..." class="form-control" name="guide[proper_form]" id="guide_proper_form"></textarea>
+        </div>
+        <br>
+        <div class="field">
+          <label for="guide_breathing_technique">Train your clients to use proper breathing techniques</label>:
+          <textarea placeholder="Add training tip to implement effective breathing patterns..." class="form-control" name="guide[breathing_technique]" id="guide_breathing_technique"></textarea>
+        </div>
+        <br>
+        <div class="field">
+          <label for="guide_modification">How can you modify this exercise?</label>
+          <textarea placeholder="Add a modification..." class="form-control" name="guide[modification]" id="guide_modification"></textarea>
+        </div>
+        <br>
+        <div class="field">
+          <label for="guide_challenge">How can you make this exercise more challenging?</label>
+          <textarea placeholder="Add a challenge..." class="form-control" name="guide[challenge]" id="guide_challenge"></textarea>
+        </div>
+        <br>
+        <div class="actions">
+          <input type="submit" name="commit" value="Publish Training Guide" class="btn btn-default btn-sm">
+        </div>
+      </form>
+    </div>
   <% end %>
 </script>
 
