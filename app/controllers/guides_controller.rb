@@ -16,8 +16,7 @@ class GuidesController < ApplicationController
   end
 
   def index # GET '/movements/:movement_id/guides' => 'guides#index'
-    guides = Movement.find(params[:movement_id]).guides
-    authorize guides
+    guides = policy_scope(Guide).where(movement: Movement.find(params[:movement_id]))
     render json: guides
   end
 
