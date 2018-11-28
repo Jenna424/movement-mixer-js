@@ -12,7 +12,7 @@
 
 <br>
 
-<% if current_user && current_user.trainer? %>
+<% if current_user.trainer? %>
   <%= link_to "Create a Training Guide", new_movement_guide_path(@movement) %>
   <br><br>
 <% end %>
