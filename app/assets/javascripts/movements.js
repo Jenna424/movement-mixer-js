@@ -98,6 +98,27 @@ Movement.compileShowExerciseTemplate = function() {
   Movement.showExerciseTemplateFunction = Handlebars.compile(Movement.showExerciseTemplateSource)
 }
 
+Movement.showNextOrPreviousListener = function() {
+  $('div.container').on('click', 'button[data-direction]', function(e) {
+    e.preventDefault()
+    var currentMovementId = $(this).data('id')
+    var direction = 'previous'
+    if ($(this).data('direction') === 'next') {
+      direction = 'next'
+    }
+    const request = {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'},
+      credentials: 'include'
+    }
+    fetch(`/movements/${currentMovementId}/${direction}`)
+      .then(response => response.json())
+      .then(Movement.displayExercise)
+  })
+}
+
+// The commented out function below is the same as the one directly above, except that it uses $.get() instead of fetch()
+
 //Movement.showNextOrPreviousListener = function() {
   //$('div.container').on('click', 'button[data-direction]', function(e) {
     //e.preventDefault()
