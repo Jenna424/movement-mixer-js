@@ -11,7 +11,7 @@ $(function() {
 })
 
 Movement.bindClickEventHandlers = function() {
-	Movement.indexListener()
+  Movement.indexListener()
   Movement.showListener()
   Movement.showNextOrPreviousListener()
 }
