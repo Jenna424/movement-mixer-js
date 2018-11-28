@@ -13,8 +13,7 @@ $(function() {
 Movement.bindClickEventHandlers = function() {
 	Movement.indexListener()
   Movement.showListener()
-  Movement.previousExerciseListener()
-  Movement.nextExerciseListener()
+  Movement.showNextOrPreviousListener()
 }
 
 Movement.indexListener = function() {
@@ -98,36 +97,10 @@ Movement.compileShowExerciseTemplate = function() {
   Movement.showExerciseTemplateSource = $('#show-exercise-template').html()
   Movement.showExerciseTemplateFunction = Handlebars.compile(Movement.showExerciseTemplateSource)
 }
-
-Movement.previousExerciseListener = function() {
-  $('div.container').on('click', 'button.js-previous-move', function(e) {
-    e.preventDefault()
-    var currentMovementId = $(this).data('id')
-    $('div.container').html('')
-    const request = {
-      method: 'GET',
-      headers: {'Content-Type': 'application/json'},
-      credentials: 'include'
-    }
-    fetch(`/movements/${currentMovementId}/previous`)
-      .then(response => response.json())
-      .then(Movement.displayExercise)
-  })
-}
 // Below, movementObject parameter = JSON object representation of previous/next AR movement instance in DB
 Movement.displayExercise = function(movementObject) {
   let newMovement = new Movement(movementObject)
   let movementHtml = newMovement.formatShow()
   history.replaceState(null, null, `/movements/${newMovement.id}`)
   $('div.container').html(movementHtml)
-}
-
-Movement.nextExerciseListener = function() {
-  $('div.container').on('click', 'button.js-next-move', function(e) {
-    e.preventDefault()
-    var currentMovementId = $(this).data('id')
-    $('div.container').html('')
-    $.get(`/movements/${currentMovementId}/next`)
-    .done(Movement.displayExercise)
-  })
 }
