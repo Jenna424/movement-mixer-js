@@ -104,3 +104,16 @@ Movement.displayExercise = function(movementObject) {
   history.replaceState(null, null, `/movements/${newMovement.id}`)
   $('div.container').html(movementHtml)
 }
+
+Movement.showNextOrPreviousListener = function() {
+  $('div.container').on('click', 'button[data-direction]', function(e) {
+    e.preventDefault()
+    var currentMovementId = $(this).data('id')
+    var direction = 'previous'
+    if ($(this).data('direction') === 'next') {
+      direction = 'next'
+    }
+    $.get(`/movements/${currentMovementId}/${direction}`)
+    .done(Movement.displayExercise)
+  })
+}
