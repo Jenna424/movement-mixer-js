@@ -89,10 +89,6 @@ Movement.show = function(movementJson) {
   $('div.container').append(movementHtml)
 }
 
-Movement.prototype.formatShow = function() {
-  return Movement.showExerciseTemplateFunction(this)
-}
-
 Movement.compileShowExerciseTemplate = function() {
   Movement.showExerciseTemplateSource = $('#show-exercise-template').html()
   Movement.showExerciseTemplateFunction = Handlebars.compile(Movement.showExerciseTemplateSource)
@@ -138,4 +134,8 @@ Movement.displayExercise = function(movementObject) {
   let movementHtml = newMovement.formatShow()
   history.replaceState(null, null, `/movements/${newMovement.id}`)
   $('div.container').html(movementHtml)
+}
+
+Movement.prototype.formatShow = function() {
+  return Movement.showExerciseTemplateFunction(this)
 }
