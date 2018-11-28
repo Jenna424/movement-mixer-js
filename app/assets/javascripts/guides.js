@@ -61,7 +61,7 @@ Guide.prototype.formatShow = function() {
 Guide.indexListener = function() {
   $('div.container').on('click', 'a.all-guides', function(e) {
     e.preventDefault() // prevent the default action of sending a regular GET HTTP request to movement_guides_path(movement instance here)
-    var movementId = $(this).attr('data-id')
+    var movementId = $(this).data('id')
     $.get(`/movements/${movementId}/guides`)
     .done(function(guidesArray) {
       var $div = $('#training-guides')
