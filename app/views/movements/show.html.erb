@@ -13,8 +13,6 @@
 <br>
 
 <% if current_user.trainer? %>
-  <%= link_to "Create a Training Guide", new_movement_guide_path(@movement) %>
-  <br><br>
 <% end %>
 
 <%= button_tag class: "js-previous-move btn btn-sm btn-default", data: {id: @movement.id, direction: "previous"} do %>
