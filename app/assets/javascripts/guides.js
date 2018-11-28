@@ -13,11 +13,11 @@ $(function() {
 })
 
 Guide.bindClickEventHandlers = function() {
-  Guide.handleFormSubmission()
+  Guide.createListener()
   Guide.getGuidesListener()
 }
 
-Guide.handleFormSubmission = function() {
+Guide.createListener = function() {
   $('#new_guide').on('submit', function(e) {
     e.preventDefault()
     var url = $(this).attr('action')
