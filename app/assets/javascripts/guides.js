@@ -13,7 +13,7 @@ $(function() {
 })
 
 Guide.bindClickEventHandlers = function() {
-  Guide.createListener()
+  Guide.generateListener()
   Guide.getGuidesListener()
 }
 // The form to create a new training guide belonging to a particular exercise movement is found on the movement show page,
@@ -23,7 +23,7 @@ Guide.bindClickEventHandlers = function() {
 // Since the user may have navigated to another movement via the Previous Exercise/Next Exercise button,
 // the form to create a new training guide belonging to that specific movement
 // might not be in the DOM when the page is initially loaded
-Guide.createListener = function() {
+Guide.generateListener = function() {
   $('div.container').on('submit', 'form#new_guide', function(e) {
     e.preventDefault()
     var url = $(this).attr('action')
