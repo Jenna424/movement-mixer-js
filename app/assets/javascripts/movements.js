@@ -97,13 +97,6 @@ Movement.compileShowExerciseTemplate = function() {
   Movement.showExerciseTemplateSource = $('#show-exercise-template').html()
   Movement.showExerciseTemplateFunction = Handlebars.compile(Movement.showExerciseTemplateSource)
 }
-// Below, movementObject parameter = JSON object representation of previous/next AR movement instance in DB
-Movement.displayExercise = function(movementObject) {
-  let newMovement = new Movement(movementObject)
-  let movementHtml = newMovement.formatShow()
-  history.replaceState(null, null, `/movements/${newMovement.id}`)
-  $('div.container').html(movementHtml)
-}
 
 Movement.showNextOrPreviousListener = function() {
   $('div.container').on('click', 'button[data-direction]', function(e) {
@@ -116,4 +109,12 @@ Movement.showNextOrPreviousListener = function() {
     $.get(`/movements/${currentMovementId}/${direction}`)
     .done(Movement.displayExercise)
   })
+}
+
+// Below, movementObject parameter = JSON object representation of previous/next AR movement instance in DB
+Movement.displayExercise = function(movementObject) {
+  let newMovement = new Movement(movementObject)
+  let movementHtml = newMovement.formatShow()
+  history.replaceState(null, null, `/movements/${newMovement.id}`)
+  $('div.container').html(movementHtml)
 }
