@@ -83,7 +83,10 @@ which is defined in routines.js file -->
 <script id="show-exercise-template" type="text/x-handlebars-template">
   <h4><em>Featured Exercise Movement:</em> {{name}}</h4>
   <li>
-    Number of workout routines in which performed: {{routines.length}}
+    Workout routines in which performed: {{routines.length}}
+  </li>
+  <li>
+    Training guides available for use: {{guides.length}}
   </li>
   <br>
   <a class="all-guides" href="movements/{{id}}/guides" data-id="{{id}}">View All Training Guides</a>
