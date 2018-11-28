@@ -19,7 +19,7 @@ $(function() {
 
 Guide.bindClickEventHandlers = function() {
   Guide.handleFormSubmission()
-  Guide.getGuides()
+  Guide.indexListener()
 }
 
 Guide.handleFormSubmission = function() {
@@ -55,7 +55,7 @@ Guide.prototype.formatShow = function() {
   return Guide.guideTemplateFunction(this)
 }
 
-Guide.getGuides = function() {
+Guide.indexListener = function() {
   $(document).on('click', '.all-guides', function(e) {
     e.preventDefault()
     var movementId = $(this).attr('data-id')
