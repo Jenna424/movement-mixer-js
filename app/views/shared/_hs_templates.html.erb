@@ -91,6 +91,13 @@ which is defined in routines.js file -->
     Training guides available for use: {{guides.length}}
   </li>
   <br>
+  <button class="js-previous-move btn btn-sm btn-default" data-id="{{id}}" data-direction="previous">
+    <span class="glyphicon glyphicon-arrow-left"></span> <span>Previous Exercise</span>
+  </button>
+  <button class="js-next-move btn btn-default btn-sm" data-id="{{id}}" data-direction="next">
+    <span>Next Exercise</span> <span class="glyphicon glyphicon-arrow-right"></span>
+  </button>
+  <br><br>
   <a class="all-guides" href="movements/{{id}}/guides" data-id="{{id}}">View All Training Guides</a>
   <div id="training-guides"></div>
   <br>
@@ -98,12 +105,6 @@ which is defined in routines.js file -->
     <a href="/movements/{{id}}/guides/new" data-id="{{id}}">Create a Training Guide</a>
     <br><br>
   <% end %>
-  <button class="js-previous-move btn btn-sm btn-default" data-id="{{id}}" data-direction="previous">
-    <span class="glyphicon glyphicon-arrow-left"></span> <span>Previous Exercise</span>
-  </button>
-  <button class="js-next-move btn btn-default btn-sm" data-id="{{id}}" data-direction="next">
-    <span>Next Exercise</span> <span class="glyphicon glyphicon-arrow-right"></span>
-  </button>
 </script>
 
 <!-- The Handlebars template found inside the <script> tag below is used when a trainer creates a series of training tips for an exercise movement on the movement show page -->
