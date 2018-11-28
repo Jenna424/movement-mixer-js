@@ -5,6 +5,16 @@
 
 <br>
 
+<%= button_tag class: "js-previous-move btn btn-sm btn-default", data: {id: @movement.id, direction: "previous"} do %>
+  <%= content_tag(:span, nil, class: "glyphicon glyphicon-arrow-left") %> <%= content_tag(:span, "Previous Exercise") %>
+<% end %>
+
+<%= button_tag class: "js-next-move btn btn-sm btn-default", data: {id: @movement.id, direction: "next"} do %>
+  <%= content_tag(:span, "Next Exercise") %> <%= content_tag(:span, nil, class: "glyphicon glyphicon-arrow-right") %>
+<% end %>
+
+<br><br>
+
 <%= link_to "View All Training Guides", movement_guides_path(@movement), class: "all-guides", data: {id: @movement.id} %>
 
 <div id="training-guides">
@@ -20,12 +30,4 @@
   </div>
   <div id="display-guide" class="col-xs-6">
   </div>
-<% end %>
-
-<%= button_tag class: "js-previous-move btn btn-sm btn-default", data: {id: @movement.id, direction: "previous"} do %>
-  <%= content_tag(:span, nil, class: "glyphicon glyphicon-arrow-left") %> <%= content_tag(:span, "Previous Exercise") %>
-<% end %>
-
-<%= button_tag class: "js-next-move btn btn-sm btn-default", data: {id: @movement.id, direction: "next"} do %>
-  <%= content_tag(:span, "Next Exercise") %> <%= content_tag(:span, nil, class: "glyphicon glyphicon-arrow-right") %>
 <% end %>
