@@ -101,7 +101,7 @@ which is defined in routines.js file -->
   <a class="all-guides" href="movements/{{id}}/guides" data-id="{{id}}">View All Training Guides</a>
   <div id="training-guides"></div>
   <br>
-  <% if current_user && current_user.trainer? %>
+  <% if current_user.trainer? %>
     <a href="/movements/{{id}}/guides/new" data-id="{{id}}">Create a Training Guide</a>
     <br><br>
   <% end %>
