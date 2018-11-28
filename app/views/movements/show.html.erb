@@ -13,6 +13,9 @@
 <br>
 
 <% if current_user.trainer? %>
+  <h4>Create a Training Guide</h4>
+  <h5><em>Add training tips to properly perform this exercise</em></h5>
+  <br>
 <% end %>
 
 <%= button_tag class: "js-previous-move btn btn-sm btn-default", data: {id: @movement.id, direction: "previous"} do %>
