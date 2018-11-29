@@ -7,7 +7,7 @@ function User(user) {
 }
 
 $(function() {
-  User.loadClientWorkouts();
+  User.loadClientWorkoutsListener();
 })
 // <div id="user-stats"> is always found on the user show page.
 // However, the content inside this <div> will change depending on the role of the user whose profile page we're viewing.
@@ -25,7 +25,7 @@ $(function() {
 // Therefore, not only does the JSON response representation of @user instance include data about the collection of routines that belong to that user,
 // but the JSON response ALSO includes data about the associated pieces of equipment, target areas and training types 
 // for those routines. (In the RoutineSerializer class, I include the 3 macros: has_many :equipment, has_many :targets and has_many :trainings)
-User.loadClientWorkouts = function() {
+User.loadClientWorkoutsListener = function() {
   $('div#user-stats').on('click', 'a.client-workouts', function(e) {
     e.preventDefault()
     var id = $(this).data('id') // stores the id of the user whose workout routines we want to view
