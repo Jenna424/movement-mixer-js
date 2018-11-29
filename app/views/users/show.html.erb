@@ -4,6 +4,9 @@
 
 <p><strong>Fitness Training Match</strong>: <%= display_fitness_match(@user) %></p>
 
+<div id="user-stats">
+</div>
+
 <p>
 	<strong>Workout Count</strong>: 
 	<%= @user.name %> designed <%= @user.routines.count %> workout <%= 'routine'.pluralize(@user.routines.count) %> to date!
