@@ -6,7 +6,36 @@
   <%= render 'routines/equipment_fields' %>
 </script>
 
-
+<script id="routine-template" type="text/x-handlebars-template">
+  <span>Preview of <em><a href="/routines/{{id}}">{{title}}</a></em></span>
+  <br>
+  <small>
+    <strong>Difficulty Level</strong>: {{difficulty_level}}
+    <br>
+    <strong>Duration</strong>: {{duration}} minutes
+    <br>
+    <strong>Equipment Required?</strong>
+    {{#if equipment.length}}
+      Yes
+    {{else}}
+      No
+    {{/if}}
+    <br>
+    <strong>Target Areas</strong>:
+    <ul>
+      {{#each targets}}
+        <li>{{focus}}</li>
+      {{/each}}
+    </ul>
+    <strong>Training Types</strong>:
+    <ul>
+      {{#each trainings}}
+        <li>{{fitness_type}}</li>
+      {{/each}}
+    </ul>
+  </small>
+  <hr>
+</script>
 
 <script id="technique-template" type="text/x-handlebars-template">
   <p><strong>Technique for Performing {{movement.name}} in <em>{{routine.title}}</em></strong>:</p>
