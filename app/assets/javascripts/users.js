@@ -15,7 +15,7 @@ $(function() {
 // If the user is a trainer, div#user-stats contains a link to view that trainer's training guides.
 User.loadClientWorkouts = function() {
   $('div#user-stats').on('click', 'a.client-workouts', function(e) {
-  	e.preventDefault()
-  	console.log('Clicked the link to view workout routines by this client!')
+    e.preventDefault()
+    console.log('Clicked the link to view workout routines by this client!')
   })
 }
