@@ -9,7 +9,7 @@ function checkIfTemplatesExist() {
   var techniqueTemplateExists = $('#technique-template').length
   var listWorkoutTemplateExists = $('#list-workout-template').length
   var listExerciseTemplateExists = $('#list-exercise-template').length
-  var trainingGuideTemplateExists = $('#training-guide-template').length
+  var guideTemplateExists = $('#guide-template').length
   var showExerciseTemplateExists = $('#show-exercise-template').length
   var mrTemplateExists = $('#mr-template').length
   var editMovementRoutineTemplateExists = $('#edit-movement-routine-template').length
@@ -39,7 +39,7 @@ function checkIfTemplatesExist() {
     console.log("Compiled the List Workout Template found in _navbar partial!")
   }
 
-  if (trainingGuideTemplateExists) {
+  if (guideTemplateExists) {
     Guide.compileGuideTemplate()
     console.log("Compiled the Training Guide Template")
   }
