@@ -45,4 +45,5 @@ User.loadClientWorkouts = function(userObject) {
   userObject.routines.forEach(function(routineObject) {
     $userRoutinesDiv.append(Routine.routineTemplateFunction(routineObject))
   })
+  $userRoutinesDiv.addClass('user-associations') // adds light blue background
 }
