@@ -33,6 +33,7 @@ User.loadClientWorkoutsListener = function() {
   $('div#user-stats').on('click', 'a.client-workouts', function(e) {
     e.preventDefault()
     var id = $(this).data('id') // stores the id of the user whose workout routines we want to view
+    $(this).hide()
     $.get(`/users/${id}.json`)
     .done(User.loadClientWorkouts)
   })
