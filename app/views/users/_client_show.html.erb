@@ -4,5 +4,5 @@
 </p>
 
 <% unless user.routines.empty? %>
-  <%= link_to "View #{user.name}'s Workout Routines", user_path(user), class: "client-workouts", data: {id: user.id } %>
+  <%= link_to "Preview #{user.name}'s Workout Routines", user_path(user), class: "client-workouts", data: {id: user.id } %>
 <% end %>
