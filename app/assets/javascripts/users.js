@@ -37,3 +37,11 @@ User.loadClientWorkoutsListener = function() {
     .done(User.loadClientWorkouts)
   })
 }
+
+User.loadClientWorkouts = function(userObject) {
+  var $userRoutinesDiv = $('div#user-routines')
+  $userRoutinesDiv.html(`<p><strong>Workout Routines Designed by ${userObject.name}</strong></p>`)
+  userObject.routines.forEach(function(routineObject) {
+    $userRoutinesDiv.append(Routine.routineTemplateFunction(routineObject))
+  })
+}
