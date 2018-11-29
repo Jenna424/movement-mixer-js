@@ -30,8 +30,6 @@ User.loadClientWorkoutsListener = function() {
     e.preventDefault()
     var id = $(this).data('id') // stores the id of the user whose workout routines we want to view
     $.get(`/users/${id}.json`)
-    .done(function(response) {
-      console.log(response)
-    })
+    .done(User.loadClientWorkouts)
   })
 }
