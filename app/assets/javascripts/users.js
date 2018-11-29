@@ -9,11 +9,6 @@ function User(user) {
 $(function() {
   User.loadUserWorkouts();
 })
-
-User.compileUserWorkoutsTemplate = function() {
-	User.userWorkoutsTemplateSource = $('#user-workouts-template').html()
-	User.userWorkoutsTemplateFunction = Handlebars.compile(User.userWorkoutsTemplateSource)
-}
 // Below, I manually trigger an AJAX GET request (Standard Client-Side Logic Model)
 // Using jQuery, grab link <a class="user-workouts" data-id="user ID goes here">View Workouts Designed by Username</a> found on user show page
 // Hijack the click event by binding a new click event to it and 
