@@ -3,4 +3,4 @@
   <%= user.name %> designed <%= user.routines.count %> workout <%= 'routine'.pluralize(user.routines.count) %> to date.
 </p>
 
-<%= link_to "View #{user.name}'s Workout Routines", user_path(user), class: "user-workouts", data: {id: user.id } %>
+<%= link_to "View #{user.name}'s Workout Routines", user_path(user), class: "client-workouts", data: {id: user.id } %>
