@@ -5,6 +5,11 @@
 <p><strong>Fitness Training Match</strong>: <%= display_fitness_match(@user) %></p>
 
 <div id="user-stats">
+  <% if @user.client? %>
+    <%= render partial: "client_show", locals: {user: @user} %>
+  <% elsif @user.trainer? %>
+    <%= render partial: "trainer_show", locals: {user: @user} %>
+  <% end %>
 </div>
 
 <p>
