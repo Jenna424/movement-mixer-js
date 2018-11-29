@@ -7,10 +7,10 @@ function User(user) {
 }
 
 $(function() {
-  User.loadUserWorkouts();
+  User.loadClientWorkouts();
 })
 
-User.loadUserWorkouts = function() {
+User.loadClientWorkouts = function() {
   $('.user-workouts').on('click', function(e) {
   	e.preventDefault();
 	var $div = $('#user-routines');
