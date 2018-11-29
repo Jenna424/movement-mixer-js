@@ -12,11 +12,6 @@
   <% end %>
 </div>
 
-<p>
-	<strong>Workout Count</strong>: 
-	<%= @user.name %> designed <%= @user.routines.count %> workout <%= 'routine'.pluralize(@user.routines.count) %> to date!
-</p>
-
 <em><%= link_to "View #{@user.name}'s Workouts", user_path(@user), class: "user-workouts", data: {id: @user.id } %></em>
 
 <br><br>
