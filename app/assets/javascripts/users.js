@@ -17,5 +17,9 @@ User.loadClientWorkouts = function() {
   $('div#user-stats').on('click', 'a.client-workouts', function(e) {
     e.preventDefault()
     var id = $(this).data('id') // stores the id of the user whose workout routines we want to view
+    $.get(`/users/${id}`)
+    .done(function(response) {
+      console.log(response)
+    })
   })
 }
