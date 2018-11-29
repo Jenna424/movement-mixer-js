@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def show
     respond_to do |f|
       f.html
-      f.json { render json: @user, include: ['routines'] }
+      f.json { render json: @user, include: ['routines.equipment', 'routines.targets', 'routines.trainings'] }
     end
   end
 
