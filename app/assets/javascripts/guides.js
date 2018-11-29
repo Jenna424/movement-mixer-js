@@ -28,9 +28,16 @@ Guide.generateListener = function() {
     e.preventDefault()
     var url = $(this).attr('action')
     var formData = $(this).serialize()
+    $(this).find('textarea').val('');
     $.post(url, formData)
     .done(Guide.generate)
   })
+}
+// Below, the guideObject parameter = JSON object representation of AR guide instance that was just created = JSON response to AJAX POST request made using $.post() method in Guide.generateListener()
+Guide.generate = function(guideObject) {
+  let newGuide = new Guide(guideObject)
+  let guideHtml = newGuide.formatShow()
+  $('#display-guide').html(guideHtml)
 }
 // Use jQuery to grab the form to create a new training guide full of training tips for a particular exercise movement
 // Hijack the submit event of this <form id="new_guide">
@@ -79,6 +86,6 @@ Guide.prototype.formatGuideForIndex = function() {
 }
 
 Guide.compileGuideTemplate = function() {
-  Guide.guideTemplateSource = $('#training-guide-template').html()
+  Guide.guideTemplateSource = $('#guide-template').html()
   Guide.guideTemplateFunction = Handlebars.compile(Guide.guideTemplateSource)
 }
