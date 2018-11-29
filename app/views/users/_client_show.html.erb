@@ -1,6 +1,6 @@
 <p>
   <strong>Workout Count</strong>: 
-  <%= user.name %> designed <%= user.routines.count %> workout <%= 'routine'.pluralize(user.routines.count) %> to date!
+  <%= user.name %> designed <%= user.routines.count %> workout <%= 'routine'.pluralize(user.routines.count) %> to date.
 </p>
 
 <%= link_to "View #{user.name}'s Workout Routines", user_path(user), class: "user-workouts", data: {id: user.id } %>
