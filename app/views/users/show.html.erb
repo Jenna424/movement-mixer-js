@@ -2,6 +2,8 @@
 
 <p><em>Role in the Movement Mixer Community</em>: <strong><%= @user.role.capitalize %></strong></p>
 
+<p><strong>Fitness Training Match</strong>: <%= display_fitness_match(@user) %></p>
+
 <p>
 	<strong>Workout Count</strong>: 
 	<%= @user.name %> designed <%= @user.routines.count %> workout <%= 'routine'.pluralize(@user.routines.count) %> to date!
