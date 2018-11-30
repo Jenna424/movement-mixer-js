@@ -15,6 +15,7 @@ $(function() {
 Guide.bindClickEventHandlers = function() {
   Guide.generateListener()
   Guide.getGuidesListener()
+  Guide.reviseGuideListener()
 }
 // The form to create a new training guide belonging to a particular exercise movement is found on the movement show page,
 // and in the Handlebars template inside script#show-exercise-template.
