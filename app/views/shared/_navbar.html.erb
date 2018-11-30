@@ -28,7 +28,7 @@
           <% end %>
           <li><%= link_to "View All Workouts", routines_path, class: "all-routines" %></li>
           <li><%= link_to "Read Exercise Guide", movements_path, class: "all-movements" %></li>
-          <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+          <li><%= button_to "Log Out", logout_path, method: :delete, class: "btn btn-default btn-md logout-btn" %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
