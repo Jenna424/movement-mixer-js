@@ -26,6 +26,15 @@ class GuidesController < ApplicationController
     authorize @guide
   end
 
+  def update # PATCH '/movements/:movement_id/guides/:id' => 'guides#update'
+    @guide = Movement.find(params[:movement_id]).guides.find(params[:id])
+    if @guide.update(guide_params)
+      render json: @guide, status: 200
+    else
+      render json: { errors: @guide.errors.full_messages, status: :unprocessable_entity }
+    end
+  end
+
   def destroy # DELETE '/movements/:movement_id/guides/:id' => 'guides#destroy'
     guide = Movement.find(params[:movement_id]).guides.find(params[:id])
     authorize guide
