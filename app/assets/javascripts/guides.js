@@ -107,3 +107,9 @@ Guide.reviseGuideListener = function() {
     .fail(Guide.checkGuideValidity)
   })
 }
+
+Guide.reviseGuide = function(guideObject) {
+}
+
+Guide.checkGuideValidity = function(jqXhrObject) {
+}
