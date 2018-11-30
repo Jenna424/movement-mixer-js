@@ -39,7 +39,7 @@ User.loadBelongsToListener = function() {
     }
     $(this).hide()
     $.get(`/users/${id}.json`)
-    .done(User.loadAssociationFunction)
+    .done(loadAssociationFunction)
   })
 }
 
@@ -49,5 +49,5 @@ User.loadUserRoutines = function(userObject) {
   userObject.routines.forEach(function(routineObject) {
     $userRoutinesDiv.append(Routine.routineTemplateFunction(routineObject))
   })
-  $userRoutinesDiv.addClass('user-associations') // adds light blue background
+  $userRoutinesDiv.addClass('belongs-to-user') // adds light blue background
 }
