@@ -51,3 +51,11 @@ User.loadUserRoutines = function(userObject) {
     $userRoutinesDiv.append(Routine.routineTemplateFunction(routineObject))
   })
 }
+
+User.loadUserGuides = function(userObject) {
+  var $userGuidesDiv = $('div#belongs-to-association')
+  $userGuidesDiv.html(`<h4><strong>Training Guides Designed by ${userObject.name}</strong></h4>`)
+  userObject.guides.forEach(function(guideObject) {
+    $userGuidesDiv.append(Guide.guideTemplateFunction(guideObject))
+  })
+}
