@@ -32,7 +32,8 @@ $(function() {
 User.loadBelongsToListener = function() {
   $('div#user-designs').on('click', "a[class^='load-user']", function(e) {
     e.preventDefault()
-    var id = $(this).data('id') // stores the id of the user whose workout routines we want to view
+    var id = $(this).data('id') // stores the id of the user whose workout routines/training guides we want to view
+    var association = $(this).attr('class').split('-')[2] // "routines" or "guides"
     $(this).hide()
     $.get(`/users/${id}.json`)
     .done(User.loadClientWorkouts)
