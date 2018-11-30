@@ -3,4 +3,4 @@
   <%= user.name %> published <%= user.guides.count %> training <%= 'guide'.pluralize(user.guides.count) %>.
 </p>
 
-<%= link_to "View Training Guides by #{user.name}", user_path(user), class: "load-user-guides", data: {id: user.id } %>
+<%= link_to "View Your Training Guides", user_path(user), class: "load-user-guides", data: {id: user.id } if current_user.trainer? %>
