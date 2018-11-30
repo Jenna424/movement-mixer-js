@@ -164,6 +164,9 @@ which is defined in routines.js file -->
     <br>
     <span><strong>Feeling energetic? Take things up a notch with this challenge</strong>:</span>
     <p>{{challenge}}</p>
+    <% if current_user && current_user.trainer? %>
+      <a href="/movements/{{movement.id}}/guides/{{id}}/edit">Revise Guide</a>
+    <% end %>
   </div>
 </script>
 
