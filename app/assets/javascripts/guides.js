@@ -90,3 +90,16 @@ Guide.compileGuideTemplate = function() {
   Guide.guideTemplateSource = $('#guide-template').html()
   Guide.guideTemplateFunction = Handlebars.compile(Guide.guideTemplateSource)
 }
+
+Guide.reviseGuideListener = function() {
+  $('form.edit_guide').on('submit', function(e) {
+    e.preventDefault() // prevent default form submit action, which is HTTP PATCH request to "/movements/:movement_id/guides/:id"
+    $.ajax({
+      url: $(this).attr('action'), "/movements/:movement_id/guides/:id"
+      method: 'PATCH',
+      dataType: 'json',
+      data: $(this).serialize()
+    })
+    .done(Guide.reviseGuide)
+  })
+}
