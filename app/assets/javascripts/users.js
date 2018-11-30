@@ -35,7 +35,7 @@ User.loadBelongsToListener = function() {
     var id = $(this).data('id') // stores the id of the user whose workout routines/training guides we want to view
     var loadAssociationFunction = User.loadClientRoutines
     if ($(this).attr('class').split('-')[2] === 'guides') {
-      association = 'guides'
+      
     }
     $(this).hide()
     $.get(`/users/${id}.json`)
