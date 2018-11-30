@@ -50,5 +50,4 @@ User.loadUserRoutines = function(userObject) {
   userObject.routines.forEach(function(routineObject) {
     $userRoutinesDiv.append(Routine.routineTemplateFunction(routineObject))
   })
-  $userRoutinesDiv.addClass('belongs-to-user') // adds light blue background
 }
