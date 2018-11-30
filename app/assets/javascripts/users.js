@@ -33,7 +33,7 @@ User.loadBelongsToListener = function() {
   $('div#user-designs').on('click', "a[class^='load-user']", function(e) {
     e.preventDefault()
     var id = $(this).data('id') // stores the id of the user whose workout routines/training guides we want to view
-    var loadAssociationFunction = User.loadClientRoutines
+    var loadAssociationFunction = User.loadUserRoutines
     if ($(this).attr('class').split('-')[2] === 'guides') {
       loadAssociationFunction = User.loadTrainerGuides
     }
@@ -43,7 +43,7 @@ User.loadBelongsToListener = function() {
   })
 }
 
-User.loadClientRoutines = function(userObject) {
+User.loadUserRoutines = function(userObject) {
   var $userRoutinesDiv = $('div#belongs-to-association')
   $userRoutinesDiv.html(`<h4><strong>Workout Routines Designed by ${userObject.name}</strong></h4>`)
   userObject.routines.forEach(function(routineObject) {
