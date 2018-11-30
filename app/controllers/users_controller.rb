@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     user_name = @user.name
     @user.destroy
     if current_user.admin?
-      redirect_to access_path, flash: { success: "#{user_name}'s account was successfully deleted." }
+      redirect_to accounts_path, flash: { success: "#{user_name}'s account was successfully deleted." }
     else
       redirect_to root_url, flash: { success: "Thank you for using Movement Mixer to achieve your fitness goals. Goodbye, #{user_name}!" }
     end
