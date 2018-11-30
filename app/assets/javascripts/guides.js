@@ -104,5 +104,6 @@ Guide.reviseGuideListener = function() {
       data: formData
     })
     .done(Guide.reviseGuide)
+    .fail(Guide.checkGuideValidity)
   })
 }
