@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    authorize @user
     respond_to do |f|
       f.html
       f.json { render json: @user, include: ['routines.equipment', 'routines.targets', 'routines.trainings', 'guides.user', 'guides.movement'] }
@@ -30,11 +29,11 @@ class UsersController < ApplicationController
     authorize @user # retrieved from before_action :set_user
     if current_user.admin? && @user.unassigned? && params[:user][:role] != "unassigned"
       if @user.update_attributes(permitted_attributes(@user))
-        redirect_to access_path, flash: { success: "#{@user.name} was successfully assigned the role of #{@user.role}!" }
+        redirect_to accounts_path, flash: { success: "#{@user.name} was successfully assigned the role of #{@user.role}!" }
       end
     elsif current_user.admin? && @user.trainer.nil? && !params[:user][:trainer_id].nil?
       if @user.update_attributes(permitted_attributes(@user))
-        redirect_to access_path, flash: { success: "Personal Trainer #{User.by_role("trainer").find(params[:user][:trainer_id]).name} is now helping #{@user.name} achieve fitness goals!" }
+        redirect_to accounts_path, flash: { success: "Personal Trainer #{User.by_role("trainer").find(params[:user][:trainer_id]).name} is now helping #{@user.name} achieve fitness goals!" }
       end
     elsif @user.update_attributes(permitted_attributes(@user))
       redirect_to user_path(@user), flash: { success: "User information was successfully updated!" }
