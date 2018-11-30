@@ -43,7 +43,7 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
-  def access?
+  def accounts?
     user.admin?
   end
 
