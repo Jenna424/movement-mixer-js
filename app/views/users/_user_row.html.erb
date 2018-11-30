@@ -5,7 +5,7 @@
     <% if user.unassigned? %>
       <%= form_for(user) do |f| %>
         <%= f.select(:role, User.roles.keys.map {|role| [role.titleize, role]}) %>
-        <%= f.submit "Revise Role" %>
+        <%= f.submit "Revise Role", class: "btn btn-default btn-sm" %>
       <% end %>
     <% else %>
       <%= user.role.capitalize %>
