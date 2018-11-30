@@ -10,6 +10,9 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
+
   def self.by_role(string_role)
     where(role: string_role)
   end
