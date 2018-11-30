@@ -7,7 +7,8 @@ function User(user) {
 }
 
 $(function() {
-  User.loadClientWorkoutsListener();
+  User.loadClientWorkoutsListener()
+  User.loadTrainerGuidesListener()
 })
 // <div id="user-routines">, <div id="user-guides"> and <div id="user-stats"> are always found on the user show page.
 // However, the content inside div#user-stats will change depending on the role of the user whose profile page we're viewing.
