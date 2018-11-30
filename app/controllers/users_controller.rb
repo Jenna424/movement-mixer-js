@@ -46,6 +46,7 @@ class UsersController < ApplicationController
   def destroy
     authorize @user # retrieved from before_action :set_user
     user_name = @user.name
+    @user.destroy
     if current_user.admin?
       redirect_to accounts_path, flash: { success: "#{user_name}'s account was successfully deleted." }
     else
