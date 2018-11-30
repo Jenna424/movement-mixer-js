@@ -4,6 +4,9 @@
 
 <br>
 
+<div id="revised-guide">
+</div>
+
 <% if policy(@guide).destroy? %>
   <%= button_to "Delete Training Guide", movement_guide_path(@movement, @guide), method: :delete, 
   class: "delete-guide btn btn-danger btn-sm", data: { confirm: "Are you sure you want to delete this training guide?" } %>
