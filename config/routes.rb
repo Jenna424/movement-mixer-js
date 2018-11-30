@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
-  get '/access' => 'users#access'
+  get '/accounts' => 'users#accounts'
   get '/movements/:id/next' => 'movements#next'
   get '/movements/:id/previous' => 'movements#previous'
   
