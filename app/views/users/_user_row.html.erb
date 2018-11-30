@@ -15,7 +15,7 @@
     <% if user.client? && user.trainer.nil? %>
       <%= form_for(user) do |f| %>
         <%= f.select(:trainer_id, trainers.map {|trainer| [trainer.name, trainer.id]}, include_blank: "Choose Trainer") %>
-        <%= f.submit "Assign to Client" %>
+        <%= f.submit "Assign to Client", class: "btn btn-default btn-sm" %>
       <% end %>
     <% elsif user.trainer %>
       <%= user.trainer.name %>
@@ -24,8 +24,6 @@
     <% end %>
   </td>
   <td>
-    <%= link_to user_path(user), method: :delete, data: { confirm: "This account will be permanently deleted. Do you want to proceed?" } do %>
-      <%= content_tag(:icon, nil, class: "glyphicon glyphicon-remove") %> Delete Account
-    <% end %>
+    
   </td>
 </tr>
