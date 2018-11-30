@@ -30,7 +30,7 @@ $(function() {
 // but the JSON response ALSO includes nested data about the associated pieces of equipment, target areas and training types for those routines. 
 // (In the RoutineSerializer class, I include the 3 macros: has_many :equipment, has_many :targets and has_many :trainings)
 User.loadBelongsToListener = function() {
-  $('div#user-designs').on('click', 'a.client-workouts', function(e) {
+  $('div#user-designs').on('click', "a[class^='load-user']", function(e) {
     e.preventDefault()
     var id = $(this).data('id') // stores the id of the user whose workout routines we want to view
     $(this).hide()
