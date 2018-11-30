@@ -20,6 +20,12 @@ class GuidesController < ApplicationController
     render json: guides
   end
 
+  def edit # GET '/movements/:movement_id/guides/:id/edit' => 'guides#edit'
+    @movement = Movement.find(params[:movement_id])
+    @guide = @movement.guides.find(params[:id])
+    authorize @guide
+  end
+
   private
 
     def guide_params
