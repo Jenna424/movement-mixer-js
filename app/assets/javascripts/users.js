@@ -40,6 +40,7 @@ User.loadBelongsToListener = function() {
     $(this).hide()
     $.get(`/users/${id}.json`)
     .done(loadAssociationFunction)
+    $('div#belongs-to-association').addClass('belongs-to-user') // adds light blue background
   })
 }
 
