@@ -55,7 +55,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def access
+  def accounts
     authorize current_user
     @users = User.all
     @trainers = User.by_role("trainer") # used when admin assigns trainer to client
