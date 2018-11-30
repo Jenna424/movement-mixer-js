@@ -94,11 +94,14 @@ Guide.compileGuideTemplate = function() {
 Guide.reviseGuideListener = function() {
   $('form.edit_guide').on('submit', function(e) {
     e.preventDefault() // prevent default form submit action, which is HTTP PATCH request to "/movements/:movement_id/guides/:id"
+    var action = $(this).attr('action') // "/movements/:movement_id/guides/:id"
+    var formData = $(this).serialize()
+    $(this).find('textarea').val('')
     $.ajax({
-      url: $(this).attr('action'), "/movements/:movement_id/guides/:id"
+      url: action,
       method: 'PATCH',
       dataType: 'json',
-      data: $(this).serialize()
+      data: formData
     })
     .done(Guide.reviseGuide)
   })
