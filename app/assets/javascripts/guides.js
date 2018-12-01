@@ -54,7 +54,7 @@ Guide.formSubmissionListener = function() {
     }
   })
 }
-
+// Below, the guideObject parameter = JSON object representation of AR guide instance that was just created/updated = JSON response to AJAX POST/PATCH request made using $.ajax() method in Guide.formSubmissionListener()
 Guide.createOrUpdate = function(guideObject) {
   let newGuide = new Guide(guideObject)
   let guideHtml = newGuide.formatShow()
@@ -87,12 +87,7 @@ Guide.createOrUpdate = function(guideObject) {
 // might not be in the DOM when the page is initially loaded
 
 // Below, the guideObject parameter = JSON object representation of AR guide instance that was just created = JSON response to AJAX POST request made using $.post() method in Guide.generateListener()
-Guide.generate = function(guideObject) {
-  $('form#new_guide').find('textarea').val('');
-  let newGuide = new Guide(guideObject)
-  let guideHtml = newGuide.formatShow()
-  $('#display-guide').html(guideHtml)
-}
+
 // Use jQuery to grab the form to create a new training guide full of training tips for a particular exercise movement
 // Hijack the submit event of this <form id="new_guide">
 // Prevent the default submit action, which is normally a POST request to "/movements/:movement_id/guides"
