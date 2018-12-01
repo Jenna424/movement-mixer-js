@@ -53,6 +53,7 @@ Guide.formSubmissionListener = function() {
         data: formData
       })
       .done(Guide.createOrUpdate)
+      $form.find('textarea').val('')
     }
   })
 }
