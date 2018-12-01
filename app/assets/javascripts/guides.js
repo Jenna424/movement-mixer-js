@@ -17,7 +17,7 @@ Guide.bindEventListeners = function() {
   Guide.formSubmissionListener() // handles submission of both create AND edit forms
 }
 
-Guide.isValidObject = function(properForm, breathingTechnique, modification, challenge) {
+Guide.isValidObject = function(properForm, breathingTechnique, modification, challenge, requestType) {
   var $guideAlertsDiv = $('div.container').find('div#guide-alerts')
   if (properForm.trim().length === 0 || breathingTechnique.trim().length === 0 || modification.trim().length === 0 || challenge.trim().length === 0) {
     $guideAlertsDiv.html('<div class=\'alert alert-danger\' role=\'alert\'>A valid training guide <strong>must</strong> specify the proper form and breathing technique for performing an exercise, and it <strong>must</strong> propose a modification and a challenge.</div>')
@@ -35,17 +35,13 @@ Guide.formSubmissionListener = function() {
     }
     var $form = $(this)
     var requestType = ($form.find('input[name=_method]').val() || 'post')
-    var crudAction = 'created'
-    if (requestType === 'patch') {
-      crudAction = 'updated'
-    }
     var action = $form.attr('action')
     var formData = $form.serialize()
     var properForm = $form.find('textarea[id=guide_proper_form]').val()
     var breathingTechnique = $form.find('textarea[id=guide_breathing_technique]').val()
     var modification = $form.find('textarea[id=guide_modification]').val()
     var challenge = $form.find('textarea[id=guide_challenge]').val()
-    if (Guide.isValidObject(properForm, breathingTechnique, modification, challenge)) {
+    if (Guide.isValidObject(properForm, breathingTechnique, modification, challenge, requestType)) {
       $.ajax({
         method: requestType,
         url: action,
@@ -54,7 +50,6 @@ Guide.formSubmissionListener = function() {
       })
       .done(Guide.createOrUpdate)
       $form.find('textarea').val('')
-      $('div.container').find('div#guide-alerts').html(`<div class=\'alert alert-success\' role=\'alert\'>Your guide was successfully ${crudAction}!</div>`)
     }
   })
 }
@@ -63,6 +58,7 @@ Guide.createOrUpdate = function(guideObject) {
   let newGuide = new Guide(guideObject)
   let guideHtml = newGuide.formatShow()
   $('div#display-guide').html(guideHtml)
+  $('div.container').find('div#guide-alerts').html(`<div class=\'alert alert-success\' role=\'alert\'>Your changes were successful!</div>`)
 }
 // The form to create a new training guide has a class of "new_guide"
 // The form to edit an existing training guide has a class of "edit_guide"
