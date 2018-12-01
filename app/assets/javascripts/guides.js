@@ -14,6 +14,7 @@ $(function() {
 
 Guide.bindClickEventHandlers = function() {
   Guide.getGuidesListener()
+  Guide.formSubmissionListener() // handles submission of both create AND edit forms
 }
 
 Guide.isValidObject = function(properForm, breathingTechnique, modification, challenge) {
