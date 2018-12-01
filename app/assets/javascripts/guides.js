@@ -90,9 +90,3 @@ Guide.compileGuideTemplate = function() {
   Guide.guideTemplateSource = $('#guide-template').html()
   Guide.guideTemplateFunction = Handlebars.compile(Guide.guideTemplateSource)
 }
-
-Guide.reviseGuide = function(guideObject) {
-}
-
-Guide.checkGuideValidity = function(jqXhrObject) {
-}
