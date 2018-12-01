@@ -49,6 +49,7 @@ Guide.formSubmissionListener = function() {
         data: formData
       })
       .done(Guide.createOrUpdate)
+      .fail(error => console.error('An error occurred:', error.statusText))
       $form.find('textarea').val('')
     }
   })
