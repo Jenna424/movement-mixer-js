@@ -35,6 +35,10 @@ Guide.formSubmissionListener = function() {
     }
     var $form = $(this)
     var requestType = ($form.find('input[name=_method]').val() || 'post')
+    var crudAction = 'created'
+    if (requestType === 'patch') {
+      crudAction = 'updated'
+    }
     var action = $form.attr('action')
     var formData = $form.serialize()
     var properForm = $form.find('textarea[id=guide_proper_form]').val()
@@ -51,6 +55,12 @@ Guide.formSubmissionListener = function() {
       .done(Guide.createOrUpdate)
     }
   })
+}
+
+Guide.createOrUpdate = function(guideObject) {
+  let newGuide = new Guide(guideObject)
+  let guideHtml = newGuide.formatShow()
+  $('div#display-guide').html(guideHtml)
 }
 // The form to create a new training guide has a class of "new_guide"
 // The form to edit an existing training guide has a class of "edit_guide"
