@@ -17,7 +17,7 @@ Guide.bindEventListeners = function() {
   Guide.formSubmissionListener() // handles submission of both create AND edit forms
 }
 
-Guide.isValidObject = function(properForm, breathingTechnique, modification, challenge, requestType) {
+Guide.isValidObject = function(properForm, breathingTechnique, modification, challenge) {
   var $guideAlertsDiv = $('div.container').find('div#guide-alerts')
   if (properForm.trim().length === 0 || breathingTechnique.trim().length === 0 || modification.trim().length === 0 || challenge.trim().length === 0) {
     $guideAlertsDiv.html('<div class=\'alert alert-danger\' role=\'alert\'>A valid training guide <strong>must</strong> specify the proper form and breathing technique for performing an exercise, and it <strong>must</strong> propose a modification and a challenge.</div>')
@@ -41,7 +41,7 @@ Guide.formSubmissionListener = function() {
     var breathingTechnique = $form.find('textarea[id=guide_breathing_technique]').val()
     var modification = $form.find('textarea[id=guide_modification]').val()
     var challenge = $form.find('textarea[id=guide_challenge]').val()
-    if (Guide.isValidObject(properForm, breathingTechnique, modification, challenge, requestType)) {
+    if (Guide.isValidObject(properForm, breathingTechnique, modification, challenge)) {
       $.ajax({
         method: requestType,
         url: action,
