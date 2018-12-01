@@ -1,4 +1,7 @@
 <%= form_for([movement, guide]) do |f| %>
+  <div id="guide-errors">
+  </div>
+  
   <%= f.hidden_field :user_id, value: current_user.id %>
 
   <div class="field">
