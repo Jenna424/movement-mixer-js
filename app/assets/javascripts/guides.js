@@ -34,9 +34,9 @@ Guide.formSubmissionListener = function() {
       $('div.alert').hide()
     }
     var $form = $(this)
-    var requestType = ($(this).find('input[name=_method]').val() || 'post')
-    var action = $(this).attr('action')
-    var formData = $(this).serialize()
+    var requestType = ($form.find('input[name=_method]').val() || 'post')
+    var action = $form.attr('action')
+    var formData = $form.serialize()
     var properForm = $form.find('textarea[id=guide_proper_form]').val()
     var breathingTechnique = $form.find('textarea[id=guide_breathing_technique]').val()
     var modification = $form.find('textarea[id=guide_modification]').val()
