@@ -54,6 +54,7 @@ Guide.formSubmissionListener = function() {
       })
       .done(Guide.createOrUpdate)
       $form.find('textarea').val('')
+      $('div.container').find('div#guide-alerts').html(`Your guide was successfully ${crudAction}!`)
     }
   })
 }
