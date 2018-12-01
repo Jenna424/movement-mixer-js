@@ -30,13 +30,20 @@ Guide.isValidObject = function(properForm, breathingTechnique, modification, cha
 Guide.formSubmissionListener = function() {
   $('div.container').on('submit', "form[class$='_guide']", function(e) {
     e.preventDefault()
-    console.log("Hijacked the submission of the form to either create or edit a training guide")
+    if ($('div.alert').length) {
+      $('div.alert').hide()
+    }
   })
 }
 // The form to create a new training guide has a class of "new_guide"
 // The form to edit an existing training guide has a class of "edit_guide"
 // To hijack the default submit action of either form dynamically, 
 // check if the user is trying to submit any form that has a class ending in "_guide"
+// Prevent the default submit action, which is either a normal HTTP POST request to "/movements/:movement_id/guides"
+// if the user is trying to create a new training guide, or a normal HTTP PATCH request to "/movements/:movement_id/guides/:id",
+// if the user is trying to edit an existing training guide.
+// When the form submit button is clicked, hide any success alert <div>s/error alert <div>s, if they exist on the page.
+// If no such alert <div>s exist on the page $('div.alert').length is 0, which is falsy in JavaScript
 // The form to create a new training guide belonging to a particular exercise movement is found on the movement show page,
 // and in the Handlebars template inside script#show-exercise-template.
 // This is because the movement show page contains buttons to view the next and previous exercise movements without a page refresh,
