@@ -55,6 +55,8 @@ Guide.formSubmissionListener = function() {
   })
 }
 // Below, the guideObject parameter = JSON object representation of AR guide instance that was just created/updated = JSON response to AJAX POST/PATCH request made using $.ajax() method in Guide.formSubmissionListener()
+// Due to belongs_to :movement and belongs_to :user macros in GuideSerializer,
+// the response also contains data about the movement and user instances to which the guide instance belongs
 Guide.createOrUpdate = function(guideObject) {
   let newGuide = new Guide(guideObject)
   let guideHtml = newGuide.formatShow()
@@ -78,6 +80,7 @@ Guide.createOrUpdate = function(guideObject) {
 // breathingTechnique variable stores value submitted in textarea for breathing_technique attribute of guide
 // modification variable stores value submitted in textarea for modification attribute of guide
 // challenge variable stores value submitted in textarea for challenge attribute of guide
+
 // The form to create a new training guide belonging to a particular exercise movement is found on the movement show page,
 // and in the Handlebars template inside script#show-exercise-template.
 // This is because the movement show page contains buttons to view the next and previous exercise movements without a page refresh,
@@ -85,21 +88,6 @@ Guide.createOrUpdate = function(guideObject) {
 // Since the user may have navigated to another movement via the Previous Exercise/Next Exercise button,
 // the form to create a new training guide belonging to that specific movement
 // might not be in the DOM when the page is initially loaded
-
-// Below, the guideObject parameter = JSON object representation of AR guide instance that was just created = JSON response to AJAX POST request made using $.post() method in Guide.generateListener()
-
-// Use jQuery to grab the form to create a new training guide full of training tips for a particular exercise movement
-// Hijack the submit event of this <form id="new_guide">
-// Prevent the default submit action, which is normally a POST request to "/movements/:movement_id/guides"
-// Set the variable url = the string URL "/movements/the-movement-id-goes-here/guides"
-// Set the variable formData = serialization of the form
-// Reminder: this refers to the <form id="new_guide">
-// Using jQuery .post() method, send an AJAX POST request to "/movements/:movement_id/guides" with the serialized form data
-// .post() returns a jqXHR Object, on which I call .done() to handle the response
-// In the callback function passed to .done(),
-// response is a JSON object representation of the AR guide instance that was just created in guides#create
-// Due to belongs_to :movement and belongs_to :user macros in GuideSerializer,
-// the response also contains data about the movement and user instances to which the guide instance belongs
 
 Guide.prototype.formatShow = function() {
   return Guide.guideTemplateFunction(this)
