@@ -113,7 +113,7 @@ which is defined in routines.js file -->
     <h5><em>Add training tips to properly perform {{name}}</em></h5>
     <div class="well well-sm col-xs-6">
       <form class="new_guide" id="new_guide" action="/movements/{{id}}/guides" accept-charset="UTF-8" method="post">
-        <div id="guide-errors">
+        <div id="guide-alert-messages">
         </div>
         <input name="utf8" type="hidden" value="✓">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
