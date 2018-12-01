@@ -25,8 +25,6 @@
 <% if current_user.trainer? %>
   <h4>Create a Training Guide</h4>
   <h5><em>Add training tips to properly perform <%= @movement.name %></em></h5>
-  <div id="guide-errors">
-  </div>
   <div class="well well-sm col-xs-6">
     <%= render partial: "guides/form", locals: { movement: @movement, guide: @guide } %>
   </div>
