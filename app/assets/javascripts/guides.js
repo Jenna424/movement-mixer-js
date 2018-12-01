@@ -17,6 +17,15 @@ Guide.bindClickEventHandlers = function() {
   Guide.getGuidesListener()
   Guide.reviseGuideListener()
 }
+
+Guide.isValidObject = function(properForm, breathingTechnique, modification, challenge) {
+  if (properForm.trim().length === 0 || breathingTechnique.trim().length === 0 || modification.trim().length === 0 || challenge.trim().length === 0) {
+    $('div#guide-errors').html('<div class=\'alert alert-danger\' role=\'alert\'><strong>A valid training guide must specify the proper form and breathing technique for performing an exercise, and it must propose a modification and challenge.</div>')
+    return false
+  } else {
+    return true
+  }
+}
 // The form to create a new training guide belonging to a particular exercise movement is found on the movement show page,
 // and in the Handlebars template inside script#show-exercise-template.
 // This is because the movement show page contains buttons to view the next and previous exercise movements without a page refresh,
@@ -27,15 +36,22 @@ Guide.bindClickEventHandlers = function() {
 Guide.generateListener = function() {
   $('div.container').on('submit', 'form#new_guide', function(e) {
     e.preventDefault()
+    var $form = $(this)
     var url = $(this).attr('action')
     var formData = $(this).serialize()
-    $(this).find('textarea').val('');
-    $.post(url, formData)
-    .done(Guide.generate)
+    var properForm = $(this).find('textarea[id=guide_proper_form]').val()
+    var breathingTechnique = $(this).find('textarea[id=guide_breathing_technique]').val()
+    var modification = $(this).find('textarea[id=guide_modification]').val()
+    var challenge = $(this).find('textarea[id=guide_challenge]').val()
+    if (Guide.isValidObject(properForm, breathingTechnique, modification, challenge)) {
+      $.post(url, formData)
+      .done(Guide.generate)
+    }
   })
 }
 // Below, the guideObject parameter = JSON object representation of AR guide instance that was just created = JSON response to AJAX POST request made using $.post() method in Guide.generateListener()
 Guide.generate = function(guideObject) {
+  $('form#new_guide').find('textarea').val('');
   let newGuide = new Guide(guideObject)
   let guideHtml = newGuide.formatShow()
   $('#display-guide').html(guideHtml)
