@@ -48,9 +48,7 @@ Guide.formSubmissionListener = function() {
         dataType: 'json',
         data: formData
       })
-      .done(function(response) {
-        console.log(response)
-      })
+      .done(Guide.createOrUpdate)
     }
   })
 }
