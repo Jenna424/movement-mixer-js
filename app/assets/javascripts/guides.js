@@ -33,6 +33,7 @@ Guide.formSubmissionListener = function() {
     if ($('div.alert').length) {
       $('div.alert').hide()
     }
+    var $form = $(this)
   })
 }
 // The form to create a new training guide has a class of "new_guide"
@@ -44,6 +45,7 @@ Guide.formSubmissionListener = function() {
 // if the user is trying to edit an existing training guide.
 // When the form submit button is clicked, hide any success alert <div>s/error alert <div>s, if they exist on the page.
 // If no such alert <div>s exist on the page $('div.alert').length is 0, which is falsy in JavaScript
+// $form variable stores either the create guide form or the edit guide form, depending on which one the user tried to submit
 // The form to create a new training guide belonging to a particular exercise movement is found on the movement show page,
 // and in the Handlebars template inside script#show-exercise-template.
 // This is because the movement show page contains buttons to view the next and previous exercise movements without a page refresh,
