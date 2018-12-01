@@ -35,7 +35,8 @@ Guide.formSubmissionListener = function() {
     }
     var $form = $(this)
     var requestType = ($(this).find('input[name=_method]').val() || 'post')
-    console.log(requestType)
+    var action = $(this).attr('action')
+    var formData = $(this).serialize()
   })
 }
 // The form to create a new training guide has a class of "new_guide"
@@ -49,6 +50,8 @@ Guide.formSubmissionListener = function() {
 // If no such alert <div>s exist on the page $('div.alert').length is 0, which is falsy in JavaScript
 // $form variable stores either the create guide form or the edit guide form, depending on which one the user tried to submit
 // requestType variable stores either the string 'patch' or 'post'
+// action variable stores either the string URL path "/movements/:movement_id/guides/:id" (for PATCH) or "/movements/:movement_id/guides" (for POST)
+// formData variable stores the serialized form data submitted either as part of the AJAX PATCH request or the AJAX POST request
 // The form to create a new training guide belonging to a particular exercise movement is found on the movement show page,
 // and in the Handlebars template inside script#show-exercise-template.
 // This is because the movement show page contains buttons to view the next and previous exercise movements without a page refresh,
