@@ -19,8 +19,9 @@ Guide.bindClickEventHandlers = function() {
 }
 
 Guide.isValidObject = function(properForm, breathingTechnique, modification, challenge) {
+  var $guideErrorsDiv = $('div.container').find('div#guide-errors')
   if (properForm.trim().length === 0 || breathingTechnique.trim().length === 0 || modification.trim().length === 0 || challenge.trim().length === 0) {
-    $('div#guide-errors').html('<div class=\'alert alert-danger\' role=\'alert\'><strong>A valid training guide must specify the proper form and breathing technique for performing an exercise, and it must propose a modification and challenge.</div>')
+    $guideErrorsDiv.html('<div class=\'alert alert-danger\' role=\'alert\'>A valid training guide <strong>must</strong> specify the proper form and breathing technique for performing an exercise, and it <strong>must</strong> propose both a modification and a challenge.</div>')
     return false
   } else {
     return true
@@ -36,7 +37,6 @@ Guide.isValidObject = function(properForm, breathingTechnique, modification, cha
 Guide.generateListener = function() {
   $('div.container').on('submit', 'form#new_guide', function(e) {
     e.preventDefault()
-    var $form = $(this)
     var url = $(this).attr('action')
     var formData = $(this).serialize()
     var properForm = $(this).find('textarea[id=guide_proper_form]').val()
