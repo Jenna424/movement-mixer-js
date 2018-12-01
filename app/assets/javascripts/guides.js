@@ -41,6 +41,17 @@ Guide.formSubmissionListener = function() {
     var breathingTechnique = $form.find('textarea[id=guide_breathing_technique]').val()
     var modification = $form.find('textarea[id=guide_modification]').val()
     var challenge = $form.find('textarea[id=guide_challenge]').val()
+    if (Guide.isValidObject(properForm, breathingTechnique, modification, challenge)) {
+      $.ajax({
+        method: requestType,
+        url: action,
+        dataType: 'json',
+        data: formData
+      })
+      .done(function(response) {
+        console.log(response)
+      })
+    }
   })
 }
 // The form to create a new training guide has a class of "new_guide"
