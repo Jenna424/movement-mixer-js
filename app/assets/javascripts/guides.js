@@ -9,7 +9,7 @@ function Guide(guide) {
 }
 
 $(function() {
-  Guide.bindEventListener()
+  Guide.bindEventListeners()
 })
 
 Guide.bindEventListeners = function() {
