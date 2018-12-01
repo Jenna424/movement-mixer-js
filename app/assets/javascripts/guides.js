@@ -9,10 +9,10 @@ function Guide(guide) {
 }
 
 $(function() {
-  Guide.bindClickEventHandlers()
+  Guide.bindEventListener()
 })
 
-Guide.bindClickEventHandlers = function() {
+Guide.bindEventListeners = function() {
   Guide.getGuidesListener()
   Guide.formSubmissionListener() // handles submission of both create AND edit forms
 }
