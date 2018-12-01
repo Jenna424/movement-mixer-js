@@ -13,9 +13,7 @@ $(function() {
 })
 
 Guide.bindClickEventHandlers = function() {
-  Guide.generateListener()
   Guide.getGuidesListener()
-  Guide.reviseGuideListener()
 }
 
 Guide.isValidObject = function(properForm, breathingTechnique, modification, challenge) {
@@ -91,23 +89,6 @@ Guide.prototype.formatGuideForIndex = function() {
 Guide.compileGuideTemplate = function() {
   Guide.guideTemplateSource = $('#guide-template').html()
   Guide.guideTemplateFunction = Handlebars.compile(Guide.guideTemplateSource)
-}
-
-Guide.reviseGuideListener = function() {
-  $('form.edit_guide').on('submit', function(e) {
-    e.preventDefault() // prevent default form submit action, which is HTTP PATCH request to "/movements/:movement_id/guides/:id"
-    var action = $(this).attr('action') // "/movements/:movement_id/guides/:id"
-    var formData = $(this).serialize()
-    $(this).find('textarea').val('')
-    $.ajax({
-      url: action,
-      method: 'PATCH',
-      dataType: 'json',
-      data: formData
-    })
-    .done(Guide.reviseGuide)
-    .fail(Guide.checkGuideValidity)
-  })
 }
 
 Guide.reviseGuide = function(guideObject) {
