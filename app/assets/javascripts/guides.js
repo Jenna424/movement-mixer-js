@@ -15,7 +15,7 @@ $(function() {
 Guide.bindEventListeners = function() {
   Guide.getGuidesListener()
   Guide.formSubmissionListener() // handles submission of both create AND edit forms
-  Guide.deleteListener()
+  Guide.destroyListener()
 }
 
 Guide.isValidObject = function(properForm, breathingTechnique, modification, challenge) {
@@ -126,4 +126,8 @@ Guide.prototype.formatGuideForIndex = function() {
 Guide.compileGuideTemplate = function() {
   Guide.guideTemplateSource = $('#guide-template').html()
   Guide.guideTemplateFunction = Handlebars.compile(Guide.guideTemplateSource)
+}
+
+Guide.destroyListener = function() {
+
 }
