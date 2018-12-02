@@ -84,7 +84,15 @@ Routine.prototype.formatAndAppendPreview = function() {
   document.getElementById('preview-routine').scrollIntoView()
 }
 
-
+Routine.revealErrors = function(jqXhrObject) {
+  if (jqXhrObject.responseJSON) { // If NOT undefined, there are validation errors
+    var validationErrorsArray = jqXhrObject.responseJSON.errors
+    var validationErrorsString = validationErrorsArray.join('\n') // join array elements (string validation error messages) with a line break
+    alert(`Your attempt to design a workout routine was unsuccessful:\n\n${validationErrorsString}`)
+  } else {
+    console.error("An error occurred:\nStatus Text:", jqXhrObject.statusText, "\nResponse Text:", jqXhrObject.responseText.substring(0, 40))
+  }
+}
 // Explanation of Routine.addAssociationToExistingWorkout function below (which replaced Routine.addExerciseListener AND Routine.addEquipmentListener functions)
 // On the Routine Show Page, the user can add an exercise movement to a workout routine by submitting form.add-exercise-form
 // On the Routine Edit Page, the user can add a piece of equipment to a workout routine by submitting form.add-equipment-form
