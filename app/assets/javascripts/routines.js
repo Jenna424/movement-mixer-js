@@ -80,7 +80,7 @@ Routine.preparePreviewPage = function() {
 }
 // Below, this refers to the newRoutine object on which we're calling the formatAndAppendPreview() prototype method
 Routine.prototype.formatAndAppendPreview = function() {
-  $('#preview-routine').html(Routine.routineTemplateFunction(this))
+  $('#preview-routine').append(Routine.routineTemplateFunction(this))
   document.getElementById('preview-routine').scrollIntoView()
 }
 
