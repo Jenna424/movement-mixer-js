@@ -8,7 +8,7 @@
 
 User.create(
   name: "Addison",
-  email: "addison@movementmixer.com",
+  email: "addison@mm.com",
   password: "ballerina",
   password_confirmation: "ballerina",
   role_requested: nil,
@@ -18,7 +18,7 @@ User.create(
 
 User.create(
   name: "Tracy",
-  email: "tracy@movementmixer.com",
+  email: "tracy@mm.com",
   password: "trainertracy",
   password_confirmation: "trainertracy",
   role_requested: nil,
