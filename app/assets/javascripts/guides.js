@@ -129,5 +129,14 @@ Guide.compileGuideTemplate = function() {
 }
 
 Guide.destroyListener = function() {
-
+  $('input.delete-guide').parent().on('submit', function(e) {
+    e.preventDefault()
+    $.ajax({
+     url: $(this).attr('action'), // "/movements/:movement_id/guides/:id"
+     method: 'DELETE',
+     dataType: 'json',
+     data: $(this).serialize()
+    })
+    .done(Guide.destroy)
+  })
 }
