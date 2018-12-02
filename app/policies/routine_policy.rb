@@ -1,6 +1,6 @@
 class RoutinePolicy < ApplicationPolicy
   def new?
-    user.client? || user.trainer?
+    user.client?
   end
 
   def create?
