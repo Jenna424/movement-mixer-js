@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :password, length: { minimum: 8 }, allow_nil: true # when users edit their information, they don't have to retype their passwords
-  validates :email, presence: true, email: true, uniqueness: true, length: { maximum: 100 }
+  validates :email, presence: true, uniqueness: true, length: { maximum: 100 }
   validates :role_requested, inclusion: { in: ["client", "trainer"], message: "must be selected from the available roles" }, on: :create
 
   def self.by_role(string_role)
