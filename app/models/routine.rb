@@ -1,6 +1,5 @@
 class Routine < ApplicationRecord
   belongs_to :user
-  has_many :reviews, dependent: :destroy
   has_many :equipment_routines, dependent: :destroy
   has_many :equipment, through: :equipment_routines
   has_many :movement_routines, dependent: :destroy
