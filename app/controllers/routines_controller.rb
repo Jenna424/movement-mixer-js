@@ -22,7 +22,7 @@ class RoutinesController < ApplicationController
     authorize @routine
 
     if @routine.save
-      render json: @routine, status: :created # status 201 indicates routine resource created
+      render json: @routine, status: 201
     else
       render json: { errors: @routine.errors.full_messages }, status: :unprocessable_entity # status: 422
     end
