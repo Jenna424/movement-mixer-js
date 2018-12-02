@@ -1,6 +1,8 @@
 en:
   pundit:
     default: "You requested a page that you cannot access."
+    routine_policy:
+      new?: "Access denied! Only Movement Mixer clients can design new workout routines!"
     target_policy:
       new?: "Access denied! Only professional fitness trainers can create new target areas in which to classify clients' workouts!"
       index?: "Access denied! Only professional fitness trainers can manage Movement Mixer's Index of Workout Target Areas!"
