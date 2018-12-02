@@ -25,10 +25,10 @@ Routine.compileCreateTemplates = function() {
 }
 
 $(function() {
-  Routine.bindEventHandlers()
+  Routine.bindEventListeners()
 })
 
-Routine.bindEventHandlers = function() {
+Routine.bindEventListeners = function() {
   Routine.addAssociationInCreateForm()
   Routine.createListener()
   Routine.addAssociationToExistingWorkout()
