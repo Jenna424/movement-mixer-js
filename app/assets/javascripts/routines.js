@@ -58,7 +58,6 @@ Routine.addAssociationInCreateForm= function() {
 Routine.createListener = function() {
   $('#new_routine').on('submit', function(e) {
     e.preventDefault()
-    $('div#routine-alert').html('')
     var createFormData = $(this).serialize()
     $.post('/routines', createFormData)
     .done(Routine.createWorkout)
@@ -73,7 +72,8 @@ Routine.createWorkout = function(routineResponse) {
 }
 
 Routine.preparePreviewPage = function() {
-  var $previewDiv = $('#preview-routine')
+  var $previewDiv = $('div#preview-routine')
+  $previewDiv.html(`<div class=\'alert alert-success\' role=\'alert\'>Your workout routine was successfully created! You may preview your routine below:</div>`)
   $previewDiv.addClass('well well-md')
   $('#new_routine').find('input[type=text], textarea, input[type=number]').val(''); // empty the textfields, textareas and numberfields in <form id="new_routine">, in case the user wants to create another routine
   $('#new_routine').find('input[type=checkbox]').prop('checked', false) // uncheck any previously checked checkboxes for target areas and training types
