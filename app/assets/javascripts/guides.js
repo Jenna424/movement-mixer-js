@@ -131,12 +131,24 @@ Guide.compileGuideTemplate = function() {
 Guide.destroyListener = function() {
   $('input.delete-guide').parent().on('submit', function(e) {
     e.preventDefault()
-    $.ajax({
-     url: $(this).attr('action'), // "/movements/:movement_id/guides/:id"
-     method: 'DELETE',
-     dataType: 'json',
-     data: $(this).serialize()
-    })
-    .done(Guide.destroy)
+    if (confirm('Are you sure you want to delete this training guide?')) {
+      $.ajax({
+        url: $(this).attr('action'), // "/movements/:movement_id/guides/:id"
+        method: 'DELETE',
+        dataType: 'json',
+        data: $(this).serialize()
+      })
+      .done(Guide.destroy)
+    } else {
+      console.log('Deletion of your training guide was not confirmed.')
+    }
   })
+}
+
+Guide.destroy = function(guideObject) {
+  $('div.container').html('')
+  let newGuide = new Guide(guideObject)
+  let exerciseName = newGuide.movement.name
+  let guideDesigner = newGuide.user.name
+  $('div.container').append(`<div class=\'alert alert-success\' role=\'alert\'>Your training guide for performing ${exerciseName} was successfully deleted. Please provide more training tips soon, ${guideDesigner}!</div>`)
 }
