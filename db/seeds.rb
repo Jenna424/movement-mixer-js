@@ -54,12 +54,12 @@ trainings = Training.create([
   { fitness_type: 'Endurance' },
   { fitness_type: 'HIIT' },
   { fitness_type: 'Aerobic' },
-  { fitness_type: 'Weight Lifting' }
-  { fitness_type: 'Flexibility Training' }
-  { fitness_type: 'Dynamic Strength Training' }
-  { fitness_type: 'Static Strength Training' }
-  { fitness_type: 'Circuit Training' }
-  { fitness_type: 'Tabata' }
-  { fitness_type: 'Zumba' }
+  { fitness_type: 'Weight Lifting' },
+  { fitness_type: 'Flexibility Training' },
+  { fitness_type: 'Dynamic Strength Training' },
+  { fitness_type: 'Static Strength Training' },
+  { fitness_type: 'Circuit Training' },
+  { fitness_type: 'Tabata' },
+  { fitness_type: 'Zumba' },
   { fitness_type: 'Cycling' }
 ])
