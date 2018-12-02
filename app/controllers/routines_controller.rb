@@ -13,6 +13,7 @@ class RoutinesController < ApplicationController
   
   def new
 	  @routine = Routine.new # instance for form_for to wrap around
+    authorize @routine # only let clients view the form to create a new routine
 	  @routine.movements.build
 	  @routine.equipment.build
   end
