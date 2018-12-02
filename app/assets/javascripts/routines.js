@@ -58,6 +58,7 @@ Routine.addAssociationInCreateForm= function() {
 Routine.createListener = function() {
   $('#new_routine').on('submit', function(e) {
     e.preventDefault()
+    $('div#routine-alert').html('')
     var createFormData = $(this).serialize()
     $.post('/routines', createFormData)
     .done(Routine.createWorkout)
