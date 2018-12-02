@@ -72,15 +72,14 @@ Routine.createWorkout = function(routineResponse) {
 }
 
 Routine.preparePreviewPage = function() {
-  var $previewDiv = $('div#preview-routine')
+  var $previewDiv = $('div#preview-routine') // div#preview-routine is always present on routines/new.html.erb
   $previewDiv.html(`<div class=\'alert alert-success\' role=\'alert\'>Your workout routine was successfully created! You may preview your routine below:</div>`)
-  $previewDiv.addClass('well well-md')
   $('#new_routine').find('input[type=text], textarea, input[type=number]').val(''); // empty the textfields, textareas and numberfields in <form id="new_routine">, in case the user wants to create another routine
   $('#new_routine').find('input[type=checkbox]').prop('checked', false) // uncheck any previously checked checkboxes for target areas and training types
 }
 // Below, this refers to the newRoutine object on which we're calling the formatAndAppendPreview() prototype method
 Routine.prototype.formatAndAppendPreview = function() {
-  $('#preview-routine').append(Routine.routineTemplateFunction(this))
+  $('div#preview-routine').append(Routine.routineTemplateFunction(this))
   document.getElementById('preview-routine').scrollIntoView()
 }
 
