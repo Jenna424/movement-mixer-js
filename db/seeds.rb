@@ -6,6 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.create(
+  name: "Addison",
+  email: "addison@movementmixer.com",
+  password: "ballerina",
+  password_confirmation: "ballerina",
+  role_requested: nil,
+  role: 3,
+  trainer_id: nil
+)
+
+User.create(
+  name: "Tracy",
+  email: "tracy@movementmixer.com",
+  password: "trainertracy",
+  password_confirmation: "trainertracy",
+  role_requested: nil,
+  role: 2,
+  trainer_id: nil
+)
+
 targets = Target.create([
   { focus: 'Biceps' }, 
   { focus: 'Triceps' },
