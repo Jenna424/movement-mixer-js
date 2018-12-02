@@ -19,13 +19,13 @@ class RoutinesController < ApplicationController
   end
 
   def create
-    @routine = current_user.routines.build(routine_params)
-    authorize @routine
+    routine = current_user.routines.build(routine_params)
+    authorize routine
 
-    if @routine.save
-      render json: @routine, status: 201
+    if routine.save
+      render json: routine, status: 201
     else
-      render json: { errors: @routine.errors.full_messages }, status: :unprocessable_entity # status: 422
+      render json: { errors: routine.errors.full_messages }, status: :unprocessable_entity # status: 422
     end
   end
 
