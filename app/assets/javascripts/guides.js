@@ -139,8 +139,6 @@ Guide.destroyListener = function() {
         data: $(this).serialize()
       })
       .done(Guide.destroy)
-    } else {
-      console.log('Deletion of your training guide was not confirmed.')
     }
   })
 }
