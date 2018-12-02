@@ -32,7 +32,7 @@ class RoutinesController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json { render json: @routine }
+      format.json { render json: @routine, status: 200 }
     end
   end
 
