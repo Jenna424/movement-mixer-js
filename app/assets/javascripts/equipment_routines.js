@@ -6,6 +6,28 @@ function EquipmentRoutine(equipmentRoutine) {
   this.weight = equipmentRoutine.weight
 }
 
+EquipmentRoutine.isValidObject = function(equipmentName, quantity) {
+  if (!equipmentName.trim().length || !parseInt(quantity) > 0) {
+    $('div#add-equipment-errors').html(
+      `<div class=\'alert alert-danger\' role=\'alert\'>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <strong>Your attempt to add a piece of equipment was unsuccessful</strong>.
+        <br>
+        Please be sure to specify the following information:
+        <ul>
+          <li>Name of the piece of equipment</li>
+          <li>Quantity required (must be greater than 0)</li>
+        </ul>
+      </div>`
+    )
+    return false
+  } else {
+    return true
+  }
+}
+
 $(function() {
   EquipmentRoutine.editListener()
   EquipmentRoutine.handleEditCancellation()
