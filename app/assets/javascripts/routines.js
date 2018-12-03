@@ -128,16 +128,21 @@ Routine.revealErrors = function(jqXhrObject) {
 Routine.addExerciseToExistingWorkout = function() {
   $("form[class='add-exercise-form']").on('submit', function(e) {
     e.preventDefault()
+    $('div#success-container').html('') // empty out div#success-container, which contains any previous div.alert-success messages
+    $('div#add-exercise-alerts').html('') // empty out div#add-exercise-alerts, which contains validation errors from MovementRoutine.isValidObject function
+    let action = $(this).attr('action') // '/routines/:id'
+    let formData = $(this).serialize()
     let movementName = $(this).find('input[type=text]').val()
     let technique = $(this).find('textarea').val()
     let sets = $(this).find('input[id$=movement_routines_sets]').val()
     let reps = $(this).find('input[id$=movement_routines_reps]').val()
+    $(this).find('input[type=text], textarea, input[type=number]').val('') // empty textfield for movement name, textarea for MR technique, numberfields for MR sets & MR reps
     if (MovementRoutine.isValidObject(movementName, technique, sets, reps)) {
       $.ajax({
-        url: $(this).attr('action'), // '/routines/:id'
+        url: action, // '/routines/:id'
         method: 'PATCH',
         dataType: 'json',
-        data: $(this).serialize()
+        data: formData
       })
       .done(MovementRoutine.addMovementToRoutine)
     }
