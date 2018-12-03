@@ -9,7 +9,18 @@ function MovementRoutine(movementRoutine) {
 
 MovementRoutine.isValidObject = function(movementName, technique, sets, reps) {
   if (!movementName.trim().length || !technique.trim().length || !parseInt(sets) > 0 || !parseInt(reps) > 0) {
-    console.log("Oh no, this movement-routine is INVALID")
+    $('div#add-exercise-alerts').html(
+      `<div class=\'alert alert-danger\' role=\'alert\'>
+        <strong>Your attempt to add an exercise movement to the workout routine was unsuccessful</strong>.
+        <br>
+        Please be sure to include the following information:
+        <ul>
+          <li>The name of the exercise</li>
+          <li>The proper technique for performing the exercise</li>
+          <li>A valid number of sets (greater than 0)</li>
+          <li>A valid number of reps (greater than 0)</li>
+        </ul>
+      </div>`)
     return false
   } else {
     console.log("This movement-routine is valid!")
