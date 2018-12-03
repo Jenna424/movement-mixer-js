@@ -32,6 +32,7 @@ Routine.bindEventListeners = function() {
   Routine.addAssociationInCreateForm()
   Routine.createListener()
   Routine.addExerciseToExistingWorkout()
+  Routine.addEquipmentToExistingWorkout()
   //Routine.addAssociationToExistingWorkout()
   Routine.indexListener()
   Routine.destroyListener()
@@ -146,6 +147,10 @@ Routine.addExerciseToExistingWorkout = function() {
       .fail(errorHandler)
     }
   })
+}
+
+Routine.addEquipmentToExistingWorkout = function() {
+
 }
 // The link to View All Workouts is found in the navbar, which changes depending on if the viewer is logged in
 Routine.indexListener = function() {
