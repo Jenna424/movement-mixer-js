@@ -128,10 +128,11 @@ Routine.revealErrors = function(jqXhrObject) {
 Routine.addExerciseToExistingWorkout = function() {
   $("form[class='add-exercise-form']").on('submit', function(e) {
     e.preventDefault()
+    let movementName = $(this).find('input[type=text]').val()
     let technique = $(this).find('textarea').val()
     let sets = $(this).find('input[id$=movement_routines_sets]').val()
     let reps = $(this).find('input[id$=movement_routines_reps]').val()
-    if (MovementRoutine.isValidObject(technique, sets, reps)) {
+    if (MovementRoutine.isValidObject(movementName, technique, sets, reps)) {
       $.ajax({
         url: $(this).attr('action'), // '/routines/:id'
         method: 'PATCH',
