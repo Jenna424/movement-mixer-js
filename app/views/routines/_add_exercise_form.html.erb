@@ -6,6 +6,9 @@
     <input type="hidden" name="_method" value="patch">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
+    <div id="add-exercise-alerts">
+    </div>
+
     <div class="movement-fields">
       <label for="routine_movements_attributes_0_name">Add another exercise to this workout routine</em></label>:
       <input placeholder="Enter another exercise..." class="form-control" type="text" name="routine[movements_attributes][0][name]" id="routine_movements_attributes_0_name">
