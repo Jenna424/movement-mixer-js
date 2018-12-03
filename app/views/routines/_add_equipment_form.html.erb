@@ -5,6 +5,8 @@
     <input name="utf8" type="hidden" value="✓">
     <input type="hidden" name="_method" value="patch">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div id="add-equipment-errors">
+    </div>
     <div class="equipment-fields">
       <label for="routine_equipment_attributes_0_name">Add another piece of equipment</label>:
       <input placeholder="Enter equipment here..." class="form-control" type="text" name="routine[equipment_attributes][0][name]" id="routine_equipment_attributes_0_name">
