@@ -143,6 +143,7 @@ Routine.addExerciseToExistingWorkout = function() {
         data: formData
       })
       .done(MovementRoutine.addMovementToRoutine)
+      .fail(errorHandler)
     }
   })
 }
