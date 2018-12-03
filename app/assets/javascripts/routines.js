@@ -127,7 +127,7 @@ Routine.revealErrors = function(jqXhrObject) {
   //})
 //}
 Routine.addExerciseToExistingWorkout = function() {
-  $("form[class='add-exercise-form']").on('submit', function(e) {
+  $('form.add-exercise-form').on('submit', function(e) {
     e.preventDefault()
     let action = $(this).attr('action') // '/routines/:id'
     let formData = $(this).serialize()
