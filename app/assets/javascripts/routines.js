@@ -31,7 +31,7 @@ $(function() {
 Routine.bindEventListeners = function() {
   Routine.addAssociationInCreateForm()
   Routine.createListener()
-  Routine.addAssociationToExistingWorkout()
+  //Routine.addAssociationToExistingWorkout()
   Routine.indexListener()
   Routine.destroyListener()
 }
@@ -106,24 +106,24 @@ Routine.revealErrors = function(jqXhrObject) {
 // Send AJAX PATCH request to "/routines/:id"
 // pass successCallback, (which stores either MovementRoutine.addMovementToRoutine or EquipmentRoutine.addEquipmentToRoutine) to .done() to handle a successful response to AJAX PATCH request
 // After form submission, empty textfield, textarea and numberfields in form.add-exercise-form/ empty textfield and numberfields in form.add-equipment-form
-Routine.addAssociationToExistingWorkout = function() {
-  $("form[class^='add']").on('submit', function(e) {
-    e.preventDefault()
-    var successCallback = MovementRoutine.addMovementToRoutine
-    if ($(this).attr('class').split('-')[1] === 'equipment') {
-      successCallback = EquipmentRoutine.addEquipmentToRoutine
-    }
-    $.ajax({
-      url: $(this).attr('action'), // "/routines/:id"
-      method: 'patch',
-      dataType: 'json',
-      data: $(this).serialize()
-    })
-    .done(successCallback)
-    $(this).find('input[type=text], textarea, input[type=number]').val('');
-  })
-}
-
+// CHANGES START HERE
+//Routine.addAssociationToExistingWorkout = function() {
+  //$("form[class^='add']").on('submit', function(e) {
+    //e.preventDefault()
+    //var successCallback = MovementRoutine.addMovementToRoutine
+    //if ($(this).attr('class').split('-')[1] === 'equipment') {
+      //successCallback = EquipmentRoutine.addEquipmentToRoutine
+    //}
+    //$.ajax({
+      //url: $(this).attr('action'), // "/routines/:id"
+      //method: 'patch',
+      //dataType: 'json',
+      //data: $(this).serialize()
+    //})
+    //.done(successCallback)
+    //$(this).find('input[type=text], textarea, input[type=number]').val('');
+  //})
+//}
 // The link to View All Workouts is found in the navbar, which changes depending on if the viewer is logged in
 Routine.indexListener = function() {
   $('ul.nav').on('click', 'a.all-routines', function(e) {
