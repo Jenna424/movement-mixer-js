@@ -23,7 +23,8 @@ MovementRoutine.isValidObject = function(movementName, technique, sets, reps) {
       </div>`)
     return false
   } else {
-    
+    $('#success-container').html(`<div class=\'alert alert-success\' role=\'alert\'>You successfully added an exercise movement to this workout routine!</div>`)
+    document.getElementById('success-container').scrollIntoView()
     return true
   }
 }
