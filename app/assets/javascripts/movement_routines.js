@@ -9,7 +9,7 @@ function MovementRoutine(movementRoutine) {
 
 MovementRoutine.isValidObject = function(movementName, technique, sets, reps) {
   if (!movementName.trim().length || !technique.trim().length || !parseInt(sets) > 0 || !parseInt(reps) > 0) {
-    $('div#add-exercise-alerts').html(
+    $('div#add-exercise-errors').html(
       `<div class=\'alert alert-danger\' role=\'alert\'>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">×</span>
