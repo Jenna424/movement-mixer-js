@@ -31,6 +31,7 @@ $(function() {
 Routine.bindEventListeners = function() {
   Routine.addAssociationInCreateForm()
   Routine.createListener()
+  Routine.addExerciseToExistingWorkout()
   //Routine.addAssociationToExistingWorkout()
   Routine.indexListener()
   Routine.destroyListener()
@@ -124,6 +125,23 @@ Routine.revealErrors = function(jqXhrObject) {
     //$(this).find('input[type=text], textarea, input[type=number]').val('');
   //})
 //}
+Routine.addExerciseToExistingWorkout = function() {
+  $("form[class='add-exercise-form']").on('submit', function(e) {
+    e.preventDefault()
+    let technique = $(this).find('textarea').val()
+    let sets = $(this).find('input[id$=movement_routines_sets]').val()
+    let reps = $(this).find('input[id$=movement_routines_reps]').val()
+    if (MovementRoutine.isValidObject(technique, sets, reps)) {
+      $.ajax({
+        url: $(this).attr('action'), // '/routines/:id'
+        method: 'PATCH',
+        dataType: 'json',
+        data: $(this).serialize()
+      })
+      .done(MovementRoutine.addMovementToRoutine)
+    }
+  })
+}
 // The link to View All Workouts is found in the navbar, which changes depending on if the viewer is logged in
 Routine.indexListener = function() {
   $('ul.nav').on('click', 'a.all-routines', function(e) {
