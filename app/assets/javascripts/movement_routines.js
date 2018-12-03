@@ -7,8 +7,8 @@ function MovementRoutine(movementRoutine) {
   this.reps = movementRoutine.reps
 }
 
-MovementRoutine.isValidObject = function(technique, sets, reps) {
-  if (!technique.trim().length || !parseInt(sets) > 0 || !parseInt(reps) > 0) {
+MovementRoutine.isValidObject = function(movementName, technique, sets, reps) {
+  if (!movementName.trim().length || !technique.trim().length || !parseInt(sets) > 0 || !parseInt(reps) > 0) {
     console.log("Oh no, this movement-routine is INVALID")
     return false
   } else {
