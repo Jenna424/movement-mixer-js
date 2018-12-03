@@ -11,6 +11,9 @@ MovementRoutine.isValidObject = function(movementName, technique, sets, reps) {
   if (!movementName.trim().length || !technique.trim().length || !parseInt(sets) > 0 || !parseInt(reps) > 0) {
     $('div#add-exercise-alerts').html(
       `<div class=\'alert alert-danger\' role=\'alert\'>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
         <strong>Your attempt to add an exercise movement to the workout routine was unsuccessful</strong>.
         <br>
         Please be sure to include the following information:
@@ -20,10 +23,18 @@ MovementRoutine.isValidObject = function(movementName, technique, sets, reps) {
           <li>A valid number of sets (greater than 0)</li>
           <li>A valid number of reps (greater than 0)</li>
         </ul>
-      </div>`)
+      </div>`
+    )
     return false
   } else {
-    $('#success-container').html(`<div class=\'alert alert-success\' role=\'alert\'>You successfully added an exercise movement to this workout routine!</div>`)
+    $('#success-container').html(
+      `<div class=\'alert alert-success\' role=\'alert\'>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        You successfully added an exercise movement to this workout routine!
+      </div>`
+    )
     document.getElementById('success-container').scrollIntoView()
     return true
   }
