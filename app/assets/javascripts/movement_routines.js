@@ -23,7 +23,7 @@ MovementRoutine.isValidObject = function(movementName, technique, sets, reps) {
       </div>`)
     return false
   } else {
-    console.log("This movement-routine is valid!")
+    
     return true
   }
 }
