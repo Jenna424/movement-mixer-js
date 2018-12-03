@@ -150,7 +150,23 @@ Routine.addExerciseToExistingWorkout = function() {
 }
 
 Routine.addEquipmentToExistingWorkout = function() {
-
+  $('form.add-equipment-form').on('submit', function(e) {
+    e.preventDefault()
+    let action = $(this).attr('action') // "/routines/:id"
+    let formData = $(this).serialize()
+    let equipmentName = $(this).find('input[type=text]').val()
+    let quantity = $(this).find('input[id$=equipment_routines_quantity]').val()
+    if (EquipmentRoutine.isValidObject(equipmentName, quantity)) {
+      $.ajax({
+        url: action,
+        method: 'PATCH',
+        dataType: 'json',
+        data: formData
+      })
+      .done(EquipmentRoutine.addEquipmentToRoutine)
+      .fail(errorHandler)
+    }
+  })
 }
 // The link to View All Workouts is found in the navbar, which changes depending on if the viewer is logged in
 Routine.indexListener = function() {
