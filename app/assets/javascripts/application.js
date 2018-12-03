@@ -15,4 +15,5 @@
 //= require bootstrap
 //= require activestorage
 //= require templates
+//= require shared
 //= require_tree .
