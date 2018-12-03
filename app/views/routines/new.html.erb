@@ -6,7 +6,7 @@
 <%= form_for @routine do |f| %>
   <%= render partial: "routine_form_fields", locals: {f: f} %>
 
-  <br>
+  <hr>
 
   <div class="movement-fields">
   	<%= f.fields_for :movements do |m| %>
@@ -31,7 +31,7 @@
 
   <button id="add-movement" class="btn btn-default btn-sm" data-add-association=movements>+ Exercise</button>
 
-  <br><br>
+  <hr>
 
   <div class="equipment-fields">
   	<%= f.fields_for :equipment do |e| %>
@@ -52,11 +52,11 @@
 
   <button id="add-equipment" class="btn btn-default btn-sm" data-add-association=equipment>+ Equipment</button>
 
-  <br><br>
+  <hr>
 
   <%= render partial: "form_checkboxes", locals: {routine: @routine} %>
 
-  <br><br>
+  <br>
 
   <div class="actions">
     <%= f.submit %>
