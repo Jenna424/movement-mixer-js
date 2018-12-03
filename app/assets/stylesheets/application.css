@@ -17,6 +17,10 @@
    margin-top: 7px;
  }
 
+ div#error_explanation {
+   color: #a94442;
+ }
+
  .field_with_errors label {
    background-color: #f2dede;
    color: #a94442;
