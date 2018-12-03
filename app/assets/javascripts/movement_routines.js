@@ -27,15 +27,6 @@ MovementRoutine.isValidObject = function(movementName, technique, sets, reps) {
     )
     return false
   } else {
-    $('#success-container').html(
-      `<div class=\'alert alert-success\' role=\'alert\'>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-        You successfully added an exercise movement to this workout routine!
-      </div>`
-    )
-    document.getElementById('success-container').scrollIntoView()
     return true
   }
 }
@@ -211,10 +202,23 @@ MovementRoutine.addMovementToRoutine = function(json) {
   } else {
     newMr.formatAndAppendDiv()
   }
+  MovementRoutine.displaySuccessAlert()
 }
 
 MovementRoutine.prototype.formatAndAppendDiv = function() {
   var workoutRoutineDiv = $('#workout-routine') // get the <div> that contains all the movements in the routine
   var mrDivHtml = MovementRoutine.mrTemplateFunction(this) // store the Handlebars template w/ values injected from key/value pairs in newMr object (this)
   workoutRoutineDiv.append(mrDivHtml) // appending the <div> for the new movement/MR to the div containing all movements in the routine 
+}
+
+MovementRoutine.displaySuccessAlert = function() {
+  $('#success-container').html(
+    `<div class=\'alert alert-success\' role=\'alert\'>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+      You successfully added an exercise movement to this workout routine!
+    </div>`
+  )
+  document.getElementById('success-container').scrollIntoView()
 }
