@@ -18,10 +18,10 @@ MovementRoutine.isValidObject = function(movementName, technique, sets, reps) {
         <br>
         Please be sure to include the following information:
         <ul>
-          <li>The name of the exercise</li>
-          <li>The proper technique for performing the exercise</li>
-          <li>A valid number of sets (greater than 0)</li>
-          <li>A valid number of reps (greater than 0)</li>
+          <li>Name of the exercise</li>
+          <li>Technique for performing the exercise</li>
+          <li>Number of sets (must be greater than 0)</li>
+          <li>Number of reps (must be greater than 0)</li>
         </ul>
       </div>`
     )
