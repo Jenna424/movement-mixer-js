@@ -229,7 +229,11 @@ which is defined in routines.js file -->
     <br>
     <small id="quantity-{{id}}"><strong>Quantity</strong>: {{quantity}}</small>
     <br>
-    <small id="weight-{{id}}"><strong>Weight</strong>: {{weight}} lbs each</small>
+    {{#if weight.length}}
+      <small id="weight-{{id}}"><strong>Weight</strong>: {{weight}} lb(s) each</small>
+    {{else}}
+      <small id="weight-{{id}}"><strong>Weight</strong>: N/A</small>
+    {{/if}}
     <br><br>
     <div id="edit-er-{{id}}-div"></div>
     <a href="/ers/{{id}}/edit" class="edit-equipment btn btn-default btn-sm" data-er-id={{id}}>
