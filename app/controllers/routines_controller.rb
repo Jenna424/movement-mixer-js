@@ -94,7 +94,11 @@ class RoutinesController < ApplicationController
    er_id = params[:id].to_s
    equipment_routine.quantity = params['routine']['equipment_attributes'][er_id]['equipment_routines']['quantity']
    equipment_routine.weight = params['routine']['equipment_attributes'][er_id]['equipment_routines']['weight']
-   render json: equipment_routine if equipment_routine.save
+   if equipment_routine.save
+     render json: equipment_routine, status: 200
+   else
+     render json: { errors: equipment_routine.errors.full_messages }, status: :unprocessable_entity # status code 422
+   end
   end
 
   def destroy_equipment_routine # delete '/ers/:id' => 'routines#destroy_equipment_routine'
