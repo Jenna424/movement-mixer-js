@@ -71,30 +71,40 @@ EquipmentRoutine.handleEditCancellation = function() {
 EquipmentRoutine.updateListener = function() {
   $('ul.required-equipment').on('submit', 'form.edit-er', function(e) {
     e.preventDefault()
-    var $editEquipmentForm = $(this)
-    var action = $editEquipmentForm.attr('action') // "/ers/:id", which maps to routines#update_equipment_routine
-    $.ajax({
-      url: action,
-      method: 'patch',
-      dataType: 'json',
-      data: $editEquipmentForm.serialize()
-    })
-    .done(EquipmentRoutine.update)
-    $editEquipmentForm.find('input[type=number]').val(''); // empty the number fields in the form to edit quantity & weight
+    var action = $(this).attr('action') // "/ers/:id", which maps to routines#update_equipment_routine
+    var formData = $(this).serialize()
+    var equipmentName = $(this).find('h4').text().split('Editing Specifications for ').pop()
+    var quantity = $(this).find('input[id$=equipment_routines_quantity]').val()
+    if (EquipmentRoutine.isValidObject(equipmentName, quantity)) {
+      $.ajax({
+        url: action,
+        method: 'PATCH',
+        dataType: 'json',
+        data: formData
+      })
+      .done(EquipmentRoutine.update)
+      .fail(errorHandler)
+      $(this).find('input[type=number]').val(''); // empty the number fields in the form to edit quantity & weight
+    }
   })
 }
 
 EquipmentRoutine.update = function(json) { // json parameter = JSON object representation of EquipmentRoutine join table instance with quantity and weight key/value pairs updated = response from AJAX PATCH request made in EquipmentRoutine.updateListener()
   var newEr = new EquipmentRoutine(json)
   newEr.formatQuantityAndWeight()
+  displaySuccessAlert(newEr)
 }
 
 EquipmentRoutine.prototype.formatQuantityAndWeight = function() {
   var erId = this.id
   var $smallQuantity = $(`small#quantity-${erId}`)
   var $smallWeight = $(`small#weight-${erId}`)
+  var weightText = 'N/A'
+  if (!this.weight === null) { // if weight is NOT null
+    weightText = `${this.weight} lb(s) each`
+  }
   $smallQuantity.html(`<strong>Quantity</strong>: ${this.quantity}`)
-  $smallWeight.html(`<strong>Weight</strong>: ${this.weight} lb(s) each`)
+  $smallWeight.html(`<strong>Weight</strong>: ${weightText}`)
 }
 
 EquipmentRoutine.destroyListener = function() {
