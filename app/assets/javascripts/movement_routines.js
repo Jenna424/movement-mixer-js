@@ -202,7 +202,7 @@ MovementRoutine.addMovementToRoutine = function(json) {
   } else {
     newMr.formatAndAppendDiv()
   }
-  MovementRoutine.displaySuccessAlert()
+  displaySuccessAlert(newMr)
 }
 
 MovementRoutine.prototype.formatAndAppendDiv = function() {
