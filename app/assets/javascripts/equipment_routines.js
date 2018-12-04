@@ -71,10 +71,11 @@ EquipmentRoutine.handleEditCancellation = function() {
 EquipmentRoutine.updateListener = function() {
   $('ul.required-equipment').on('submit', 'form.edit-er', function(e) {
     e.preventDefault()
-    var action = $(this).attr('action') // "/ers/:id", which maps to routines#update_equipment_routine
-    var formData = $(this).serialize()
-    var equipmentName = $(this).find('h4').text().split('Editing Specifications for ').pop()
-    var quantity = $(this).find('input[id$=equipment_routines_quantity]').val()
+    var $editEquipmentForm = $(this)
+    var action = $editEquipmentForm.attr('action') // "/ers/:id", which maps to routines#update_equipment_routine
+    var formData = $editEquipmentForm.serialize()
+    var equipmentName = $editEquipmentForm.find('h4').text().split('Editing Specifications for ').pop()
+    var quantity = $editEquipmentForm.find('input[id$=equipment_routines_quantity]').val()
     if (EquipmentRoutine.isValidObject(equipmentName, quantity)) {
       $.ajax({
         url: action,
@@ -84,7 +85,7 @@ EquipmentRoutine.updateListener = function() {
       })
       .done(EquipmentRoutine.update)
       .fail(errorHandler)
-      $(this).find('input[type=number]').val(''); // empty the number fields in the form to edit quantity & weight
+      $editEquipmentForm.find('input[type=number]').val(''); // empty the number fields in the form to edit quantity & weight
     }
   })
 }
