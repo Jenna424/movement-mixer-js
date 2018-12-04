@@ -138,11 +138,12 @@ EquipmentRoutine.addEquipmentToRoutine = function(json) {
   var match = $("li[id^='er']").filter(function() {
     return this.id === `er-${newEr.id}-li`
   })
-  if (match.length) { // I'm updating an exiting EquipmentRoutine instance, which already has an <li>
+  if (match.length) { // I'm updating an existing EquipmentRoutine instance, which already has an <li>
     $(`li#er-${newEr.id}-li`).replaceWith(EquipmentRoutine.erTemplateFunction(newEr))
   } else { // An entirely new piece of equipment was submitted, so a new <li> needs to be appended to the <ul>
     newEr.formatAndAppendLi()
   }
+  displaySuccessAlert(newEr)
 }
 
 EquipmentRoutine.prototype.formatAndAppendLi = function() {
