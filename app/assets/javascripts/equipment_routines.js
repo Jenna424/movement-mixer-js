@@ -6,8 +6,14 @@ function EquipmentRoutine(equipmentRoutine) {
   this.weight = equipmentRoutine.weight
 }
 
+EquipmentRoutine.revealErrors = function(jqXhrObject) {
+  var errorsArray = jqXhrObject.responseJSON.errors
+  var errorsString = errorsArray.join('\n') // join string error message elements with a line break
+  alert(`Your attempt to edit this piece of equipment was unsuccessful:\n\n${errorsString}`)
+}
+
 EquipmentRoutine.isValidObject = function(equipmentName, quantity, weight) {
-  if (!equipmentName.trim().length || !parseInt(quantity) > 0) {
+  if (!equipmentName.trim().length || !parseInt(quantity) > 0 || !(weight && parseInt(weight) > 0)) {
     $('div#add-equipment-errors').html(
       `<div class=\'alert alert-danger\' role=\'alert\'>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -15,10 +21,14 @@ EquipmentRoutine.isValidObject = function(equipmentName, quantity, weight) {
         </button>
         <strong>Your attempt to add a piece of equipment was unsuccessful</strong>.
         <br>
-        Please be sure to specify the following information:
+        Please be sure to supply the following information:
         <ul>
           <li>Name of the piece of equipment</li>
           <li>Quantity required (must be greater than 0)</li>
+        </ul>
+        Optionally provide the following data, if applicable:
+        <ul>
+          <li>Weight of equipment (must be greater than 0)</li>
         </ul>
       </div>`
     )
