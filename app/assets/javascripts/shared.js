@@ -23,12 +23,16 @@ function displaySuccessAlert(jsonObject) { // argument is JSON object representa
 }
 
 function checkValidityOfJoinTableAttrs(jqXhrObject) {
-  var errorsArray = jqXhrObject.responseJSON.errors
-  var errorsString = errorsArray.join('\n') // join array elements (string validation error messages) with a line break
-  var attributeName = errorsArray[0].split(' ')[0]
-  var objectType = 'exercise movement'
-  if (attributeName === 'Quantity' || attributeName === 'Weight') {
-    objectType = 'piece of equipment'
+  if (jqXhrObject.status === 422 && jqXhrObject.responseJSON) {
+    var errorsArray = jqXhrObject.responseJSON.errors
+    var errorsString = errorsArray.join('\n') // join array elements (string validation error messages) with a line break
+    var attributeName = errorsArray[0].split(' ')[0]
+    var objectType = 'exercise movement'
+    if (attributeName === 'Quantity' || attributeName === 'Weight') {
+      objectType = 'piece of equipment'
+    }
+    alert(`Your attempt to edit this ${objectType} was unsuccessful:\n${errorsString}`)
+  } else {
+    console.error(`The following error was detected: ${jqXhrObject.statusText} (status code ${jqXhrObject.status})`)
   }
-  alert(`Your attempt to edit this ${objectType} was unsuccessful:\n${errorsString}`)
 }
