@@ -17,7 +17,7 @@ EquipmentRoutine.isValidObject = function(equipmentName, quantity, weight) {
         <br>
         Please be sure to supply the following information:
         <ul>
-          <li>Name of the piece of equipment</li>
+          <li>Name of a unique piece of equipment</li>
           <li>Quantity required (must be greater than 0)</li>
         </ul>
         Optionally provide the following data, if applicable:
@@ -147,14 +147,7 @@ EquipmentRoutine.compileErTemplate = function() {
 
 EquipmentRoutine.addEquipmentToRoutine = function(json) {
   var newEr = new EquipmentRoutine(json)
-  var match = $("li[id^='er']").filter(function() {
-    return this.id === `er-${newEr.id}-li`
-  })
-  if (match.length) { // I'm updating an existing EquipmentRoutine instance, which already has an <li>
-    $(`li#er-${newEr.id}-li`).replaceWith(EquipmentRoutine.erTemplateFunction(newEr))
-  } else { // An entirely new piece of equipment was submitted, so a new <li> needs to be appended to the <ul>
-    newEr.formatAndAppendLi()
-  }
+  newEr.formatAndAppendLi()
   displaySuccessAlert(newEr)
 }
 
