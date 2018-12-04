@@ -72,7 +72,22 @@ EquipmentRoutine.handleEditCancellation = function() {
   })
 }
 
-
+EquipmentRoutine.updateListener = function() {
+  $('ul.required-equipment').on('submit', 'form.edit-er', function(e) {
+    e.preventDefault()
+    var action = $(this).attr('action') // "/ers/:id", which maps to routines#update_equipment_routine
+    var formData = $(this).serialize()
+    $(this).find('input[type=number]').val(''); // empty the number fields in the form to edit quantity & weight
+    $.ajax({
+      url: action,
+      method: 'PATCH',
+      dataType: 'json',
+      data: formData
+    })
+    .done(EquipmentRoutine.update)
+    .fail(checkValidityOfJoinTableAttrs)
+  })
+}
 
 EquipmentRoutine.update = function(json) { // json parameter = JSON object representation of EquipmentRoutine join table instance with quantity and weight key/value pairs updated = response from AJAX PATCH request made in EquipmentRoutine.updateListener()
   var newEr = new EquipmentRoutine(json)
