@@ -6,12 +6,6 @@ function EquipmentRoutine(equipmentRoutine) {
   this.weight = equipmentRoutine.weight
 }
 
-EquipmentRoutine.revealErrors = function(jqXhrObject) {
-  var errorsArray = jqXhrObject.responseJSON.errors
-  var errorsString = errorsArray.join('\n') // join string error message elements with a line break
-  alert(`Your attempt to edit this piece of equipment was unsuccessful:\n\n${errorsString}`)
-}
-
 EquipmentRoutine.isValidObject = function(equipmentName, quantity, weight) {
   if (!equipmentName.trim().length || !parseInt(quantity) > 0 || !(weight && parseInt(weight) > 0)) {
     $('div#add-equipment-errors').html(
