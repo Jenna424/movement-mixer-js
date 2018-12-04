@@ -100,8 +100,10 @@ EquipmentRoutine.prototype.formatQuantityAndWeight = function() {
   var erId = this.id
   var $smallQuantity = $(`small#quantity-${erId}`)
   var $smallWeight = $(`small#weight-${erId}`)
-  var weightText = 'N/A'
-  if (!this.weight === null) { // if weight is NOT null
+  var weightText = ''
+  if (this.weight === null) { // if weight is null
+    weightText = 'N/A'
+  } else {
     weightText = `${this.weight} lb(s) each`
   }
   $smallQuantity.html(`<strong>Quantity</strong>: ${this.quantity}`)
