@@ -6,8 +6,8 @@ function EquipmentRoutine(equipmentRoutine) {
   this.weight = equipmentRoutine.weight
 }
 
-EquipmentRoutine.isValidObject = function(equipmentName, quantity, weight) {
-  if (!equipmentName.trim().length || !parseInt(quantity) > 0 || !(weight && parseInt(weight) > 0)) {
+EquipmentRoutine.isValidObject = function(equipmentName, equipmentExistsInRoutine, quantity, weight) {
+  if (!equipmentName.trim().length || equipmentExistsInRoutine || !parseInt(quantity) > 0 || !(weight && parseInt(weight) > 0)) {
     $('div#add-equipment-errors').html(
       `<div class=\'alert alert-danger\' role=\'alert\'>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
