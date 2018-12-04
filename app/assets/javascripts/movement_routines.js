@@ -83,19 +83,13 @@ MovementRoutine.updateListener = function() {
       dataType: 'json'
     })
     .done(MovementRoutine.update)
-    .fail(MovementRoutine.revealErrors)
+    .fail(checkValidityOfJoinTableAttrs)
   })
 }
 // Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that was just updated = JSON response from AJAX PATCH request sent in MovementRoutine.updateListener()
 MovementRoutine.update = function(mrJson) {
   var newMr = new MovementRoutine(mrJson)
   newMr.formatSetsAndReps()
-}
-
-MovementRoutine.revealErrors = function(jqXhrObject) {
-  var errorsArray = jqXhrObject.responseJSON.errors
-  var errorsString = errorsArray.join('\n') // join string error message elements with a line break
-  alert(`Your attempt to edit this exercise was unsuccessful:\n\n${errorsString}`)
 }
 
 MovementRoutine.cancelEditListener = function() {
