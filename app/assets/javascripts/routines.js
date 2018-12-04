@@ -156,11 +156,12 @@ Routine.addEquipmentToExistingWorkout = function() {
     let equipmentMatches = $('span.equipment-name').filter(function() {
       return this.innerText === equipmentName
     })
+    let equipmentExistsInRoutine = equipmentMatches.length
     let action = $(this).attr('action') // "/routines/:id"
     let formData = $(this).serialize()
     let quantity = $(this).find('input[id$=equipment_routines_quantity]').val()
     let weight = $(this).find('input[id$=equipment_routines_weight]').val()
-    if (EquipmentRoutine.isValidObject(equipmentName, quantity, weight)) {
+    if (EquipmentRoutine.isValidObject(equipmentName, equipmentExistsInRoutine, quantity, weight)) {
       $.ajax({
         url: action,
         method: 'PATCH',
