@@ -78,10 +78,6 @@ EquipmentRoutine.updateListener = function() {
     var $editEquipmentForm = $(this)
     var action = $editEquipmentForm.attr('action') // "/ers/:id", which maps to routines#update_equipment_routine
     var formData = $editEquipmentForm.serialize()
-    var equipmentName = $editEquipmentForm.find('h4').text().split('Editing Specifications for ').pop()
-    var quantity = $editEquipmentForm.find('input[id$=equipment_routines_quantity]').val()
-    var weight = $editEquipmentForm.find('input[id$=equipment_routines_weight]').val()
-    if (EquipmentRoutine.isValidObject(equipmentName, quantity)) {
       $.ajax({
         url: action,
         method: 'PATCH',
