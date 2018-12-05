@@ -24,6 +24,8 @@ MovementRoutine.isValidObject = function(movementName, technique, sets, reps) {
             <li>Number of reps (must be greater than 0)</li>
           </ul>
         </div>
+        <hr>
+        <small class="mb-0"><em>Please note: exercise details will be overwritten if duplicate data is submitted.</em></small>
       </div>`
     )
     return false
