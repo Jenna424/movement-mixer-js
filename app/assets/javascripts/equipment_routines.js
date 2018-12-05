@@ -6,27 +6,6 @@ function EquipmentRoutine(equipmentRoutine) {
   this.weight = equipmentRoutine.weight
 }
 
-EquipmentRoutine.displayValidationRequirements = function() {
-  $('div#add-equipment-errors').html(
-    `<div class="alert alert-danger" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">×</span>
-      </button>
-      <strong>Your attempt to add a piece of equipment was unsuccessful</strong>.
-      <br>
-      Please provide the following information:
-      <ul>
-        <li>Name of the piece of equipment</li>
-        <li>Quantity required (must be greater than 0)</li>
-      </ul>
-      If applicable, provide the following data:
-      <ul>
-        <li>Weight of equipment (must be greater than 0)</li>
-      </ul>
-    </div>`
-  )
-}
-
 EquipmentRoutine.isValidObject = function(equipmentName, quantity, weight) {
   if (weight) { // if weight is NOT null (i.e. user submitted weight in number_field)
     if (!equipmentName.trim().length || !(parseInt(quantity) > 0) || !(parseInt(weight) > 0)) {
