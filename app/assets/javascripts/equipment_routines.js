@@ -16,7 +16,7 @@ EquipmentRoutine.displayValidationRequirements = function() {
       <br>
       Please provide the following information:
       <ul>
-        <li>Name of equipment</li>
+        <li>Name of the piece of equipment</li>
         <li>Quantity required (must be greater than 0)</li>
       </ul>
       If applicable, provide the following data:
@@ -29,7 +29,7 @@ EquipmentRoutine.displayValidationRequirements = function() {
 
 EquipmentRoutine.isValidObject = function(equipmentName, quantity, weight) {
   if (weight) {
-    if (!equipmentName.trim().length || !parseInt(quantity) > 0 || !(parseInt(weight) > 0)) {
+    if (!equipmentName.trim().length || !parseInt(quantity) > 0 || !parseInt(weight) > 0) {
       EquipmentRoutine.displayValidationRequirements()
       return false
     } else {
