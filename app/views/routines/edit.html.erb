@@ -3,9 +3,9 @@
 <%= form_for @routine, html: {class: "edit-basic-workout-info"} do |f| %>
   <%= validation_errors_for(@routine) %>
   
-  <%= render partial: "routine_form_fields", locals: {f: f} %>
+  <%= render partial: "routine_form_fields", locals: { f: f } %>
   <hr>
-  <%= render partial: "form_checkboxes", locals: {routine: @routine} %>
+  <%= render partial: "form_checkboxes", locals: { routine: @routine } %>
   <br>
   <div class="actions">
     <%= f.submit class: "btn btn-default btn-sm" %>
