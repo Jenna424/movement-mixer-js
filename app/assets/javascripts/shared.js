@@ -7,9 +7,9 @@ function handleError(jqXHR, textStatus, errorThrown) {
 }
 
 function displaySuccessAlert(jsonObject) { // argument is JSON object representation of MovementRoutine instance or EquipmentRoutine instance
-  let alertMessage = 'You successfully added an exercise movement to this workout routine!'
+  let alertMessage = 'You successfully modified the exercise movements that comprise this workout!' // an existing exercise was updated, or a new exercise was added
   if (jsonObject.constructor.name === 'EquipmentRoutine') {
-    alertMessage = 'You successfully added a piece of equipment to use in this workout!'
+    alertMessage = 'You successfully modified the fitness equipment required for this workout!' // an existing piece of equipment was updated, or a new piece of equipment was added
   }
   $('div#success-container').html(
     `<div class="alert alert-success" role="alert">
