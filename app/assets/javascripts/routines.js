@@ -144,7 +144,7 @@ Routine.addExerciseToExistingWorkout = function() {
         data: formData
       })
       .done(MovementRoutine.addMovementToRoutine)
-      .fail(errorHandler)
+      .fail(handleError)
     }
   })
 }
@@ -166,7 +166,7 @@ Routine.addEquipmentToExistingWorkout = function() {
         data: formData
       })
       .done(EquipmentRoutine.addEquipmentToRoutine)
-      .fail(errorHandler)
+      .fail(handleError)
     }
   })
 }
