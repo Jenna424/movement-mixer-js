@@ -28,15 +28,15 @@ EquipmentRoutine.displayValidationRequirements = function() {
 }
 
 EquipmentRoutine.isValidObject = function(equipmentName, quantity, weight) {
-  if (weight) {
-    if (!equipmentName.trim().length || !parseInt(quantity) > 0 || !parseInt(weight) > 0) {
+  if (weight) { // if weight is NOT null (i.e. user submitted weight in number_field)
+    if (!equipmentName.trim().length || !(parseInt(quantity) > 0) || !(parseInt(weight) > 0)) {
       EquipmentRoutine.displayValidationRequirements()
       return false
     } else {
       return true
     }
-  } else {
-    if (!equipmentName.trim().length || !parseInt(quantity) > 0) {
+  } else { // weight = null (i.e. weight was NOT submitted in number_field)
+    if (!equipmentName.trim().length || !(parseInt(quantity) > 0)) {
       EquipmentRoutine.displayValidationRequirements()
       return false
     } else {
