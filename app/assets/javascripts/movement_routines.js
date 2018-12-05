@@ -14,7 +14,7 @@ MovementRoutine.isValidObject = function(movementName, technique, sets, reps) {
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
-        <strong>Your attempt to add an exercise movement to the workout routine was unsuccessful</strong>.
+        <h4 class="alert-heading">Your attempt to add an exercise to the workout routine was unsuccessful</h4>.
         <br>
         Please be sure to include the following information:
         <ul>
