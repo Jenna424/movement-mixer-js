@@ -15,14 +15,15 @@ MovementRoutine.isValidObject = function(movementName, technique, sets, reps) {
           <span aria-hidden="true">×</span>
         </button>
         <h4 class="alert-heading">Your attempt to add an exercise to the workout routine was unsuccessful</h4>.
-        <br>
-        Please be sure to include the following information:
-        <ul>
-          <li>Name of the exercise</li>
-          <li>Technique for performing the exercise</li>
-          <li>Number of sets (must be greater than 0)</li>
-          <li>Number of reps (must be greater than 0)</li>
-        </ul>
+        <div>
+          <strong>Please provide the following information</strong>:
+          <ul>
+            <li>Name of exercise movement (must be unique)</li>
+            <li>Technique for performing the exercise</li>
+            <li>Number of sets (must be greater than 0)</li>
+            <li>Number of reps (must be greater than 0)</li>
+          </ul>
+        </div>
       </div>`
     )
     return false
