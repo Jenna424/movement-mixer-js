@@ -6,29 +6,42 @@ function EquipmentRoutine(equipmentRoutine) {
   this.weight = equipmentRoutine.weight
 }
 
-EquipmentRoutine.isValidObject = function(equipmentName, equipmentExistsInRoutine, quantity, weight) {
-  if (!equipmentName.trim().length || equipmentExistsInRoutine || !parseInt(quantity) > 0 || !(weight && parseInt(weight) > 0)) {
-    $('div#add-equipment-errors').html(
-      `<div class=\'alert alert-danger\' role=\'alert\'>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-        <strong>Your attempt to add a piece of equipment was unsuccessful</strong>.
-        <br>
-        Please be sure to supply the following information:
-        <ul>
-          <li>Name of a unique piece of equipment</li>
-          <li>Quantity required (must be greater than 0)</li>
-        </ul>
-        Optionally provide the following data, if applicable:
-        <ul>
-          <li>Weight of equipment (must be greater than 0)</li>
-        </ul>
-      </div>`
-    )
-    return false
+EquipmentRoutine.displayValidationRequirements = function() {
+  $('div#add-equipment-errors').html(
+    `<div class="alert alert-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+      <strong>Your attempt to add a piece of equipment was unsuccessful</strong>.
+      <br>
+      Please provide the following information:
+      <ul>
+        <li>Name of equipment</li>
+        <li>Quantity required (must be greater than 0)</li>
+      </ul>
+      If applicable, provide the following data:
+      <ul>
+        <li>Weight of equipment (must be greater than 0)</li>
+      </ul>
+    </div>`
+  )
+}
+
+EquipmentRoutine.isValidObject = function(equipmentName, quantity, weight) {
+  if (weight) {
+    if (!equipmentName.trim().length || !parseInt(quantity) > 0 || !(parseInt(weight) > 0)) {
+      EquipmentRoutine.displayValidationRequirements()
+      return false
+    } else {
+      return true
+    }
   } else {
-    return true
+    if (!equipmentName.trim().length || !parseInt(quantity) > 0) {
+      EquipmentRoutine.displayValidationRequirements()
+      return false
+    } else {
+      return true
+    }
   }
 }
 
@@ -147,7 +160,14 @@ EquipmentRoutine.compileErTemplate = function() {
 
 EquipmentRoutine.addEquipmentToRoutine = function(json) {
   var newEr = new EquipmentRoutine(json)
-  newEr.formatAndAppendLi()
+  var match = $("li[id^='er']").filter(function() {
+    return this.id === `er-${newEr.id}-li`
+  })
+  if (match.length) { // I'm updating an existing EquipmentRoutine instance, which already has an <li>
+    $(`li#er-${newEr.id}-li`).replaceWith(EquipmentRoutine.erTemplateFunction(newEr))
+  } else { // An entirely new piece of equipment was submitted, so a new <li> needs to be appended to the <ul>
+    newEr.formatAndAppendLi()
+  }
   displaySuccessAlert(newEr)
 }
 
