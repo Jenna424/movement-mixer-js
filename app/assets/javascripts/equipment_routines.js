@@ -9,14 +9,14 @@ function EquipmentRoutine(equipmentRoutine) {
 EquipmentRoutine.isValidObject = function(equipmentName, quantity, weight) {
   if (weight) { // if weight is NOT null (i.e. user submitted weight in number_field)
     if (!equipmentName.trim().length || !(parseInt(quantity) > 0) || !(parseInt(weight) > 0)) {
-      EquipmentRoutine.displayValidationRequirements()
+      EquipmentRoutine.displayValidationCriteria()
       return false
     } else {
       return true
     }
   } else { // weight = null (i.e. weight was NOT submitted in number_field)
     if (!equipmentName.trim().length || !(parseInt(quantity) > 0)) {
-      EquipmentRoutine.displayValidationRequirements()
+      EquipmentRoutine.displayValidationCriteria()
       return false
     } else {
       return true
