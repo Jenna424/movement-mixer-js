@@ -153,15 +153,12 @@ Routine.addEquipmentToExistingWorkout = function() {
   $('form.add-equipment-form').on('submit', function(e) {
     e.preventDefault()
     let equipmentName = $(this).find('input[type=text]').val()
-    let equipmentMatches = $('span.equipment-name').filter(function() {
-      return this.innerText === equipmentName
-    })
-    let equipmentExistsInRoutine = equipmentMatches.length
     let action = $(this).attr('action') // "/routines/:id"
     let formData = $(this).serialize()
     let quantity = $(this).find('input[id$=equipment_routines_quantity]').val()
     let weight = $(this).find('input[id$=equipment_routines_weight]').val()
-    if (EquipmentRoutine.isValidObject(equipmentName, equipmentExistsInRoutine, quantity, weight)) {
+    $(this).find('input[type=text], input[type=number]').val('')
+    if (EquipmentRoutine.isValidObject(equipmentName, quantity, weight)) {
       $.ajax({
         url: action,
         method: 'PATCH',
