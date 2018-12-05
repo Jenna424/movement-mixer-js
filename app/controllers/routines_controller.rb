@@ -57,7 +57,7 @@ class RoutinesController < ApplicationController
           render json: last_updated_mr
         end
       end
-    end 
+    end
   end
 
   def edit_movement_routine # get '/mrs/:id/edit'
