@@ -7,7 +7,8 @@
 
 <div class="field">
   <%= f.label :difficulty_level, "How would you rate the difficulty level of this workout?" %>:
-  <%= f.select :difficulty_level, options_for_select(["Beginner", "Intermediate", "Advanced"]), prompt: "Difficulty Level" %>
+  <%= f.select :difficulty_level, options_for_select(["Beginner", "Intermediate", "Advanced"], selected: f.object.difficulty_level), 
+  prompt: "Difficulty Level" %>
 </div>
 
 <br>
