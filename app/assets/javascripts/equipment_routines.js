@@ -16,7 +16,7 @@ EquipmentRoutine.displayValidationCriteria = function() {
       <div>
         <strong>Please provide the following information</strong>:
         <ul>
-          <li>Type of equipment (must be unique)</li>
+          <li>Type of equipment</li>
           <li>Quantity required (must be greater than 0)</li>
         </ul>
       </div>
