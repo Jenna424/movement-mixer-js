@@ -169,7 +169,7 @@ EquipmentRoutine.addEquipmentToRoutine = function(json) {
     return this.id === `er-${newEr.id}-li`
   })
   if (match.length) { // I'm updating an existing EquipmentRoutine instance, which already has an <li>
-    $(`li#er-${newEr.id}-li`).replaceWith(EquipmentRoutine.erTemplateFunction(newEr))
+    newEr.formatQuantityAndWeight()
   } else { // An entirely new piece of equipment was submitted, so a new <li> needs to be appended to the <ul>
     newEr.formatAndAppendLi()
   }
@@ -179,5 +179,5 @@ EquipmentRoutine.addEquipmentToRoutine = function(json) {
 EquipmentRoutine.prototype.formatAndAppendLi = function() {
   var $equipmentList = $('ul.required-equipment') // get the <ul> that contains all of the equipment used in the routine
   var erLiHtml = EquipmentRoutine.erTemplateFunction(this) // store the Handlebars template w/ values injected from key/value pairs of newEr object (this)
-  $equipmentList.append(erLiHtml) // appending the <li> for the new equipment/ER to the <ul> containing all equipment used in the routine 
+  $equipmentList.append(erLiHtml) // appending the <li> for the new equipment to the <ul> containing all equipment used in the routine 
 }
