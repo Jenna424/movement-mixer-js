@@ -35,7 +35,7 @@ User.loadUserRoutines = function(userObject) {
 
 User.loadUserGuides = function(userObject) {
   const $userGuidesDiv = $('div#belongs-to-user')
-  $userGuidesDiv.html(`<h3>Training Guides Designed by ${userObject.name}</h3>`)
+  $userGuidesDiv.html(`<p>Here are some personal training pointers from ${userObject.name}:</p>`)
   userObject.guides.forEach(function(guideObject) {
     $userGuidesDiv.append(Guide.guideTemplateFunction(guideObject))
   })
