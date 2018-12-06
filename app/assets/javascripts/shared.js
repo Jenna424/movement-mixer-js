@@ -11,7 +11,7 @@ function displaySuccessAlert(jsonObject) { // argument is JSON object representa
   if (jsonObject.constructor.name === 'EquipmentRoutine') {
     alertMessage = 'You successfully modified the fitness equipment requirements of this workout!' // an existing piece of equipment was updated, or a new piece of equipment was added
   }
-  $('div#success-container').html(
+  $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">×</span>
