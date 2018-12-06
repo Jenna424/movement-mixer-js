@@ -6,8 +6,8 @@ function User(user) {
   this.guides = user.guides
 }
 
-$(function() {
-  User.loadBelongsToListener() // A workout routine belongs_to a client, and a training guide belongs_to a trainer.
+$(() => {
+  User.belongsToListener()
 })
 
 User.loadBelongsToListener = function() {
