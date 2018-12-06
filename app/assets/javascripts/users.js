@@ -26,8 +26,8 @@ const loadBelongsToDeclarer = () => {
 }
 
 User.loadUserRoutines = function(userObject) {
-  var $userRoutinesDiv = $('div#belongs-to-association')
-  $userRoutinesDiv.html(`<h4><strong>Workout Routines Designed by ${userObject.name}</strong></h4>`)
+  const $userRoutinesDiv = $('div#belongs-to-user') // variables declared with const are immutable, but the value of the variable CAN change, e.g., $userRoutinesDiv will always point to div#belongs-to-user, but the contents of the div change as routines are appended to it in the iteration
+  $userRoutinesDiv.html(`<h3>Workout Routines Designed by ${userObject.name}</h3>`)
   userObject.routines.forEach(function(routineObject) {
     $userRoutinesDiv.append(Routine.routineTemplateFunction(routineObject))
   })
