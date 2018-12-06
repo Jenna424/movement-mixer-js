@@ -185,14 +185,21 @@ Routine.indexListener = function() {
 // routinesArray parameter below = JSON object representation of AR::Relation of all routine instances
 Routine.indexWorkouts = function(routinesArray) {
   if (routinesArray.length) { // truthy if length is > 0 (The Index of Workout Routines is NOT empty)
-    $('div.container').append('<h4>Index of Workout Routines</h4><br>')
+    $('div.container').html('<h4>Index of Workout Routines</h4><br>')
     routinesArray.forEach(function(routineObject) {
       let newRoutine = new Routine(routineObject);
       let routineHtml = newRoutine.formatForIndex()
       $('div.container').append(routineHtml)
     })
   } else { // routinesArray.length === 0 (0 is falsy in JavaScript)
-    $('div.container').append('<p>The Index of Workout Routines is currently empty.</p>')
+    $('div.container').html(`
+      <div class="alert alert-warning" role="alert">
+        The Index of Workout Routines is currently empty.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>`
+    )
   }
 }
 
