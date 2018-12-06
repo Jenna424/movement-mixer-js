@@ -13,7 +13,7 @@ $(() => {
 const loadBelongsToDeclarer = () => {
   $('div#designer-data').on('click', 'a[class^=load-user]', function(e) {
     e.preventDefault() // prevent the default behavior of clicking the link, which would have been a normal HTTP GET request to "/users/:id", redirecting to the user show page and redrawing the DOM 
-    var id = $(this).data('id') // stores the id of the user whose workout routines/training guides we want to view
+    let id = $(this).data('id') // stores the id of the user whose workout routines/training guides we want to view
     var loadAssociationFunction = User.loadUserRoutines
     if ($(this).attr('class').split('-')[2] === 'guides') {
       loadAssociationFunction = User.loadUserGuides
