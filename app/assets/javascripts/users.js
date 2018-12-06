@@ -11,7 +11,7 @@ $(() => {
 })
 
 const loadBelongsToDeclarer = () => {
-  $('div#user-designs').on('click', "a[class^='load-user']", function(e) {
+  $('div#designer-data').on('click', "a[class^='load-user']", function(e) {
     e.preventDefault()
     var id = $(this).data('id') // stores the id of the user whose workout routines/training guides we want to view
     var loadAssociationFunction = User.loadUserRoutines
