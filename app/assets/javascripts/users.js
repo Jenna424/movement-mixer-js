@@ -7,9 +7,9 @@ function User(user) {
 }
 
 $(() => {
-  loadBelongsToDeclarer()
+  loadBelongsToDeclarer() // A workout routine belongs_to a client, and a training guide belongs_to a trainer
 })
-// function loads the index of workout routines that belongs_to a client or the index of training guides that belongs_to a trainer
+
 const loadBelongsToListener = () => {
   $('div#user-designs').on('click', "a[class^='load-user']", function(e) {
     e.preventDefault()
