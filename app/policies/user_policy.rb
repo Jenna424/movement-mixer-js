@@ -1,4 +1,18 @@
 class UserPolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      if user.admin? # An admin sees every user on the index page
+        scope.all
+      elsif user.trainer? # A trainer only sees her own clients on users index page
+        scope.where(id: user.clients)
+      elsif user.client? # A client sees all trainers (i.e. users with role = 2) on the users index page
+        scope.where(role: 2)
+      elsif user.unassigned?
+        scope.none
+      end
+    end
+  end
+
   def new?
     true unless user
   end
@@ -12,7 +26,9 @@ class UserPolicy < ApplicationPolicy
       true
     elsif user.trainer? # A trainer can see her own show page and her own clients' show pages
       oneself || record.trainer == user
-    elsif user.client? # A client can see her own show page
+    elsif user.client? # A client can see her own show page and all trainers' show pages
+      oneself || record.trainer?
+    elsif user.unassigned? # An unassigned user can only see her own profile page
       oneself
     end
   end
