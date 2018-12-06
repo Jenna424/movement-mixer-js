@@ -31,6 +31,7 @@ User.loadUserRoutines = function(userObject) {
   userObject.routines.forEach(function(routineObject) {
     $userRoutinesDiv.append(Routine.routineTemplateFunction(routineObject))
   })
+  $userRoutinesDiv.addClass('blue-belongs-to')
 }
 
 User.loadUserGuides = function(userObject) {
@@ -39,4 +40,5 @@ User.loadUserGuides = function(userObject) {
   userObject.guides.forEach(function(guideObject) {
     $userGuidesDiv.append(Guide.guideTemplateFunction(guideObject))
   })
+  $userGuidesDiv.addClass('blue-belongs-to')
 }
