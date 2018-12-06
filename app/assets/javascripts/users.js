@@ -7,10 +7,10 @@ function User(user) {
 }
 
 $(() => {
-  User.belongsToListener()
+  loadBelongsToDeclarer()
 })
-
-User.loadBelongsToListener = function() {
+// function loads the index of workout routines that belongs_to a client or the index of training guides that belongs_to a trainer
+const loadBelongsToListener = () => {
   $('div#user-designs').on('click', "a[class^='load-user']", function(e) {
     e.preventDefault()
     var id = $(this).data('id') // stores the id of the user whose workout routines/training guides we want to view
