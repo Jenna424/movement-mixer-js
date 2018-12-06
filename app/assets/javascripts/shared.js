@@ -19,7 +19,7 @@ function displaySuccessAlert(jsonObject) { // argument is JSON object representa
       ${alertMessage}
     </div>`
   )
-  document.getElementById('success-container').scrollIntoView()
+  document.getElementById('message-container').scrollIntoView()
 }
 
 function checkValidityOfJoinTableAttrs(jqXhrObject) {
