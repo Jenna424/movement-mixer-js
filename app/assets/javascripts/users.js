@@ -21,7 +21,6 @@ const loadBelongsToDeclarer = () => {
     $(this).hide() // hide the link (a.load-user-routines or a.load-user-guides) once it's been clicked
     $.get(`/users/${id}.json`)
       .done(loadAssociationFunction)
-    $('div#belongs-to-user').addClass('blue-belongs-to') // adds light blue background to div#belongs-to-user, which contains routines/guides that belong to the user
   })
 }
 
