@@ -10,7 +10,7 @@ $(() => {
   loadBelongsToDeclarer() // A workout routine belongs_to a client, and a training guide belongs_to a trainer
 })
 
-const loadBelongsToListener = () => {
+const loadBelongsToDeclarer = () => {
   $('div#user-designs').on('click', "a[class^='load-user']", function(e) {
     e.preventDefault()
     var id = $(this).data('id') // stores the id of the user whose workout routines/training guides we want to view
