@@ -21,6 +21,7 @@ const loadBelongsToDeclarer = () => {
     $(this).hide() // hide the link (a.load-user-routines or a.load-user-guides) once it's been clicked
     $.get(`/users/${id}.json`)
       .done(loadAssociationFunction)
+      .fail(handleError)
   })
 }
 
