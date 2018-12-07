@@ -57,6 +57,7 @@ User.destroyListener = function() {
         data: $(this).serialize()
       })
        .done(User.destroy)
+       .fail(handleError)
     }
   })
 }
