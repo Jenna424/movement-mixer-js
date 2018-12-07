@@ -21,7 +21,7 @@
   <% end %>
 <% end %>
 
-<% if policy(@user).destroy? && !@user.admin? %>
+<% if policy(@user).destroy? && !@user.admin? && !current_user.admin? %>
   <%= button_to user_path(@user), method: :delete, class: "btn btn-sm btn-default delete-account", form: {style: 'display:inline-block'} do %>
     <%= content_tag(:span, nil, class: "glyphicon glyphicon-trash") %> <%= content_tag(:small, "Delete Account") %>
   <% end %>
