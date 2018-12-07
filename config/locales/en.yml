@@ -8,4 +8,5 @@ en:
       index?: "Access denied! Only professional fitness trainers can manage Movement Mixer's Index of Workout Target Areas!"
     user_policy:
       show?: "Access denied! You are not authorized to view that user's profile page."
+      edit?: "Access denied! You are not authorized to edit that user's account information."
       destroy?: "As an admin, you cannot delete your own account!"
