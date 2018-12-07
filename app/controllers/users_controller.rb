@@ -26,6 +26,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    authorize @user
+  end
+
   def update
     authorize @user # retrieved from before_action :set_user
     if current_user.admin? && @user.unassigned? && params[:user][:role] != "unassigned"
