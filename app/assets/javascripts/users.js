@@ -114,5 +114,5 @@ User.prototype.deleteProfilePage = function() {
       <p mb-0>And remember – always finish <em><strong>strong</strong>!</em></p>
     </div>`
   )
-  displayNavbarAfterLogout()
+  setLoggedOutLinks()
 }
