@@ -1,3 +1,10 @@
+function displayNavbarAfterLogout() {
+  $('ul.nav').html(
+    `<li><a href='/signup'>Register Now!</a></li>
+    <li><a href='/login'>Log In</li>`
+  )
+}
+
 function handleError(jqXHR, textStatus, errorThrown) {
   var errorMessage = `The following error occurred: ${jqXHR.statusText} (status code ${jqXHR.status})`
   if (jqXHR.responseText.length) {
