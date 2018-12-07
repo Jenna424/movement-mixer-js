@@ -16,7 +16,7 @@
 </div>
 
 <% if policy(@user).edit? %>
-  <%= button_to edit_user_path(@user), class: "btn btn-default btn-sm", form: {style: 'display:inline-block;'} do %>
+  <%= button_to edit_user_path(@user), method: :get, class: "btn btn-default btn-sm", form: {style: 'display:inline-block;'} do %>
     <%= content_tag(:span, nil, class: "glyphicon glyphicon-edit") %> <%= content_tag(:small, "Edit Account") %>
   <% end %>
 <% end %>
