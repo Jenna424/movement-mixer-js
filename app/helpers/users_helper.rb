@@ -18,4 +18,8 @@ module UsersHelper
       "#{user.name} must be assigned a role in order to connect with the Movement Mixer community."
     end
   end
+
+  def submit_button_text
+    action_name == "new" ? "Submit Registration Form" : "Update Your Account"
+  end
 end
