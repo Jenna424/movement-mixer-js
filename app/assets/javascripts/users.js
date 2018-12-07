@@ -83,4 +83,12 @@ User.destroy = function(userJson) {
 
 User.prototype.deleteTableRow = function() {
   $(`#user-${this.id}-row`).remove()
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+      ${this.name}'s account was successfully deleted!
+    </div>`
+  )
 }
