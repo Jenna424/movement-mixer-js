@@ -1,4 +1,10 @@
-.blue-belongs-to {
+/* On the user show page, div#belongs-to-user is light blue when it contains the client's routines */
+.client-routines {
   background-color: #F0F8FF;
+  padding: 20px;
+}
+/* On the user show page, div#belongs-to-user is light green when it contains the trainer's guides */
+.trainer-guides {
+  background-color: #e6ffed;
   padding: 20px;
 }
