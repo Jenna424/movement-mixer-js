@@ -43,3 +43,24 @@ User.loadUserGuides = function(userObject) {
   })
   $userGuidesDiv.addClass('trainer-guides')
 }
+
+User.destroyListener = function() {
+  $('.delete-account').parent().on('submit', function(e) {
+    e.preventDefault()
+    $.ajax({
+      url: $(this).attr('action'), // "/users/:id"
+      method: 'DELETE',
+      dataType: 'json',
+      data: $(this).serialize()
+    })
+    .done(User.destroy)
+  })
+}
+//<form style="display:inline-block" class="button_to" method="post" action="/users/:id">
+//  <input type="hidden" name="_method" value="delete">
+//  <button data-confirm="This account will be permanently deleted. Are you sure you want to proceed?" 
+//  class="btn btn-sm btn-default delete-account" type="submit">
+//    <span class="glyphicon glyphicon-trash"></span> <small>Delete Account</small>
+//  </button>
+//  <input type="hidden" name="authenticity_token" value="string authenticity token here==">
+//</form>
