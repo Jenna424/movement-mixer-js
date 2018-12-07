@@ -92,3 +92,24 @@ User.prototype.deleteTableRow = function() {
     </div>`
   )
 }
+
+User.prototype.deleteProfilePage = function() {
+  var farewell = `Thank you for planning your workouts with Movement Mixer, ${this.name}!`
+  if (this.role === 'trainer') {
+    farewell = `Thank you for providing training tips, ${this.name}!`
+  } else if (this.role === 'unassigned') {
+    farewell = `The Movement Mixer community bids you farewell.`
+  }
+  $('div.container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+      <h4 class="alert-heading">Your account was successfully deleted.</h4>
+      <p>${farewell}</p>
+      <hr>
+      <p mb-0>And remember – always finish <em><strong>strong</strong>!</em></p>
+    </div>`
+  )
+  displayNavbarAfterLogout()
+}
