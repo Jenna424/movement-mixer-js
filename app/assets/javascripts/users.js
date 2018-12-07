@@ -47,13 +47,15 @@ User.loadUserGuides = function(userObject) {
 User.destroyListener = function() {
   $('.delete-account').parent().on('submit', function(e) {
     e.preventDefault()
-    $.ajax({
-      url: $(this).attr('action'), // "/users/:id"
-      method: 'DELETE',
-      dataType: 'json',
-      data: $(this).serialize()
-    })
-    .done(User.destroy)
+    if (confirm('This account will be permanently deleted if you choose to proceed.')) {
+      $.ajax({
+        url: $(this).attr('action'), // "/users/:id"
+        method: 'DELETE',
+        dataType: 'json',
+        data: $(this).serialize()
+      })
+       .done(User.destroy)
+    }
   })
 }
 //<form style="display:inline-block" class="button_to" method="post" action="/users/:id">
