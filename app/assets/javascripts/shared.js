@@ -1,4 +1,4 @@
-function displayNavbarAfterLogout() {
+const setLoggedOutLinks = () => {
   $('ul.nav').html(
     `<li><a href='/signup'>Register Now!</a></li>
     <li><a href='/login'>Log In</li>`
