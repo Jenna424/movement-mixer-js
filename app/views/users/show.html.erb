@@ -14,3 +14,16 @@
 
 <div id="belongs-to-user">
 </div>
+
+<% if policy(@user).edit? %>
+  <%= button_to edit_user_path(@user), class: "btn btn-default btn-sm", form: {style: 'display:inline-block;'} do %>
+    <%= content_tag(:span, nil, class: "glyphicon glyphicon-edit") %> <%= content_tag(:small, "Edit Account") %>
+  <% end %>
+<% end %>
+
+<% if policy(@user).destroy? && !@user.admin? %>
+  <%= button_to user_path(@user), method: :delete, class: "btn btn-sm btn-default delete-account", form: {style: 'display:inline-block'} do %>
+    <%= content_tag(:span, nil, class: "glyphicon glyphicon-trash") %> <%= content_tag(:small, "Delete Account") %>
+  <% end %>
+<% end %>
+<!-- Do not display Delete Account button on the admin's show page since the admin cannot delete her own account -->
