@@ -96,7 +96,7 @@ User.prototype.deleteTableRow = function() {
 }
 
 User.prototype.deleteProfilePage = function() {
-  var farewell = `Thank you for planning your workouts with Movement Mixer, ${this.name}!`
+  let farewell = `Thank you for planning your workouts with Movement Mixer, ${this.name}!`
   if (this.role === 'trainer') {
     farewell = `Thank you for providing training tips, ${this.name}!`
   } else if (this.role === 'unassigned') {
