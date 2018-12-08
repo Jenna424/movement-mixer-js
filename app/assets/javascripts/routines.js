@@ -33,7 +33,6 @@ Routine.bindEventListeners = function() {
   Routine.createListener()
   Routine.addExerciseToExistingWorkout()
   Routine.addEquipmentToExistingWorkout()
-  //Routine.addAssociationToExistingWorkout()
   Routine.indexListener()
   Routine.destroyListener()
 }
@@ -94,38 +93,7 @@ Routine.revealErrors = function(jqXhrObject) {
     console.error("An error occurred:\nStatus Text:", jqXhrObject.statusText, "\nResponse Text:", jqXhrObject.responseText.substring(0, 40))
   }
 }
-// Explanation of Routine.addAssociationToExistingWorkout function below (which replaced Routine.addExerciseListener AND Routine.addEquipmentListener functions)
-// On the Routine Show Page, the user can add an exercise movement to a workout routine by submitting form.add-exercise-form
-// On the Routine Edit Page, the user can add a piece of equipment to a workout routine by submitting form.add-equipment-form
-// Use jQuery to find these 2 forms whose class attribute values start with the word 'add'
-// Hijack the submit event of the form to add a new exercise movement/piece of equipment to the existing workout
-// and prevent the default submit action, which would be a normal PATCH request to "/routines/:id" (b/c I use fields_for due to many-to-many relationships)
-// set variable successCallback = MovementRoutine.addMovementToRoutine
-// $(this) = the form the user tried to submit = form.add-exercise-form or form.add-equipment-form
-// $(this).attr('class') retrieves the class attribute value of the form: either "add-exercise-form" or "add-equipment-form"
-// $(this).attr('class').split('-') returns either ["add", "exercise", "form"] or ["add", "equipment", "form"]
-// $(this).attr('class').split('-')[1] returns either "exercise" or "equipment"
-// Send AJAX PATCH request to "/routines/:id"
-// pass successCallback, (which stores either MovementRoutine.addMovementToRoutine or EquipmentRoutine.addEquipmentToRoutine) to .done() to handle a successful response to AJAX PATCH request
-// After form submission, empty textfield, textarea and numberfields in form.add-exercise-form/ empty textfield and numberfields in form.add-equipment-form
-// CHANGES START HERE
-//Routine.addAssociationToExistingWorkout = function() {
-  //$("form[class^='add']").on('submit', function(e) {
-    //e.preventDefault()
-    //var successCallback = MovementRoutine.addMovementToRoutine
-    //if ($(this).attr('class').split('-')[1] === 'equipment') {
-      //successCallback = EquipmentRoutine.addEquipmentToRoutine
-    //}
-    //$.ajax({
-      //url: $(this).attr('action'), // "/routines/:id"
-      //method: 'patch',
-      //dataType: 'json',
-      //data: $(this).serialize()
-    //})
-    //.done(successCallback)
-    //$(this).find('input[type=text], textarea, input[type=number]').val('');
-  //})
-//}
+
 Routine.addExerciseToExistingWorkout = function() {
   $('form.add-exercise-form').on('submit', function(e) {
     e.preventDefault()
