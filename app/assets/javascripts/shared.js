@@ -13,7 +13,7 @@ const handleError = (jqXHR, textStatus, errorThrown) => {
   console.error(errorMessage)
 }
 
-function addAssociationAlert(jsonObject) { // argument is JSON object representation of MovementRoutine instance or EquipmentRoutine instance
+const addAssociationAlert = (jsonObject) => { // argument is JSON object representation of MovementRoutine instance or EquipmentRoutine instance
   let alertMessage = 'You successfully modified the exercise movements that comprise this workout routine!' // an existing exercise was updated, or a new exercise was added
   if (jsonObject.constructor.name === 'EquipmentRoutine') {
     alertMessage = 'You successfully modified the fitness equipment requirements of this workout!' // an existing piece of equipment was updated, or a new piece of equipment was added
