@@ -111,7 +111,7 @@ User.prototype.deleteProfilePage = function() {
       <h4 class="alert-heading">Your account was successfully deleted.</h4>
       <p>${farewell}</p>
       <hr>
-      <p mb-0>And remember – always finish <em><strong>strong</strong>!</em></p>
+      <p mb-0>Good luck with your fitness training, and remember – always finish <em><strong>strong</strong>!</em></p>
     </div>`
   )
   setLoggedOutLinks()
