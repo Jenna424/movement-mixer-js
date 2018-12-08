@@ -51,7 +51,7 @@ Routine.addAssociationInCreateForm = function() {
     let idParts = lastInput.attr('id').split('_') // e.g. ["routine", "movements", "attributes", "0", "movement", "routines", "reps"] or ["routine", "equipment", "attributes", "0", "equipment", "routines", "weight"]
     let newIndexPosition = parseInt(idParts[3]) + 1
     let associatedObjectFields = templateFn({indexPosition: `${newIndexPosition}`})
-    $(this).before(`${associationFieldsHtml}<br>`)
+    $(this).before(`${associatedObjectFields}<br>`)
   })
 }
 
