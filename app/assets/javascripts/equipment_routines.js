@@ -110,7 +110,7 @@ EquipmentRoutine.updateListener = function() {
 EquipmentRoutine.update = function(json) { // json parameter = JSON object representation of EquipmentRoutine join table instance with quantity and weight key/value pairs updated = response from AJAX PATCH request made in EquipmentRoutine.updateListener()
   var newEr = new EquipmentRoutine(json)
   newEr.formatQuantityAndWeight()
-  displaySuccessAlert(newEr)
+  addAssociationAlert(newEr)
 }
 
 EquipmentRoutine.prototype.formatQuantityAndWeight = function() {
