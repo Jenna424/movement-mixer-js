@@ -29,7 +29,7 @@ const addAssociationAlert = (jsonObject) => { // argument is JSON object represe
   document.getElementById('message-container').scrollIntoView()
 }
 
-function checkValidityOfJoinTableAttrs(jqXhrObject) {
+const checkValidityOfJoinTableAttrs = (jqXhrObject) => {
   if (jqXhrObject.status === 422 && jqXhrObject.responseJSON) {
     var errorsArray = jqXhrObject.responseJSON.errors
     var errorsString = errorsArray.join('\n') // join array elements (string validation error messages) with a line break
