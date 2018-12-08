@@ -198,7 +198,7 @@ MovementRoutine.addMovementToRoutine = function(json) {
   } else {
     newMr.formatAndAppendDiv()
   }
-  displaySuccessAlert(newMr)
+  addAssociationAlert(newMr)
 }
 
 MovementRoutine.prototype.formatAndAppendDiv = function() {

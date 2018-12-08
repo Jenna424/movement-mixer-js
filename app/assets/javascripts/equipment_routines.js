@@ -173,7 +173,7 @@ EquipmentRoutine.addEquipmentToRoutine = function(json) {
   } else { // An entirely new piece of equipment was submitted, so a new <li> needs to be appended to the <ul>
     newEr.formatAndAppendLi()
   }
-  displaySuccessAlert(newEr)
+  addAssociationAlert(newEr)
 }
 
 EquipmentRoutine.prototype.formatAndAppendLi = function() {
