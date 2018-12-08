@@ -45,12 +45,12 @@ Routine.addAssociationInCreateForm = function() {
     if (associatedObjects === 'equipment') {
       templateFn = Routine.equipmentTemplateFunction
     }
-    let fieldsToReplicate = $(`[name^='routine[${associatedObjects}_attributes]']`)
+    let fieldsToReplicate = $(`[name^=routine[${associatedObjects}_attributes]]`)
     let lastInput = fieldsToReplicate.last() // the last <input> pertaining to either movements or equipment, e.g., input#routine_movements_attributes_0_movement_routines_reps or input#routine_equipment_attributes_0_equipment_routines_weight
     let lastId = lastInput.attr('id') // e.g. "routine_movements_attributes_0_movement_routines_reps" or "routine_equipment_attributes_0_equipment_routines_weight"
     let idParts = lastInput.attr('id').split('_') // e.g. ["routine", "movements", "attributes", "0", "movement", "routines", "reps"] or ["routine", "equipment", "attributes", "0", "equipment", "routines", "weight"]
     let newIndexPosition = parseInt(idParts[3]) + 1
-    let associationFieldsHtml = templateFn({indexPosition: `${newIndexPosition}`})
+    let associatedObjectFields = templateFn({indexPosition: `${newIndexPosition}`})
     $(this).before(`${associationFieldsHtml}<br>`)
   })
 }
