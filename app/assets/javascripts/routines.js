@@ -36,11 +36,10 @@ Routine.bindEventListeners = function() {
   Routine.indexListener()
   Routine.destroyListener()
 }
-// Routine.addAssociationInCreateForm() is called when user clicks +Exercise or +Equipment button in the form to create a new workout routine, found in app/views/routines/new.html.erb
-Routine.addAssociationInCreateForm= function() {
-  $("button[id^='add']").on('click', function(e) {
+// The function below is called when the user clicks either the +Exercise or +Equipment button in the form to create a new workout routine
+Routine.addAssociationInCreateForm = function() {
+  $('button[id^=add]').on('click', function(e) {
     e.preventDefault()
-    e.stopPropagation()
     var association = $(this).data('add-association') // either "movements" or "equipment"
     var templateFn = Routine.movementsTemplateFunction
     if (association === 'equipment') {
