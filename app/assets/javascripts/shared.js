@@ -31,10 +31,10 @@ const addAssociationAlert = (jsonObject) => { // argument is JSON object represe
 
 const checkValidityOfJoinTableAttrs = (jqXhrObject) => {
   if (jqXhrObject.status === 422 && jqXhrObject.responseJSON) {
-    var errorsArray = jqXhrObject.responseJSON.errors
-    var errorsString = errorsArray.join('\n') // join array elements (string validation error messages) with a line break
-    var attributeName = errorsArray[0].split(' ')[0]
-    var objectType = 'exercise movement'
+    let errorsArray = jqXhrObject.responseJSON.errors
+    let errorsString = errorsArray.join('\n') // join array elements (string validation error messages) with a line break
+    let attributeName = errorsArray[0].split(' ')[0]
+    let objectType = 'exercise movement'
     if (attributeName === 'Quantity' || attributeName === 'Weight') {
       objectType = 'piece of equipment'
     }
