@@ -37,7 +37,7 @@ Movement.indexListener = function() {
 Movement.indexExercises = function(movementsArray) {
   var $divContainer = $('div.container')
   if (movementsArray.length) { // The Index of Exercise Movements (i.e. Guide to Exercise) is NOT empty
-    $divContainer.html('<h4>Guide to Exercise</h4><br>')
+    $divContainer.html('<h4>Index of Exercise Movements</h4><br>')
     movementsArray.forEach(function(movementObject) {
       let newMovement = new Movement(movementObject)
       let movementHtml = newMovement.formatMoveForIndex()
