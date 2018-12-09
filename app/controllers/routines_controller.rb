@@ -111,7 +111,7 @@ class RoutinesController < ApplicationController
   def destroy # delete '/routines/:id' => 'routines#destroy'
     authorize @routine
     @routine.destroy
-    render json: @routine
+    render json: @routine, status: 200
   end
 
   private
