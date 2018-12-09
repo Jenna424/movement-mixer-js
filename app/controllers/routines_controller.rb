@@ -8,7 +8,7 @@ class RoutinesController < ApplicationController
 
   def index
     routines = policy_scope(Routine)
-    render json: routines
+    render json: routines, status: 200
   end
   
   def new
