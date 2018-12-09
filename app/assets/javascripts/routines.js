@@ -83,7 +83,7 @@ Routine.preparePreviewPage = function() {
   $('#new_routine').find('input[type=text], textarea, input[type=number]').val(''); // empty the textfields, textareas and numberfields in <form id="new_routine">, in case the user wants to create another routine
   $('#new_routine').find('input[type=checkbox]').prop('checked', false) // uncheck any previously checked checkboxes for target areas and training types
 }
-// Below, this refers to the newRoutine object on which we're calling the formatAndAppendPreview() prototype method
+// Below, this refers to the newRoutine object on which we're calling the formatAndPresentPreview() prototype method
 Routine.prototype.formatAndPresentPreview = function() {
   $('div#preview-routine').html(Routine.routineTemplateFunction(this))
   document.getElementById('preview-routine').scrollIntoView()
