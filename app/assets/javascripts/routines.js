@@ -128,8 +128,8 @@ Routine.addExerciseToExistingWorkout = function() {
         dataType: 'json',
         data: formData
       })
-      .done(MovementRoutine.addMovementToRoutine)
-      .fail(handleError)
+        .done(MovementRoutine.addMovementToRoutine)
+        .fail(handleError)
     }
   })
 }
