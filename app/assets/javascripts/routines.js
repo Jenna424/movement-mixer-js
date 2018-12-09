@@ -216,6 +216,7 @@ Routine.destroyListener = function() {
         data: $(this).serialize()
       })
         .done(Routine.destroy)
+        .fail(handleError)
     }
   })
 }
