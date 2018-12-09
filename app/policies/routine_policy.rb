@@ -1,7 +1,7 @@
 class RoutinePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.client? || user.admin? # Clients and admins view an index of ALL clients' workout routines
+      if user.unassigned? || user.client? || user.admin? # Unassigned users, clients and admins view an index of ALL clients' workout routines
         scope.all
       elsif user.trainer? # A trainer views an index of workout routines designed by HER OWN clients
         scope.where(user: user.clients)
