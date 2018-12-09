@@ -7,7 +7,7 @@ class RoutinesController < ApplicationController
   end
 
   def index
-    routines = Routine.all
+    routines = policy_scope(Routine)
     render json: routines
   end
   
