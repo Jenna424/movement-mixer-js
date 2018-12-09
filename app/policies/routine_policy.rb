@@ -1,4 +1,18 @@
 class RoutinePolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      if user.admin? # An admin views workout routines designed by ALL clients
+        scope.all
+      elsif user.trainer? # A trainer only views workout routines designed by HER OWN clients
+        scope.where(user: user.clients)
+      elsif user.client? # A client views an index of only HER OWN workout routines
+        scope.where(user: user)
+      else
+        scope.none
+      end
+    end
+  end
+
   def new?
     user.client?
   end
