@@ -2,7 +2,7 @@ en:
   pundit:
     default: "You requested a page that you cannot access."
     routine_policy:
-      new?: "Access denied! Only clients can design workout routines!"
+      new?: "Access denied! Only clients can design workout routines."
       edit?: "Access denied! You are not authorized to edit that workout routine."
     target_policy:
       new?: "Access denied! Only professional fitness trainers can create new target areas in which to classify clients' workouts!"
