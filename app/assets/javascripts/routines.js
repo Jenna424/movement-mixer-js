@@ -68,7 +68,7 @@ Routine.createListener = function() {
 Routine.createWorkout = function(routineResponse) {
   Routine.preparePreviewPage()
   let newRoutine = new Routine(routineResponse)
-  newRoutine.formatAndAppendPreview()
+  newRoutine.formatAndPresentPreview()
 }
 
 Routine.preparePreviewPage = function() {
@@ -84,7 +84,7 @@ Routine.preparePreviewPage = function() {
   $('#new_routine').find('input[type=checkbox]').prop('checked', false) // uncheck any previously checked checkboxes for target areas and training types
 }
 // Below, this refers to the newRoutine object on which we're calling the formatAndAppendPreview() prototype method
-Routine.prototype.formatAndAppendPreview = function() {
+Routine.prototype.formatAndPresentPreview = function() {
   $('div#preview-routine').append(Routine.routineTemplateFunction(this))
   document.getElementById('preview-routine').scrollIntoView()
 }
