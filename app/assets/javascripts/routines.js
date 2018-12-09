@@ -60,8 +60,8 @@ Routine.createListener = function() {
     e.preventDefault()
     let createFormData = $(this).serialize()
     $.post('/routines', createFormData)
-    .done(Routine.createWorkout)
-    .fail(Routine.revealErrors)
+      .done(Routine.createWorkout)
+      .fail(Routine.revealErrors)
   })
 }
 // Below, routineResponse parameter = JSON object representation of AR routine instance that was just created = JSON response I get back from AJAX POST request sent in Routine.createListener()
