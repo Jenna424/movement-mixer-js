@@ -72,8 +72,14 @@ Routine.createWorkout = function(routineResponse) {
 }
 
 Routine.preparePreviewPage = function() {
-  var $previewDiv = $('div#preview-routine') // div#preview-routine is always present on routines/new.html.erb
-  $previewDiv.html(`<div class=\'alert alert-success\' role=\'alert\'>Your workout routine was successfully created! You may preview your routine below:</div>`)
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+      </button>
+      Your workout routine was successfully created! You may preview your routine below:
+    </div>`
+  )
   $('#new_routine').find('input[type=text], textarea, input[type=number]').val(''); // empty the textfields, textareas and numberfields in <form id="new_routine">, in case the user wants to create another routine
   $('#new_routine').find('input[type=checkbox]').prop('checked', false) // uncheck any previously checked checkboxes for target areas and training types
 }
