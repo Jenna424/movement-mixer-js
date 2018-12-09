@@ -150,8 +150,8 @@ Routine.addEquipmentToExistingWorkout = function() {
         dataType: 'json',
         data: formData
       })
-      .done(EquipmentRoutine.addEquipmentToRoutine)
-      .fail(handleError)
+        .done(EquipmentRoutine.addEquipmentToRoutine)
+        .fail(handleError)
     }
   })
 }
