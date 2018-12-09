@@ -7,8 +7,6 @@ class RoutinePolicy < ApplicationPolicy
         scope.where(user: user.clients)
       elsif user.client? # A client views an index of only HER OWN workout routines
         scope.where(user: user)
-      else # unassigned users and viewers who are not logged in CANNOT view the Index of Workout Routines
-        scope.none
       end
     end
   end
