@@ -13,8 +13,8 @@ class Routine < ApplicationRecord
   accepts_nested_attributes_for :equipment_routines, reject_if: :all_blank, allow_destroy: true
 
   validates :title, presence: true, uniqueness: true
-  validates :difficulty_level, presence: true, inclusion: { in: ["Beginner", "Intermediate", "Advanced"] }
-  validates :duration, presence: true, numericality: { greater_than: 0 }
+  validates :difficulty_level, inclusion: { in: ["Beginner", "Intermediate", "Advanced"] }
+  validates :duration, numericality: { greater_than: 0 }
   validates :target_ids, presence: true
   validates :training_ids, presence: true
 
