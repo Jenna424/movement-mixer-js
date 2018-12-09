@@ -157,7 +157,7 @@ Routine.addEquipmentToExistingWorkout = function() {
 }
 // The link to View All Workouts is found in the navbar, which changes depending on the viewer's role and if that viewer is logged in
 Routine.indexListener = function() {
-  $('ul.nav').on('click', 'a.all-routines', function(e) {
+  $('ul.nav').on('click', 'a.index-routines', function(e) {
     e.preventDefault();
     history.replaceState(null, null, "/routines")
     fetch('/routines.json')
