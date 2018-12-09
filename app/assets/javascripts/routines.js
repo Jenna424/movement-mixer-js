@@ -40,6 +40,7 @@ Routine.bindEventListeners = function() {
 Routine.addAssociationInCreateForm = function() {
   $('button[id^=add]').on('click', function(e) {
     e.preventDefault()
+    e.stopPropagation()
     let associatedObjects = $(this).data('add-association') // either "movements" or "equipment"
     let templateFn = Routine.movementsTemplateFunction
     if (associatedObjects === 'equipment') {
@@ -81,16 +82,6 @@ Routine.preparePreviewPage = function() {
 Routine.prototype.formatAndAppendPreview = function() {
   $('div#preview-routine').append(Routine.routineTemplateFunction(this))
   document.getElementById('preview-routine').scrollIntoView()
-}
-
-Routine.revealErrors = function(jqXhrObject) {
-  if (jqXhrObject.responseJSON) { // If NOT undefined, there are validation errors
-    var validationErrorsArray = jqXhrObject.responseJSON.errors
-    var validationErrorsString = validationErrorsArray.join('\n') // join array elements (string validation error messages) with a line break
-    alert(`Your attempt to design a workout routine was unsuccessful:\n\n${validationErrorsString}`)
-  } else {
-    console.error("An error occurred:\nStatus Text:", jqXhrObject.statusText, "\nResponse Text:", jqXhrObject.responseText.substring(0, 40))
-  }
 }
 
 Routine.addExerciseToExistingWorkout = function() {
