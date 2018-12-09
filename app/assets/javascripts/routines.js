@@ -84,6 +84,28 @@ Routine.prototype.formatAndAppendPreview = function() {
   document.getElementById('preview-routine').scrollIntoView()
 }
 
+Routine.revealErrors = function(jqXhrObject) {
+  if (jqXhrObject.responseJSON) { // If NOT undefined, there are validation errors
+    let validationErrorsArray = jqXhrObject.responseJSON.errors
+    let formattedErrorsArray = validationErrorsArray.map(function(errorString) {
+      let firstTwoWords = errorString.split(' ').slice(0, 2).join(' ')
+      if (firstTwoWords === 'Movement routines' || firstTwoWords === 'Equipment routines') {
+        return errorString.split(' ').splice(2).join(' ').replace(/^\w/, character => character.toUpperCase())
+      } else if (firstTwoWords === 'Target ids') {
+        return errorString.replace('ids', 'areas')
+      } else if (firstTwoWords === 'Training ids') {
+        return errorString.replace('ids', 'types')
+      } else {
+        return errorString
+      }
+    })
+    let formattedErrorsString = formattedErrorsArray.join('\n') // join array elements (string validation error messages) with a line break
+    alert(`Your attempt to design a workout routine was unsuccessful:\n\n${formattedErrorsString}`)
+  } else {
+    console.error(`Your workout was not created because an error occurred: ${jqXhrObject.statusText} (status code ${jqXhrObject.status})`)
+  }
+}
+
 Routine.addExerciseToExistingWorkout = function() {
   $('form.add-exercise-form').on('submit', function(e) {
     e.preventDefault()
