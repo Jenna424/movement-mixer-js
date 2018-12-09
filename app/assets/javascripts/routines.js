@@ -159,7 +159,7 @@ Routine.addEquipmentToExistingWorkout = function() {
 Routine.indexListener = function() {
   $('ul.nav').on('click', 'a.index-routines', function(e) {
     e.preventDefault();
-    history.replaceState(null, null, "/routines")
+    history.pushState(null, null, "/routines")
     fetch('/routines.json')
       .then(response => response.json())
       .then(Routine.indexWorkouts)
