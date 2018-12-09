@@ -40,7 +40,6 @@ Routine.bindEventListeners = function() {
 Routine.addAssociationInCreateForm = function() {
   $('button[id^=add]').on('click', function(e) {
     e.preventDefault()
-    e.stopPropagation()
     let associatedObjects = $(this).data('add-association') // either "movements" or "equipment"
     let templateFn = Routine.movementsTemplateFunction
     if (associatedObjects === 'equipment') {
