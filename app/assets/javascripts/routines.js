@@ -155,16 +155,15 @@ Routine.addEquipmentToExistingWorkout = function() {
     }
   })
 }
-// The link to View All Workouts is found in the navbar, which changes depending on if the viewer is logged in
+// The link to View All Workouts is found in the navbar, which changes depending on the viewer's role and if that viewer is logged in
 Routine.indexListener = function() {
   $('ul.nav').on('click', 'a.all-routines', function(e) {
     e.preventDefault();
     history.replaceState(null, null, "/routines")
-    $('div.container').html('') // empty <div class="container"> so that I can replace its content with the Index of Workout Routines
     fetch('/routines.json')
       .then(response => response.json())
       .then(Routine.indexWorkouts)
-      .catch(error => console.error('The Index of Workout Routines was not retrieved because an error was detected:\n', error));
+      .catch(error => console.error('The Index of Workout Routines was not retrieved due to an error:\n', error));
   })
 }
 // routinesArray parameter below = JSON object representation of AR::Relation of all routine instances
