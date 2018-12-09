@@ -168,10 +168,19 @@ Routine.indexListener = function() {
 }
 // routinesArray parameter below = JSON object representation of AR::Relation of all routine instances
 Routine.indexWorkouts = function(routinesArray) {
-  if (routinesArray.length) { // truthy if length is > 0 (The Index of Workout Routines is NOT empty)
+  if (routinesArray === undefined || routinesArray === null) { // An unassigned user tried to view the Index of Workout Routines, but this user is not authorized to do so.
+    $('div#message-container').html(
+      `<div class="alert alert-warning" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        Access denied! You must be assigned a role before you can view the Index of Workout Routines.
+      </div>`
+    )
+  } else if (routinesArray.length) { // truthy if length is > 0 (The logged-in user is a client/trainer/admin, and the Index of Workout Routines is NOT empty)
     $('div.container').html('<h4>Index of Workout Routines</h4><br>')
     routinesArray.forEach(function(routineObject) {
-      let newRoutine = new Routine(routineObject);
+      let newRoutine = new Routine(routineObject)
       let routineHtml = newRoutine.formatForIndex()
       $('div.container').append(routineHtml)
     })
