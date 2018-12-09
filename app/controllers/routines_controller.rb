@@ -37,6 +37,7 @@ class RoutinesController < ApplicationController
   end
 
   def edit
+    authorize @routine
   end
 
   def update
