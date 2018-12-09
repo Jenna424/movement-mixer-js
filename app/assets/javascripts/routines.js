@@ -206,12 +206,12 @@ Routine.compileListWorkoutTemplate = function() {
 }
 
 Routine.destroyListener = function() {
-  $("button.delete-workout").parent().on('submit', function(e) {
+  $('button.delete-workout').parent().on('submit', function(e) {
     e.preventDefault()
     if (confirm('Are you sure you want to delete this workout routine?')) {
       $.ajax({
         url: $(this).attr('action'), // "/routines/:id"
-        method: 'delete',
+        method: 'DELETE',
         dataType: 'json',
         data: $(this).serialize()
       })
