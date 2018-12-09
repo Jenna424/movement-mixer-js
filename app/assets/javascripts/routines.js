@@ -185,7 +185,7 @@ Routine.indexWorkouts = function(routinesArray) {
       $('div.container').append(routineHtml)
     })
   } else { // routinesArray.length === 0 (0 is falsy in JavaScript)
-    $('div.container').html(`
+    $('div#message-container').html(`
       <div class="alert alert-warning" role="alert">
         The Index of Workout Routines is currently empty.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
