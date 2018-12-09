@@ -226,3 +226,15 @@ Routine.destroy = function(routineResponse) {
   $('div.container').html("<div id='message-container'></div>")
   newRoutine.appendDeleteAlert()
 }
+
+Routine.prototype.appendDeleteAlert = function() {
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+      <h4 class="alert-heading">The workout routine entitled <em>${this.title}</em> was successfully deleted.</h4>
+      <p>We hope you'll design another workout routine soon, ${this.user.name}!</p>
+    </div>`
+  )
+}
