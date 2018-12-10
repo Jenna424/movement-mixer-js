@@ -32,7 +32,7 @@ Movement.indexListener = function() {
 }
 // Below, movementsArray parameter = JSON array representation of AR::Relation of all movement instances = JSON response from fetch('/movements') call sent in Movement.indexListener()
 Movement.indexExercises = function(movementsArray) {
-  var $divContainer = $('div.container')
+  let $divContainer = $('div.container')
   if (movementsArray.length) { // The Index of Exercise Movements (i.e. Guide to Exercise) is NOT empty
     $divContainer.html('<h4>Index of Exercise Movements</h4><br>')
     movementsArray.forEach(function(movementObject) {
