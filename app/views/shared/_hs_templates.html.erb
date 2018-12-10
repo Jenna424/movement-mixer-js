@@ -120,7 +120,7 @@ which is defined in routines.js file -->
         </div>
         <input name="utf8" type="hidden" value="✓">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <input value="2" type="hidden" name="guide[user_id]" id="guide_user_id">
+        <input value="<%= current_user.id %>" type="hidden" name="guide[user_id]" id="guide_user_id">
         <div class="field">
           <label for="guide_proper_form">Train your clients to use proper form when performing this exercise</label>:
           <textarea placeholder="Add training tip to achieve proper form..." class="form-control" name="guide[proper_form]" id="guide_proper_form"></textarea>
