@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   root 'welcome#welcome'
+  get '/accounts' => 'users#accounts'
+  # Routes for Signing Up / Logging In / Logging Out:
   get '/signup' => 'users#new'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
-  get '/accounts' => 'users#accounts'
+  # Routes Mapping to Actions in MovementsController:
   get '/movements/:id/next' => 'movements#next'
   get '/movements/:id/previous' => 'movements#previous'
   get '/mrs/:id' => 'movements#show_technique'
