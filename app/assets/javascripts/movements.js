@@ -19,16 +19,15 @@ Movement.indexListener = function() {
   $('a.all-movements').on('click', function(e) {
     e.preventDefault()
     history.pushState(null, null, '/movements')
-
     let requestObject = {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include'
     }
-
     fetch('/movements', requestObject)
       .then(response => response.json())
       .then(Movement.indexExercises)
+      .catch(error => console.error('The Index of Exercise Movements could not be retrieved due to an error:\n', error))
   })
 }
 // Below, movementsArray parameter = JSON object array representation of AR::Relation of all movement instances = response from fetch('/movements.json') call sent in Movement.indexListener()
