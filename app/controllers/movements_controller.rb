@@ -24,6 +24,11 @@ class MovementsController < ApplicationController
     render json: @previous_move
   end
 
+  def show_technique # get '/mrs/:id' => 'movements#show_technique'
+    mr = MovementRoutine.find(params[:id])
+    render json: mr, status: 200
+  end
+
   private
 
     def set_movement
