@@ -8,7 +8,7 @@ function Guide(guide) {
   this.user = guide.user
 }
 
-$(function() {
+$(() => {
   Guide.bindEventListeners()
 })
 
