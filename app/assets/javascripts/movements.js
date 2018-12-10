@@ -18,11 +18,10 @@ Movement.bindClickEventListeners = function() {
 Movement.indexListener = function() {
   $('ul.nav').on('click', 'a.all-movements', function(e) {
     e.preventDefault()
-    $('div.container').html('')
-    history.replaceState(null, null, '/movements')
+    history.pushState(null, null, '/movements')
 
     let requestObject = {
-      method: 'get',
+      method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include'
     }
