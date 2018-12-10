@@ -132,7 +132,7 @@ Guide.compileGuideTemplate = function() {
   Guide.guideTemplateFunction = Handlebars.compile(Guide.guideTemplateSource)
 }
 
-Guide.destroyListener = function() {
+Guide.destroyHandler = function() {
   $('input.delete-guide').parent().on('submit', function(e) {
     e.preventDefault()
     if (confirm('Are you sure you want to delete this training guide?')) {
