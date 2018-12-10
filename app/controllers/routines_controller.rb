@@ -1,11 +1,6 @@
 class RoutinesController < ApplicationController
   before_action :set_routine, only: [:show, :edit, :update, :destroy]
 
-  def show_technique # get '/mrs/:id' => 'routines#show_technique'
-    @mr = MovementRoutine.find(params[:id])
-    render json: @mr
-  end
-
   def index
     routines = policy_scope(Routine)
     render json: routines, status: 200
