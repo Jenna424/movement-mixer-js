@@ -5,11 +5,11 @@
 
 <br>
 
-<%= button_tag class: "btn btn-sm btn-default", data: {id: @movement.id, direction: "previous"} do %>
+<%= button_tag class: "btn btn-sm btn-default", data: {id: @movement.id, direction: "previous"}, type: "button" do %>
   <%= content_tag(:span, nil, class: "glyphicon glyphicon-arrow-left") %> <%= content_tag(:span, "Previous Exercise") %>
 <% end %>
 
-<%= button_tag class: "btn btn-sm btn-default", data: {id: @movement.id, direction: "next"} do %>
+<%= button_tag class: "btn btn-sm btn-default", data: {id: @movement.id, direction: "next"}, type: "button" do %>
   <%= content_tag(:span, "Next Exercise") %> <%= content_tag(:span, nil, class: "glyphicon glyphicon-arrow-right") %>
 <% end %>
 
