@@ -1,7 +1,7 @@
 class MovementPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.client? || user.trainer? || user.admin?
+      if user.unassigned? || user.client? || user.trainer? || user.admin?
         scope.all
       else
         scope.none
@@ -10,7 +10,7 @@ class MovementPolicy < ApplicationPolicy
   end
 
   def show?
-  	if user.client? || user.trainer? || user.admin?
+  	if user.unassigned? || user.client? || user.trainer? || user.admin?
   	  scope.all
   	else
   	  scope.none
