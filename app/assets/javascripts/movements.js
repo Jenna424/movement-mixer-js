@@ -60,13 +60,6 @@ Movement.compileListExerciseTemplate = function() {
   Movement.listExerciseTemplateSource = $('#list-exercise-template').html()
   Movement.listExerciseTemplateFunction = Handlebars.compile(Movement.listExerciseTemplateSource)
 }
-// Below, movementJson parameter = JSON object representation of the movement instance we want to view without redirecting to its show page = response to AJAX GET request sent in Movement.showListener()
-// The response also includes data about the guides that belong to the movement due to has_many :guides in MovementSerializer
-Movement.show = function(movementJson) {
-  var newMovement = new Movement(movementJson)
-  var movementHtml = newMovement.formatShow()
-  $('div.container').append(movementHtml)
-}
 
 Movement.compileShowExerciseTemplate = function() {
   Movement.showExerciseTemplateSource = $('#show-exercise-template').html()
