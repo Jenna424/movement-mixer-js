@@ -33,16 +33,16 @@ Movement.indexListener = function() {
 // Below, movementsArray parameter = JSON array representation of AR::Relation of all movement instances = JSON response from fetch('/movements') call sent in Movement.indexListener()
 Movement.indexExercises = function(movementsArray) {
   let $divContainer = $('div.container')
-  if (movementsArray.length) { // The Index of Exercise Movements (i.e. Guide to Exercise) is NOT empty
+  if (movementsArray.length) { // The Index of Exercise Movements is NOT empty
     $divContainer.html('<h4>Index of Exercise Movements</h4><br>')
     movementsArray.forEach(function(movementObject) {
       let newMovement = new Movement(movementObject)
       let movementHtml = newMovement.formatMoveForIndex()
       $divContainer.append(movementHtml)
     })
-  } else { // movementsArray.length === 0 (falsy value), meaning that the Index of Exercise Movements is currently empty
-    $divContainer.html(`
-      <div class="alert alert-warning" role="alert">
+  } else { // movementsArray.length === 0 (falsy value), meaning that the Index of Exercise Movements is empty
+    $divContainer.html(
+      `<div class="alert alert-warning" role="alert">
         The Index of Exercise Movements is currently empty.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">×</span>
