@@ -2,7 +2,7 @@ class MovementsController < ApplicationController
   before_action :set_movement, only: [:show, :next, :previous]
 
   def index
-    movements = policy_scope(Movement)
+    movements = Movement.all # unassigned users, clients, trainers and admins can all view the Index of Exercise Movements
     render json: movements, status: 200
   end
 
