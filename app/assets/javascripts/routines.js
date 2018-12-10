@@ -170,14 +170,14 @@ Routine.indexListener = function() {
 Routine.indexWorkouts = function(routinesArray) {
   let $divContainer = $('div.container')
   if (routinesArray.length) { // truthy if length is > 0, i.e., the Index of Workout Routines is NOT empty
-    $('div.container').html('<h4>Index of Workout Routines</h4><br>')
+    $divContainer.html('<h4>Index of Workout Routines</h4><br>')
     routinesArray.forEach(function(routineObject) {
       let newRoutine = new Routine(routineObject)
       let routineHtml = newRoutine.formatForIndex()
-      $('div.container').append(routineHtml)
+      $divContainer.append(routineHtml)
     })
   } else { // routinesArray.length === 0, a falsy value in JavaScript
-    $('div#message-container').html(`
+    $divContainer.html(`
       <div class="alert alert-warning" role="alert">
         The Index of Workout Routines is currently empty.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
