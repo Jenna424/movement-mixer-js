@@ -105,7 +105,9 @@ which is defined in routines.js file -->
     <span>Next Exercise</span> <span class="glyphicon glyphicon-arrow-right"></span>
   </button>
   <br><br>
-  <a class="exercise-guides" href="movements/{{id}}/guides" data-id="{{id}}">View Training Guides</a>
+  {{#if guides.length}}
+    <a class="exercise-guides" href="movements/{{id}}/guides" data-id="{{id}}">View Training Guides</a>
+  {{/if}}
   <div id="training-guides">
   </div>
   <br>
