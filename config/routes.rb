@@ -14,19 +14,16 @@ Rails.application.routes.draw do
   get '/mrs/:id/edit' => 'routines#edit_movement_routine'
   patch '/mrs/:id' => 'routines#update_movement_routine'
   delete '/mrs/:id' => 'routines#destroy_movement_routine'
-  # --- Editing, Updating & Deleting User-Submittable Attributes Stored in equipment_routines Join Model ---
+  # --- Editing, Updating & Deleting User-Submittable Attributes Stored in equipment_routines Join Table ---
   get '/ers/:id/edit' => 'routines#edit_equipment_routine'
   patch '/ers/:id' => 'routines#update_equipment_routine'
   delete '/ers/:id' => 'routines#destroy_equipment_routine'
   # RESTful Routes:
   resources :users, except: [:new]
-  resources :routines do
-  	resources :results
-  end
+  resources :routines
   resources :movements, only: [:index, :show] do
     resources :guides
   end
-
   resources :targets, only: [:new, :create, :index, :destroy]
   resources :trainings, only: [:new, :create, :index, :destroy]
 end
