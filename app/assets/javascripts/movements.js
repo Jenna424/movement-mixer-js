@@ -76,6 +76,7 @@ Movement.showNextOrPreviousListener = function() {
     fetch(`/movements/${currentMovementId}/${direction}`)
       .then(response => response.json())
       .then(Movement.displayExercise)
+      .catch(error => console.error('The exercise movement could not be retrieved due to an error:\n', error))
   })
 }
 
