@@ -12,7 +12,6 @@ $(() => {
 
 Movement.bindClickEventListeners = function() {
   Movement.indexListener()
-  Movement.showListener()
   Movement.showNextOrPreviousListener()
 }
 
@@ -62,31 +61,6 @@ Movement.prototype.formatMoveForIndex = function() {
 Movement.compileListExerciseTemplate = function() {
   Movement.listExerciseTemplateSource = $('#list-exercise-template').html()
   Movement.listExerciseTemplateFunction = Handlebars.compile(Movement.listExerciseTemplateSource)
-}
-// Explanation of Movement.showListener
-// On the routine show page, the user can click a link to view a particular exercise movement included in that workout routine,
-// at which point an AJAX GET request is made to "/movements/:id", so we can see the movement's "show page" without a page refresh.
-// The link to show a particular exercise movement is not necessarily in the DOM on initial payload, 
-// depending on what exercise movements are included in the workout routine.
-// Also, movements are constantly being added to/deleted from a workout routine.
-// Therefore, call .on() on div.panel-body, which is always on the routine show page, and then see if the user clicked a.show-exercise
-// Prevent the default behavior, which would be a normal HTTP GET request to "/movements/:id"
-// Once the link to see a movement is clicked, empty out div.container, i.e., clear the page so I can eventually replace page content with info about that exercise movement
-// $(this) = the show-exercise link that was clicked, which has an href attribute value = "/movements/ID OF MOVEMENT TO VIEW GOES HERE"
-// $(this).attr('href') retrieves the string URL href attribute value, which I then split at the slash .split('/') to get an array.
-// The element at index 2 of this array = the id of the movement I want to view
-// store id of movement to be viewed in id variable
-// Using jQuery .get() method, make AJAX GET request to "/movements/id-of-movement-to-view"
-Movement.showListener = function() {
-  $('div.panel-body').on('click', 'a.show-exercise', function(e) {
-    e.preventDefault()
-    $('div.container').html('')
-    var id = $(this).attr('href').split('/')[2]
-    history.replaceState(null, null, `/movements/${id}`)
-    $.get(`/movements/${id}`)
-    .done(Movement.show)
-    .fail(error => console.error('The exercise movement failed to load due to an error:\n', error.statusText))
-  })
 }
 // Below, movementJson parameter = JSON object representation of the movement instance we want to view without redirecting to its show page = response to AJAX GET request sent in Movement.showListener()
 // The response also includes data about the guides that belong to the movement due to has_many :guides in MovementSerializer
