@@ -2,6 +2,7 @@ class Movement < ApplicationRecord
   has_many :guides, dependent: :destroy
   has_many :movement_routines, dependent: :destroy
   has_many :routines, through: :movement_routines
+  validates :name, presence: true, uniqueness: true
 
   def next
     movement = Movement.where("id > ?", id).first
