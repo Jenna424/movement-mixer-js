@@ -24,7 +24,7 @@ Routine.compileCreateTemplates = function() {
   Routine.equipmentTemplateFunction = Handlebars.compile(Routine.equipmentTemplateSource);
 }
 
-$(function() {
+$(() => {
   Routine.bindEventListeners()
 })
 
