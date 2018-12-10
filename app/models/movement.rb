@@ -3,13 +3,6 @@ class Movement < ApplicationRecord
   has_many :movement_routines, dependent: :destroy
   has_many :routines, through: :movement_routines
 
-  # Instance method #position_in_routine(routine) is called on a movement instance (self)
-  # to find its numeric position in the specified routine passed in as the method's argument
-
-  def display_technique(routine)
-    self.movement_routines.find_by(routine: routine).technique
-  end
-
   def next
     movement = Movement.where("id > ?", id).first
     movement ? movement : Movement.first
