@@ -19,7 +19,7 @@ Guide.bindEventHandlers = function() {
 }
 
 Guide.isValidObject = function(properForm, breathingTechnique, modification, challenge) {
-  var $guideAlertsDiv = $('div.container').find('div#guide-alerts')
+  let $guideAlertsDiv = $('div.container').find('div#guide-alerts')
   if (properForm.trim().length === 0 || breathingTechnique.trim().length === 0 || modification.trim().length === 0 || challenge.trim().length === 0) {
     $guideAlertsDiv.html('<div class=\'alert alert-danger\' role=\'alert\'>A valid training guide <strong>must</strong> specify the proper form and breathing technique for performing an exercise, and it <strong>must</strong> propose a modification and a challenge.</div>')
     return false
