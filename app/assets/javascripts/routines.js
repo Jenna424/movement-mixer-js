@@ -168,6 +168,7 @@ Routine.indexListener = function() {
 }
 // routinesArray parameter below = JSON object representation of AR::Relation of all routine instances
 Routine.indexWorkouts = function(routinesArray) {
+  let $divContainer = $('div.container')
   if (routinesArray.length) { // truthy if length is > 0, i.e., the Index of Workout Routines is NOT empty
     $('div.container').html('<h4>Index of Workout Routines</h4><br>')
     routinesArray.forEach(function(routineObject) {
