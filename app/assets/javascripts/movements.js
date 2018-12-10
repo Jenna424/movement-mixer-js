@@ -63,8 +63,8 @@ Movement.compileListExerciseTemplate = function() {
 // <button type="button"> has no default behavior, so I don't need to include e.preventDefault() below
 Movement.showNextOrPreviousListener = function() {
   $('div.container').on('click', 'button[data-direction]', function(e) {
-    var currentMovementId = $(this).data('id')
-    var direction = 'previous'
+    let currentMovementId = $(this).data('id')
+    let direction = 'previous'
     if ($(this).data('direction') === 'next') {
       direction = 'next'
     }
