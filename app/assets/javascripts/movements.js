@@ -14,9 +14,9 @@ Movement.bindClickEventListeners = function() {
   Movement.indexListener()
   Movement.showNextOrPreviousListener()
 }
-
+// The link to View All Exercises is ALWAYS found in the navigation on initial payload when the logged-in user is unassigned/client/trainer/admin
 Movement.indexListener = function() {
-  $('ul.nav').on('click', 'a.all-movements', function(e) {
+  $('a.all-movements').on('click', function(e) {
     e.preventDefault()
     history.pushState(null, null, '/movements')
 
