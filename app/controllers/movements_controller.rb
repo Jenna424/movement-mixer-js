@@ -15,13 +15,13 @@ class MovementsController < ApplicationController
   end
 
   def next # @movement is retrieved from before_action :set_movement
-    @next_move = @movement.next
-    render json: @next_move, status: 200
+    next_move = @movement.next
+    render json: next_move, status: 200
   end
 
   def previous # @movement is retrieved from before_action :set_movement
-    @previous_move = @movement.previous
-    render json: @previous_move, status: 200
+    previous_move = @movement.previous
+    render json: previous_move, status: 200
   end
 
   def show_technique # get '/mrs/:id' => 'movements#show_technique'
