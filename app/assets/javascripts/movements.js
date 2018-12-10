@@ -60,10 +60,9 @@ Movement.compileListExerciseTemplate = function() {
   Movement.listExerciseTemplateSource = $('#list-exercise-template').html()
   Movement.listExerciseTemplateFunction = Handlebars.compile(Movement.listExerciseTemplateSource)
 }
-
+// <button type="button"> has no default behavior, so I don't need to include e.preventDefault() below
 Movement.showNextOrPreviousListener = function() {
   $('div.container').on('click', 'button[data-direction]', function(e) {
-    e.preventDefault()
     var currentMovementId = $(this).data('id')
     var direction = 'previous'
     if ($(this).data('direction') === 'next') {
