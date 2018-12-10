@@ -7,10 +7,10 @@ function Movement(movement) {
 }
 
 $(() => {
-	Movement.bindClickEventHandlers()
+	Movement.bindClickEventListeners()
 })
 
-Movement.bindClickEventHandlers = function() {
+Movement.bindClickEventListeners = function() {
   Movement.indexListener()
   Movement.showListener()
   Movement.showNextOrPreviousListener()
