@@ -61,11 +61,6 @@ Movement.compileListExerciseTemplate = function() {
   Movement.listExerciseTemplateFunction = Handlebars.compile(Movement.listExerciseTemplateSource)
 }
 
-Movement.compileShowExerciseTemplate = function() {
-  Movement.showExerciseTemplateSource = $('#show-exercise-template').html()
-  Movement.showExerciseTemplateFunction = Handlebars.compile(Movement.showExerciseTemplateSource)
-}
-
 Movement.showNextOrPreviousListener = function() {
   $('div.container').on('click', 'button[data-direction]', function(e) {
     e.preventDefault()
@@ -85,21 +80,6 @@ Movement.showNextOrPreviousListener = function() {
   })
 }
 
-// The commented out function below is the same as the one directly above, except that it uses $.get() instead of fetch()
-
-//Movement.showNextOrPreviousListener = function() {
-  //$('div.container').on('click', 'button[data-direction]', function(e) {
-    //e.preventDefault()
-    //var currentMovementId = $(this).data('id')
-    //var direction = 'previous'
-    //if ($(this).data('direction') === 'next') {
-      //direction = 'next'
-    //}
-    //$.get(`/movements/${currentMovementId}/${direction}`)
-    //.done(Movement.displayExercise)
-  //})
-//}
-
 // Below, movementObject parameter = JSON object representation of previous/next AR movement instance in DB
 Movement.displayExercise = function(movementObject) {
   let newMovement = new Movement(movementObject)
@@ -110,4 +90,9 @@ Movement.displayExercise = function(movementObject) {
 
 Movement.prototype.formatShow = function() {
   return Movement.showExerciseTemplateFunction(this)
+}
+
+Movement.compileShowExerciseTemplate = function() {
+  Movement.showExerciseTemplateSource = $('#show-exercise-template').html()
+  Movement.showExerciseTemplateFunction = Handlebars.compile(Movement.showExerciseTemplateSource)
 }
