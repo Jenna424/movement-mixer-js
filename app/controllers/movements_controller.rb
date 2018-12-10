@@ -3,7 +3,7 @@ class MovementsController < ApplicationController
 
   def index
     movements = policy_scope(Movement)
-    render json: movements
+    render json: movements, status: 200
   end
 
   def show # @movement is retrieved from before_action :set_movement
