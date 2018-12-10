@@ -75,13 +75,13 @@ Movement.showNextOrPreviousListener = function() {
     }
     fetch(`/movements/${currentMovementId}/${direction}`)
       .then(response => response.json())
-      .then(Movement.displayExercise)
+      .then(Movement.show)
       .catch(error => console.error('The exercise movement could not be retrieved due to an error:\n', error))
   })
 }
 
 // Below, movementObject parameter = JSON object representation of previous/next AR movement instance in DB
-Movement.displayExercise = function(movementObject) {
+Movement.show = function(movementObject) {
   let newMovement = new Movement(movementObject)
   let movementHtml = newMovement.formatShow()
   history.replaceState(null, null, `/movements/${newMovement.id}`)
