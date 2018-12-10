@@ -84,7 +84,7 @@ Movement.showNextOrPreviousListener = function() {
 Movement.show = function(movementObject) {
   let newMovement = new Movement(movementObject)
   let movementHtml = newMovement.formatShow()
-  history.replaceState(null, null, `/movements/${newMovement.id}`)
+  history.pushState(null, null, `/movements/${newMovement.id}`)
   $('div.container').html(movementHtml)
 }
 
