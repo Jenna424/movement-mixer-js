@@ -6,7 +6,7 @@ function Movement(movement) {
 	this.routines = movement.routines
 }
 
-$(function() {
+$(() => {
 	Movement.bindClickEventHandlers()
 })
 
