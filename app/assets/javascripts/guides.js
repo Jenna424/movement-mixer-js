@@ -80,31 +80,6 @@ Guide.createOrUpdate = function(guideObject) {
   )
   document.getElementById('message-container').scrollIntoView()
 }
-// The form to create a new training guide has a class of "new_guide"
-// The form to edit an existing training guide has a class of "edit_guide"
-// To hijack the default submit action of either form dynamically, 
-// check if the user is trying to submit any form that has a class ending in "_guide"
-// Prevent the default submit action, which is either a normal HTTP POST request to "/movements/:movement_id/guides"
-// if the user is trying to create a new training guide, or a normal HTTP PATCH request to "/movements/:movement_id/guides/:id",
-// if the user is trying to edit an existing training guide.
-// When the form submit button is clicked, hide any success alert <div>s/error alert <div>s, if they exist on the page.
-// If no such alert <div>s exist on the page $('div.alert').length is 0, which is falsy in JavaScript
-// $form variable stores either the create guide form or the edit guide form, depending on which one the user tried to submit
-// requestType variable stores either the string 'patch' or 'post'
-// action variable stores either the string URL path "/movements/:movement_id/guides/:id" (for PATCH) or "/movements/:movement_id/guides" (for POST)
-// formData variable stores the serialized form data submitted either as part of the AJAX PATCH request or the AJAX POST request
-// properForm variable stores value submitted in textarea for proper_form attribute of guide
-// breathingTechnique variable stores value submitted in textarea for breathing_technique attribute of guide
-// modification variable stores value submitted in textarea for modification attribute of guide
-// challenge variable stores value submitted in textarea for challenge attribute of guide
-
-// The form to create a new training guide belonging to a particular exercise movement is found on the movement show page,
-// and in the Handlebars template inside script#show-exercise-template.
-// This is because the movement show page contains buttons to view the next and previous exercise movements without a page refresh,
-// via fetch().
-// Since the user may have navigated to another movement via the Previous Exercise/Next Exercise button,
-// the form to create a new training guide belonging to that specific movement
-// might not be in the DOM when the page is initially loaded
 
 Guide.prototype.formatShow = function() {
   return Guide.guideTemplateFunction(this)
