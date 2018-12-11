@@ -91,6 +91,12 @@ Guide.compileGuideTemplate = function() {
   Guide.guideTemplateSource = $('#guide-template').html()
   Guide.guideTemplateFunction = Handlebars.compile(Guide.guideTemplateSource)
 }
+
+Guide.updateCount = function() {
+  let stringCount = $('div.container').find('li')[1].innerText.split(': ').pop()
+  let newCount = parseInt(stringCount) + 1
+  $('div.container').find('li')[1].innerText = `Training guides available for use: ${newCount}`
+}
 // On the movement show page, there is an a.exercise-guides link to View Training Guides that belong to that particular exercise movement
 // Since we can flip through movements, i.e. see next movement/previous movement using .fetch() call,
 // the link to view that movement's guides is not always present in the DOM on initial payload
