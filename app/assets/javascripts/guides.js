@@ -78,7 +78,6 @@ Guide.createOrUpdate = function(guideObject) {
       Your changes were successful!
     </div>`
   )
-  document.getElementById('message-container').scrollIntoView()
 }
 // Below, this refers to the newGuide object on which I'm calling prototype method .formatShow()
 Guide.prototype.formatShow = function() {
