@@ -89,13 +89,13 @@ Guide.compileGuideTemplate = function() {
   Guide.guideTemplateSource = $('#guide-template').html()
   Guide.guideTemplateFunction = Handlebars.compile(Guide.guideTemplateSource)
 }
-// On the movement show page, there is an a.all-guides link to View All Training Guides that belong to that particular exercise movement
+// On the movement show page, there is an a.exercise-guides link to View Training Guides that belong to that particular exercise movement
 // Since we can flip through movements, i.e. see next movement/previous movement using .fetch() call,
 // the link to view that movement's guides is not always present in the DOM on initial payload
-// Therefore, call .on() directly on div.container, which is always on the page, and then check to see if a.all-guides was clicked
+// Therefore, call .on() directly on div.container, which is always on the page, and then check to see if a.exercise-guides was clicked
 Guide.getGuidesHandler = function() {
-  $('div.container').on('click', 'a.all-guides', function(e) {
-    e.preventDefault() // prevent the default behavior of sending a regular GET HTTP request to movement_guides_path(movement instance here)
+  $('div.container').on('click', 'a.exercise-guides', function(e) {
+    e.preventDefault() // prevent the default behavior of sending a regular HTTP GET request to "/movements/:movement_id/guides"
     var movementId = $(this).data('id')
     $.get(`/movements/${movementId}/guides`)
     .done(Guide.index)
