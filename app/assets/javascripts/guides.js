@@ -99,6 +99,7 @@ Guide.getGuidesHandler = function() {
     let movementId = $(this).data('id')
     $.get(`/movements/${movementId}/guides`)
       .done(Guide.index)
+      .fail(handleError)
   })
 }
 // Below, the guidesArray parameter = JSON object array representation of all AR guide instances belonging to the particular exercise movement = response from AJAX GET request sent using $.get() in Guide.getGuidesListener()
