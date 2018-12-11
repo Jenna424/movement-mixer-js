@@ -5,13 +5,14 @@ class GuidesController < ApplicationController
   end
 
   def create # POST '/movements/:movement_id/guides' => 'guides#create'
-    @movement = Movement.find(params[:movement_id]) # finding the parent movement instance
-    @guide = @movement.guides.build(guide_params)
-    authorize @guide
-    if @guide.save
-      render json: @guide
+    movement = Movement.find(params[:movement_id]) # finding the parent movement instance
+    guide = movement.guides.build(guide_params)
+    authorize guide
+    if guide.save
+      render json: guide, status: 201 # indicates guide resource was created
     else
-      render "new" # present form to try creating a training guide belonging to the movement again
+      render :new
+      # render json: { errors: guide.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
