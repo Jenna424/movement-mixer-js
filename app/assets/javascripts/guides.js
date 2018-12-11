@@ -116,10 +116,6 @@ Guide.index = function(guidesArray) {
   })
 }
 
-Guide.prototype.formatGuideForIndex = function() {
-  return Guide.guideTemplateFunction(this)
-}
-
 Guide.destroyHandler = function() {
   $('input.delete-guide').parent().on('submit', function(e) {
     e.preventDefault()
