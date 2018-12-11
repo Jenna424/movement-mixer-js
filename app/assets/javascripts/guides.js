@@ -78,7 +78,7 @@ Guide.createOrUpdate = function(guideObject) {
       Your changes were successful!
     </div>`
   )
-  if ($('div.container').find('#new_guide').length) { // User created a NEW training guide
+  if ($('form#new_guide')) { // User created a NEW training guide
     Guide.updateCount()
   }
 }
