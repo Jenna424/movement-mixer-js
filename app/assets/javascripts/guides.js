@@ -111,7 +111,7 @@ Guide.index = function(guidesArray) {
   $('div#training-guides').html(`<h4>Training Guides for Performing ${guidesArray[0].movement.name}</h4>`)
   guidesArray.forEach(function(guideObject) {
     let newGuide = new Guide(guideObject)
-    let guideHtml = newGuide.formatGuideForIndex()
+    let guideHtml = newGuide.formatShow()
     $('div#training-guides').append(guideHtml)
   })
 }
