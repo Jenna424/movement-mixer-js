@@ -98,7 +98,7 @@ Guide.getGuidesHandler = function() {
     e.preventDefault() // prevent the default behavior of sending a regular HTTP GET request to "/movements/:movement_id/guides"
     let movementId = $(this).data('id')
     $.get(`/movements/${movementId}/guides`)
-    .done(Guide.index)
+      .done(Guide.index)
   })
 }
 // Below, the guidesArray parameter = JSON object array representation of all AR guide instances belonging to the particular exercise movement = response from AJAX GET request sent using $.get() in Guide.getGuidesListener()
