@@ -78,6 +78,7 @@ Guide.createOrUpdate = function(guideObject) {
       Your changes were successful!
     </div>`
   )
+  document.getElementById('message-container').scrollIntoView()
 }
 // The form to create a new training guide has a class of "new_guide"
 // The form to edit an existing training guide has a class of "edit_guide"
