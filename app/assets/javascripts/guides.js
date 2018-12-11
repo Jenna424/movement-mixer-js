@@ -96,7 +96,7 @@ Guide.compileGuideTemplate = function() {
 Guide.getGuidesHandler = function() {
   $('div.container').on('click', 'a.exercise-guides', function(e) {
     e.preventDefault() // prevent the default behavior of sending a regular HTTP GET request to "/movements/:movement_id/guides"
-    var movementId = $(this).data('id')
+    let movementId = $(this).data('id')
     $.get(`/movements/${movementId}/guides`)
     .done(Guide.index)
   })
