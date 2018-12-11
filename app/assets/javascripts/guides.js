@@ -58,7 +58,7 @@ Guide.formSubmissionHandler = function() {
         data: formData
       })
       .done(Guide.createOrUpdate)
-      .fail(error => console.error('An error occurred:', error.statusText))
+      .fail(error => console.error(`Your training guide was not created because an error occurred:\n ${error.statusText} (status code ${error.status})`))
       $form.find('textarea').val('')
     }
   })
