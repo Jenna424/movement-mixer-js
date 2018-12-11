@@ -72,12 +72,15 @@ Guide.createOrUpdate = function(guideObject) {
   $('div#display-guide').html(guideHtml)
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
       Your changes were successful!
     </div>`
   )
+  if ($('div.container').find('#new_guide').length) { // User created a NEW training guide
+    Guide.updateCount()
+  }
 }
 // Below, this refers to the newGuide object on which I'm calling prototype method .formatShow()
 Guide.prototype.formatShow = function() {
