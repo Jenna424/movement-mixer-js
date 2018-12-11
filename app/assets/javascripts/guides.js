@@ -42,14 +42,14 @@ Guide.formSubmissionHandler = function() {
     if ($('div.alert-danger').length) {
       $('div.alert-danger').hide()
     }
-    var $form = $(this)
-    var requestType = ($form.find('input[name=_method]').val() || 'post')
-    var action = $form.attr('action')
-    var formData = $form.serialize()
-    var properForm = $form.find('textarea[id=guide_proper_form]').val()
-    var breathingTechnique = $form.find('textarea[id=guide_breathing_technique]').val()
-    var modification = $form.find('textarea[id=guide_modification]').val()
-    var challenge = $form.find('textarea[id=guide_challenge]').val()
+    let $form = $(this)
+    let requestType = ($form.find('input[name=_method]').val() || 'post')
+    let action = $form.attr('action') // either POST "/movements/:movement_id/guides" or PATCH "/movements/:movement_id/guides/:id"
+    let formData = $form.serialize()
+    let properForm = $form.find('textarea[id=guide_proper_form]').val()
+    let breathingTechnique = $form.find('textarea[id=guide_breathing_technique]').val()
+    let modification = $form.find('textarea[id=guide_modification]').val()
+    let challenge = $form.find('textarea[id=guide_challenge]').val()
     if (Guide.isValidObject(properForm, breathingTechnique, modification, challenge)) {
       $.ajax({
         method: requestType,
