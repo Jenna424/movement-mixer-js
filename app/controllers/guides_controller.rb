@@ -8,12 +8,7 @@ class GuidesController < ApplicationController
     movement = Movement.find(params[:movement_id]) # finding the parent movement instance
     guide = movement.guides.build(guide_params)
     authorize guide
-    if guide.save
-      render json: guide, status: 201 # indicates guide resource was created
-    else
-      render :new
-      # render json: { errors: guide.errors.full_messages }, status: :unprocessable_entity
-    end
+    render json: guide, status: 201 if guide.save # If the training guide is NOT valid, the AJAX POST request will not fire at all
   end
 
   def index # GET '/movements/:movement_id/guides' => 'guides#index'
