@@ -34,7 +34,7 @@ Guide.isValidObject = function(properForm, breathingTechnique, modification, cha
 }
 
 Guide.formSubmissionHandler = function() {
-  $('div.container').on('submit', "form[class$='_guide']", function(e) {
+  $('div.container').on('submit', 'form[class$=_guide]', function(e) {
     e.preventDefault()
     if ($('div.alert').length) {
       $('div.alert').hide()
