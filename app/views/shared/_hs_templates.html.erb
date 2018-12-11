@@ -151,25 +151,19 @@ which is defined in routines.js file -->
   <% end %>
 </script>
 
-<!-- The Handlebars template found inside the <script> tag below is used when a trainer creates a series of training tips for an exercise movement on the movement show page -->
-
 <script id="guide-template" type="text/x-handlebars-template">
   <div class="well well-md">
     <h4>Training Guide for {{movement.name}}</h4>
-    <p><em>~A series of training tips from professional trainer {{user.name}}~</em></p>
-    <br>
-    <span><strong>Use proper form</strong>:</span>
+    <p><em>~A series of training tips from personal trainer {{user.name}}~</em></p>
+    <p><strong>Use proper form</strong>:</p>
     <p>{{proper_form}}</p>
-    <br>
-    <span><strong>Practice effective breathing patterns</strong>:</span>
+    <p><strong>Practice effective breathing patterns</strong>:</p>
     <p>{{breathing_technique}}</p>
-    <br>
-    <span><strong>Feeling overexerted? Modify the movement</strong>:</span>
+    <p><strong>Feeling overexerted? Modify the movement</strong>:</p>
     <p>{{modification}}</p>
-    <br>
-    <span><strong>Feeling energetic? Take things up a notch with this challenge</strong>:</span>
+    <p><strong>Feeling energetic? Take things up a notch with this challenge</strong>:</p>
     <p>{{challenge}}</p>
-    <% if current_user && current_user.trainer? %>
+    <% if current_user && current_user.trainer? && controller_name == 'users' %>
       <a href="/movements/{{movement.id}}/guides/{{id}}/edit">Revise Guide</a>
     <% end %>
   </div>
