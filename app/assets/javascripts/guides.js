@@ -82,7 +82,7 @@ Guide.createOrUpdate = function(guideObject) {
     Guide.updateCount()
   }
 }
-// Below, this refers to the newGuide object on which I'm calling prototype method .formatShow()
+
 Guide.prototype.formatShow = function() {
   return Guide.guideTemplateFunction(this)
 }
