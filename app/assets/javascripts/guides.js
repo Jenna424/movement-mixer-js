@@ -70,7 +70,7 @@ Guide.createOrUpdate = function(guideObject) {
   let newGuide = new Guide(guideObject)
   let guideHtml = newGuide.formatShow()
   $('div#display-guide').html(guideHtml)
-  $('div.container').find('div#guide-alerts').html(`<div class=\'alert alert-success\' role=\'alert\'>Your changes were successful!</div>`)
+  $('div#message-container').html(`<div class=\'alert alert-success\' role=\'alert\'>Your changes were successful!</div>`)
 }
 // The form to create a new training guide has a class of "new_guide"
 // The form to edit an existing training guide has a class of "edit_guide"
