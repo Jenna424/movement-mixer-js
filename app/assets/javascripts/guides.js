@@ -106,17 +106,14 @@ Guide.getGuidesHandler = function() {
 // = an array of guide objects = response from AJAX GET request sent using $.get() in Guide.getGuidesHandler()
 // The View Training Guides link is only displayed if the collection of guides belonging to the movement is NOT empty,
 // so the function below can only be triggered if training guides exist for the specific movement
+// div#training-guides is always found on the movement show view
 Guide.index = function(guidesArray) {
-  if (guidesArray.length) { // If guidesArray is NOT an empty collection
-    $('div#training-guides').html(`<h4>Training Guides for Performing ${guidesArray[0].movement.name}</h4>`)
-    guidesArray.forEach(function(guideObject) {
-      let newGuide = new Guide(guideObject)
-      let guideHtml = newGuide.formatGuideForIndex()
-      $('div#training-guides').append(guideHtml)
-    })
-  } else { // The collection of training guides belonging to the specific exercise movement is empty (0 is falsy in JavaScript)
-    $('a.all-guides').replaceWith('<p><em>No training guides are currently available for use.</em></p>')
-  }
+  $('div#training-guides').html(`<h4>Training Guides for Performing ${guidesArray[0].movement.name}</h4>`)
+  guidesArray.forEach(function(guideObject) {
+    let newGuide = new Guide(guideObject)
+    let guideHtml = newGuide.formatGuideForIndex()
+    $('div#training-guides').append(guideHtml)
+  })
 }
 
 Guide.prototype.formatGuideForIndex = function() {
