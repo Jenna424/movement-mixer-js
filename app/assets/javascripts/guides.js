@@ -80,9 +80,14 @@ Guide.createOrUpdate = function(guideObject) {
   )
   document.getElementById('message-container').scrollIntoView()
 }
-
+// Below, this refers to the newGuide object on which I'm calling prototype method .formatShow()
 Guide.prototype.formatShow = function() {
   return Guide.guideTemplateFunction(this)
+}
+
+Guide.compileGuideTemplate = function() {
+  Guide.guideTemplateSource = $('#guide-template').html()
+  Guide.guideTemplateFunction = Handlebars.compile(Guide.guideTemplateSource)
 }
 // On the movement show page, there is an a.all-guides link to View All Training Guides that belong to that particular exercise movement
 // Since we can flip through movements, i.e. see next movement/previous movement using .fetch() call,
@@ -112,11 +117,6 @@ Guide.index = function(guidesArray) {
 
 Guide.prototype.formatGuideForIndex = function() {
   return Guide.guideTemplateFunction(this)
-}
-
-Guide.compileGuideTemplate = function() {
-  Guide.guideTemplateSource = $('#guide-template').html()
-  Guide.guideTemplateFunction = Handlebars.compile(Guide.guideTemplateSource)
 }
 
 Guide.destroyHandler = function() {
