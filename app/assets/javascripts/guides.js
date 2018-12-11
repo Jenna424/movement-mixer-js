@@ -97,6 +97,7 @@ Guide.getGuidesHandler = function() {
   $('div.container').on('click', 'a.exercise-guides', function(e) {
     e.preventDefault() // prevent the default behavior of sending a regular HTTP GET request to "/movements/:movement_id/guides"
     let movementId = $(this).data('id')
+    $(this).hide()
     $.get(`/movements/${movementId}/guides`)
       .done(Guide.index)
       .fail(handleError)
@@ -108,7 +109,7 @@ Guide.getGuidesHandler = function() {
 // so the function below can only be triggered if training guides exist for the specific movement
 // div#training-guides is always found on the movement show view
 Guide.index = function(guidesArray) {
-  $('div#training-guides').html(`<h4>Training Guides for Performing ${guidesArray[0].movement.name}</h4>`)
+  $('div#training-guides').html(`<h4>All Training Guides for Performing ${guidesArray[0].movement.name}</h4>`)
   guidesArray.forEach(function(guideObject) {
     let newGuide = new Guide(guideObject)
     let guideHtml = newGuide.formatShow()
