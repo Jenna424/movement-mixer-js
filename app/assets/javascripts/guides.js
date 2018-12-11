@@ -23,6 +23,9 @@ Guide.isValidObject = function(properForm, breathingTechnique, modification, cha
   if (properForm.trim().length === 0 || breathingTechnique.trim().length === 0 || modification.trim().length === 0 || challenge.trim().length === 0) {
     $guideErrorsDiv.html(
       `<div class="alert alert-danger" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
         <h4 class="alert-heading">Your attempt to create a training guide was unsuccessful.</h4>
         <p>A training guide <strong>must</strong> specify the proper form and breathing technique for performing an exercise, and it <strong>must</strong> propose a modification and a challenge.</p>
       </div>`
@@ -36,8 +39,8 @@ Guide.isValidObject = function(properForm, breathingTechnique, modification, cha
 Guide.formSubmissionHandler = function() {
   $('div.container').on('submit', 'form[class$=_guide]', function(e) {
     e.preventDefault()
-    if ($('div.alert').length) {
-      $('div.alert').hide()
+    if ($('div.alert-danger').length) {
+      $('div.alert-danger').hide()
     }
     var $form = $(this)
     var requestType = ($form.find('input[name=_method]').val() || 'post')
