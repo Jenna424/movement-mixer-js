@@ -12,8 +12,8 @@ class GuidesController < ApplicationController
   end
 
   def index # GET '/movements/:movement_id/guides' => 'guides#index'
-    guides = Guide.all.where(movement: Movement.find(params[:movement_id]))
-    render json: guides
+    guides = Movement.find(params[:movement_id]).guides
+    render json: guides, status: 200
   end
 
   def edit # GET '/movements/:movement_id/guides/:id/edit' => 'guides#edit'
