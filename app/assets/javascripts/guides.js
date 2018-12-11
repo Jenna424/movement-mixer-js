@@ -50,6 +50,7 @@ Guide.formSubmissionHandler = function() {
     let breathingTechnique = $form.find('textarea[id=guide_breathing_technique]').val()
     let modification = $form.find('textarea[id=guide_modification]').val()
     let challenge = $form.find('textarea[id=guide_challenge]').val()
+    $form.find('textarea').val('') //clear text_areas after form submission
     if (Guide.isValidObject(properForm, breathingTechnique, modification, challenge)) {
       $.ajax({
         method: requestType,
@@ -57,9 +58,8 @@ Guide.formSubmissionHandler = function() {
         dataType: 'json',
         data: formData
       })
-      .done(Guide.createOrUpdate)
-      .fail(error => console.error(`Your training guide was not created because an error occurred:\n ${error.statusText} (status code ${error.status})`))
-      $form.find('textarea').val('')
+        .done(Guide.createOrUpdate)
+        .fail(error => console.error(`Your training guide was not created because an error occurred:\n ${error.statusText} (status code ${error.status})`))
     }
   })
 }
