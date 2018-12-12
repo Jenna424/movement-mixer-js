@@ -130,21 +130,6 @@ Guide.index = function(guidesArray) {
   })
 }
 
-Guide.destroyHandler = function() {
-  $('input.delete-guide').parent().on('submit', function(e) {
-    e.preventDefault()
-    if (confirm('Are you sure you want to delete this training guide?')) {
-      $.ajax({
-        url: $(this).attr('action'), // "/movements/:movement_id/guides/:id"
-        method: 'DELETE',
-        dataType: 'json',
-        data: $(this).serialize()
-      })
-      .done(Guide.destroy)
-    }
-  })
-}
-
 Guide.destroy = function(guideObject) {
   $('div.container').html('')
   let newGuide = new Guide(guideObject)
