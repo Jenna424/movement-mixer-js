@@ -7,7 +7,7 @@ class GuidePolicy < ApplicationPolicy
     guide_owner
   end
 
-  def permitted_attributes # user_id cannot be changed
+  def permitted_attributes # user_id and movement_id cannot be changed
     if guide_owner
       [:proper_form, :breathing_technique, :modification, :challenge]
     end
