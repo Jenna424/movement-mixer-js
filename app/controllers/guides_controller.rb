@@ -29,7 +29,7 @@ class GuidesController < ApplicationController
 
   def destroy # DELETE '/movements/:movement_id/guides/:id' => 'guides#destroy'
     guide = Movement.find(params[:movement_id]).guides.find(params[:id])
-    authorize guide
+    authorize guide # Only the trainer who created the training guide can delete that guide
     guide.destroy
     render json: guide, status: 200
   end
