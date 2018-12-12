@@ -66,7 +66,7 @@ Target.indexListener = function() {
     fetch('/targets')
       .then(response => response.json())
       .then(Target.index)
-      .catch(error => console.error(`The Index of Workout Target Areas could not be retrieved due to an error:\n`, error))
+      .catch(error => console.error('The Index of Workout Target Areas could not be retrieved due to an error:\n', error))
   })
 }
 
