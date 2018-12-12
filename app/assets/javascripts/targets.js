@@ -61,6 +61,21 @@ Target.indexListener = function() {
       .catch(error => console.error('The Index of Workout Target Areas could not be retrieved due to an error:\n', error))
   })
 }
+// The targetsArray parameter below = array of all target objects = the JSON response I got back from fetch('/targets') in Target.indexListener()
+// ul#target-areas-list is ALWAYS found in app/views/targets/new.html.erb view file
+Target.index = function(targetsArray) {
+  let $targetAreasList = $('ul#target-areas-list')
+  let $link = $('a.view-target-areas')
+  if (targetsArray.length) {
+    $link.replaceWith('<h4>All Workout Target Areas</h4>')
+    targetsArray.forEach(function(targetObject) {
+      let newTarget = new Target(targetObject)
+      $targetAreasList.append(newTarget.formatLi())
+    })
+  } else {
+    $link.replaceWith('<p><em>No workout target areas are recorded.</em></p>')
+  }
+}
 
 Target.destroyListener = function() {
   $('div.container').on('submit', 'form.delete-target-area', function(e) {
