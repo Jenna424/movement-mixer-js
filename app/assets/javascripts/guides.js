@@ -79,6 +79,7 @@ Guide.createOrUpdate = function(guideObject) {
     </div>`
   )
   if ($('form#new_guide')) { // User created a NEW training guide
+    $('div#training-guides').html('') // empty div#training-guides in case it currently displays guides, since I do not automatically append data for the guide just created
     Guide.updateCount()
   }
 }
@@ -117,7 +118,7 @@ Guide.getGuidesHandler = function() {
 // so the function below can only be triggered if training guides exist for the specific movement
 // div#training-guides is always found on the movement show view
 Guide.index = function(guidesArray) {
-  $('div#training-guides').html(`<h4>All Training Guides for Performing ${guidesArray[0].movement.name}</h4>`)
+  $('div#training-guides').html(`<h3>All Training Guides for Performing ${guidesArray[0].movement.name}</h3>`)
   guidesArray.forEach(function(guideObject) {
     let newGuide = new Guide(guideObject)
     let guideHtml = newGuide.formatShow()
