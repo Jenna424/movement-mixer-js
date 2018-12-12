@@ -63,7 +63,7 @@ Guide.formSubmissionHandler = function() {
     }
   })
 }
-// Below, the guideObject parameter = JSON object representation of AR guide instance that was just created/updated = JSON response to AJAX POST/PATCH request made using $.ajax() method in Guide.formSubmissionListener()
+// Below, the guideObject parameter = JSON object representation of AR guide instance that was just created/updated = JSON response to AJAX POST/PATCH request made using $.ajax() method in Guide.formSubmissionHandler()
 // Due to belongs_to :movement and belongs_to :user macros in GuideSerializer,
 // the response also contains data about the movement and user instances to which the guide instance belongs
 Guide.createOrUpdate = function(guideObject) {
@@ -78,7 +78,7 @@ Guide.createOrUpdate = function(guideObject) {
       Your changes were successful!
     </div>`
   )
-  if ($('form#new_guide')) { // User created a NEW training guide
+  if ($('form#new_guide').length) { // User created a NEW training guide (form#new_guide is present on the current page)
     $('div#training-guides').html('') // empty div#training-guides in case it currently displays guides, since I do not automatically append data for the guide just created
     Guide.updateCount()
   }
