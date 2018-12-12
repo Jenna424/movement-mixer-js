@@ -151,6 +151,7 @@ Guide.destroy = function(guideObject) {
   let exerciseName = newGuide.movement.name
   let guideDesigner = newGuide.user.name
   $('div.container').html(
-    `<div class=\'alert alert-success\' role=\'alert\'>Your training guide for performing ${exerciseName} was successfully deleted. Please provide more training tips soon, ${guideDesigner}!</div>`
+    `<div id="message-container">
+    </div>`
   )
 }
