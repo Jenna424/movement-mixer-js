@@ -6,7 +6,12 @@
   <%= render partial: "guides/form", locals: {movement: @movement, guide: @guide} %>
 </div>
 
-<br>
-
 <div id="display-guide" class="col-xs-6">
+</div>
+
+<div class="col-xs-12">
+  <hr>
+  <%= button_to movement_guide_path(@movement, @guide), class: "btn btn-danger btn-sm", method: "delete" do %>
+    <%= content_tag(:span, nil, class: "glyphicon glyphicon-trash") %> <%= content_tag(:span, "Delete Guide") %>
+  <% end %>
 </div>
