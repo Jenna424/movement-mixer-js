@@ -27,16 +27,6 @@ Target.createListener = function() {
       .fail(Target.testValidity)
   })
 }
-// json parameter below = JSON object representation of newly created AR target instance = response from AJAX POST request sent with $.post() method in Target.createListener()
-Target.create = function(json) {
-  $("input[type='text']").val('') // empty the text field where trainer types in focus after form submission (so focus presence validation does not conflict with it)
-  var newTargetArea = new Target(json)
-  newTargetArea.formatDiv()
-}
-
-Target.prototype.formatDiv = function() {
-  $targetAreaDiv.html(`<br><p>We can now mix movements in workouts that target <strong>${this.focus}</strong>!</p>`)
-}
 
 // The link to View Workout Target Areas is ALWAYS found in app/views/targets/new.html.erb view file,
 // so that the trainer can see a list of existing workout target areas before creating a new one.
