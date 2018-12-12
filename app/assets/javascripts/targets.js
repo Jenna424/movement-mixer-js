@@ -92,9 +92,9 @@ Target.index = function(targetsArray) {
 }
 
 Target.destroyListener = function() {
-  $('div.container').on('submit', 'form.delete-target-area', function(e) {
+  $('ul#target-areas-list').on('submit', 'form.delete-target-area', function(e) {
     e.preventDefault()
-    if (confirm('Are you sure you want to delete this target area?')) {
+    if (confirm('Are you sure you want to delete this workout target area?')) {
       $.ajax({
         url: $(this).attr('action'), // '/targets/:id'
         method: 'DELETE',
