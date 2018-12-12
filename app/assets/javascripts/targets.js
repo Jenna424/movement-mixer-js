@@ -49,6 +49,9 @@ Target.testValidity = function(jqXhrObject) {
     let validationError = jqXhrObject.responseJSON.errors.pop()
     $('div#target-error').html(
       `<div class="alert alert-danger" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">x</span>
+        </button>
         <h4 class="alert-heading">
           Your attempt to create a new target area was unsuccessful.
         </h4>
