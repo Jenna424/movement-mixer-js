@@ -18,15 +18,19 @@ Guide.bindEventHandlers = function() {
   Guide.destroyHandler()
 }
 
-Guide.isValidObject = function(properForm, breathingTechnique, modification, challenge) {
+Guide.isValidObject = function(properForm, breathingTechnique, modification, challenge, requestType) {
   let $guideErrorsDiv = $('div.container').find('div#guide-errors')
+  let headingText = 'Your attempt to create a training guide was unsuccessful.'
+  if (requestType === 'patch') {
+    headingText = 'Your attempt to revise this training guide was unsuccessful.'
+  }
   if (properForm.trim().length === 0 || breathingTechnique.trim().length === 0 || modification.trim().length === 0 || challenge.trim().length === 0) {
     $guideErrorsDiv.html(
       `<div class="alert alert-danger" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
-        <h4 class="alert-heading">Your attempt to create a training guide was unsuccessful.</h4>
+        <h4 class="alert-heading">${headingText}</h4>
         <p>A training guide <strong>must</strong> specify the proper form and breathing technique for performing an exercise, and it <strong>must</strong> propose a modification and a challenge.</p>
       </div>`
     )
@@ -51,7 +55,7 @@ Guide.formSubmissionHandler = function() {
     let modification = $form.find('textarea[id=guide_modification]').val()
     let challenge = $form.find('textarea[id=guide_challenge]').val()
     $form.find('textarea').val('') //clear text_areas after form submission
-    if (Guide.isValidObject(properForm, breathingTechnique, modification, challenge)) {
+    if (Guide.isValidObject(properForm, breathingTechnique, modification, challenge, requestType)) {
       $.ajax({
         method: requestType,
         url: action,
