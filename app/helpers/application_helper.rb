@@ -24,4 +24,8 @@ module ApplicationHelper
       "alert-success"   # Green
     end
   end
+
+  def routines_index_link_text
+    current_user.trainer? ? "View Workouts by Clients" : "View All Workout Routines"
+  end
 end
