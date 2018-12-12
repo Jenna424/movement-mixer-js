@@ -151,13 +151,11 @@ Guide.destroy = function(guideObject) {
   let exerciseName = newGuide.movement.name
   let guideDesigner = newGuide.user.name
   $('div.container').html(
-    `<div id="message-container">
-      <div class="alert alert-success" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">x</span>
-        </button>
-        Your training guide for performing ${exerciseName} was successfully deleted. Please provide more training tips soon, ${guideDesigner}!
-      </div>
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">x</span>
+      </button>
+      Your training guide for performing ${exerciseName} was successfully deleted. Please provide more training tips soon, ${guideDesigner}!
     </div>`
   )
 }
