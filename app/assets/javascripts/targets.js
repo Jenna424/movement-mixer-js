@@ -58,6 +58,18 @@ Target.prototype.formatDiv = function() {
   $targetAreaDiv.html(`<br><p>We can now mix movements in workouts that target <strong>${this.focus}</strong>!</p>`)
 }
 
+// The link to View Workout Target Areas is ALWAYS found in app/views/targets/new.html.erb view file,
+// so that the trainer can see a list of existing workout target areas before creating a new one.
+Target.indexListener = function() {
+  $('a.view-target-areas').on('click', function(e) {
+    e.preventDefault() // prevent the default behavior of sending a normal HTTP GET request to "/targets"
+    fetch('/targets')
+      .then(response => response.json())
+      .then(Target.index)
+      .catch(error => console.error(`The Index of Workout Target Areas could not be retrieved due to an error:\n`, error))
+  })
+}
+
 Target.destroyListener = function() {
   $('div.container').on('submit', 'form.delete-target-area', function(e) {
     e.preventDefault()
