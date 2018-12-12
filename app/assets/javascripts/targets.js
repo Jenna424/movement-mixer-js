@@ -27,6 +27,22 @@ Target.createListener = function() {
       .fail(Target.testValidity)
   })
 }
+// targetObject parameter below = JSON object representation of newly created AR target instance = response from AJAX POST request sent with $.post() method in Target.createListener()
+Target.create = function(targetObject) {
+  $('input[type=text]').val('') // empty the text_field where trainer types in focus after form submission
+  let newTargetArea = new Target(targetObject)
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">x</span>
+      </button>
+      <h4 class="alert-heading">You successfully recorded a new target area!</h4>
+      <p>Clients can now design workout routines that focus on sculpting and strengthening ${newTargetArea.focus}.</p>
+      <hr>
+      <p class="mb-0">You may view the updated list of target areas by clicking the link at the bottom of this page.</p>
+    </div>`
+  )
+}
 
 // The link to View Workout Target Areas is ALWAYS found in app/views/targets/new.html.erb view file,
 // so that the trainer can see a list of existing workout target areas before creating a new one.
