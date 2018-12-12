@@ -3,7 +3,7 @@ function Target(target) {
   this.focus = target.focus
 }
 
-$(function() {
+$(() => {
   Target.createListener()
   Target.indexListener()
   Target.destroyListener()
