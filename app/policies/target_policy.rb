@@ -5,8 +5,12 @@ class TargetPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    user.trainer? # Only trainers can view the form to create a new target area
+  end
+
   def create?
-    user.trainer? # Only trainers can create a new target area in the form found on the Index of Workout Target Areas
+    new?
   end
 
   def destroy?
