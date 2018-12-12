@@ -35,7 +35,7 @@ class GuidesController < ApplicationController
     guide = Movement.find(params[:movement_id]).guides.find(params[:id])
     authorize guide
     guide.destroy
-    render json: guide
+    render json: guide, status: 200
   end
 
   private
