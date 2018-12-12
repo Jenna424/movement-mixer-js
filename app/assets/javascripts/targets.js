@@ -103,8 +103,6 @@ Target.destroyListener = function() {
       })
         .done(Target.destroy)
         .fail(handleError)
-    } else {
-      console.log("Deletion of target area was not confirmed")
     }
   })
 }
