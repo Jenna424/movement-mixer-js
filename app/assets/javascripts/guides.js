@@ -145,10 +145,12 @@ Guide.destroyHandler = function() {
     }
   })
 }
-
+// Below, guideObject parameter = JSON object representation of AR guide instance that was just destroyed = response to AJAX DELETE request sent using $.ajax() method in Guide.destroyHandler()
 Guide.destroy = function(guideObject) {
   let newGuide = new Guide(guideObject)
   let exerciseName = newGuide.movement.name
   let guideDesigner = newGuide.user.name
-  $('div.container').append(`<div class=\'alert alert-success\' role=\'alert\'>Your training guide for performing ${exerciseName} was successfully deleted. Please provide more training tips soon, ${guideDesigner}!</div>`)
+  $('div.container').html(
+    `<div class=\'alert alert-success\' role=\'alert\'>Your training guide for performing ${exerciseName} was successfully deleted. Please provide more training tips soon, ${guideDesigner}!</div>`
+  )
 }
