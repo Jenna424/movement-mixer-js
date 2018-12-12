@@ -18,7 +18,15 @@ Target.prototype.formatLi = function() {
   return Target.targetTemplateFunction(this)
 }
 
-
+Target.createListener = function() {
+  $('form#new_target').on('submit', function(e) {
+    e.preventDefault()
+    let formData = $(this).serialize()
+    $.post('/targets', formData)
+      .done(Target.create)
+      .fail(Target.testValidity)
+  })
+}
 // json parameter below = JSON object representation of newly created AR target instance = response from AJAX POST request sent with $.post() method in Target.createListener()
 Target.create = function(json) {
   $("input[type='text']").val('') // empty the text field where trainer types in focus after form submission (so focus presence validation does not conflict with it)
