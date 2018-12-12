@@ -147,7 +147,6 @@ Guide.destroyHandler = function() {
 }
 
 Guide.destroy = function(guideObject) {
-  $('div.container').html('')
   let newGuide = new Guide(guideObject)
   let exerciseName = newGuide.movement.name
   let guideDesigner = newGuide.user.name
