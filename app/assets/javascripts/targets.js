@@ -14,15 +14,6 @@ Target.compileTargetTemplate = function() {
   Target.targetTemplateFunction = Handlebars.compile(Target.targetTemplateSource)
 }
 
-Target.indexListener = function() {
-  $('ul.nav').on('click', 'a.view-target-areas', function(e) {
-    e.preventDefault()
-    Target.preparePage()
-    $.get('/targets')
-    .done(Target.index)
-  })
-}
-
 Target.preparePage = function() {
   $divContainer = $('div.container') // retrieve the <div class="container"> that holds the main page content
   $divContainer.html('') // empty out the <div class="container">
