@@ -10,11 +10,3 @@
 
 <div id="display-guide" class="col-xs-6">
 </div>
-
-<% if policy(@guide).destroy? %>
-  <div class="col-xs-12">
-    <br>
-    <%= button_to "Delete Training Guide", movement_guide_path(@movement, @guide), method: :delete,
-    class: "delete-guide btn btn-danger btn-sm", data: { confirm: "Are you sure you want to delete this training guide?" } %>
-  </div>
-<% end %>
