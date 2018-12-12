@@ -20,11 +20,11 @@ class TargetsController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy # delete '/targets/:id' => 'targets#destroy'
     target_area = Target.find(params[:id])
-    authorize target_area
+    authorize target_area # Any trainer can delete any target area
     target_area.destroy
-    render json: target_area
+    render json: target_area, status: 200
   end
 
   private
