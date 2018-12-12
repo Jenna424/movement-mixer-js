@@ -22,6 +22,7 @@ Target.createListener = function() {
   $('form#new_target').on('submit', function(e) {
     e.preventDefault()
     let formData = $(this).serialize()
+    $('input[type=text]').val('') // empty the text_field where trainer types in focus
     $.post('/targets', formData)
       .done(Target.create)
       .fail(Target.testValidity)
@@ -29,7 +30,6 @@ Target.createListener = function() {
 }
 // targetObject parameter below = JSON object representation of newly created AR target instance = response from AJAX POST request sent with $.post() method in Target.createListener()
 Target.create = function(targetObject) {
-  $('input[type=text]').val('') // empty the text_field where trainer types in focus after form submission
   let newTargetArea = new Target(targetObject)
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
