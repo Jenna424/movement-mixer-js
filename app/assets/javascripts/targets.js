@@ -9,15 +9,6 @@ $(() => {
   Target.destroyListener()
 })
 
-Target.compileTargetTemplate = function() {
-  Target.targetTemplateSource = $('#target-template').html()
-  Target.targetTemplateFunction = Handlebars.compile(Target.targetTemplateSource)
-}
-
-Target.prototype.formatLi = function() {
-  return Target.targetTemplateFunction(this)
-}
-
 Target.createListener = function() {
   $('form#new_target').on('submit', function(e) {
     e.preventDefault()
@@ -45,6 +36,15 @@ Target.create = function(targetObject) {
   if ($('ul#target-areas-list li').length) {
     $('ul#target-areas-list').append(newTargetArea.formatLi())
   }
+}
+
+Target.prototype.formatLi = function() {
+  return Target.targetTemplateFunction(this)
+}
+
+Target.compileTargetTemplate = function() {
+  Target.targetTemplateSource = $('#target-template').html()
+  Target.targetTemplateFunction = Handlebars.compile(Target.targetTemplateSource)
 }
 
 Target.testValidity = function(jqXhrObject) {
