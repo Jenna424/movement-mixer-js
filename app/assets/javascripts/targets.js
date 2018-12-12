@@ -101,7 +101,7 @@ Target.destroyListener = function() {
         dataType: 'json',
         data: $(this).serialize()
       })
-      .done(Target.destroy)
+        .done(Target.destroy)
     } else {
       console.log("Deletion of target area was not confirmed")
     }
