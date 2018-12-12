@@ -19,15 +19,15 @@ class GuidesController < ApplicationController
   def edit # GET '/movements/:movement_id/guides/:id/edit' => 'guides#edit'
     @movement = Movement.find(params[:movement_id])
     @guide = @movement.guides.find(params[:id])
-    authorize @guide
+    authorize @guide # Only the trainer who created the training guide can edit that guide in app/views/guides/edit.html.erb
   end
 
   def update # PATCH '/movements/:movement_id/guides/:id' => 'guides#update'
-    @guide = Movement.find(params[:movement_id]).guides.find(params[:id])
-    if @guide.update(guide_params)
-      render json: @guide, status: 200
+    guide = Movement.find(params[:movement_id]).guides.find(params[:id])
+    if guide.update(guide_params)
+      render json: guide, status: 200
     else
-      render json: { errors: @guide.errors.full_messages, status: :unprocessable_entity }
+      render json: { errors: guide.errors.full_messages, status: :unprocessable_entity }
     end
   end
 
