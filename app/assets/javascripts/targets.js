@@ -42,6 +42,9 @@ Target.create = function(targetObject) {
       <p class="mb-0">You may view the updated list of target areas by clicking the link at the bottom of this page.</p>
     </div>`
   )
+  if ($('ul#target-areas-list li').length) {
+    $('ul#target-areas-list').append(newTargetArea.formatLi())
+  }
 }
 
 Target.testValidity = function(jqXhrObject) {
