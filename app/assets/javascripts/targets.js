@@ -14,13 +14,6 @@ Target.compileTargetTemplate = function() {
   Target.targetTemplateFunction = Handlebars.compile(Target.targetTemplateSource)
 }
 
-Target.preparePage = function() {
-  $divContainer = $('div.container') // retrieve the <div class="container"> that holds the main page content
-  $divContainer.html('') // empty out the <div class="container">
-  $divContainer.html('<h3>Where You\'ll Feel the Burn</h3>') // add <h4> header to the page
-  $divContainer.append('<ul class="target-areas"></ul>') // add <ul> (where target areas will be listed) to the page
-}
-
 Target.prototype.formatLi = function() {
   return Target.targetTemplateFunction(this)
 }
