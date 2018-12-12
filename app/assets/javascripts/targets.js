@@ -52,9 +52,7 @@ Target.testValidity = function(jqXhrObject) {
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">x</span>
         </button>
-        <h4 class="alert-heading">
-          Your attempt to create a new target area was unsuccessful.
-        </h4>
+        <h4 class="alert-heading">Your attempt to create a new target area was unsuccessful.</h4>
         <p>Please fix the following error and try again: <em>${validationError}</em></p>
       </div>`
     )
