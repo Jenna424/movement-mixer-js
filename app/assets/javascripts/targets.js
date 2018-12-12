@@ -44,6 +44,22 @@ Target.create = function(targetObject) {
   )
 }
 
+Target.testValidity = function(jqXhrObject) {
+  if (jqXhrObject.responseJSON) {
+    let validationError = jqXhrObject.responseJSON.errors.pop()
+    $('div#target-error').html(
+      `<div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">
+          Your attempt to create a new target area was unsuccessful.
+        </h4>
+        <p>Please fix the following error and try again: <em>${validationError}</em></p>
+      </div>`
+    )
+  } else {
+    console.error(`Your attempt to create a target area was unsuccessful due to the following error: ${jqXhrObject.statusText} (status code ${jqXhrObject.status})`)
+  }
+}
+
 // The link to View Workout Target Areas is ALWAYS found in app/views/targets/new.html.erb view file,
 // so that the trainer can see a list of existing workout target areas before creating a new one.
 Target.indexListener = function() {
