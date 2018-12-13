@@ -83,10 +83,10 @@ Training.indexListener = function() {
       .done(Training.index)
   })
 }
-// trainingTypesArray parameter below is an array of JSON training objects = response from from AJAX GET request sent using $.get() in Training.indexListener()
-Training.index = function(trainingTypesArray) {
+// Below, trainingsArray parameter = JSON array of training objects = successful response I get back from AJAX GET request sent using $.get() in Training.indexListener()
+Training.index = function(trainingsArray) {
   let $trainingTypesList = $('ul#training-types-list')
-  trainingTypesArray.forEach(function(trainingObject) {
+  trainingsArray.forEach(function(trainingObject) {
     $trainingTypesList.append(Training.trainingTemplateFunction(trainingObject))
   })
 }
