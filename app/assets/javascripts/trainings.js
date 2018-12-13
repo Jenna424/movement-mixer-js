@@ -12,6 +12,7 @@ const bindEventListeners = () => {
 Training.createListener = function() {
   $('form#new_training').on('submit', function(e) {
   	e.preventDefault()
+  	$('ul#training-types-list').html('')
   	let formData = $(this).serialize()
   	$('input[type=text]').val('') // empty text_field where trainer enters value for fitness_type
   	$.post('/trainings', formData)
