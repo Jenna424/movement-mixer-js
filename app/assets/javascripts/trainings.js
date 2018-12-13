@@ -9,11 +9,6 @@ $(() => {
   Training.destroyListener()
 })
 
-Training.compileTrainingTemplate = function() {
-  Training.trainingTemplateSource = $('#training-template').html()
-  Training.trainingTemplateFunction = Handlebars.compile(Training.trainingTemplateSource)
-}
-
 Training.createListener = function() {
   $('#new_training').on('submit', function(e) {
     e.preventDefault()
@@ -60,6 +55,11 @@ Training.indexTrainingTypes = function(trainingTypesArray) {
   trainingTypesArray.forEach(function(trainingObject) {
     $trainingTypesList.append(Training.trainingTemplateFunction(trainingObject))
   })
+}
+
+Training.compileTrainingTemplate = function() {
+  Training.trainingTemplateSource = $('#training-template').html()
+  Training.trainingTemplateFunction = Handlebars.compile(Training.trainingTemplateSource)
 }
 
 Training.destroyListener = function() {
