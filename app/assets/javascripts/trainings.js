@@ -42,6 +42,15 @@ const trainingTypesListIsVisible = () => {
   }
 }
 
+Training.prototype.formatLi = function() {
+  let $trainingTypesList = $('ul#training-types-list')
+  if ($('ul#training-types-list p').length) { // <p>No fitness training types are recorded.</p> is displayed inside ul#training-types-list
+    $trainingTypesList.html(Training.trainingTemplateFunction(this)) // replace the <p> with an <li> for the newTraining object just created
+  } else { // ul#training-types-list contains an <li> for each existing training type
+    $trainingTypesList.append(Training.trainingTemplateFunction(this)) // append an <li> for the newTraining object to the list of existing training type <li>s
+  }
+}
+
 Training.indexListener = function() {
   $('ul.nav').on('click', 'a.view-training-types', function(e) {
     e.preventDefault()
