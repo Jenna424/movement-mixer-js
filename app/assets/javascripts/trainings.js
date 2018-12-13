@@ -23,15 +23,15 @@ Training.createListener = function() {
 Training.create = function(trainingObject) {
   let newTraining = new Training(trainingObject)
   newTraining.featureFitnessType()
+  if ($('p#empty-trainings-notice').length) {
+    $('p#empty-trainings-notice').remove()
+  }
 }
 
 Training.prototype.featureFitnessType = function() {
   this.alertCreationSuccessful()
   if (userClickedTrainingTypesLink) {
     this.formatLi()
-  }
-  if ($('p#empty-trainings-notice').length) {
-    $('p.empty-trainings-notice').remove()
   }
 }
 
