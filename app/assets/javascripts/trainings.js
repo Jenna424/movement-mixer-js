@@ -13,6 +13,7 @@ Training.createListener = function() {
   $('#new_training').on('submit', function(e) {
     e.preventDefault()
     let formData = $(this).serialize()
+    $('input[type=text]').val('') // empty the text_field where trainer types in fitness_type
     $.post('/trainings', formData)
       .done(Training.create)
   })
