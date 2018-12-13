@@ -24,6 +24,13 @@ Training.create = function(trainingObject) {
   let newTraining = new Training(trainingObject)
   newTraining.featureFitnessType()
 }
+
+Training.prototype.featureFitnessType = function() {
+  this.alertCreationSuccessful()
+  if (userClickedTrainingTypesLink) {
+    this.formatLi()
+  }
+}
 // a.view-training-types is always found in app/views/trainings/new.html.erb (so that a trainer can view the list of existing training types before adding a new one)
 Training.indexListener = function() {
   $('a.view-training-types').on('click', function(e) {
