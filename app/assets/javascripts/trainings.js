@@ -5,8 +5,8 @@ function Training(training) {
 
 $(() => {
   Training.createListener()
-  Training.indexListener()
-  Training.destroyListener()
+  //Training.indexListener()
+  //Training.destroyListener()
 })
 
 Training.compileTrainingTemplate = function() {
@@ -23,4 +23,27 @@ Training.createListener = function() {
       .done(Training.create)
       .fail(Training.testValidity)
   })
+}
+
+// Below, trainingObject parameter = JSON object representation of newly created AR training instance = response I get back from AJAX POST request sent using $.post() in Training.createListener()
+Training.create = function(trainingObject) {
+  let newTraining = new Training(trainingObject)
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">x</span>
+      </button>
+      <h4 class="alert-heading">You successfully featured a new fitness training type!</h4>
+      <p>Clients can now design workout routines that implement the training type: <strong>${newTraining.fitness_type}</strong>.</p>
+      <hr>
+      <p class="mb-0">You may view the updated list of training types by clicking the link at the bottom of this page.</p>
+    </div>`
+  )
+  if ($('ul#training-types-list li').length) {
+    $('ul#training-types-list').append(newTraining.formatLi())
+  }
+}
+
+Training.prototype.formatLi = function() {
+  return Training.trainingTemplateFunction(this)
 }
