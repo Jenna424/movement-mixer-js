@@ -24,57 +24,6 @@ Training.create = function(trainingObject) {
   let newTraining = new Training(trainingObject)
   newTraining.featureFitnessType()
 }
-
-Training.prototype.featureFitnessType = function() {
-  if (trainingTypesListIsVisible()) {
-    this.formatLi()
-    this.showAlertForFilledUl()
-  } else {
-    this.showAlertForEmptyUl()
-  }
-}
-
-const trainingTypesListIsVisible = () => {
-  if ($('ul#training-types-list p').length || $('ul#training-types-list li').length) {
-    return true
-  } else {
-    return false
-  }
-}
-
-Training.prototype.formatLi = function() {
-  let $trainingTypesList = $('ul#training-types-list')
-  if ($('ul#training-types-list p').length) { // <p>No fitness training types are recorded.</p> is displayed inside ul#training-types-list
-    $trainingTypesList.html(Training.trainingTemplateFunction(this)) // replace the <p> with an <li> for the newTraining object just created
-  } else { // ul#training-types-list contains an <li> for each existing training type
-    $trainingTypesList.append(Training.trainingTemplateFunction(this)) // append an <li> for the newTraining object to the list of existing training type <li>s
-  }
-}
-
-Training.prototype.showAlertForFilledUl = function() {
-  $('div#message-container').html(
-    `<div class="alert alert-success" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">x</span>
-      </button>
-      You successfully recorded the fitness training type ${this.fitness_type}!
-    </div>`
-  )
-}
-
-Training.prototype.showAlertForEmptyUl = function() {
-  $('div#message-container').html(
-    `<div class="alert alert-success" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">x</span>
-      </button>
-      <h4 class="alert-heading">You successfully recorded a new training type!</h4>
-      <p>Clients can now design workout routines that implement the training type: <strong>${this.fitness_type}</strong></p>
-      <hr>
-      <p class="mb-0">Click the link at the bottom of the page to find this featured fitness type!</p>
-    </div>`
-  )
-}
 // a.view-training-types is always found in app/views/trainings/new.html.erb (so that a trainer can view the list of existing training types before adding a new one)
 Training.indexListener = function() {
   $('a.view-training-types').on('click', function(e) {
@@ -86,10 +35,15 @@ Training.indexListener = function() {
 }
 // Below, trainingsArray parameter = JSON array of training objects = successful response I get back from AJAX GET request sent using $.get() in Training.indexListener()
 Training.index = function(trainingsArray) {
-  let $trainingTypesList = $('ul#training-types-list')
-  trainingsArray.forEach(function(trainingObject) {
-    $trainingTypesList.append(Training.trainingTemplateFunction(trainingObject))
-  })
+  if (trainingsArray.length) {
+    $('a.view-training-types').replaceWith('<h3>All Fitness Training Types</h3>')
+    let $trainingTypesList = $('ul#training-types-list')
+    trainingsArray.forEach(function(trainingObject) {
+      $trainingTypesList.append(Training.trainingTemplateFunction(trainingObject))
+    })
+  } else {
+    $('a.view-training-types').replaceWith('<p id="training-type-tally"><em>No fitness training types were recorded.</em></p>')
+  }
 }
 
 Training.compileTrainingTemplate = function() {
