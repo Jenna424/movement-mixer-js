@@ -106,9 +106,9 @@ Target.destroyListener = function() {
     }
   })
 }
-// The json parameter below = JSON object representation of the AR target instance that was just destroyed = the JSON response to AJAX DELETE request sent in Target.destroyListener()
-Target.destroy = function(json) {
-  var newTarget = new Target(json)
+// targetObject parameter below = JSON object representation of the AR target instance that was just destroyed = JSON response to AJAX DELETE request sent in Target.destroyListener()
+Target.destroy = function(targetObject) {
+  let newTarget = new Target(targetObject)
   newTarget.deleteLi()
 }
 
