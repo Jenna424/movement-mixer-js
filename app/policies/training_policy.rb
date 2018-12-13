@@ -1,11 +1,7 @@
 class TrainingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.trainer? # Only trainers can see the index of all training types (which contains delete buttons)
-        scope.all
-      else
-        scope.none
-      end
+      user.trainer? ? scope.all : scope.none # Only trainers can see the Index of Fitness Training Types
     end
   end
 
