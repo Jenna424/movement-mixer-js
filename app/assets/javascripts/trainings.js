@@ -13,14 +13,14 @@ Training.createListener = function() {
   $('#new_training').on('submit', function(e) {
     e.preventDefault()
     let formData = $(this).serialize()
-    $('input[type=text]').val('') // empty the text_field where trainer types in fitness_type
+    $('input[type=text]').val('') // empty the text_field where trainer typed in fitness_type
     $.post('/trainings', formData)
       .done(Training.create)
       .fail(Training.testValidity)
   })
 }
-// json parameter below = JSON object representation of AR training instance that was just created and saved to DB = successful JSON response I got back from AJAX POST request sent in Training.createListener()
-Training.create = function(json) {
+// trainingObject parameter below = JSON object representation of AR training instance that was just created and saved to DB = successful JSON response to AJAX POST request sent using $.post() method in Training.createListener()
+Training.create = function(trainingObject) {
   var newTraining = new Training(json)
   newTraining.formatFitnessType()
 }
