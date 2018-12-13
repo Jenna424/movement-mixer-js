@@ -22,21 +22,8 @@ Training.createListener = function() {
 // trainingObject parameter below = JSON object representation of AR training instance that was just created and saved to DB = successful JSON response to AJAX POST request sent using $.post() method in Training.createListener()
 Training.create = function(trainingObject) {
   let newTraining = new Training(trainingObject)
-  newTraining.formatFitnessType()
 }
 // Below, this refers to the newTraining object on which I call .formatFitnessType() prototype method
-Training.prototype.formatFitnessType = function() {
-  var trainingTypeDiv = $('div#training-type-added')
-  trainingTypeDiv.html(`<p>Movement Mixers can now design <strong>${this.fitness_type.toLowerCase()}</strong> workout routines!</p>`)
-}
-
-Training.preparePage = function() {
-  $divContainer = $('div.container') // retrieve the <div class="container"> that holds the main page content
-  $divContainer.html('') // empty out the <div class="container">
-  $divContainer.html('<h3>Training Types Implemented by Clients</h3>') // add <h3> header to the page
-  $divContainer.append('<ul class="training-types"></ul>') // add <ul> (where training types will be listed) to the page
-}
-
 Training.indexListener = function() {
   $('ul.nav').on('click', 'a.view-training-types', function(e) {
     e.preventDefault()
