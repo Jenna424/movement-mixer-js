@@ -34,6 +34,14 @@ Training.prototype.featureFitnessType = function() {
   }
 }
 
+const trainingTypesListIsVisible = () => {
+  if ($('ul#training-types-list p').length || $('ul#training-types-list li').length) {
+    return true
+  } else {
+    return false
+  }
+}
+
 Training.indexListener = function() {
   $('ul.nav').on('click', 'a.view-training-types', function(e) {
     e.preventDefault()
