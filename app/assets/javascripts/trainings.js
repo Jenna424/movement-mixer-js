@@ -42,7 +42,7 @@ Training.index = function(trainingsArray) {
       $trainingTypesList.append(Training.trainingTemplateFunction(trainingObject))
     })
   } else {
-    $('a.view-training-types').replaceWith('<p id="training-type-tally"><em>No fitness training types were recorded.</em></p>')
+    $('a.view-training-types').replaceWith('<p id="empty-trainings-notice"><em>No fitness training types were recorded.</em></p>')
   }
 }
 
