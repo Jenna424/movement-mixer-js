@@ -21,7 +21,7 @@ Training.createListener = function() {
 }
 // trainingObject parameter below = JSON object representation of AR training instance that was just created and saved to DB = successful JSON response to AJAX POST request sent using $.post() method in Training.createListener()
 Training.create = function(trainingObject) {
-  var newTraining = new Training(json)
+  let newTraining = new Training(trainingObject)
   newTraining.formatFitnessType()
 }
 // Below, this refers to the newTraining object on which I call .formatFitnessType() prototype method
