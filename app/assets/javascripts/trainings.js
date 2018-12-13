@@ -19,10 +19,6 @@ Training.createListener = function() {
       .fail(Training.testValidity)
   })
 }
-// trainingObject parameter below = JSON object representation of AR training instance that was just created and saved to DB = successful JSON response to AJAX POST request sent using $.post() method in Training.createListener()
-Training.create = function(trainingObject) {
-  let newTraining = new Training(trainingObject)
-}
 // Below, this refers to the newTraining object on which I call .formatFitnessType() prototype method
 Training.indexListener = function() {
   $('ul.nav').on('click', 'a.view-training-types', function(e) {
@@ -34,7 +30,7 @@ Training.indexListener = function() {
 }
 // trainingTypesArray parameter below is an array of JSON training objects = response from from AJAX GET request sent using $.get() in Training.indexListener()
 Training.indexTrainingTypes = function(trainingTypesArray) {
-  var $trainingTypesList = $('ul.training-types')
+  let $trainingTypesList = $('ul#training-types-list')
   trainingTypesArray.forEach(function(trainingObject) {
     $trainingTypesList.append(Training.trainingTemplateFunction(trainingObject))
   })
