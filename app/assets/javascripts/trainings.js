@@ -19,7 +19,12 @@ Training.createListener = function() {
       .fail(Training.testValidity)
   })
 }
-// Below, this refers to the newTraining object on which I call .formatFitnessType() prototype method
+// Below, trainingObject parameter = JSON object representation of AR training instance that was just created and saved to DB = successful JSON response to AJAX POST request sent using $.post() method in Training.createListener()
+Training.create = function(trainingObject) {
+  let newTraining = new Training(trainingObject)
+  newTraining.featureFitnessType()
+}
+
 Training.indexListener = function() {
   $('ul.nav').on('click', 'a.view-training-types', function(e) {
     e.preventDefault()
