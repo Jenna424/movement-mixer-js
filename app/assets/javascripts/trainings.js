@@ -62,6 +62,20 @@ Training.prototype.showAlertForFilledUl = function() {
   )
 }
 
+Training.prototype.showAlertForEmptyUl = function() {
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">x</span>
+      </button>
+      <h4 class="alert-heading">You successfully recorded a new training type!</h4>
+      <p>Clients can now design workout routines that implement the training type: <strong>${this.fitness_type}</strong></p>
+      <hr>
+      <p class="mb-0">Click the link at the bottom of the page to find this featured fitness type!</p>
+    </div>`
+  )
+}
+
 Training.indexListener = function() {
   $('ul.nav').on('click', 'a.view-training-types', function(e) {
     e.preventDefault()
