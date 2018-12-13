@@ -14,12 +14,7 @@ Training.createListener = function() {
     e.preventDefault()
     let formData = $(this).serialize()
     $.post('/trainings', formData)
-    .done(Training.create)
-    .fail(function(jqXhrObject) { // handle a failure
-      var errorsArray = jqXhrObject.responseJSON.errors
-      var errorsString = errorsArray.join() // array elements are automatically comma-separated
-      alert(errorsString)
-    })
+      .done(Training.create)
   })
 }
 // json parameter below = JSON object representation of AR training instance that was just created and saved to DB = successful JSON response I got back from AJAX POST request sent in Training.createListener()
