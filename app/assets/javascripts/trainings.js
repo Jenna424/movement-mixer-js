@@ -47,3 +47,14 @@ Training.create = function(trainingObject) {
 Training.prototype.formatLi = function() {
   return Training.trainingTemplateFunction(this)
 }
+// The link to View All Training Types is ALWAYS found in app/views/trainings/new.html.erb view file,
+// so that the trainer can see a list of existing fitness training types before creating a new one.
+Training.indexListener = function() {
+  $('a.view-training-types').on('click', function(e) {
+    e.preventDefault() // prevent the default behavior of sending a normal HTTP GET request to "/trainings"
+    fetch('/trainings')
+      .then(response => response.json())
+      .then(Training.index)
+      .catch(error => console.error('The Index of Fitness Training Types could not be retrieved due to an error:\n', error))
+  })
+}
