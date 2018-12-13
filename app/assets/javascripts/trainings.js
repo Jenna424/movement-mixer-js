@@ -31,6 +31,14 @@ Training.prototype.featureFitnessType = function() {
     this.formatLi()
   }
 }
+
+const userClickedTrainingTypesLink = () => {
+  if ($('ul#training-types-list li').length || $('a.view-training-types').length === 0) {
+    return true
+  } else {
+    return false
+  }
+}
 // a.view-training-types is always found in app/views/trainings/new.html.erb (so that a trainer can view the list of existing training types before adding a new one)
 Training.indexListener = function() {
   $('a.view-training-types').on('click', function(e) {
