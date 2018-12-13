@@ -80,7 +80,7 @@ Training.indexListener = function() {
   $('a.view-training-types').on('click', function(e) {
     e.preventDefault()
     $.get('/trainings')
-    .done(Training.indexTrainingTypes)
+      .done(Training.indexTrainingTypes)
   })
 }
 // trainingTypesArray parameter below is an array of JSON training objects = response from from AJAX GET request sent using $.get() in Training.indexListener()
