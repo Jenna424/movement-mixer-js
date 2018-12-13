@@ -51,6 +51,17 @@ Training.prototype.formatLi = function() {
   }
 }
 
+Training.prototype.showAlertForFilledUl = function() {
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">x</span>
+      </button>
+      You successfully recorded the fitness training type ${this.fitness_type}!
+    </div>`
+  )
+}
+
 Training.indexListener = function() {
   $('ul.nav').on('click', 'a.view-training-types', function(e) {
     e.preventDefault()
