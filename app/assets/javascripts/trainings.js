@@ -75,11 +75,10 @@ Training.prototype.showAlertForEmptyUl = function() {
     </div>`
   )
 }
-
+// a.view-training-types is always found in app/views/trainings/new.html.erb (so that a trainer can view the list of existing training types before adding a new one)
 Training.indexListener = function() {
-  $('ul.nav').on('click', 'a.view-training-types', function(e) {
+  $('a.view-training-types').on('click', function(e) {
     e.preventDefault()
-    Training.preparePage()
     $.get('/trainings')
     .done(Training.indexTrainingTypes)
   })
