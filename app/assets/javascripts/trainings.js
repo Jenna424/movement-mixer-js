@@ -3,7 +3,7 @@ function Training(training) {
   this.fitness_type = training.fitness_type
 }
 
-$(function() {
+$(() => {
   Training.createListener()
   Training.indexListener()
   Training.destroyListener()
