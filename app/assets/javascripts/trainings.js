@@ -12,7 +12,7 @@ $(() => {
 Training.createListener = function() {
   $('#new_training').on('submit', function(e) {
     e.preventDefault()
-    var formData = $(this).serialize()
+    let formData = $(this).serialize()
     $.post('/trainings', formData)
     .done(Training.create)
     .fail(function(jqXhrObject) { // handle a failure
