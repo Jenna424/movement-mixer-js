@@ -110,6 +110,15 @@ Target.destroyListener = function() {
 Target.destroy = function(targetObject) {
   let newTarget = new Target(targetObject)
   newTarget.deleteLi()
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">x</span>
+      </button>
+      <h4 class="alert-heading">You successfully deleted a target area.</h4>
+      <p>Workout routines will no longer be classified by the following body focus: <em>${newTarget.focus}</em></p>
+    </div>`
+  )
 }
 
 Target.prototype.deleteLi = function() { // this refers to the newTarget object on which .deleteLi() prototype method is called
