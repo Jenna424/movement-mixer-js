@@ -30,6 +30,9 @@ Training.prototype.featureFitnessType = function() {
   if (userClickedTrainingTypesLink) {
     this.formatLi()
   }
+  if ($('p#empty-trainings-notice').length) {
+    $('p.empty-trainings-notice').remove()
+  }
 }
 
 Training.prototype.alertCreationSuccessful = function() {
@@ -51,6 +54,11 @@ const userClickedTrainingTypesLink = () => {
     return false
   }
 }
+
+Training.prototype.formatLi = function() {
+  $('ul#training-types-list').append(Training.trainingTemplateFunction(this))
+}
+
 // a.view-training-types is always found in app/views/trainings/new.html.erb (so that a trainer can view the list of existing training types before adding a new one)
 Training.indexListener = function() {
   $('a.view-training-types').on('click', function(e) {
