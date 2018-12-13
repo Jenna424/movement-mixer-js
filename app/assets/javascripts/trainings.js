@@ -81,6 +81,7 @@ Training.indexListener = function() {
     e.preventDefault()
     $.get('/trainings')
       .done(Training.index)
+      .fail(handleError)
   })
 }
 // Below, trainingsArray parameter = JSON array of training objects = successful response I get back from AJAX GET request sent using $.get() in Training.indexListener()
