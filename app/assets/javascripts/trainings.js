@@ -25,6 +25,15 @@ Training.create = function(trainingObject) {
   newTraining.featureFitnessType()
 }
 
+Training.prototype.featureFitnessType = function() {
+  if (trainingTypesListIsVisible()) {
+    this.formatLi()
+    this.showAlertForFilledUl()
+  } else {
+    this.showAlertForEmptyUl()
+  }
+}
+
 Training.indexListener = function() {
   $('ul.nav').on('click', 'a.view-training-types', function(e) {
     e.preventDefault()
