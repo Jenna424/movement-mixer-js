@@ -19,7 +19,6 @@ Training.createListener = function() {
 }
 // json parameter below = JSON object representation of AR training instance that was just created and saved to DB = successful JSON response I got back from AJAX POST request sent in Training.createListener()
 Training.create = function(json) {
-  $("input[type='text']").val('') // empty the text field where trainer types in fitness_type after form submission (so fitness_type presence validation does not conflict with it)
   var newTraining = new Training(json)
   newTraining.formatFitnessType()
 }
