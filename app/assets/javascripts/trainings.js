@@ -18,3 +18,8 @@ Training.createListener = function() {
   	  .fail(Training.testValidity)
   })
 }
+
+Training.compileTrainingTemplate = function() {
+  Training.trainingTemplateSource = $('#training-template').html()
+  Training.trainingTemplateFunction = Handlebars.compile(Training.trainingTemplateSource)
+}
