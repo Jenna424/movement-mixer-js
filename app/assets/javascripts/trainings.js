@@ -72,6 +72,6 @@ Training.index = function(trainingsArray) {
       $trainingTypesList.append(newTraining.formatLi())
     })
   } else {
-    $trainingTypesList.before('<p><em>No fitness training types are recorded.</em></p>')
+    $trainingTypesList.before("<p id='no-training-types'><em>No fitness training types are recorded.</em></p>")
   }
 }
