@@ -131,7 +131,7 @@ Training.prototype.alertDeletionSuccessful = function() {
         <span aria-hidden="true">x</span>
       </button>
       <h4 class="alert-heading">You successfully deleted a training type.</h4>
-      <p>Workout routines will no longer employ the training type: <strong>${this.fitness_type}</strong></p>
+      <p>Workout routines will no longer employ the ${this.fitness_type} training type.</p>
     </div>`
   )
 }
