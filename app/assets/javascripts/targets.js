@@ -19,22 +19,22 @@ Target.createListener = function() {
       .fail(Target.testValidity)
   })
 }
-// targetObject parameter below = JSON object representation of newly created AR target instance = response from AJAX POST request sent with $.post() method in Target.createListener()
+// targetObject parameter below = JSON object representation of newly created AR target instance = successful JSON response I get back from AJAX POST request sent using $.post() method in Target.createListener()
 Target.create = function(targetObject) {
-  let newTargetArea = new Target(targetObject)
+  let newTarget = new Target(targetObject)
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">x</span>
       </button>
       <h4 class="alert-heading">You successfully recorded a new target area!</h4>
-      <p>Clients can now design workout routines that focus on sculpting and strengthening one's ${newTargetArea.focus}.</p>
+      <p>Clients can now design workout routines that focus on sculpting and strengthening one's ${newTarget.focus}.</p>
       <hr>
       <p class="mb-0">You may view the updated list of target areas by clicking the link at the bottom of this page.</p>
     </div>`
   )
   if ($('ul#target-areas-list li').length) {
-    $('ul#target-areas-list').append(newTargetArea.formatLi())
+    $('ul#target-areas-list').append(newTarget.formatLi())
   }
 }
 
