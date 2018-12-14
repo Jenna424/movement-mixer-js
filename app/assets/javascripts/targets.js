@@ -29,6 +29,15 @@ Target.create = function(targetObject) {
   }
 }
 
+Target.prototype.showIfIndexLinkClicked = function() {
+  if ($('ul#target-areas-list li').length || $('p#no-target-areas').length) { // Prior to creating a new target area, the View Workout Target Areas link was clicked
+    $('ul#target-areas-list').append(this.formatLi()) // append <li> for the new target area just created to ul#target-areas-list
+  }
+  if ($('p#no-target-areas').length) { // Prior to creating a new target area, the View Workout Target Areas link was clicked, but there were none, so p#no-target-areas was displayed.
+    $('p#no-target-areas').remove() // Now that a new target area has been created, the collection is no longer empty, so remove p#no-target-areas
+  }
+}
+
 Target.prototype.alertCreationSuccessful = function() {
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
