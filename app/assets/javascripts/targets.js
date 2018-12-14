@@ -111,6 +111,9 @@ Target.destroyListener = function() {
 Target.destroy = function(targetObject) {
   let newTarget = new Target(targetObject)
   newTarget.deleteLi()
+  if ($('ul#target-areas-list li').length === 0) {
+    $('h3#all-target-areas').remove()
+  }
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
