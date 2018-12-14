@@ -9,11 +9,6 @@ $(() => {
   Training.destroyListener()
 })
 
-Training.compileTrainingTemplate = function() {
-  Training.trainingTemplateSource = $('#training-template').html()
-  Training.trainingTemplateFunction = Handlebars.compile(Training.trainingTemplateSource)
-}
-
 Training.createListener = function() {
   $('form#new_training').on('submit', function(e) {
     e.preventDefault()
@@ -58,8 +53,12 @@ Training.prototype.alertCreationSuccessful = function() {
 Training.prototype.formatLi = function() {
   return Training.trainingTemplateFunction(this)
 }
-// The link to View All Training Types is ALWAYS found in app/views/trainings/new.html.erb view file,
-// so that the trainer can see a list of existing fitness training types before creating a new one.
+
+Training.compileTrainingTemplate = function() {
+  Training.trainingTemplateSource = $('#training-template').html()
+  Training.trainingTemplateFunction = Handlebars.compile(Training.trainingTemplateSource)
+}
+
 Training.testValidity = function(jqXhrObject) {
   if (jqXhrObject.responseJSON && jqXhrObject.responseJSON.errors.length) {
     alert(`Your attempt to create a training type was unsuccessful:\n${jqXhrObject.responseJSON.errors.pop()}`)
@@ -67,7 +66,8 @@ Training.testValidity = function(jqXhrObject) {
     console.error(`Your attempt to create a training type was unsuccessful due to an error: ${jqXhrObject.statusText} (status code ${jqXhrObject.status})`)
   }
 }
-
+// The link to View All Training Types is ALWAYS found in app/views/trainings/new.html.erb view file,
+// so that the trainer can see a list of existing fitness training types before creating a new one.
 Training.indexListener = function() {
   $('a.view-training-types').on('click', function(e) {
     $(this).hide()
