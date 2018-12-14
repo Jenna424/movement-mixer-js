@@ -91,3 +91,9 @@ Training.destroyListener = function() {
     }
   })
 }
+// Below, trainingObject parameter = JSON object representation of the AR training instance that was just destroyed = successful JSON response I got back from AJAX DELETE request sent in Training.destroyListener()
+Training.destroy = function(trainingObject) {
+  let newTraining = new Training(trainingObject)
+  newTraining.deleteLi()
+  newTraining.alertDeletionSuccessful()
+}
