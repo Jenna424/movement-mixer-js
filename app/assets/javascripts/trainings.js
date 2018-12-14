@@ -6,7 +6,7 @@ function Training(training) {
 $(() => {
   Training.createListener()
   Training.indexListener()
-  //Training.destroyListener()
+  Training.destroyListener()
 })
 
 Training.compileTrainingTemplate = function() {
