@@ -97,3 +97,19 @@ Training.destroy = function(trainingObject) {
   newTraining.deleteLi()
   newTraining.alertDeletionSuccessful()
 }
+
+Training.prototype.deleteLi = function() {
+  $(`li#training-${this.id}`).remove()
+}
+
+Training.prototype.alertDeletionSuccessful = function() {
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">x</span>
+      </button>
+      <h4 class="alert-heading">You successfully deleted a training type.</h4>
+      <p>Workout routines will no longer employ the following fitness type: <strong>${this.fitness_type}</strong></p>
+    </div>`
+  )
+}
