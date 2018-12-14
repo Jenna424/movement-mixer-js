@@ -68,7 +68,7 @@ Training.testValidity = function(jqXhrObject) {
     let validationError = jqXhrObject.responseJSON.errors.pop()
     alert(`Your attempt to create a training type was unsuccessful:\n${validationError}`)
   } else {
-    console.error(`Your attempt to create a training type was unsuccessful due to an error: ${jqXhrObject.statusText} (status code ${jqXhrObject.status})`)
+    console.error(`Your attempt to create a training type was unsuccessful due to the following error: ${jqXhrObject.statusText} (status code ${jqXhrObject.status})`)
   }
 }
 // The link to View All Training Types is ALWAYS found in app/views/trainings/new.html.erb view file,
