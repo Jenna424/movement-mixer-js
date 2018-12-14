@@ -7,6 +7,7 @@ class TrainingsController < ApplicationController
   def create
     training_type = Training.new(training_params)
     authorize training_type
+    
     if training_type.save
       render json: training_type, status: 201
     else
