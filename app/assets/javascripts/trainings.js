@@ -70,7 +70,8 @@ Training.index = function(trainingsArray) {
       let newTraining = new Training(trainingObject)
       $trainingTypesList.append(newTraining.formatLi())
     })
-   } else {
-   	$link.replaceWith('<p><em>No fitness training types are recorded.</em></p>')
+  } else {
+    $trainingTypesList.before('<p><em>No fitness training types are recorded.</em></p>')
+    $trainingTypesList.html('<br>')
   }
 }
