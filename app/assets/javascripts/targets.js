@@ -61,7 +61,7 @@ Target.compileTargetTemplate = function() {
 Target.testValidity = function(jqXhrObject) {
   if (jqXhrObject.responseJSON && jqXhrObject.responseJSON.errors.length) {
     let validationError = jqXhrObject.responseJSON.errors.pop()
-    alert(`Your attempt to create a new target area was unsuccessful:\n${validationError}`)
+    alert(`Your attempt to create a target area was unsuccessful:\n${validationError}`)
   } else {
     console.error(`Your attempt to create a target area was unsuccessful due to the following error: ${jqXhrObject.statusText} (status code ${jqXhrObject.status})`)
   }
