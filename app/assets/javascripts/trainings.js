@@ -64,7 +64,8 @@ Training.indexListener = function() {
 Training.index = function(trainingsArray) {
   let $trainingTypesList = $('ul#training-types-list')
   if (trainingsArray.length) {
-    $link.replaceWith('<h3>All Fitness Training Types</h3>')
+    $trainingTypesList.before('<h3>All Fitness Training Types</h3>')
+    $trainingTypesList.html('<br>')
     trainingsArray.forEach(function(trainingObject) {
       let newTraining = new Training(trainingObject)
       $trainingTypesList.append(newTraining.formatLi())
@@ -72,4 +73,4 @@ Training.index = function(trainingsArray) {
    } else {
    	$link.replaceWith('<p><em>No fitness training types are recorded.</em></p>')
   }
-} 
+}
