@@ -24,9 +24,6 @@ Target.create = function(targetObject) {
   let newTarget = new Target(targetObject)
   newTarget.showIfIndexLinkClicked()
   newTarget.alertCreationSuccessful()
-  if ($('ul#target-areas-list li').length) {
-    $('ul#target-areas-list').append(newTarget.formatLi())
-  }
 }
 
 Target.prototype.showIfIndexLinkClicked = function() {
