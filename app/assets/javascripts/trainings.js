@@ -75,3 +75,19 @@ Training.index = function(trainingsArray) {
     $trainingTypesList.before("<p id='no-training-types'><em>No fitness training types are recorded.</em></p>")
   }
 }
+
+Training.destroyListener = function() {
+  $('ul#training-types-list').on('submit', 'form.delete-training-type', function(e) {
+    e.preventDefault()
+    if (confirm('Are you sure you want to delete this training type?')) {
+      $.ajax({
+        url: $(this).attr('action'), // '/trainings/:id'
+        method: 'DELETE',
+        dataType: 'json',
+        data: $(this).serialize()
+      })
+        .done(Training.destroy)
+        .fail(handleError)
+    }
+  })
+}
