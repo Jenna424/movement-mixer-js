@@ -12,3 +12,7 @@ en:
       show?: "Access denied! You are not authorized to view that user's profile page."
       edit?: "Access denied! You are not authorized to edit that user's account information."
       destroy?: "As an admin, you cannot delete your own account!"
+    training_policy:
+      new?: "Access denied! Only personal trainers can create new fitness training types."
+      index?: "Access denied! Only personal trainers can view the Index of Fitness Training Types."
+      destroy?: "Access denied! Only personal trainers can delete fitness training types."
