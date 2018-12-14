@@ -57,7 +57,7 @@ Target.compileTargetTemplate = function() {
 }
 
 Target.testValidity = function(jqXhrObject) {
-  if (jqXhrObject.responseJSON) {
+  if (jqXhrObject.responseJSON && jqXhrObject.responseJSON.errors.length) {
     let validationError = jqXhrObject.responseJSON.errors.pop()
     $('div#target-error').html(
       `<div class="alert alert-danger" role="alert">
