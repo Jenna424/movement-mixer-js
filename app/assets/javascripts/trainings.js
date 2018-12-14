@@ -28,7 +28,7 @@ Training.create = function(trainingObject) {
 }
 
 Training.prototype.showIfIndexLinkClicked = function() {
-  if ($('ul#training-types-list li').length || $('p#no-training-types').length) { // If the user clicked the View All Training Types link prior to creating a new training type, ul#training-types-list contains an <li> for each existing training type, OR the page has <p id="no-training-types"> if none exist (i.e. the collection is empty)
+  if ($('ul#training-types-list li').length || $('p#no-training-types').length) { // If the user clicked the View All Training Types link prior to creating a new training type, ul#training-types-list contains an <li> for each existing training type, OR the page has <p id="no-training-types"> if none exists (i.e. the collection is empty)
     $('ul#training-types-list').append(this.formatLi()) // append the <li> for the new training type just created to ul#training-types-list
   }
   if ($('p#no-training-types').length) { // The user clicked the View All Training Types link prior to creating a new training type, but the collection was empty at that time, so p#no-training-types was displayed
