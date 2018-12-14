@@ -44,7 +44,12 @@ Training.prototype.alertCreationSuccessful = function() {
         <span aria-hidden="true">x</span>
       </button>
       <h4 class="alert-heading">You successfully created a new fitness training type!</h4>
-      <p>Clients can now design <strong>${this.fitness_type === this.fitness_type.toUpperCase() ? this.fitness_type : this.fitness_type.toLowerCase()}</strong> workout routines.
+      <p>
+        Clients can now design 
+        <strong>
+          ${this.fitness_type === this.fitness_type.toUpperCase() ? this.fitness_type : this.fitness_type.toLowerCase()}
+        </strong> 
+        workout routines.
       </p>
     </div>`
   )
