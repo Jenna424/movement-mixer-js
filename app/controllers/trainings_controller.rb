@@ -7,7 +7,7 @@ class TrainingsController < ApplicationController
   def create
     training_type = Training.new(training_params)
     if training_type.save
-      render json: training_type, status: :created # status: 201
+      render json: training_type, status: 201
     else
       render json: { errors: training_type.errors.full_messages }, status: :unprocessable_entity # status: 422
     end
