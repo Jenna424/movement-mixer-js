@@ -1,9 +1,6 @@
 <h3>Add a Workout Target Area</h3>
 
 <%= form_for @target_area do |f| %>
-  <div id="target-error">
-  </div>
-
   <div class="field">
     <%= f.label :focus, "Body Focus" %>:
     <%= f.text_field :focus, placeholder: "Type target area here..." %>
