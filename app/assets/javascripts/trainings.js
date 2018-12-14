@@ -23,6 +23,7 @@ Training.createListener = function() {
 // Below, trainingObject parameter = JSON object representation of newly created AR training instance = response I get back from AJAX POST request sent using $.post() in Training.createListener()
 Training.create = function(trainingObject) {
   let newTraining = new Training(trainingObject)
+  newTraining.showIfIndexLinkClicked()
   newTraining.alertCreationSuccessful()
   if ($('ul#training-types-list li').length) { // User had clicked View All Training Types link, and ul#training-types-list contained <li>s for training types
     $('ul#training-types-list').append(newTraining.formatLi())
