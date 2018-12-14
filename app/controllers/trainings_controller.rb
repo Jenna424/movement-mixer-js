@@ -22,7 +22,7 @@ class TrainingsController < ApplicationController
     training_type = Training.find(params[:id])
     authorize training_type
     training_type.destroy
-    render json: training_type
+    render json: training_type, status: 200
   end
 
   private
