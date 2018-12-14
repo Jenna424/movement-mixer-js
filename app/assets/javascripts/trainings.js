@@ -66,15 +66,14 @@ Training.indexListener = function() {
 // Below, trainingsArray parameter = JSON array of training objects = successful JSON response I get back from fetch('/trainings'), which is sent in Training.indexListener()
 Training.index = function(trainingsArray) {
   let $trainingTypesList = $('ul#training-types-list')
+  $trainingTypesList.html('') // empty ul#training-types-list
   if (trainingsArray.length) {
     $trainingTypesList.before('<h3>All Fitness Training Types</h3>')
-    $trainingTypesList.html('<br>')
     trainingsArray.forEach(function(trainingObject) {
       let newTraining = new Training(trainingObject)
       $trainingTypesList.append(newTraining.formatLi())
     })
   } else {
     $trainingTypesList.before('<p><em>No fitness training types are recorded.</em></p>')
-    $trainingTypesList.html('<br>')
   }
 }
