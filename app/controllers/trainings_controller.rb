@@ -15,8 +15,8 @@ class TrainingsController < ApplicationController
   end
 
   def index
-    @training_types = policy_scope(Training)
-    render json: @training_types
+    training_types = policy_scope(Training)
+    render json: training_types, status: 200
   end
 
   def destroy # '/trainings/:id' => 'trainings#destroy'
