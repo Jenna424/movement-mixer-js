@@ -28,21 +28,25 @@ Training.createListener = function() {
 // Below, trainingObject parameter = JSON object representation of newly created AR training instance = response I get back from AJAX POST request sent using $.post() in Training.createListener()
 Training.create = function(trainingObject) {
   let newTraining = new Training(trainingObject)
-  $('div#message-container').html(
-    `<div class="alert alert-success" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">x</span>
-      </button>
-      <h4 class="alert-heading">You successfully created a new fitness training type!</h4>
-      <p>Clients can now design <strong>${newTraining.fitness_type.toLowerCase()}</strong> workout routines.</p>
-    </div>`
-  )
+  newTraining.alertCreationSuccessful()
   if ($('ul#training-types-list li').length) {
     $('ul#training-types-list').append(newTraining.formatLi())
   } else if ($('#no-training-types').length) {
   	$('#no-training-types').remove()
   	$('a.view-training-types').show()
   }
+}
+
+Training.prototype.alertCreationSuccessful = function() {
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">x</span>
+      </button>
+      <h4 class="alert-heading">You successfully created a new fitness training type!</h4>
+      <p>Clients can now design <strong>${this.fitness_type.toLowerCase()}</strong> workout routines.</p>
+    </div>`
+  )
 }
 
 Training.prototype.formatLi = function() {
