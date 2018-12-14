@@ -114,6 +114,14 @@ Target.destroy = function(targetObject) {
   if ($('ul#target-areas-list li').length === 0) {
     $('h3#all-target-areas').remove()
   }
+  newTarget.alertDeletionSuccessful()
+}
+
+Target.prototype.deleteLi = function() { // this refers to the newTarget object on which .deleteLi() prototype method is called
+  $(`li#target-${this.id}`).remove() // find the <li> corresponding to the target that was deleted, and then remove it
+}
+
+Target.prototype.alertDeletionSuccessful = function() {
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -123,8 +131,4 @@ Target.destroy = function(targetObject) {
       <p>Workout routines will no longer target one's ${newTarget.focus.toLowerCase()}.</p>
     </div>`
   )
-}
-
-Target.prototype.deleteLi = function() { // this refers to the newTarget object on which .deleteLi() prototype method is called
-  $(`li#target-${this.id}`).remove() // find the <li> corresponding to the target that was deleted, and then remove it
 }
