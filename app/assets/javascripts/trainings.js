@@ -5,7 +5,7 @@ function Training(training) {
 
 $(() => {
   Training.createListener()
-  //Training.indexListener()
+  Training.indexListener()
   //Training.destroyListener()
 })
 
@@ -51,6 +51,7 @@ Training.prototype.formatLi = function() {
 // so that the trainer can see a list of existing fitness training types before creating a new one.
 Training.indexListener = function() {
   $('a.view-training-types').on('click', function(e) {
+    $(this).hide()
     e.preventDefault() // prevent the default behavior of sending a normal HTTP GET request to "/trainings"
     fetch('/trainings')
       .then(response => response.json())
@@ -62,14 +63,13 @@ Training.indexListener = function() {
 // Below, trainingsArray parameter = JSON array of training objects = successful JSON response I get back from fetch('/trainings'), which is sent in Training.indexListener()
 Training.index = function(trainingsArray) {
   let $trainingTypesList = $('ul#training-types-list')
-  let $link = $('a.view-training-types')
   if (trainingsArray.length) {
     $link.replaceWith('<h3>All Fitness Training Types</h3>')
     trainingsArray.forEach(function(trainingObject) {
       let newTraining = new Training(trainingObject)
       $trainingTypesList.append(newTraining.formatLi())
     })
-  } else {
-    $link.replaceWith('<p><em>No fitness training types are recorded.</em></p>')
+   } else {
+   	$link.replaceWith('<p><em>No fitness training types are recorded.</em></p>')
   }
-}
+} 
