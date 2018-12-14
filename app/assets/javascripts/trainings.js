@@ -41,6 +41,9 @@ Training.create = function(trainingObject) {
   )
   if ($('ul#training-types-list li').length) {
     $('ul#training-types-list').append(newTraining.formatLi())
+  } else if ($('p').length) {
+  	$('p').remove()
+  	$('a.view-training-types').show()
   }
 }
 
