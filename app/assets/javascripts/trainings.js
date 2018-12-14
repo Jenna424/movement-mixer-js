@@ -33,7 +33,7 @@ Training.create = function(trainingObject) {
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">x</span>
       </button>
-      <h4 class="alert-heading">You successfully featured a new fitness training type!</h4>
+      <h4 class="alert-heading">You successfully created a new fitness training type!</h4>
       <p>Clients can now design workout routines that implement the training type: <strong>${newTraining.fitness_type}</strong>.</p>
       <hr>
       <p class="mb-0">You may view the updated list of training types by clicking the link at the bottom of this page.</p>
