@@ -36,8 +36,6 @@ Target.prototype.alertCreationSuccessful = function() {
       </button>
       <h4 class="alert-heading">You successfully recorded a new target area!</h4>
       <p>Clients can now design workout routines that focus on sculpting and strengthening one's ${newTarget.focus}.</p>
-      <hr>
-      <p class="mb-0">You may view the updated list of target areas by clicking the link at the bottom of this page.</p>
     </div>`
   ) 
 }
