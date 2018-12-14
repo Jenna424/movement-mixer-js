@@ -120,7 +120,7 @@ Target.destroy = function(targetObject) {
         <span aria-hidden="true">x</span>
       </button>
       <h4 class="alert-heading">You successfully deleted a target area.</h4>
-      <p>Workout routines will no longer target one's ${newTarget.focus}.</p>
+      <p>Workout routines will no longer target one's ${newTarget.focus.toLowerCase()}.</p>
     </div>`
   )
 }
