@@ -25,12 +25,6 @@ Training.create = function(trainingObject) {
   let newTraining = new Training(trainingObject)
   newTraining.showIfIndexLinkClicked()
   newTraining.alertCreationSuccessful()
-  if ($('ul#training-types-list li').length) { // User had clicked View All Training Types link, and ul#training-types-list contained <li>s for training types
-    $('ul#training-types-list').append(newTraining.formatLi())
-  } else if ($('#no-training-types').length) { // User had clicked View All Training Types link, but there were none (the collection was empty), so <p id="no-training-types"><em>No fitness training types are recorded.</em></p> was displayed
-  	$('#no-training-types').remove() // remove p#no-training-types, now that a new training type has been created
-  	$('a.view-training-types').show()
-  }
 }
 
 Training.prototype.alertCreationSuccessful = function() {
