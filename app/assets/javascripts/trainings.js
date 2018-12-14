@@ -66,7 +66,7 @@ Training.index = function(trainingsArray) {
   let $trainingTypesList = $('ul#training-types-list')
   $trainingTypesList.html('') // empty ul#training-types-list
   if (trainingsArray.length) {
-    $trainingTypesList.before('<h3 id="all-trainings-heading">All Fitness Training Types</h3>')
+    $trainingTypesList.before('<h3 id="all-training-types">All Fitness Training Types</h3>')
     trainingsArray.forEach(function(trainingObject) {
       let newTraining = new Training(trainingObject)
       $trainingTypesList.append(newTraining.formatLi())
@@ -96,7 +96,7 @@ Training.destroy = function(trainingObject) {
   let newTraining = new Training(trainingObject)
   newTraining.deleteLi()
   if ($('ul#training-types-list li').length === 0) { // After the training type is deleted, if there are NO <li>s for training types left in the ul#training-types-list
-    $('h3#all-trainings-heading').remove()
+    $('h3#all-training-types').remove()
   }
   newTraining.alertDeletionSuccessful()
 }
