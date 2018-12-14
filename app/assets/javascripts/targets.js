@@ -22,6 +22,13 @@ Target.createListener = function() {
 // targetObject parameter below = JSON object representation of newly created AR target instance = successful JSON response I get back from AJAX POST request sent using $.post() method in Target.createListener()
 Target.create = function(targetObject) {
   let newTarget = new Target(targetObject)
+  newTarget.alertCreationSuccesful()
+  if ($('ul#target-areas-list li').length) {
+    $('ul#target-areas-list').append(newTarget.formatLi())
+  }
+}
+
+Target.prototype.alertCreationSuccessful = function() {
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -32,10 +39,7 @@ Target.create = function(targetObject) {
       <hr>
       <p class="mb-0">You may view the updated list of target areas by clicking the link at the bottom of this page.</p>
     </div>`
-  )
-  if ($('ul#target-areas-list li').length) {
-    $('ul#target-areas-list').append(newTarget.formatLi())
-  }
+  ) 
 }
 
 Target.prototype.formatLi = function() {
