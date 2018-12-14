@@ -82,7 +82,7 @@ Target.index = function(targetsArray) {
   let $targetAreasList = $('ul#target-areas-list')
   let $link = $('a.view-target-areas')
   if (targetsArray.length) {
-    $link.replaceWith('<h3>All Workout Target Areas</h3>')
+    $link.replaceWith("<h3 id='all-target-areas'>All Workout Target Areas</h3>")
     targetsArray.forEach(function(targetObject) {
       let newTarget = new Target(targetObject)
       $targetAreasList.append(newTarget.formatLi())
