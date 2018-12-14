@@ -35,8 +35,6 @@ Training.create = function(trainingObject) {
       </button>
       <h4 class="alert-heading">You successfully created a new fitness training type!</h4>
       <p>Clients can now design workout routines that implement the training type: <strong>${newTraining.fitness_type}</strong>.</p>
-      <hr>
-      <p class="mb-0">You may view the updated list of training types by clicking the link at the bottom of this page.</p>
     </div>`
   )
   if ($('ul#training-types-list li').length) {
