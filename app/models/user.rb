@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  
   enum role: { unassigned: 0, client: 1, trainer: 2, admin: 3 }
 
   has_many :clients, class_name: "User", foreign_key: "trainer_id"
@@ -22,5 +21,4 @@ class User < ApplicationRecord
   def self.awaiting_assignment(rejected_roles, role_number)
     by_role("unassigned").where.not(role_requested: rejected_roles, role: role_number)
   end
-
 end
