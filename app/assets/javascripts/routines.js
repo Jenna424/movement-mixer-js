@@ -59,6 +59,11 @@ Routine.createWorkout = function(routineResponse) {
   newRoutine.formatAndPresentPreview()
 }
 
+Routine.emptyCreateForm = function() {
+  $('#new_routine').find('input[type=text], textarea, input[type=number]').val(''); // empty the textfields, textareas and numberfields in <form id="new_routine">, in case the user wants to create another routine
+  $('#new_routine').find('input[type=checkbox]').prop('checked', false) // uncheck any previously checked checkboxes for target areas and training types
+}
+
 Routine.preparePreviewPage = function() {
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
