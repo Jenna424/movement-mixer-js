@@ -63,19 +63,6 @@ Routine.emptyCreateForm = function() {
   $('#new_routine').find('input[type=text], textarea, input[type=number]').val(''); // empty the textfields, textareas and numberfields in <form id="new_routine">, in case the user wants to create another routine
   $('#new_routine').find('input[type=checkbox]').prop('checked', false) // uncheck any previously checked checkboxes for target areas and training types
 }
-
-Routine.preparePreviewPage = function() {
-  $('div#message-container').html(
-    `<div class="alert alert-success" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-       <span aria-hidden="true">&times;</span>
-      </button>
-      Your workout routine was successfully created! You may preview your routine below:
-    </div>`
-  )
-  $('#new_routine').find('input[type=text], textarea, input[type=number]').val(''); // empty the textfields, textareas and numberfields in <form id="new_routine">, in case the user wants to create another routine
-  $('#new_routine').find('input[type=checkbox]').prop('checked', false) // uncheck any previously checked checkboxes for target areas and training types
-}
 // Below, this refers to the newRoutine object on which we're calling the formatAndPresentPreview() prototype method
 Routine.prototype.formatAndPresentPreview = function() {
   $('div#preview-routine').html(Routine.routineTemplateFunction(this))
