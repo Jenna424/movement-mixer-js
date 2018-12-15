@@ -24,7 +24,7 @@ Routine.bindEventListeners = function() {
   Routine.indexListener()
   Routine.destroyListener()
 }
-// The function below is called when the user clicks either the +Exercise or +Equipment button in the form to create a new workout routine
+// The function below is called when the user clicks either the #add-movement or #add-equipment button in the form to create a new workout routine
 Routine.addFieldsInCreateForm = function() {
   $('button[id^=add]').on('click', function(e) {
     e.preventDefault()
