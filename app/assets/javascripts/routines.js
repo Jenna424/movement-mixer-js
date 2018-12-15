@@ -70,6 +70,17 @@ Routine.prototype.formatAndPresentPreview = function() {
   document.getElementById('preview-routine').scrollIntoView()
 }
 
+Routine.prototype.alertCreationSuccessful = function() {
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">x</span>
+      </button>
+      Your workout routine was successfully created! You may preview your routine below:
+    </div>`
+  )
+}
+
 Routine.compileCreateTemplates = function() {
   // script#routine-template contains Handlebars template used to generate preview of newly-created workout routine
   Routine.routineTemplateSource = $('#routine-template').html();
