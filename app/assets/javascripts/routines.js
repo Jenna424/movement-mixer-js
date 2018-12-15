@@ -76,7 +76,7 @@ Routine.prototype.alertPreviewProduced = function() {
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">x</span>
       </button>
-      Your workout routine was successfully created! You may preview your routine below:
+      Your workout routine entitled <em>${this.title}</em> was successfully created! You may preview your routine below:
     </div>`
   )
 }
