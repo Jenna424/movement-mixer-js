@@ -13,5 +13,4 @@ class Movement < ApplicationRecord
     movement = Movement.where("id < ?", id).last
     movement ? movement : Movement.first
   end
-
 end
