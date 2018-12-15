@@ -17,7 +17,7 @@ $(() => {
 })
 
 Routine.bindEventListeners = function() {
-  Routine.addAssociationInCreateForm()
+  Routine.addFieldsInCreateForm()
   Routine.createListener()
   Routine.addExerciseToExistingWorkout()
   Routine.addEquipmentToExistingWorkout()
@@ -25,7 +25,7 @@ Routine.bindEventListeners = function() {
   Routine.destroyListener()
 }
 // The function below is called when the user clicks either the +Exercise or +Equipment button in the form to create a new workout routine
-Routine.addAssociationInCreateForm = function() {
+Routine.addFieldsInCreateForm = function() {
   $('button[id^=add]').on('click', function(e) {
     e.preventDefault()
     let associatedObjects = $(this).data('add-association') // either "movements" or "equipment"
