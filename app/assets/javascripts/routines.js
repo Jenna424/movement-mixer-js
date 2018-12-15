@@ -57,6 +57,7 @@ Routine.createWorkout = function(routineResponse) {
   Routine.emptyCreateForm()
   let newRoutine = new Routine(routineResponse)
   newRoutine.formatAndPresentPreview()
+  newRoutine.alertCreationSuccessful()
 }
 
 Routine.emptyCreateForm = function() {
