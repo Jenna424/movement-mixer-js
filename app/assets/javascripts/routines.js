@@ -57,7 +57,7 @@ Routine.createWorkout = function(routineResponse) {
   Routine.emptyCreateForm()
   let newRoutine = new Routine(routineResponse)
   newRoutine.formatAndPresentPreview()
-  newRoutine.alertCreationSuccessful()
+  newRoutine.alertPreviewProduced()
 }
 
 Routine.emptyCreateForm = function() {
@@ -70,7 +70,7 @@ Routine.prototype.formatAndPresentPreview = function() {
   document.getElementById('preview-routine').scrollIntoView()
 }
 
-Routine.prototype.alertCreationSuccessful = function() {
+Routine.prototype.alertPreviewProduced = function() {
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
