@@ -44,7 +44,7 @@ Routine.addFieldsInCreateForm = function() {
 }
 
 Routine.createListener = function() {
-  $('#new_routine').on('submit', function(e) {
+  $('form#new_routine').on('submit', function(e) {
     e.preventDefault()
     let createFormData = $(this).serialize()
     $.post('/routines', createFormData)
