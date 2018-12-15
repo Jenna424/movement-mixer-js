@@ -18,7 +18,7 @@ class User < ApplicationRecord
     where(role: string_role)
   end
 
-  def self.awaiting_assignment(rejected_roles, role_number)
-    by_role("unassigned").where.not(role_requested: rejected_roles, role: role_number)
+  def self.awaiting_assignment(rejected_roles, requested_role_number)
+    by_role("unassigned").where.not(role_requested: rejected_roles, role: requested_role_number)
   end
 end
