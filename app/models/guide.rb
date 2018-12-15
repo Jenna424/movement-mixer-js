@@ -5,8 +5,4 @@ class Guide < ApplicationRecord
   validates :breathing_technique, presence: true
   validates :modification, presence: true
   validates :challenge, presence: true
-
-  def self.by_trainer(trainer)
-    where(user: trainer)
-  end
 end
