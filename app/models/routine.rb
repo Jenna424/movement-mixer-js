@@ -9,8 +9,8 @@ class Routine < ApplicationRecord
   has_many :routine_trainings, dependent: :destroy
   has_many :trainings, through: :routine_trainings
 
-  accepts_nested_attributes_for :movement_routines, reject_if: :all_blank, allow_destroy: true
-  accepts_nested_attributes_for :equipment_routines, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :movement_routines, reject_if: :all_blank
+  accepts_nested_attributes_for :equipment_routines, reject_if: :all_blank
 
   validates :title, presence: true, uniqueness: true
   validates :difficulty_level, inclusion: { in: ["Beginner", "Intermediate", "Advanced"] }
