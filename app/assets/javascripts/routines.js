@@ -12,18 +12,6 @@ function Routine(routine) {
   this.user = routine.user
 }
 
-Routine.compileCreateTemplates = function() {
-  // Handlebars template used to generate preview of newly-created workout routine
-  Routine.routineTemplateSource = $('#routine-template').html();
-  Routine.routineTemplateFunction = Handlebars.compile(Routine.routineTemplateSource);
-  // Handlebars template used to add an exercise movement to a workout routine that's currently being designed
-  Routine.movementsTemplateSource = $('#movements-template').html();
-  Routine.movementsTemplateFunction = Handlebars.compile(Routine.movementsTemplateSource);
-  // Handlebars template used to add a piece of equipment to a workout routine that's currently being designed
-  Routine.equipmentTemplateSource = $('#equipment-template').html();
-  Routine.equipmentTemplateFunction = Handlebars.compile(Routine.equipmentTemplateSource);
-}
-
 $(() => {
   Routine.bindEventListeners()
 })
@@ -87,6 +75,18 @@ Routine.preparePreviewPage = function() {
 Routine.prototype.formatAndPresentPreview = function() {
   $('div#preview-routine').html(Routine.routineTemplateFunction(this))
   document.getElementById('preview-routine').scrollIntoView()
+}
+
+Routine.compileCreateTemplates = function() {
+  // script#routine-template contains Handlebars template used to generate preview of newly-created workout routine
+  Routine.routineTemplateSource = $('#routine-template').html();
+  Routine.routineTemplateFunction = Handlebars.compile(Routine.routineTemplateSource);
+  // Handlebars template used to add an exercise movement to a workout routine that's currently being designed
+  Routine.movementsTemplateSource = $('#movements-template').html();
+  Routine.movementsTemplateFunction = Handlebars.compile(Routine.movementsTemplateSource);
+  // Handlebars template used to add a piece of equipment to a workout routine that's currently being designed
+  Routine.equipmentTemplateSource = $('#equipment-template').html();
+  Routine.equipmentTemplateFunction = Handlebars.compile(Routine.equipmentTemplateSource);
 }
 
 Routine.revealErrors = function(jqXhrObject) {
