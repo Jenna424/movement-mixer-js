@@ -51,7 +51,12 @@ class Routine < ApplicationRecord
             weight: equipment_attribute["equipment_routines"]["weight"]
           )
         else
-          self.equipment_routines.build(equipment: equipment, routine: self, quantity: equipment_attribute["equipment_routines"]["quantity"], weight: equipment_attribute["equipment_routines"]["weight"])
+          self.equipment_routines.build(
+            equipment: equipment, 
+            routine: self, 
+            quantity: equipment_attribute["equipment_routines"]["quantity"], 
+            weight: equipment_attribute["equipment_routines"]["weight"]
+          )
         end
       end
     end
