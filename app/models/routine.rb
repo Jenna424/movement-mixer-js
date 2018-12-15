@@ -56,24 +56,6 @@ class Routine < ApplicationRecord
       end
     end
   end
-
-  def targets_attributes=(targets_attributes)
-    targets_attributes.values.each do |targets_attribute|
-      if !targets_attribute["focus"].blank?
-        target_area = Target.find_or_create_by(focus: targets_attribute["focus"])
-        self.routine_targets.build(routine: self, target: target_area)
-      end
-    end
-  end
-
-  def trainings_attributes=(trainings_attributes)
-    trainings_attributes.values.each do |trainings_attribute|
-      if !trainings_attribute["fitness_type"].blank?
-        training_type = Training.find_or_create_by(fitness_type: trainings_attribute["fitness_type"])
-        self.routine_trainings.build(routine: self, training: training_type)
-      end
-    end
-  end
 end
 
 # Many-to-Many Relationship between routines and movements:
