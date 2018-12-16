@@ -49,8 +49,8 @@
 <br><br>
 
 <% if policy(@routine).edit? %>
-  <%= link_to edit_routine_path(@routine), class: 'edit-workout btn btn-default btn-md', data: {id: @routine.id} do
-    content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:small, " Edit Workout Routine")
+  <%= link_to edit_routine_path(@routine), class: 'btn btn-default btn-md edit-workout', data: {id: @routine.id} do
+    content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:span, " Edit Workout")
   end %>
 <% end %>
 
