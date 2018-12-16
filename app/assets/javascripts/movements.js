@@ -40,9 +40,8 @@ Movement.index = function(movementsArray) {
       $divContainer.append(newMovement.formatForIndex())
     })
   } else { // movementsArray.length === 0 (falsy value), meaning that the Index of Exercise Movements is empty
-    $divContainer.html(
+    $('div#message-container').html(
       `<div class="alert alert-warning" role="alert">
-        The Index of Exercise Movements is currently empty.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
