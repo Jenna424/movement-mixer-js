@@ -182,10 +182,10 @@ Routine.index = function(routinesArray) {
   } else { // routinesArray.length === 0, a falsy value in JavaScript
     $divContainer.html(
       `<div class="alert alert-warning" role="alert">
-        The Index of Workout Routines is currently empty.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+        The Index of Workout Routines is currently empty.
       </div>`
     )
   }
