@@ -27,7 +27,7 @@ Movement.indexListener = function() {
     fetch('/movements', requestObject)
       .then(response => response.json())
       .then(Movement.index)
-      .catch(error => console.error('The Index of Exercise Movements could not be retrieved due to an error:\n', error))
+      .catch(error => console.error('The exercise guide could not be retrieved due to the following error:\n', error))
   })
 }
 // Below, movementsArray parameter = JSON array representation of AR::Relation of all movement instances = JSON response from fetch('/movements') call sent in Movement.indexListener()
