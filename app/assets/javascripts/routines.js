@@ -191,11 +191,6 @@ Routine.index = function(routinesArray) {
   }
 }
 
-Routine.compileListWorkoutTemplate = function() {
-  Routine.listWorkoutTemplateSource = $('#list-workout-template').html()
-  Routine.listWorkoutTemplateFunction = Handlebars.compile(Routine.listWorkoutTemplateSource)
-}
-
 Routine.destroyListener = function() {
   $('button.delete-workout').parent().on('submit', function(e) {
     e.preventDefault()
