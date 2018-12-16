@@ -211,7 +211,7 @@ Routine.destroy = function(routineResponse) {
   let newRoutine = new Routine(routineResponse)
   $('div.container div:not(#message-container), a.edit-workout, form.button_to').remove()
   history.pushState(null, null, '/')
-  newRoutine.appendDeleteAlert()
+  newRoutine.alertDeletionSuccessful()
 }
 
 Routine.prototype.appendDeleteAlert = function() {
