@@ -52,7 +52,7 @@ Movement.index = function(movementsArray) {
 }
 // Below, this refers to the newMovement object on which I'm calling prototype method .formatForIndex()
 Movement.prototype.formatForIndex = function() {
-  return Movement.listMovementTemplateFunction(this)
+  return Movement.indexMovementTemplateFunction(this)
 }
 
 Movement.compileListMovementTemplate = function() {
