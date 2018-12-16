@@ -209,7 +209,7 @@ Routine.destroyListener = function() {
 // Below, routineResponse parameter = JSON object representation of AR routine instance that was just destroyed = response to AJAX DELETE request sent in Routine.destroyListener()
 Routine.destroy = function(routineResponse) {
   let newRoutine = new Routine(routineResponse)
-  $('div.container div:not(#message-container), a.edit-workout, form.button_to').remove()
+  $('div.container div:not(#message-container), a.edit-workout, form.button_to, hr').remove()
   history.pushState(null, null, '/')
   newRoutine.alertDeletionSuccessful()
 }
