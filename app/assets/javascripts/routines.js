@@ -52,9 +52,9 @@ Routine.createListener = function() {
       .fail(Routine.revealErrors)
   })
 }
-// Below, routineResponse parameter = JSON object representation of AR routine instance that was just created = JSON response I get back from AJAX POST request sent in Routine.createListener()
+// Below, routineResponse parameter = JSON object representation of AR routine instance that was just created and saved to DB = successful JSON response I get back from AJAX POST request sent using $.post() method in Routine.createListener()
 Routine.createWorkout = function(routineResponse) {
-  Routine.emptyCreateForm()
+  Routine.emptyCreateForm() // empty the form once I get back a successful JSON response so that a user can create another new routine if she wants to. (The form is NOT emptied if I get back a failed response, so the user does NOT have to retype every form field if there are validation errors)
   let newRoutine = new Routine(routineResponse)
   newRoutine.formatAndPresentPreview()
   newRoutine.alertPreviewProduced()
@@ -64,17 +64,17 @@ Routine.emptyCreateForm = function() {
   $('#new_routine').find('input[type=text], textarea, input[type=number]').val(''); // empty the textfields, textareas and numberfields in <form id="new_routine">, in case the user wants to create another routine
   $('#new_routine').find('input[type=checkbox]').prop('checked', false) // uncheck any previously checked checkboxes for target areas and training types
 }
-// Below, this refers to the newRoutine object on which we're calling the formatAndPresentPreview() prototype method
+// Below, this refers to the newRoutine object on which I'm calling prototype method formatAndPresentPreview()
 Routine.prototype.formatAndPresentPreview = function() {
   $('div#preview-routine').html(Routine.routineTemplateFunction(this))
   document.getElementById('preview-routine').scrollIntoView()
 }
-
+// Below, this refers to the newRoutine object on which I'm calling prototype method alertPreviewProduced()
 Routine.prototype.alertPreviewProduced = function() {
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">x</span>
+        <span aria-hidden="true">&times;</span>
       </button>
       Your workout routine, entitled <em>${this.title}</em>, was successfully created! You may preview your routine below:
     </div>`
