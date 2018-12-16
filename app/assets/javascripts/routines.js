@@ -101,9 +101,9 @@ Routine.revealErrors = function(jqXhrObject) {
       if (firstTwoWords === 'Movement routines' || firstTwoWords === 'Equipment routines') {
         return errorString.split(' ').splice(2).join(' ').replace(/^\w/, character => character.toUpperCase())
       } else if (firstTwoWords === 'Target ids') {
-        return errorString.replace('ids', 'areas')
+        return 'At least one target area must be selected'
       } else if (firstTwoWords === 'Training ids') {
-        return errorString.replace('ids', 'types')
+        return 'At least one training type must be selected'
       } else {
         return errorString
       }
