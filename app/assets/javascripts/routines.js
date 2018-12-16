@@ -163,8 +163,13 @@ Routine.addEquipmentToExistingWorkout = function() {
 Routine.indexListener = function() {
   $('a.index-routines').on('click', function(e) {
     e.preventDefault();
-    history.pushState(null, null, "/routines")
-    fetch('/routines')
+    history.pushState(null, null, '/routines')
+    let requestObject = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include'
+    }
+    fetch('/routines', requestObject)
       .then(response => response.json())
       .then(Routine.index)
       .catch(error => console.error('The Index of Workout Routines was not retrieved due to the following error:\n', error));
