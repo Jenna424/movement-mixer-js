@@ -214,7 +214,7 @@ Routine.destroy = function(routineResponse) {
   newRoutine.alertDeletionSuccessful()
 }
 
-Routine.prototype.appendDeleteAlert = function() {
+Routine.prototype.alertDeletionSuccessful = function() {
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
