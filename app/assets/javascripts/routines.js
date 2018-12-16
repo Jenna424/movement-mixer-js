@@ -159,9 +159,9 @@ Routine.addEquipmentToExistingWorkout = function() {
     }
   })
 }
-// The link to View All Workouts is found in the navbar, which changes depending on the viewer's role and if that viewer is logged in
+// a.index-routines is always found in the navigation, whether the logged-in user is unassigned/client/trainer/admin. Only viewers who have NOT registered/users who are NOT logged in will NOT view this link in the navbar.
 Routine.indexListener = function() {
-  $('ul.nav').on('click', 'a.index-routines', function(e) {
+  $('a.index-routines').on('click', function(e) {
     e.preventDefault();
     history.pushState(null, null, "/routines")
     fetch('/routines.json')
