@@ -78,6 +78,7 @@ Routine.prototype.alertPreviewProduced = function() {
       Your workout routine, entitled <em>${this.title}</em>, was successfully created! You may preview your routine below:
     </div>`
   )
+  document.getElementById('message-container').scrollIntoView()
 }
 
 Routine.compileCreateTemplates = function() {
