@@ -170,7 +170,7 @@ Routine.indexListener = function() {
       .catch(error => console.error('The Index of Workout Routines was not retrieved due to the following error:\n', error));
   })
 }
-// routinesArray parameter below = JSON object representation of AR::Relation of all routine instances
+// Below, routinesArray parameter = successful JSON response I get back from .fetch('/routines') sent in Routine.indexListener = JSON array of routine objects = representation of AR::Relation of 1). all routine instances (if logged-in user is unassigned, client or admin) OR 2). all routine instances belonging to a single trainer's clients (if the logged-in user is a trainer)
 Routine.indexWorkouts = function(routinesArray) {
   let $divContainer = $('div.container')
   if (routinesArray.length) { // truthy if length is > 0, i.e., the Index of Workout Routines is NOT empty
