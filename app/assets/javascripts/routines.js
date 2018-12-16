@@ -191,10 +191,6 @@ Routine.index = function(routinesArray) {
   }
 }
 
-Routine.prototype.formatForIndex = function() {
-  return Routine.listWorkoutTemplateFunction(this)
-}
-
 Routine.compileListWorkoutTemplate = function() {
   Routine.listWorkoutTemplateSource = $('#list-workout-template').html()
   Routine.listWorkoutTemplateFunction = Handlebars.compile(Routine.listWorkoutTemplateSource)
