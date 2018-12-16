@@ -67,7 +67,6 @@ Routine.emptyCreateForm = function() {
 // Below, this refers to the newRoutine object on which I'm calling prototype method formatAndPresentPreview()
 Routine.prototype.formatAndPresentPreview = function() {
   $('div#preview-routine').html(Routine.routineTemplateFunction(this))
-  document.getElementById('preview-routine').scrollIntoView()
 }
 // Below, this refers to the newRoutine object on which I'm calling prototype method alertPreviewProduced()
 Routine.prototype.alertPreviewProduced = function() {
