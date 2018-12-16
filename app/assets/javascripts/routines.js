@@ -94,7 +94,7 @@ Routine.prototype.alertPreviewProduced = function() {
 }
 
 Routine.revealErrors = function(jqXhrObject) {
-  if (jqXhrObject.responseJSON) { // If NOT undefined, there are validation errors
+  if (jqXhrObject.responseJSON && jqXhrObject.responseJSON.errors.length) {
     let validationErrorsArray = jqXhrObject.responseJSON.errors
     let formattedErrorsArray = validationErrorsArray.map(function(errorString) {
       let firstTwoWords = errorString.split(' ').slice(0, 2).join(' ')
