@@ -68,18 +68,6 @@ Routine.emptyCreateForm = function() {
 Routine.prototype.formatAndPresentPreview = function() {
   $('div#preview-routine').html(Routine.routineTemplateFunction(this))
 }
-// Below, this refers to the newRoutine object on which I'm calling prototype method alertPreviewProduced()
-Routine.prototype.alertPreviewProduced = function() {
-  $('div#message-container').html(
-    `<div class="alert alert-success" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      Your workout routine, entitled <em>${this.title}</em>, was successfully created! You may preview your routine below:
-    </div>`
-  )
-  document.getElementById('message-container').scrollIntoView()
-}
 
 Routine.compileCreateTemplates = function() {
   // script#routine-template contains Handlebars template used to generate preview of newly-created workout routine
@@ -91,6 +79,18 @@ Routine.compileCreateTemplates = function() {
   // Handlebars template used to add a piece of equipment to a workout routine that's currently being designed
   Routine.equipmentTemplateSource = $('#equipment-template').html();
   Routine.equipmentTemplateFunction = Handlebars.compile(Routine.equipmentTemplateSource);
+}
+// Below, this refers to the newRoutine object on which I'm calling prototype method alertPreviewProduced()
+Routine.prototype.alertPreviewProduced = function() {
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      Your workout routine, entitled <em>${this.title}</em>, was successfully created! You may preview your routine below:
+    </div>`
+  )
+  document.getElementById('message-container').scrollIntoView()
 }
 
 Routine.revealErrors = function(jqXhrObject) {
