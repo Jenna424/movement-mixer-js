@@ -9,6 +9,8 @@
 <script id="routine-template" type="text/x-handlebars-template">
   <h4>Preview of <em><a href="/routines/{{id}}">{{title}}</a></em><small>:</small></h4>
   <small>
+    <strong>Designed by</strong>: {{user.name}}
+    <br>
     <strong>Difficulty Level</strong>: {{difficulty_level}}
     <br>
     <strong>Duration</strong>: {{duration}} minutes
@@ -64,21 +66,6 @@
     </form>
     <br>
   </div>
-</script>
-
-<!-- User clicks "View All Workouts" link in navbar, and I use the Handlebars template below 
-when I make my AJAX GET request to "/routines" using fetch() in the function Routine.handleWorkoutsIndex,
-which is defined in routines.js file -->
-
-<script id="list-workout-template" type="text/x-handlebars-template">
-  <span><a href="/routines/{{id}}">{{title}}</a></span>
-  <br>
-  <small>~ designed by {{user.name}} ~</small>
-  <br>
-  <small><strong>Difficulty Level</strong>: {{difficulty_level}}</small>
-  <br>
-  <small><strong>Duration</strong>: {{duration}} minutes</small>
-  <hr>
 </script>
 
 <script id="list-exercise-template" type="text/x-handlebars-template">
