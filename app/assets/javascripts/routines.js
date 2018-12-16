@@ -164,7 +164,7 @@ Routine.indexListener = function() {
   $('a.index-routines').on('click', function(e) {
     e.preventDefault();
     history.pushState(null, null, "/routines")
-    fetch('/routines.json')
+    fetch('/routines')
       .then(response => response.json())
       .then(Routine.indexWorkouts)
       .catch(error => console.error('The Index of Workout Routines was not retrieved due to an error:\n', error));
