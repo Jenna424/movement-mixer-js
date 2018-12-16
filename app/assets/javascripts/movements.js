@@ -56,9 +56,9 @@ Movement.prototype.formatMoveForIndex = function() {
   return Movement.listExerciseTemplateFunction(this)
 }
 
-Movement.compileListExerciseTemplate = function() {
-  Movement.listExerciseTemplateSource = $('#list-exercise-template').html()
-  Movement.listExerciseTemplateFunction = Handlebars.compile(Movement.listExerciseTemplateSource)
+Movement.compileListMovementTemplate = function() {
+  Movement.listMovementTemplateSource = $('#list-movement-template').html()
+  Movement.listMovementTemplateFunction = Handlebars.compile(Movement.listMovementTemplateSource)
 }
 // <button type="button"> has no default behavior, so I don't need to include e.preventDefault() below
 Movement.showNextOrPreviousListener = function() {
