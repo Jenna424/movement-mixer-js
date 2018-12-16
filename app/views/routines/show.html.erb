@@ -47,11 +47,11 @@
 <%= render partial: "add_exercise_form", locals: {routine: @routine} if policy(@routine).edit? %>
 
 <% if policy(@routine).edit? %>
-  <%= link_to edit_routine_path(@routine), class: 'btn btn-primary btn-md edit-workout', data: {id: @routine.id} do 
+  <%= link_to edit_routine_path(@routine), class: 'btn btn-primary btn-md edit-workout', data: {id: @routine.id} do
     content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:span, " Edit Workout")
   end %>
 <% end %>
- 
+
 <% if policy(@routine).destroy? %>
   <%= button_to routine_path(@routine), class: "btn btn-danger btn-md delete-workout", method: :delete, form: {style: 'display:inline-block;'} do %>
     <span class="glyphicon glyphicon-trash"></span> <span>Delete Workout</span>
