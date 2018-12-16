@@ -111,7 +111,7 @@ Routine.revealErrors = function(jqXhrObject) {
     let formattedErrorsString = formattedErrorsArray.join('\n') // join array elements (string validation error messages) with a line break
     alert(`Your attempt to design a workout routine was unsuccessful:\n\n${formattedErrorsString}`)
   } else {
-    console.error(`Your workout was not created because an error occurred: ${jqXhrObject.statusText} (status code ${jqXhrObject.status})`)
+    console.error(`Your workout was not created due to the following error: ${jqXhrObject.statusText} (status code ${jqXhrObject.status})`)
   }
 }
 
