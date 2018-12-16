@@ -174,11 +174,10 @@ Routine.indexListener = function() {
 Routine.indexWorkouts = function(routinesArray) {
   let $divContainer = $('div.container')
   if (routinesArray.length) { // truthy if length is > 0, i.e., the Index of Workout Routines is NOT empty
-    $divContainer.html('<h4>Index of Workout Routines</h4><br>')
+    $divContainer.html('<h3>Index of Workout Routines</h3><br>')
     routinesArray.forEach(function(routineObject) {
       let newRoutine = new Routine(routineObject)
-      let routineHtml = newRoutine.formatForIndex()
-      $divContainer.append(routineHtml)
+      $divContainer.append(Routine.routineTemplateFunction(newRoutine))
     })
   } else { // routinesArray.length === 0, a falsy value in JavaScript
     $divContainer.html(
