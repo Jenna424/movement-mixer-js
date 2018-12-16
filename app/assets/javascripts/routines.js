@@ -184,7 +184,7 @@ Routine.index = function(routinesArray) {
       `<div class="alert alert-warning" role="alert">
         The Index of Workout Routines is currently empty.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">×</span>
+          <span aria-hidden="true">&times;</span>
         </button>
       </div>`
     )
