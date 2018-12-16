@@ -1,5 +1,5 @@
 function Movement(movement) {
-	this.id = movement.id
+  this.id = movement.id
 	this.name = movement.name
 	this.guides = movement.guides
 	this.movement_routines = movement.movement_routines // to access user-submittable attributes (technique, sets, reps) stored in join table
@@ -14,7 +14,7 @@ Movement.bindClickEventListeners = function() {
   Movement.indexListener()
   Movement.showNextOrPreviousListener()
 }
-// The link to View All Exercises is ALWAYS found in the navigation on initial payload when the logged-in user is unassigned/client/trainer/admin
+// The link to View Exercise Guide is ALWAYS found in the navigation when the logged-in user is unassigned/client/trainer/admin
 Movement.indexListener = function() {
   $('a.all-movements').on('click', function(e) {
     e.preventDefault()
@@ -26,12 +26,12 @@ Movement.indexListener = function() {
     }
     fetch('/movements', requestObject)
       .then(response => response.json())
-      .then(Movement.indexExercises)
+      .then(Movement.index)
       .catch(error => console.error('The Index of Exercise Movements could not be retrieved due to an error:\n', error))
   })
 }
 // Below, movementsArray parameter = JSON array representation of AR::Relation of all movement instances = JSON response from fetch('/movements') call sent in Movement.indexListener()
-Movement.indexExercises = function(movementsArray) {
+Movement.index = function(movementsArray) {
   let $divContainer = $('div.container')
   if (movementsArray.length) { // The Index of Exercise Movements is NOT empty
     $divContainer.html('<h4>Index of Exercise Movements</h4><br>')
