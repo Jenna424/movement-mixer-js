@@ -91,7 +91,7 @@ Movement.prototype.formatShow = function() {
   return Movement.showExerciseTemplateFunction(this) // this refers to the newMovement object on which I'm calling prototype method .formatShow()
 }
 
-Movement.compileShowExerciseTemplate = function() {
+Movement.compileShowMovementTemplate = function() {
   Movement.showExerciseTemplateSource = $('#show-exercise-template').html()
   Movement.showExerciseTemplateFunction = Handlebars.compile(Movement.showExerciseTemplateSource)
 }
