@@ -1,6 +1,20 @@
 $(() => {
   compileHandlebarsTemplates()
 })
+
+const compileHandlebarsTemplates = () => {
+  Routine.compileCreateTemplates()
+  Movement.compileListMovementTemplate()
+  Movement.compileShowMovementTemplate()
+  MovementRoutine.compileTechniqueTemplate()
+  MovementRoutine.compileMrTemplate()
+  MovementRoutine.compileEditMovementRoutineTemplate()
+  EquipmentRoutine.compileErTemplate()
+  EquipmentRoutine.compileEditEquipmentRoutineTemplate()
+  Guide.compileGuideTemplate()
+  Target.compileTargetTemplate()
+  Training.compileTrainingTemplate()
+}
 // All of my Handlebars templates are found in app/views/shared/_hs_templates.html.erb view file.
 // This partial is always rendered in the <body> of my application layout (app/views/layouts/application.html.erb).
 // Therefore, I do NOT have to conditionally compile Handlebars templates depending on whether or not they're present in the current DOM page
