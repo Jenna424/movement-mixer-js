@@ -67,7 +67,7 @@ Movement.showNextOrPreviousListener = function() {
     if ($(this).data('direction') === 'next') {
       direction = 'next'
     }
-    const request = {
+    let requestObject = {
       method: 'GET',
       headers: {'Content-Type': 'application/json'},
       credentials: 'include'
