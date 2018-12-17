@@ -6,7 +6,7 @@ function checkIfTemplatesExist() {
   // The following variables store TRUE or FALSE (Self-Reminder: 0 is a falsy value in JS)
   var routineTemplateExists = $('#routine-template').length
   var techniqueTemplateExists = $('#technique-template').length
-  var listExerciseTemplateExists = $('#list-exercise-template').length
+  var listMovementTemplateExists = $('#list-movement-template').length
   var guideTemplateExists = $('#guide-template').length
   var showExerciseTemplateExists = $('#show-exercise-template').length
   var mrTemplateExists = $('#mr-template').length
@@ -22,9 +22,8 @@ function checkIfTemplatesExist() {
     console.log("Compiled Handlebars Templates for Routine Form")
   }
 
-  if (listExerciseTemplateExists) {
-    Movement.compileListExerciseTemplate()
-    console.log("Compiled the List Exercise Template found in _navbar partial!")
+  if (listMovementTemplateExists) {
+    Movement.compileListMovementTemplate()
   }
 
   if (listWorkoutTemplateExists) {
