@@ -67,6 +67,14 @@ EquipmentRoutine.editListener = function() {
       .fail(handleError)
   })
 }
+// Below, equipmentRoutineObject parameter = JSON object representation of the AR EquipmentRoutine instance for which I'm displaying the edit form.
+EquipmentRoutine.exposeEditForm = function(equipmentRoutineObject) {
+  let newEquipmentRoutine = new EquipmentRoutine(equipmentRoutineObject)
+  let editFormHtml = EquipmentRoutine.editEquipmentRoutineTemplateFunction(newEquipmentRoutine)
+  let $editFormContainer = $(`div#edit-er-${newEquipmentRoutine.id}`)
+  $editFormContainer.html(editFormHtml)
+  $editFormContainer.addClass('well well-md')
+}
 
 EquipmentRoutine.compileEditEquipmentRoutineTemplate = function() {
   EquipmentRoutine.editEquipmentRoutineTemplateSource = $('#edit-equipment-routine-template').html()
