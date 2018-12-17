@@ -62,7 +62,7 @@ EquipmentRoutine.editListener = function() {
     e.preventDefault()
     let $editEquipmentLink = $(this)
     let erId = $(this).data('er-id') // stores the id of the instance of EquipmentRoutine join model being edited
-    let $editDiv = $(`div#edit-er-${erId}-div`)
+    let $editDiv = $(`div#edit-er-${erId}`)
     $.get(`/ers/${erId}/edit`)
     .done(function(response) {
       let newEr = new EquipmentRoutine(response)
