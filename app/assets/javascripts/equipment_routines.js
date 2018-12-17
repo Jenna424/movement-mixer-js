@@ -57,11 +57,6 @@ $(() => {
   EquipmentRoutine.destroyListener()
 })
 
-EquipmentRoutine.compileEditEquipmentRoutineTemplate = function() {
-  EquipmentRoutine.editEquipmentRoutineTemplateSource = $('#edit-equipment-routine-template').html()
-  EquipmentRoutine.editEquipmentRoutineTemplateFunction = Handlebars.compile(EquipmentRoutine.editEquipmentRoutineTemplateSource)
-}
-
 EquipmentRoutine.editListener = function() {
   $('ul.required-equipment').on('click', 'a.edit-equipment', function(e) {
     e.preventDefault()
@@ -78,6 +73,11 @@ EquipmentRoutine.editListener = function() {
       $editEquipmentLink.hide()
     })
   })
+}
+
+EquipmentRoutine.compileEditEquipmentRoutineTemplate = function() {
+  EquipmentRoutine.editEquipmentRoutineTemplateSource = $('#edit-equipment-routine-template').html()
+  EquipmentRoutine.editEquipmentRoutineTemplateFunction = Handlebars.compile(EquipmentRoutine.editEquipmentRoutineTemplateSource)
 }
 
 EquipmentRoutine.editCancellationListener = function() {
