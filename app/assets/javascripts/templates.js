@@ -31,10 +31,7 @@ function checkIfTemplatesExist() {
     console.log("Compiled the Training Guide Template")
   }
 
-  if (showExerciseTemplateExists) {
-    Movement.compileShowExerciseTemplate()
-    console.log("Compiled the Show Exercise Template")
-  }
+  
 
   if (techniqueTemplateExists) {
     MovementRoutine.compileTechniqueTemplate()
