@@ -56,13 +56,13 @@ $(() => {
   EquipmentRoutine.updateListener()
   EquipmentRoutine.destroyListener()
 })
-
+// The function below is called to display the EquipmentRoutine instance's edit form
 EquipmentRoutine.editListener = function() {
   $('a.edit-equipment').on('click', function(e) {
     e.preventDefault()
     let $editEquipmentLink = $(this)
     let erId = $(this).data('er-id') // stores the id of the instance of EquipmentRoutine join model being edited
-    let $editDiv = $(`div#edit-er-${erId}`)
+    let $editFormContainer = $(`div#edit-er-${erId}`)
     $.get(`/ers/${erId}/edit`)
     .done(function(response) {
       let newEr = new EquipmentRoutine(response)
