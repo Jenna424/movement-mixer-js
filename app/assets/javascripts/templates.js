@@ -26,11 +26,6 @@ function checkIfTemplatesExist() {
     Movement.compileListMovementTemplate()
   }
 
-  if (listWorkoutTemplateExists) {
-    Routine.compileListWorkoutTemplate()
-    console.log("Compiled the List Workout Template found in _navbar partial!")
-  }
-
   if (guideTemplateExists) {
     Guide.compileGuideTemplate()
     console.log("Compiled the Training Guide Template")
