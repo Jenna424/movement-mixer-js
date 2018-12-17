@@ -65,6 +65,7 @@ EquipmentRoutine.editListener = function() {
     let $editFormContainer = $(`div#edit-er-${erId}`)
     $.get(`/ers/${erId}/edit`)
       .done(EquipmentRoutine.exposeEditForm)
+      .fail(handleError)
   })
 }
 
