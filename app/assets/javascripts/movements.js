@@ -30,7 +30,7 @@ Movement.indexListener = function() {
       .catch(error => console.error('The exercise guide could not be retrieved due to the following error:\n', error))
   })
 }
-// Below, movementsArray parameter = JSON array of movement objects = JSON representation of AR::Relation of all movement instances = successful JSON response from fetch('/movements') called in Movement.indexListener(). This collection can also be empty.
+// Below, movementsArray parameter = JSON array of movement objects = JSON representation of AR::Relation of all movement instances = successful JSON response I get back from fetch('/movements') called in Movement.indexListener(). This collection can also be empty.
 Movement.index = function(movementsArray) {
   let $divContainer = $('div.container')
   if (movementsArray.length) { // The exercise guide contains exercise movements (i.e. the collection is NOT empty)
