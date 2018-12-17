@@ -23,7 +23,7 @@ EquipmentRoutine.displayValidationCriteria = function() {
       <div>
         <strong>Include the data below, if applicable</strong>:
         <ul>
-          <li>Weight of equipment (must be greater than 0)</li>
+          <li>Weight of equipment (must be greater than 0 lbs)</li>
         </ul>
       </div>
       <hr>
