@@ -6,7 +6,6 @@ function checkIfTemplatesExist() {
   // The following variables store TRUE or FALSE (Self-Reminder: 0 is a falsy value in JS)
   var routineTemplateExists = $('#routine-template').length
   var techniqueTemplateExists = $('#technique-template').length
-  var listWorkoutTemplateExists = $('#list-workout-template').length
   var listExerciseTemplateExists = $('#list-exercise-template').length
   var guideTemplateExists = $('#guide-template').length
   var showExerciseTemplateExists = $('#show-exercise-template').length
