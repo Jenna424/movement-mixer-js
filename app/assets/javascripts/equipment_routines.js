@@ -58,7 +58,7 @@ $(() => {
 })
 
 EquipmentRoutine.editListener = function() {
-  $('ul.required-equipment').on('click', 'a.edit-equipment', function(e) {
+  $('a.edit-equipment').on('click', function(e) {
     e.preventDefault()
     var $editEquipmentLink = $(this)
     var erId = $(this).data('er-id') // stores the id of the instance of EquipmentRoutine join model being edited
