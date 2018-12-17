@@ -60,13 +60,13 @@ $(() => {
 EquipmentRoutine.editListener = function() {
   $('a.edit-equipment').on('click', function(e) {
     e.preventDefault()
-    var $editEquipmentLink = $(this)
-    var erId = $(this).data('er-id') // stores the id of the instance of EquipmentRoutine join model being edited
-    var $editDiv = $(`div#edit-er-${erId}-div`)
+    let $editEquipmentLink = $(this)
+    let erId = $(this).data('er-id') // stores the id of the instance of EquipmentRoutine join model being edited
+    let $editDiv = $(`div#edit-er-${erId}-div`)
     $.get(`/ers/${erId}/edit`)
     .done(function(response) {
-      var newEr = new EquipmentRoutine(response)
-      var editFormHtml = EquipmentRoutine.editEquipmentRoutineTemplateFunction(newEr)
+      let newEr = new EquipmentRoutine(response)
+      let editFormHtml = EquipmentRoutine.editEquipmentRoutineTemplateFunction(newEr)
       $editDiv.html(editFormHtml)
       $editDiv.show()
       $editDiv.addClass('well well-md')
