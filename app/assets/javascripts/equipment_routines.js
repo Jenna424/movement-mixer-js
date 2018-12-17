@@ -50,7 +50,7 @@ EquipmentRoutine.isValidObject = function(equipmentName, quantity, weight) {
   }
 }
 
-$(function() {
+$(() => {
   EquipmentRoutine.editListener()
   EquipmentRoutine.handleEditCancellation()
   EquipmentRoutine.updateListener()
