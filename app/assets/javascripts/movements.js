@@ -50,7 +50,7 @@ Movement.index = function(movementsArray) {
     )
   }
 }
-// Below, this refers to the newMovement object on which I'm calling prototype method .formatForIndex()
+// Below, this refers to each newMovement object, (from the iteration in Movement.index), on which I'm calling prototype method .formatForIndex()
 Movement.prototype.formatForIndex = function() {
   return Movement.listMovementTemplateFunction(this)
 }
