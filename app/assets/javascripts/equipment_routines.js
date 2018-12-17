@@ -52,7 +52,7 @@ EquipmentRoutine.isValidObject = function(equipmentName, quantity, weight) {
 
 $(() => {
   EquipmentRoutine.editListener()
-  EquipmentRoutine.handleEditCancellation()
+  EquipmentRoutine.editCancellationListener()
   EquipmentRoutine.updateListener()
   EquipmentRoutine.destroyListener()
 })
@@ -80,7 +80,7 @@ EquipmentRoutine.editListener = function() {
   })
 }
 
-EquipmentRoutine.handleEditCancellation = function() {
+EquipmentRoutine.editCancellationListener = function() {
   $('ul.required-equipment').on('click', 'input.cancel-er-edit', function(e) {
     var erId = $(this).data('er-id')
     var $editFormContainer = $(`div#edit-er-${erId}-div`)
