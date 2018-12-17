@@ -5,12 +5,12 @@ function EquipmentRoutine(equipmentRoutine) {
   this.quantity = equipmentRoutine.quantity
   this.weight = equipmentRoutine.weight
 }
-// div#equipment-errors-explanation is always found in the form to add another piece of equipment to the routine, which, in turn, is always found in app/views/routines/edit.html.erb
+// div#equipment-errors-explanation is always found in the form to add a piece of equipment to the routine, which, in turn, is always found in app/views/routines/edit.html.erb
 EquipmentRoutine.displayValidationCriteria = function() {
   $('div#equipment-errors-explanation').html(
     `<div class="alert alert-danger" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">×</span>
+        <span aria-hidden="true">&times;</span>
       </button>
       <h4 class="alert-heading">Your attempt to add a piece of equipment was unsuccessful.</h4>
       <div>
