@@ -64,14 +64,7 @@ EquipmentRoutine.editListener = function() {
     let erId = $(this).data('er-id') // stores the id of the instance of EquipmentRoutine join model being edited
     let $editFormContainer = $(`div#edit-er-${erId}`)
     $.get(`/ers/${erId}/edit`)
-      .done(function(response) {
-      let newEr = new EquipmentRoutine(response)
-      let editFormHtml = EquipmentRoutine.editEquipmentRoutineTemplateFunction(newEr)
-      $editDiv.html(editFormHtml)
-      $editDiv.show()
-      $editDiv.addClass('well well-md')
-      $editEquipmentLink.hide()
-    })
+      .done(EquipmentRoutine.exposeEditForm)
   })
 }
 
