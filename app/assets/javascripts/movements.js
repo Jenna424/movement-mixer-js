@@ -92,6 +92,6 @@ Movement.prototype.formatShow = function() {
 }
 
 Movement.compileShowMovementTemplate = function() {
-  Movement.showMovementTemplateSource = $('#show-exercise-template').html()
+  Movement.showMovementTemplateSource = $('#show-movement-template').html()
   Movement.showExerciseTemplateFunction = Handlebars.compile(Movement.showExerciseTemplateSource)
 }
