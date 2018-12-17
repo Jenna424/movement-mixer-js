@@ -8,7 +8,7 @@ function checkIfTemplatesExist() {
   const techniqueTemplateExists = $('#technique-template').length
   const listMovementTemplateExists = $('#list-movement-template').length
   const guideTemplateExists = $('#guide-template').length
-  const showExerciseTemplateExists = $('#show-exercise-template').length
+  const showMovementTemplateExists = $('#show-exercise-template').length
   const mrTemplateExists = $('#mr-template').length
   const editMovementRoutineTemplateExists = $('#edit-movement-routine-template').length
   const editEquipmentRoutineTemplateExists = $('#edit-equipment-routine-template').length
