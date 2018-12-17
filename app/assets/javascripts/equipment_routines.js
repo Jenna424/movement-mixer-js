@@ -60,9 +60,8 @@ $(() => {
 EquipmentRoutine.editListener = function() {
   $('a.edit-equipment').on('click', function(e) {
     e.preventDefault()
-    let $editEquipmentLink = $(this)
     let erId = $(this).data('er-id') // stores the id of the instance of EquipmentRoutine join model being edited
-    let $editFormContainer = $(`div#edit-er-${erId}`)
+    $(this).hide()
     $.get(`/ers/${erId}/edit`)
       .done(EquipmentRoutine.exposeEditForm)
       .fail(handleError)
