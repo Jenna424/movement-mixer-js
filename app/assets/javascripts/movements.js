@@ -88,7 +88,7 @@ Movement.show = function(movementObject) {
 }
 
 Movement.prototype.formatShow = function() {
-  return Movement.showExerciseTemplateFunction(this) // this refers to the newMovement object on which I'm calling prototype method .formatShow()
+  return Movement.showMovementTemplateFunction(this) // this refers to the newMovement object on which I'm calling prototype method .formatShow()
 }
 
 Movement.compileShowMovementTemplate = function() {
