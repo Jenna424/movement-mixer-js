@@ -36,9 +36,9 @@
           <% end %>
         </small>
         <br><br>
-        <div id="edit-er-<%= er_instance(equipment_piece, @routine).id %>"></div>
-        <%= link_to "/ers/#{er_instance(equipment_piece, @routine).id}/edit", class: "edit-equipment btn btn-default btn-sm",
-        data: {er_id: er_instance(equipment_piece, @routine).id} do %>
+        <div id="edit-er-<%= er_instance(equipment_piece, @routine).id %>-div"></div>
+        <%= link_to "/ers/#{er_instance(equipment_piece, @routine).id}/edit", class: "edit-er btn btn-default btn-sm",
+        data: {id: er_instance(equipment_piece, @routine).id} do %>
           <span class="glyphicon glyphicon-edit"></span> <small>Edit Equipment</small>
         <% end %>
         <%= button_to "/ers/#{er_instance(equipment_piece, @routine).id}", class: "btn btn-danger btn-sm delete-er", method: :delete,
