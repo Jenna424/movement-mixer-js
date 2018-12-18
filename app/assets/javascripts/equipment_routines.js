@@ -112,7 +112,7 @@ EquipmentRoutine.updateListener = function() {
 EquipmentRoutine.update = function(equipmentRoutineObject) {
   let newEr = new EquipmentRoutine(equipmentRoutineObject)
   newEr.formatQuantityAndWeight()
-  addAssociationAlert(newEr)
+  manyToManyModificationMessage(newEr) // this function is declared in shared.js
 }
 // Below, this refers to the newEr object on which I'm calling prototype method formatQuantityAndWeight()
 EquipmentRoutine.prototype.formatQuantityAndWeight = function() {
