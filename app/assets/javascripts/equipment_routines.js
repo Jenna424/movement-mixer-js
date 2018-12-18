@@ -108,15 +108,15 @@ EquipmentRoutine.updateListener = function() {
       .fail(checkValidityOfJoinTableAttrs)
   })
 }
-// Below, equipmentRoutineObject parameter = JSON object representation of EquipmentRoutine join table instance with quantity and weight key/value pairs updated = successful JSON response from AJAX PATCH request sent in EquipmentRoutine.updateListener()
+// Below, equipmentRoutineObject parameter = JSON object representation of EquipmentRoutine join table instance with quantity and weight key/value pairs updated = successful JSON response I get back from AJAX PATCH request sent in EquipmentRoutine.updateListener()
 EquipmentRoutine.update = function(equipmentRoutineObject) {
   let newEr = new EquipmentRoutine(equipmentRoutineObject)
   newEr.formatQuantityAndWeight()
   addAssociationAlert(newEr)
 }
-
+// Below, this refers to the newEr object on which I'm calling prototype method formatQuantityAndWeight()
 EquipmentRoutine.prototype.formatQuantityAndWeight = function() {
-  var erId = this.id
+  let id = this.id
   var $smallQuantity = $(`small#quantity-${erId}`)
   var $smallWeight = $(`small#weight-${erId}`)
   var weightText = ''
