@@ -130,12 +130,12 @@ EquipmentRoutine.prototype.formatQuantityAndWeight = function() {
 }
 
 EquipmentRoutine.destroyListener = function() {
-  $('ul.required-equipment').on('click', 'form.button_to', function(e) {
+  $('ul.required-equipment').on('submit', 'form.button_to', function(e) {
     e.preventDefault()
     if (confirm('Are you sure you want to remove this piece of equipment?')) {
       $.ajax({
         url: $(this).attr('action'), // '/ers/:id'
-        method: 'delete',
+        method: 'DELETE',
         dataType: 'json',
         data: $(this).serialize()
       })
