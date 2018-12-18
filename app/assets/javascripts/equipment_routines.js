@@ -58,11 +58,11 @@ $(() => {
 })
 // The function below is called to display the EquipmentRoutine instance's edit form
 EquipmentRoutine.editListener = function() {
-  $('a.edit-equipment').on('click', function(e) {
+  $('a.edit-er').on('click', function(e) {
     e.preventDefault()
-    let erId = $(this).data('er-id') // stores the id of the instance of EquipmentRoutine join model being edited
-    $(this).hide() // once <a>Edit Equipment</a> is clicked and I store its data-er-id property in the erId variable, hide the link
-    $.get(`/ers/${erId}/edit`)
+    let id = $(this).data('id') // stores the id of the instance of EquipmentRoutine join model being edited
+    $(this).hide() // once a.edit-er is clicked and I store its data-id property in the id variable, hide the link
+    $.get(`/ers/${id}/edit`)
       .done(EquipmentRoutine.displayEditForm)
       .fail(handleError)
   })
