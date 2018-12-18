@@ -140,6 +140,7 @@ EquipmentRoutine.destroyListener = function() {
         data: $(this).serialize()
       })
         .done(EquipmentRoutine.destroy)
+        .fail(handleError)
     }
   })
 }
