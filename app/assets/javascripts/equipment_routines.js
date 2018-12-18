@@ -95,8 +95,8 @@ EquipmentRoutine.cancelEditListener = function() {
 EquipmentRoutine.updateListener = function() {
   $('ul.required-equipment').on('submit', 'form.edit-er', function(e) {
     e.preventDefault()
-    var action = $(this).attr('action') // "/ers/:id", which maps to routines#update_equipment_routine
-    var formData = $(this).serialize()
+    let action = $(this).attr('action') // "/ers/:id", which maps to routines#update_equipment_routine
+    let formData = $(this).serialize()
     $(this).find('input[type=number]').val(''); // empty the number fields in the form to edit quantity & weight
     $.ajax({
       url: action,
@@ -104,8 +104,8 @@ EquipmentRoutine.updateListener = function() {
       dataType: 'json',
       data: formData
     })
-    .done(EquipmentRoutine.update)
-    .fail(checkValidityOfJoinTableAttrs)
+      .done(EquipmentRoutine.update)
+      .fail(checkValidityOfJoinTableAttrs)
   })
 }
 
