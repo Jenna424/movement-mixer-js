@@ -58,6 +58,7 @@ MovementRoutine.editListener = function() { // div#workout-routine = div.panel-b
    let url = $(this).attr('href') // '/mrs/:id/edit'
    $.get(url)
      .done(MovementRoutine.displayEditMrForm)
+     .fail(handleError)
   })
 }
 // Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that we're formatting the edit form for = the response from AJAX GET request to '/mrs/:id/edit' sent in MovementRoutine.editListener(), which is triggered when user clicks Edit Exercise link on routine show page to edit technique/sets/reps user-submittable attributes stored on join model MovementRoutine
