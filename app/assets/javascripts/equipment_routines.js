@@ -164,7 +164,7 @@ EquipmentRoutine.compileErTemplate = function() {
 // = successful JSON response I get back from the AJAX PATCH request sent in Routine.addEquipmentListener()
 EquipmentRoutine.addEquipmentToRoutine = function(equipmentRoutineObject) {
   let newEr = new EquipmentRoutine(equipmentRoutineObject)
-  let match = $("li[id^='er']").filter(function() {
+  let match = $('li[id^=er]').filter(function() {
     return this.id === `er-${newEr.id}-li`
   })
   if (match.length) { // I'm updating an existing EquipmentRoutine instance, which already has an <li>
