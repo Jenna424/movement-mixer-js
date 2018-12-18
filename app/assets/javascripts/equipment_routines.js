@@ -81,15 +81,7 @@ EquipmentRoutine.compileEditEquipmentRoutineTemplate = function() {
   EquipmentRoutine.editEquipmentRoutineTemplateFunction = Handlebars.compile(EquipmentRoutine.editEquipmentRoutineTemplateSource)
 }
 
-EquipmentRoutine.editCancellationListener = function() {
-  $('ul.required-equipment').on('click', 'input.cancel-er-edit', function(e) {
-    var erId = $(this).data('er-id')
-    var $editFormContainer = $(`div#edit-er-${erId}-div`)
-    var $editLink = $(`a[data-er-id=${erId}]`)
-    $editFormContainer.hide()
-    $editLink.show()
-  })
-}
+
 
 EquipmentRoutine.updateListener = function() {
   $('ul.required-equipment').on('submit', 'form.edit-er', function(e) {
