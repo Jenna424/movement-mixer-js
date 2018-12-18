@@ -13,15 +13,15 @@ const handleError = (jqXHR, textStatus, errorThrown) => {
   console.error(errorMessage)
 }
 
-const addAssociationAlert = (jsonObject) => { // argument is JSON object representation of MovementRoutine instance or EquipmentRoutine instance
+const manyToManyModificationMessage = (jsonObject) => { // argument is JSON object representation of MovementRoutine instance or EquipmentRoutine instance
   let alertMessage = 'You successfully modified the exercise movements that comprise this workout routine!' // an existing exercise was updated, or a new exercise was added
   if (jsonObject.constructor.name === 'EquipmentRoutine') {
-    alertMessage = 'You successfully modified the fitness equipment requirements of this workout!' // an existing piece of equipment was updated, or a new piece of equipment was added
+    alertMessage = 'You successfully modified the equipment requirements of this workout routine!' // an existing piece of equipment was updated, or a new piece of equipment was added
   }
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">×</span>
+        <span aria-hidden="true">&times;</span>
       </button>
       ${alertMessage}
     </div>`
