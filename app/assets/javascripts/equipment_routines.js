@@ -169,10 +169,10 @@ EquipmentRoutine.addEquipmentToRoutine = function(equipmentRoutineObject) {
   })
   if (match.length) { // I'm updating an existing EquipmentRoutine instance, which already has an <li>
     newEr.formatQuantityAndWeight()
-  } else { // An entirely new piece of equipment was submitted, so a new <li> needs to be appended to the <ul>
+  } else { // An entirely new piece of equipment was submitted, so a new <li> must be appended to the <ul>
     newEr.formatAndAppendLi()
   }
-  addAssociationAlert(newEr)
+  manyToManyModificationMessage(newEr)
 }
 
 EquipmentRoutine.prototype.formatAndAppendLi = function() {
