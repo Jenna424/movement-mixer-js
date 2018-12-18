@@ -154,11 +154,6 @@ EquipmentRoutine.prototype.eliminateLi = function() {
   let id = this.id
   $(`#er-${id}-li`).remove()
 }
-
-EquipmentRoutine.compileErTemplate = function() {
-  EquipmentRoutine.erTemplateSource = $('#er-template').html()
-  EquipmentRoutine.erTemplateFunction = Handlebars.compile(EquipmentRoutine.erTemplateSource)
-}
 // Below, equipmentRoutineObject parameter = JSON object representation of the EquipmentRoutine instance 
 // (with data about the equipment and routine instances to which it belongs) 
 // = successful JSON response I get back from the AJAX PATCH request sent in Routine.addEquipmentListener()
@@ -179,4 +174,9 @@ EquipmentRoutine.prototype.formatAndAppendLi = function() {
   let $equipmentList = $('ul.required-equipment') // get the <ul> that contains all of the equipment used in the routine
   let liHtml = EquipmentRoutine.erTemplateFunction(this) // store the Handlebars template w/ values injected from key/value pairs of newEr object (this)
   $equipmentList.append(liHtml) // append the <li> for the new equipment to the <ul> containing all equipment used in the routine 
+}
+
+EquipmentRoutine.compileErTemplate = function() {
+  EquipmentRoutine.erTemplateSource = $('#er-template').html()
+  EquipmentRoutine.erTemplateFunction = Handlebars.compile(EquipmentRoutine.erTemplateSource)
 }
