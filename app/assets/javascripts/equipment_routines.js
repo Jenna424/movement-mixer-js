@@ -149,10 +149,10 @@ EquipmentRoutine.destroy = function(equipmentRoutineObject) {
   let newEr = new EquipmentRoutine(equipmentRoutineObject)
   newEr.eliminateLi() // calling eliminateLi() prototype method on newEr object
 }
-
+// Below, this refers to the newEr object on which I'm calling prototype method .eliminateLi()
 EquipmentRoutine.prototype.eliminateLi = function() {
-  var erId = this.id // this refers to the newEr JSON object on which I'm calling prototype method .eliminateLi()
-  $(`#er-${erId}-li`).remove()
+  let id = this.id
+  $(`#er-${id}-li`).remove()
 }
 
 EquipmentRoutine.compileErTemplate = function() {
