@@ -177,6 +177,6 @@ EquipmentRoutine.addEquipmentToRoutine = function(equipmentRoutineObject) {
 
 EquipmentRoutine.prototype.formatAndAppendLi = function() {
   let $equipmentList = $('ul.required-equipment') // get the <ul> that contains all of the equipment used in the routine
-  let erLiHtml = EquipmentRoutine.erTemplateFunction(this) // store the Handlebars template w/ values injected from key/value pairs of newEr object (this)
-  $equipmentList.append(erLiHtml) // appending the <li> for the new equipment to the <ul> containing all equipment used in the routine 
+  let liHtml = EquipmentRoutine.erTemplateFunction(this) // store the Handlebars template w/ values injected from key/value pairs of newEr object (this)
+  $equipmentList.append(liHtml) // append the <li> for the new equipment to the <ul> containing all equipment used in the routine 
 }
