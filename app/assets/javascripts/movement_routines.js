@@ -54,8 +54,8 @@ MovementRoutine.compileEditMovementRoutineTemplate = function() {
 MovementRoutine.editListener = function() { // div#workout-routine = div.panel-body
   $('div#workout-routine').on('click', 'a.edit-mr', function(e) {
    e.preventDefault()
-   $(this).hide() // hiding the Edit Exercise link that was clicked
-   var url = $(this).attr('href') // '/mrs/:id/edit'
+   $(this).hide() // hide <a class="edit-mr">Edit Exercise</a> link once it's been clicked
+   let url = $(this).attr('href') // '/mrs/:id/edit'
    $.get(url)
      .done(MovementRoutine.displayEditMrForm)
   })
