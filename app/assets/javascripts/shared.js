@@ -40,6 +40,6 @@ const checkValidityOfJoinTableAttrs = (jqXhrObject) => {
     }
     alert(`Your attempt to edit this ${objectType} was unsuccessful:\n${errorsString}`)
   } else {
-    console.error(`The following error was detected: ${jqXhrObject.statusText} (status code ${jqXhrObject.status})`)
+    console.error(`Your changes were unsuccessful due to the following error: ${jqXhrObject.statusText} (status code ${jqXhrObject.status})`)
   }
 }
