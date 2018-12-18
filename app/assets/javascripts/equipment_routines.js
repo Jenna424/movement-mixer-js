@@ -52,7 +52,7 @@ EquipmentRoutine.isValidObject = function(equipmentName, quantity, weight) {
 
 $(() => {
   EquipmentRoutine.editListener()
-  EquipmentRoutine.editCancellationListener()
+  EquipmentRoutine.cancelEditListener()
   EquipmentRoutine.updateListener()
   EquipmentRoutine.destroyListener()
 })
