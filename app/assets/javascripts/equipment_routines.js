@@ -117,9 +117,9 @@ EquipmentRoutine.update = function(equipmentRoutineObject) {
 // Below, this refers to the newEr object on which I'm calling prototype method formatQuantityAndWeight()
 EquipmentRoutine.prototype.formatQuantityAndWeight = function() {
   let id = this.id
-  var $smallQuantity = $(`small#quantity-${erId}`)
-  var $smallWeight = $(`small#weight-${erId}`)
-  var weightText = ''
+  let $smallQuantity = $(`small#quantity-${id}`)
+  let $smallWeight = $(`small#weight-${id}`)
+  let weightText = ''
   if (this.weight === null) { // if weight is null
     weightText = 'N/A'
   } else {
