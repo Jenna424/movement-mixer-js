@@ -108,9 +108,9 @@ EquipmentRoutine.updateListener = function() {
       .fail(checkValidityOfJoinTableAttrs)
   })
 }
-
-EquipmentRoutine.update = function(json) { // json parameter = JSON object representation of EquipmentRoutine join table instance with quantity and weight key/value pairs updated = response from AJAX PATCH request made in EquipmentRoutine.updateListener()
-  var newEr = new EquipmentRoutine(json)
+// Below, equipmentRoutineObject parameter = JSON object representation of EquipmentRoutine join table instance with quantity and weight key/value pairs updated = successful JSON response from AJAX PATCH request sent in EquipmentRoutine.updateListener()
+EquipmentRoutine.update = function(equipmentRoutineObject) {
+  var newEr = new EquipmentRoutine(equipmentRoutineObject)
   newEr.formatQuantityAndWeight()
   addAssociationAlert(newEr)
 }
