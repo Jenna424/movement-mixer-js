@@ -51,8 +51,8 @@ MovementRoutine.compileEditMovementRoutineTemplate = function() {
   MovementRoutine.editMovementRoutineTemplateFunction = Handlebars.compile(MovementRoutine.editMovementRoutineTemplateSource)
 }
 
-MovementRoutine.editListener = function() {
-  $('div.panel-default').on('click', 'a.edit-exercise', function(e) {
+MovementRoutine.editListener = function() { // div#workout-routine = div.panel-body
+  $('div#workout-routine').on('click', 'a.edit-exercise', function(e) {
    e.preventDefault()
    $(this).hide() // hiding the Edit Exercise link that was clicked
    var url = $(this).attr('href') // '/mrs/:id/edit'
