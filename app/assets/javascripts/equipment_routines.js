@@ -80,8 +80,17 @@ EquipmentRoutine.compileEditEquipmentRoutineTemplate = function() {
   EquipmentRoutine.editEquipmentRoutineTemplateSource = $('#edit-equipment-routine-template').html()
   EquipmentRoutine.editEquipmentRoutineTemplateFunction = Handlebars.compile(EquipmentRoutine.editEquipmentRoutineTemplateSource)
 }
-
-
+// <input type="button"> elements have no default behavior
+EquipmentRoutine.cancelEditListener = function() {
+  $('ul.required-equipment').on('click', 'input.cancel-editing-er', function(e) {
+    let erId = $(this).data('er-id')
+    let $editFormContainer = $(`div#edit-er-${erId}`)
+    let $editLink = $(`a[data-er-id=${erId}]`)
+    $editFormContainer.html('')
+    $editFormContainer.removeClass('well well-md')
+    $editLink.show()
+  })
+}
 
 EquipmentRoutine.updateListener = function() {
   $('ul.required-equipment').on('submit', 'form.edit-er', function(e) {
