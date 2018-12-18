@@ -28,7 +28,7 @@
         <div id="edit-mr-<%= mr_instance(movement, @routine).id %>-div"></div>
 
         <% if policy(@routine).edit? %>
-          <%= link_to "/mrs/#{mr_instance(movement, @routine).id}/edit", class: "edit-exercise btn btn-default btn-sm", data: { mr_id: "#{mr_instance(movement, @routine).id}" }  do
+          <%= link_to "/mrs/#{mr_instance(movement, @routine).id}/edit", class: "edit-mr btn btn-default btn-sm", data: { id: "#{mr_instance(movement, @routine).id}" }  do
             content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:small, " Edit Exercise")
           end %>
 
