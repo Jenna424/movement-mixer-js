@@ -61,14 +61,14 @@ EquipmentRoutine.editListener = function() {
   $('a.edit-equipment').on('click', function(e) {
     e.preventDefault()
     let erId = $(this).data('er-id') // stores the id of the instance of EquipmentRoutine join model being edited
-    $(this).hide()
+    $(this).hide() // once <a>Edit Equipment</a> is clicked and I store its data-er-id property in the erId variable, hide the link
     $.get(`/ers/${erId}/edit`)
-      .done(EquipmentRoutine.exposeEditForm)
+      .done(EquipmentRoutine.displayEditForm)
       .fail(handleError)
   })
 }
 // Below, equipmentRoutineObject parameter = JSON object representation of the AR EquipmentRoutine instance for which I'm displaying the edit form.
-EquipmentRoutine.exposeEditForm = function(equipmentRoutineObject) {
+EquipmentRoutine.displayEditForm = function(equipmentRoutineObject) {
   let newEquipmentRoutine = new EquipmentRoutine(equipmentRoutineObject)
   let editFormHtml = EquipmentRoutine.editEquipmentRoutineTemplateFunction(newEquipmentRoutine)
   let $editFormContainer = $(`div#edit-er-${newEquipmentRoutine.id}`)
