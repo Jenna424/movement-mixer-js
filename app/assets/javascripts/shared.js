@@ -30,7 +30,7 @@ const manyToManyModificationMessage = (jsonObject) => { // argument is JSON obje
 }
 
 const checkValidityOfJoinTableAttrs = (jqXhrObject) => {
-  if (jqXhrObject.status === 422 && jqXhrObject.responseJSON) {
+  if (jqXhrObject.status === 422 && jqXhrObject.responseJSON && jqXhrObject.responseJSON.errors.length) {
     let errorsArray = jqXhrObject.responseJSON.errors
     let errorsString = errorsArray.join('\n') // join array elements (string validation error messages) with a line break
     let attributeName = errorsArray[0].split(' ')[0]
