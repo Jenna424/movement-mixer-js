@@ -71,7 +71,7 @@ EquipmentRoutine.editListener = function() {
 EquipmentRoutine.displayEditForm = function(equipmentRoutineObject) {
   let newEquipmentRoutine = new EquipmentRoutine(equipmentRoutineObject)
   let editFormHtml = EquipmentRoutine.editEquipmentRoutineTemplateFunction(newEquipmentRoutine)
-  let $editFormContainer = $(`div#edit-er-${newEquipmentRoutine.id}`)
+  let $editFormContainer = $(`#edit-er-${newEquipmentRoutine.id}-div`)
   $editFormContainer.html(editFormHtml)
   $editFormContainer.addClass('well well-md')
 }
