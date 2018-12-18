@@ -161,9 +161,9 @@ EquipmentRoutine.compileErTemplate = function() {
 }
 // Below, equipmentRoutineObject parameter = JSON object representation of the EquipmentRoutine instance 
 // (with data about the equipment and routine instances to which it belongs) 
-// = successful JSON response to AJAX PATCH request sent in Routine.addEquipmentListener()
+// = successful JSON response I get back from the AJAX PATCH request sent in Routine.addEquipmentListener()
 EquipmentRoutine.addEquipmentToRoutine = function(equipmentRoutineObject) {
-  var newEr = new EquipmentRoutine(json)
+  var newEr = new EquipmentRoutine(equipmentRoutineObject)
   var match = $("li[id^='er']").filter(function() {
     return this.id === `er-${newEr.id}-li`
   })
