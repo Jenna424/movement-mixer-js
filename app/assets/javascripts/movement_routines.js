@@ -52,7 +52,7 @@ MovementRoutine.compileEditMovementRoutineTemplate = function() {
 }
 
 MovementRoutine.editListener = function() {
-  $('div.panel-body').on('click', 'a.edit-mr', function(e) {
+  $('div.panel-body').on('click', 'a.edit-mr', function(e) { // event delegation is necessary b/c movements are constantly being added/deleted on the routine show page
    e.preventDefault()
    $(this).hide() // hide <a class="edit-mr">Edit Exercise</a> link once it's been clicked
    let url = $(this).attr('href') // '/mrs/:id/edit'
@@ -70,8 +70,8 @@ MovementRoutine.displayEditForm = function(mrObject) {
   $editFormContainer.addClass('well well-md')
 }
 
-MovementRoutine.updateListener = function() {
-  $(document).on('submit', 'form.edit-mr', function(e) {
+MovementRoutine.updateListener = function() { // event delegation is necessary b/c movements are constantly being added/deleted on the routine show page
+  $('div.panel-body').on('submit', 'form.edit-mr', function(e) {
     e.preventDefault()
     var $form = $(this)
     var action = $(this).attr('action') // "/mrs/:id"
