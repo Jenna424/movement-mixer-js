@@ -46,11 +46,6 @@ MovementRoutine.bindEventListeners = function() {
   MovementRoutine.hideTechniqueListener()
 }
 
-MovementRoutine.compileEditMovementRoutineTemplate = function() {
-  MovementRoutine.editMovementRoutineTemplateSource = $('#edit-movement-routine-template').html()
-  MovementRoutine.editMovementRoutineTemplateFunction = Handlebars.compile(MovementRoutine.editMovementRoutineTemplateSource)
-}
-
 MovementRoutine.editListener = function() {
   $('div.panel-body').on('click', 'a.edit-mr', function(e) { // event delegation is necessary b/c movements are constantly being added/deleted on the routine show page
    e.preventDefault()
@@ -68,6 +63,11 @@ MovementRoutine.displayEditForm = function(mrObject) {
   let editFormHtml = MovementRoutine.editMovementRoutineTemplateFunction(newMr)
   $editFormContainer.html(editFormHtml)
   $editFormContainer.addClass('well well-md')
+}
+
+MovementRoutine.compileEditMovementRoutineTemplate = function() {
+  MovementRoutine.editMovementRoutineTemplateSource = $('#edit-movement-routine-template').html()
+  MovementRoutine.editMovementRoutineTemplateFunction = Handlebars.compile(MovementRoutine.editMovementRoutineTemplateSource)
 }
 
 MovementRoutine.updateListener = function() { // event delegation is necessary b/c movements are constantly being added/deleted on the routine show page
