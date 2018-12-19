@@ -89,9 +89,9 @@ MovementRoutine.updateListener = function() { // event delegation is necessary b
       .fail(checkValidityOfJoinTableAttrs)
   })
 }
-// Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that was just updated = JSON response from AJAX PATCH request sent in MovementRoutine.updateListener()
+// Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that was just updated = successful JSON response I get back from AJAX PATCH request sent in MovementRoutine.updateListener()
 MovementRoutine.update = function(mrJson) {
-  var newMr = new MovementRoutine(mrJson)
+  let newMr = new MovementRoutine(mrJson)
   newMr.formatSetsAndReps()
 }
 
