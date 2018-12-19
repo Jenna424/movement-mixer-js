@@ -33,7 +33,7 @@ MovementRoutine.isValidObject = function(movementName, technique, sets, reps) {
   }
 }
 
-$(function() {
+$(() => {
   MovementRoutine.bindEventListeners()
 })
 
