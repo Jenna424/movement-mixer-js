@@ -159,7 +159,7 @@
 </script>
 
 <script id="edit-movement-routine-template" type="text/x-handlebars-template">
-  <form class="edit_routine edit-mr edit-mr-{{id}}" id="edit_routine_{{routine.id}}" action="/mrs/{{id}}" accept-charset="UTF-8" method="post">
+  <form class="edit_routine edit-mr" id="edit_routine_{{routine.id}}" action="/mrs/{{id}}" accept-charset="UTF-8" method="post">
     <h4><em>Editing {{movement.name}}</em></h4>
     <input name="utf8" type="hidden" value="✓">
     <input type="hidden" name="_method" value="patch">
