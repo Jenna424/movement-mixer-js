@@ -70,6 +70,25 @@ MovementRoutine.displayEditForm = function(mrObject) {
   $editFormContainer.addClass('well well-md')
 }
 
+MovementRoutine.updateListener = function() { // event delegation is necessary b/c movements are constantly being added/deleted on the routine show page
+  $('div.panel-body').on('submit', 'form.edit-mr', function(e) {
+    e.preventDefault()
+    let action = $(this).attr('action') // "/mrs/:id"
+    let id = action.split('/')[2] // stores the id of the MovementRoutine instance that's being updated
+    let formData = $(this).serialize()
+    $(this).hide() // hide the form once it's been submitted
+    $(this).parent().removeClass('well well-md') // remove "well well-md" classes from div#edit-mr-MR ID GOES HERE-div
+    $(`a[data-id=${id}]`).show() // show the Edit Exercise link on routine show page again
+    $.ajax({
+      url: action, // "/mrs/:id"
+      method: 'PATCH',
+      dataType: 'json',
+      data: formData
+    })
+      .done(MovementRoutine.update)
+      .fail(checkValidityOfJoinTableAttrs)
+  })
+}
 // Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that was just updated = JSON response from AJAX PATCH request sent in MovementRoutine.updateListener()
 MovementRoutine.update = function(mrJson) {
   var newMr = new MovementRoutine(mrJson)
