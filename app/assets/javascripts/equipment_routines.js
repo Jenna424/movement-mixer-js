@@ -149,10 +149,10 @@ EquipmentRoutine.destroyListener = function() {
     }
   })
 }
-// Below, equipmentRoutineObject parameter = JSON object representation of the A.R. EquipmentRoutine join model instance that was just destroyed = successful JSON response I get back from the AJAX DELETE request sent in EquipmentRoutine.destroyListener()
+// Below, equipmentRoutineObject parameter = JSON object representation of the A.R. EquipmentRoutine instance that was just destroyed = successful JSON response I get back from the AJAX DELETE request sent in EquipmentRoutine.destroyListener()
 EquipmentRoutine.destroy = function(equipmentRoutineObject) {
   let newEr = new EquipmentRoutine(equipmentRoutineObject)
-  newEr.eliminateLi() // calling eliminateLi() prototype method on newEr object
+  newEr.eliminateLi()
   newEr.alertDeletionSuccessful()
 }
 // Below, this refers to the newEr object on which I'm calling prototype method .eliminateLi()
@@ -170,7 +170,7 @@ EquipmentRoutine.prototype.alertDeletionSuccessful = function() {
       ${this.equipment.name} will no longer be used in this workout routine.
     </div>`
   )
-    document.getElementById('message-container').scrollIntoView()
+  document.getElementById('message-container').scrollIntoView()
 }
 // Below, equipmentRoutineObject parameter = JSON object representation of the EquipmentRoutine instance 
 // (with data about the equipment and routine instances to which it belongs) 
