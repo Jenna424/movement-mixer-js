@@ -76,8 +76,6 @@ MovementRoutine.updateListener = function() { // event delegation is necessary b
     let action = $(this).attr('action') // "/mrs/:id"
     let id = action.split('/')[2] // stores the id of the MovementRoutine instance that's being updated
     let formData = $(this).serialize()
-    $(this).hide() // hide the form once it's been submitted
-    $(this).parent().removeClass('well well-md') // remove "well well-md" classes from div#edit-mr-MR ID GOES HERE-div
     $(`a[data-id=${id}]`).show() // show the Edit Exercise link on routine show page again
     $.ajax({
       url: action, // "/mrs/:id"
