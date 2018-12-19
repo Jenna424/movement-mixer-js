@@ -78,7 +78,7 @@ MovementRoutine.updateListener = function() { // event delegation is necessary b
     let id = action.split('/')[2]
     $form.hide() // hide the edit-mr form once it's submitted
     $form.parent().removeClass('well well-lg') // remove "well well-lg" classes from edit-mr form container, which = <div id="edit-mr-MR ID HERE-div">)
-    $(`a[data-mr-id=${id}]`).show() // show the Edit Exercise link on routine show page again, once the edit-mr form is submitted
+    $(`a[data-id=${id}]`).show() // show the Edit Exercise link on routine show page again, once form.edit-mr is submitted
     $.ajax({
       url: action, // "/mrs/:id"
       method: 'patch',
