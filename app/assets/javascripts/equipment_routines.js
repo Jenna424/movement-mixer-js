@@ -82,7 +82,7 @@ EquipmentRoutine.compileEditEquipmentRoutineTemplate = function() {
 }
 // <input type="button"> elements have no default behavior
 EquipmentRoutine.cancelEditListener = function() {
-  $('ul.required-equipment').on('click', 'input.cancel-editing-er', function(e) {
+  $('ul.required-equipment').on('click', 'input.cancel-editing-er', function() {
     let id = $(this).data('id')
     let $editFormContainer = $(`#edit-er-${id}-div`)
     let $editLink = $(`a[data-id=${id}]`)
