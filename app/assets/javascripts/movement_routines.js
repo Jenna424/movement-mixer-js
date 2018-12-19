@@ -57,12 +57,12 @@ MovementRoutine.editListener = function() { // div#workout-routine = div.panel-b
    $(this).hide() // hide <a class="edit-mr">Edit Exercise</a> link once it's been clicked
    let url = $(this).attr('href') // '/mrs/:id/edit'
    $.get(url)
-     .done(MovementRoutine.displayEditMrForm)
+     .done(MovementRoutine.displayEditForm)
      .fail(handleError)
   })
 }
 // Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that we're formatting the edit form for = the response from AJAX GET request to '/mrs/:id/edit' sent in MovementRoutine.editListener(), which is triggered when user clicks Edit Exercise link on routine show page to edit technique/sets/reps user-submittable attributes stored on join model MovementRoutine
-MovementRoutine.displayEditMrForm = function(mrJson) {
+MovementRoutine.displayEditForm = function(mrJson) {
   let newMr = new MovementRoutine(mrJson)
   let $editMrDiv = $(`div#edit-mr-${newMr.id}-div`)
   let editMrFormHtml = MovementRoutine.editMovementRoutineTemplateFunction(newMr)
