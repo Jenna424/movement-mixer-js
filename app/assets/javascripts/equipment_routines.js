@@ -60,9 +60,9 @@ $(() => {
 EquipmentRoutine.editListener = function() {
   $('ul.required-equipment').on('click', 'a.edit-er', function(e) { // event delegation is necessary b/c pieces of equipment are constantly being added/deleted on the edit routine page
     e.preventDefault()
-    
+    let url = $(this).attr('href') // "/ers/:id/edit"
     $(this).hide()
-    $.get(`/ers/${id}/edit`)
+    $.get(url)
       .done(EquipmentRoutine.displayEditForm)
       .fail(handleError)
   })
