@@ -65,9 +65,9 @@ MovementRoutine.editListener = function() { // div#workout-routine = div.panel-b
 MovementRoutine.displayEditForm = function(mrObject) {
   let newMr = new MovementRoutine(mrObject)
   let $editFormContainer = $(`#edit-mr-${newMr.id}-div`)
-  let editMrFormHtml = MovementRoutine.editMovementRoutineTemplateFunction(newMr)
-  $editMrDiv.html(editMrFormHtml)
-  $editMrDiv.addClass('well well-md')
+  let editFormHtml = MovementRoutine.editMovementRoutineTemplateFunction(newMr)
+  $editFormContainer.html(editMrFormHtml)
+  $editFormContainer.addClass('well well-md')
 }
 
 MovementRoutine.updateListener = function() {
