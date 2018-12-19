@@ -14,9 +14,7 @@
 
 <hr>
 
-<% unless @routine.equipment.empty? %>
-  <h4 id="equipment-heading">Required Equipment for <em><%= @routine.title %></em></h4>
-<% end %>
+<h3>Manage Equipment Required for <em><%= @routine.title %></em></h3>
 
 <ul class="required-equipment">
   <% if !@routine.equipment.empty? %>
@@ -48,7 +46,5 @@
     <% end %>
   <% end %>
 </ul>
-
-<br>
 
 <%= render partial: "add_equipment_form", locals: { routine: @routine } %>
