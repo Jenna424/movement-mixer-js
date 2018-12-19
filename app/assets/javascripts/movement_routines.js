@@ -73,9 +73,9 @@ MovementRoutine.displayEditForm = function(mrObject) {
 MovementRoutine.updateListener = function() { // event delegation is necessary b/c movements are constantly being added/deleted on the routine show page
   $('div.panel-body').on('submit', 'form.edit-mr', function(e) {
     e.preventDefault()
-    var $form = $(this)
-    var action = $(this).attr('action') // "/mrs/:id"
-    var mrId = action.split('/')[2]
+    let $form = $(this)
+    let action = $(this).attr('action') // "/mrs/:id"
+    let mrId = action.split('/')[2]
     $form.hide() // hide the edit-mr form once it's submitted
     $form.parent().removeClass('well well-lg') // remove "well well-lg" classes from edit-mr form container, which = <div id="edit-mr-MR ID HERE-div">)
     $(`a[data-mr-id=${mrId}]`).show() // show the Edit Exercise link on routine show page again, once the edit-mr form is submitted
