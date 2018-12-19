@@ -96,15 +96,6 @@ MovementRoutine.update = function(mrJson) {
   newMr.formatSetsAndReps()
 }
 
-MovementRoutine.cancelEditListener = function() {
-  $(document).on('click', 'input.cancel-edit', function() {
-    var mrId = $(this).data('mr-id')
-    $(`form.edit-mr-${mrId}`).hide() // hide the edit form
-    $(`a[data-mr-id=${mrId}]`).show() // display the Edit Exercise link
-    $(`div#edit-mr-${mrId}-div`).removeClass('well well-lg') // remove "well well-lg" classes of the <div> that contained the edit form
-  })
-}
-
 MovementRoutine.destroyListener = function() {
   $('div.panel-default').on('submit', 'form.button_to', function(e) {
     e.preventDefault()
