@@ -90,6 +90,9 @@ MovementRoutine.updateListener = function() { // event delegation is necessary b
 // Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that was just updated = successful JSON response I get back from AJAX PATCH request sent in MovementRoutine.updateListener()
 MovementRoutine.update = function(mrJson) {
   let newMr = new MovementRoutine(mrJson)
+  let $submittedEditForm = $(`form[action='/mrs/${newMr.id}']`) // find the form that was JUST submitted in MovementRoutine.updateListener(), which is still visible on the page
+  $submittedEditForm.hide() // Only now that I've gotten back a successful JSON response here in MovementRoutine.update, hide the form submitted in MovementRoutine.updateListener()
+  $submittedEditForm.parent().removeClass('well well-md') // Remove 'well well-md' classes from div#edit-mr-MOVEMENTROUTINE ID GOES HERE-div, which is the container for the form to edit the MovementRoutine
   newMr.formatSetsAndReps()
 }
 
