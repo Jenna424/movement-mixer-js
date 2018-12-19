@@ -108,12 +108,12 @@ EquipmentRoutine.updateListener = function() {
       .fail(checkValidityOfJoinTableAttrs)
   })
 }
-// Below, equipmentRoutineObject parameter = JSON object representation of EquipmentRoutine join table instance with quantity and weight key/value pairs updated = successful JSON response I get back from AJAX PATCH request sent in EquipmentRoutine.updateListener()
+// Below, equipmentRoutineObject parameter = JSON object representation of EquipmentRoutine instance with quantity and weight key/value pairs updated = successful JSON response I get back from AJAX PATCH request sent in EquipmentRoutine.updateListener()
 EquipmentRoutine.update = function(equipmentRoutineObject) {
   let newEr = new EquipmentRoutine(equipmentRoutineObject)
   let $editFormContainer = $(`#edit-er-${newEr.id}-div`)
   let $editLink = $(`a[data-id=${newEr.id}]`)
-  $editFormContainer.html('')
+  $editFormContainer.html('') // Now that the EquipmentRoutine instance was successfully updated, empty the <div> that contains the edit form so that the edit form is no longer displayed
   $editFormContainer.removeClass('well well-md')
   $editLink.show()
   newEr.formatQuantityAndWeight()
