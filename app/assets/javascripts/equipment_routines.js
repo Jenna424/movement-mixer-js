@@ -162,9 +162,10 @@ EquipmentRoutine.prototype.alertDeletionSuccessful = function() {
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
-      ${this.name} will no longer be used in this workout routine.
+      ${this.equipment.name} will no longer be used in this workout routine.
     </div>`
   )
+    document.getElementById('message-container').scrollIntoView()
 }
 // Below, equipmentRoutineObject parameter = JSON object representation of the EquipmentRoutine instance 
 // (with data about the equipment and routine instances to which it belongs) 
