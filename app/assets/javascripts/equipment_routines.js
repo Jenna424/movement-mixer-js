@@ -113,7 +113,7 @@ EquipmentRoutine.update = function(equipmentRoutineObject) {
   let newEr = new EquipmentRoutine(equipmentRoutineObject)
   let $editFormContainer = $(`#edit-er-${newEr.id}-div`)
   let $editLink = $(`a[data-id=${newEr.id}]`)
-  $editFormContainer.html('') // Now that the EquipmentRoutine instance was successfully updated, empty the <div> that contains the edit form so that the edit form is no longer displayed
+  $editFormContainer.html('') // Now that the EquipmentRoutine instance is successfully updated, empty the <div> that contains the edit form so that the edit form is no longer displayed
   $editFormContainer.removeClass('well well-md')
   $editLink.show()
   newEr.formatQuantityAndWeight()
