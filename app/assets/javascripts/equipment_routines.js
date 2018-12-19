@@ -60,8 +60,8 @@ $(() => {
 EquipmentRoutine.editListener = function() {
   $('ul.required-equipment').on('click', 'a.edit-er', function(e) { // event delegation is necessary b/c pieces of equipment are constantly being added/deleted on the edit routine page
     e.preventDefault()
-    let id = $(this).data('id') // stores the id of the instance of EquipmentRoutine join model being edited
-    $(this).hide() // once a.edit-er is clicked and I store its data-id attribute value in the id variable, hide the link
+    let id = $(this).data('id') // stores the id of the EquipmentRoutine instance being edited
+    $(this).hide() // once the link is clicked and I store its data-id attribute value in the id variable, hide the link
     $.get(`/ers/${id}/edit`)
       .done(EquipmentRoutine.displayEditForm)
       .fail(handleError)
