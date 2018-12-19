@@ -125,7 +125,7 @@ EquipmentRoutine.prototype.formatQuantityAndWeight = function() {
   let $smallQuantity = $(`small#quantity-${id}`)
   let $smallWeight = $(`small#weight-${id}`)
   let weightText = ''
-  if (this.weight === null) { // if weight is null
+  if (this.weight == null) { // if weight is null or undefined
     weightText = 'N/A'
   } else {
     weightText = `${this.weight} lb(s) each`
