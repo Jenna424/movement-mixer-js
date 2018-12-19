@@ -61,9 +61,9 @@ MovementRoutine.editListener = function() { // div#workout-routine = div.panel-b
      .fail(handleError)
   })
 }
-// Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that we're formatting the edit form for = the response from AJAX GET request to '/mrs/:id/edit' sent in MovementRoutine.editListener(), which is triggered when user clicks Edit Exercise link on routine show page to edit technique/sets/reps user-submittable attributes stored on join model MovementRoutine
-MovementRoutine.displayEditForm = function(mrJson) {
-  let newMr = new MovementRoutine(mrJson)
+// Below, mrObject parameter = JSON object representation of AR MovementRoutine instance for which I'm displaying the edit form = successful JSON response I get back from AJAX GET request to '/mrs/:id/edit' sent in MovementRoutine.editListener(), which is triggered when user clicks Edit Exercise link on routine show page to edit technique/sets/reps user-submittable attributes stored in join table movement_routines
+MovementRoutine.displayEditForm = function(mrObject) {
+  let newMr = new MovementRoutine(mrObject)
   let $editMrDiv = $(`div#edit-mr-${newMr.id}-div`)
   let editMrFormHtml = MovementRoutine.editMovementRoutineTemplateFunction(newMr)
   $editMrDiv.html(editMrFormHtml)
