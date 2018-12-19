@@ -14,6 +14,10 @@
 
 <hr>
 
+<% unless @routine.equipment.empty? %>
+  <h4 id="equipment-heading">Required Equipment for <em><%= @routine.title %></em></h4>
+<% end %>
+
 <ul class="required-equipment">
   <% if !@routine.equipment.empty? %>
     <% @routine.equipment.each do |equipment_piece| %>
