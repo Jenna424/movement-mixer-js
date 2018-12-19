@@ -66,7 +66,7 @@ MovementRoutine.displayEditForm = function(mrObject) {
   let newMr = new MovementRoutine(mrObject)
   let $editFormContainer = $(`#edit-mr-${newMr.id}-div`)
   let editFormHtml = MovementRoutine.editMovementRoutineTemplateFunction(newMr)
-  $editFormContainer.html(editMrFormHtml)
+  $editFormContainer.html(editFormHtml)
   $editFormContainer.addClass('well well-md')
 }
 
