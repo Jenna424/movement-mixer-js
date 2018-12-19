@@ -155,6 +155,17 @@ EquipmentRoutine.prototype.eliminateLi = function() {
   let id = this.id
   $(`#er-${id}-li`).remove()
 }
+// Below, this refers to the newEr object on which I'm calling prototype method .alertDeletionSuccessful()
+EquipmentRoutine.prototype.alertDeletionSuccessful = function() {
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      ${this.name} will no longer be used in this workout routine.
+    </div>`
+  )
+}
 // Below, equipmentRoutineObject parameter = JSON object representation of the EquipmentRoutine instance 
 // (with data about the equipment and routine instances to which it belongs) 
 // = successful JSON response I get back from the AJAX PATCH request sent in Routine.addEquipmentListener()
