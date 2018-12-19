@@ -12,7 +12,7 @@ MovementRoutine.isValidObject = function(movementName, technique, sets, reps) {
     $('div#exercise-errors-explanation').html(
       `<div class="alert alert-danger" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">×</span>
+          <span aria-hidden="true">&times;</span>
         </button>
         <h4 class="alert-heading">Your attempt to add an exercise to the workout was unsuccessful.</h4>
         <br>
