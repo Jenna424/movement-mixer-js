@@ -110,16 +110,17 @@ MovementRoutine.update = function(mrJson) {
 }
 
 MovementRoutine.destroyListener = function() {
-  $('div.panel-default').on('submit', 'form.button_to', function(e) {
+  $('div.panel-body').on('submit', 'form.button_to', function(e) {
     e.preventDefault()
     if (confirm('Are you sure you want to remove this exercise?')) {
       $.ajax({
-        url: $(this).attr('action'), // delete '/mrs/:id' => 'routines#destroy_movement_routine'
-        method: 'delete',
+        url: $(this).attr('action'), // '/mrs/:id', which maps to routines#destroy_movement_routine
+        method: 'DELETE',
         dataType: 'json',
         data: $(this).serialize()
       })
-      .done(MovementRoutine.destroy)
+        .done(MovementRoutine.destroy)
+        .fail(handleError)
     }
   })
 }
