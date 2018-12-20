@@ -196,15 +196,15 @@ MovementRoutine.hideTechniqueListener = function() {
 MovementRoutine.addMovementToRoutine = function(mrObject) {
   let newMr = new MovementRoutine(mrObject)
   let filteredDivArray = $('div[id^=mr]').filter(function() {
-    return this.id === `mr-${newMr.id}-div` // this refers to each <div> element in the mrDivsArray
+    return this.id === `mr-${newMr.id}-div` // Within the iteration, this refers to each jQuery div object in the array
   })
-  let mrDivExists = filteredDivArray.length
-  if (mrDivExists) { // Reminder: 0 is falsy in JavaScript
+  let mrDivExists = filteredDivArray.length // Reminder: 0 is falsy in JavaScript
+  if (mrDivExists) { // I'm updating an existing MovementRoutine instance, which already has a <div>
     newMr.formatSetsAndReps()
-  } else {
+  } else { // An exercise movement that is NOT already used in this workout routine was submitted, so a new <div> must be appended to div.panel-body
     newMr.formatAndAppendDiv()
   }
-  addAssociationAlert(newMr)
+  manyToManyModificationMessage(newMr)
 }
 // Below, this refers to the newMr object on which I'm calling prototype method .formatSetsAndReps()
 MovementRoutine.prototype.formatSetsAndReps = function() {
