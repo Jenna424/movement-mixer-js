@@ -81,6 +81,23 @@ MovementRoutine.cancelEditListener = function() {
   })
 }
 
+MovementRoutine.updateListener = function() {
+  $('div.panel-body').on('submit', 'form.edit-mr', function(e) {
+    e.preventDefault()
+    let action = $(this).attr('action') // "/mrs/:id", which maps to routines#update_movement_routine
+    let formData = $(this).serialize()
+    $(this).find('textarea, input[type=number]').val(''); // empty the textarea & number_fields in the form to edit technique, sets & reps
+    $.ajax({
+      url: action, // "/mrs/:id"
+      method: 'PATCH',
+      dataType: 'json',
+      data: formData
+    })
+      .done(MovementRoutine.update)
+      .fail(checkValidityOfJoinTableAttrs)
+  })
+}
+
 MovementRoutine.destroyListener = function() {
   $('div.panel-default').on('submit', 'form.button_to', function(e) {
     e.preventDefault()
