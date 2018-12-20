@@ -41,7 +41,7 @@
 <script id="technique-template" type="text/x-handlebars-template">
   <p><strong>Technique for Performing {{movement.name}} in <em>{{routine.title}}</em></strong>:</p>
   <p>{{technique}}</p>
-  <button class="js-hide-technique btn btn-default btn-sm" data-hide-id="{{id}}">Hide Technique</button>
+  <button class="js-hide-technique btn btn-default btn-sm" data-id={{id}}>Hide Technique</button>
 </script>
 <!-- Inside <script> below is the Handlebars template for adding a new movement to a routine on the routine show page -->
 <script id="mr-template" type="text/x-handlebars-template">
