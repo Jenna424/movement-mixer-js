@@ -183,8 +183,8 @@ MovementRoutine.compileTechniqueTemplate = function() {
 
 MovementRoutine.hideTechniqueListener = function() {
   $('div.panel-body').on('click', '.js-hide-technique', function() {
-    var mrId = $(this).data('hide-id') // Hide Technique <button class="js-hide-technique"> clicked (this) has a data-hide-id property that stores the id of the MovementRoutine instance whose technique I'm hiding
-    var $techniqueDiv = $(`#technique-div-${mrId}`) // this <div> contains the technique & Hide Technique button
+    let mrId = $(this).data('hide-id') // Hide Technique <button class="js-hide-technique"> clicked (this) has a data-hide-id property that stores the id of the MovementRoutine instance whose technique I'm hiding
+    let $techniqueDiv = $(`#technique-div-${mrId}`) // this <div> contains the technique & Hide Technique button
     $techniqueDiv.html('') // The technique and Hide Technique button will disappear when the <div> container is emptied
     $techniqueDiv.removeClass('well well-md')
     $(`button[data-id=${mrId}]`).show() // display the Show Technique button for the technique that was just hidden
