@@ -166,8 +166,8 @@ MovementRoutine.showTechniqueListener = function() {
 // Below, mrJson parameter = JSON object representation of A.R. MovementRoutine instance whose technique we want to see = successful JSON response I get back from AJAX GET request sent in MovementRoutine.showTechniqueListener()
 MovementRoutine.showTechnique = function(mrJson) {
   let newMr = new MovementRoutine(mrJson)
-  let mrId = newMr.id
-  let $techniqueDiv = $(`#technique-div-${mrId}`)
+  let id = newMr.id
+  let $techniqueDiv = $(`#technique-div-${id}`)
   $techniqueDiv.html(newMr.formatTechnique()) // formatTechnique prototype method called on newMr object is defined below
   $techniqueDiv.addClass('well well-md')
 }
