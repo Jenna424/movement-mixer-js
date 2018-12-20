@@ -45,7 +45,7 @@
 </script>
 <!-- Inside <script> below is the Handlebars template for adding a new movement to a routine on the routine show page -->
 <script id="mr-template" type="text/x-handlebars-template">
-  <hr>
+  <hr id="hr-{{id}}">
   <div id="mr-{{id}}-div">
     <h5>Exercise: <a class="show-exercise" href="movements/{{movement.id}}">{{movement.name}}</a></h5>
     <button class="js-show-technique btn btn-default btn-sm" data-id={{id}}>Show Technique</button>
