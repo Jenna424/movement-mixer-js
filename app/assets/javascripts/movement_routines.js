@@ -128,6 +128,7 @@ MovementRoutine.destroyListener = function() {
 MovementRoutine.destroy = function(mrJson) {
   let newMr = new MovementRoutine(mrJson)
   newMr.deleteDiv()
+  newMr.alertDeletionSuccessful()
 }
 // Below, this refers to the newMr object on which I'm calling prototype method .deleteDiv()
 MovementRoutine.prototype.deleteDiv = function() {
