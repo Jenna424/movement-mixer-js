@@ -191,14 +191,6 @@ MovementRoutine.hideTechniqueListener = function() {
   })
 }
 
-MovementRoutine.prototype.formatSetsAndReps = function() {
-  let id = this.id
-  let $setsParagraph = $(`#mr-${id}-sets-paragraph`)
-  let $repsParagraph = $(`#mr-${id}-reps-paragraph`)
-  $setsParagraph.html(`<strong>Sets</strong>: ${this.sets}`)
-  $repsParagraph.html(`<strong>Reps</strong>: ${this.reps}`)
-}
-
 MovementRoutine.compileMrTemplate = function() {
   MovementRoutine.mrTemplateSource = $('#mr-template').html()
   MovementRoutine.mrTemplateFunction = Handlebars.compile(MovementRoutine.mrTemplateSource)
@@ -220,6 +212,14 @@ MovementRoutine.addMovementToRoutine = function(json) {
     newMr.formatAndAppendDiv()
   }
   addAssociationAlert(newMr)
+}
+
+MovementRoutine.prototype.formatSetsAndReps = function() {
+  let id = this.id
+  let $setsParagraph = $(`#mr-${id}-sets-paragraph`)
+  let $repsParagraph = $(`#mr-${id}-reps-paragraph`)
+  $setsParagraph.html(`<strong>Sets</strong>: ${this.sets}`)
+  $repsParagraph.html(`<strong>Reps</strong>: ${this.reps}`)
 }
 
 MovementRoutine.prototype.formatAndAppendDiv = function() {
