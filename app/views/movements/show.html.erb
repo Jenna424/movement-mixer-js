@@ -15,7 +15,7 @@
 
 <br><br>
 
-<%= link_to "View Training Guides", movement_guides_path(@movement), class: "exercise-guides", data: {id: @movement.id} unless @movement.guides.empty? %>
+<%= link_to "View Training Guides", movement_guides_path(@movement), class: "movement-guides", data: {id: @movement.id} unless @movement.guides.empty? %>
 
 <div id="training-guides">
 </div>
