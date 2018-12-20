@@ -168,8 +168,17 @@ MovementRoutine.showTechnique = function(mrJson) {
   let newMr = new MovementRoutine(mrJson)
   let id = newMr.id
   let $techniqueDiv = $(`#mr-${id}-technique-div`)
-  $techniqueDiv.html(newMr.formatTechnique()) // formatTechnique prototype method called on newMr object is defined below
+  $techniqueDiv.html(newMr.formatTechnique())
   $techniqueDiv.addClass('well well-md')
+}
+
+MovementRoutine.prototype.formatTechnique = function() {
+  return MovementRoutine.techniqueTemplateFunction(this)
+}
+
+MovementRoutine.compileTechniqueTemplate = function() {
+  MovementRoutine.techniqueTemplateSource = $('#technique-template').html()
+  MovementRoutine.techniqueTemplateFunction = Handlebars.compile(MovementRoutine.techniqueTemplateSource)
 }
 
 MovementRoutine.hideTechniqueListener = function() {
@@ -180,15 +189,6 @@ MovementRoutine.hideTechniqueListener = function() {
     $techniqueDiv.removeClass('well well-md')
     $(`button[data-id=${mrId}]`).show() // display the Show Technique button for the technique that was just hidden
   })
-}
-
-MovementRoutine.prototype.formatTechnique = function() {
-  return MovementRoutine.techniqueTemplateFunction(this)
-}
-
-MovementRoutine.compileTechniqueTemplate = function() {
-  MovementRoutine.techniqueTemplateSource = $('#technique-template').html()
-  MovementRoutine.techniqueTemplateFunction = Handlebars.compile(MovementRoutine.techniqueTemplateSource)
 }
 
 MovementRoutine.prototype.formatSetsAndReps = function() {
