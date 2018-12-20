@@ -216,9 +216,9 @@ MovementRoutine.prototype.formatSetsAndReps = function() {
 }
 // Below, this refers to the newMr object on which I'm calling prototype method .formatAndAppendDiv()
 MovementRoutine.prototype.formatAndAppendDiv = function() {
-  let routineContainer = $('#workout-routine') // get the <div> that contains all the movements in the routine
+  let workoutMovesContainer = $('div.panel-body') // get the <div> that contains all the movements in the routine
   let mrDivHtml = MovementRoutine.mrTemplateFunction(this) // store the Handlebars template w/ values injected from key/value pairs in newMr object (this)
-  workoutRoutineDiv.append(mrDivHtml) // appending the <div> for the new movement/MR to the div containing all movements in the routine 
+  workoutMovesContainer.append(mrDivHtml) // appending the new <div> to the div containing all movements in the routine 
 }
 
 MovementRoutine.compileMrTemplate = function() {
