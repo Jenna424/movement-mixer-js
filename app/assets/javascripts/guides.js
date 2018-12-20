@@ -99,16 +99,13 @@ Guide.updateCount = function() {
   let newCount = parseInt(stringCount) + 1
   $('div.container li')[1].innerText = `Training guides available for use: ${newCount}`
 }
-// On the movement show page, there is an a.exercise-guides link to View Training Guides that belong to that particular exercise movement
-// Since we can flip through movements, i.e. see next movement/previous movement using .fetch() call,
-// the link to view that movement's guides is not always present in the DOM on initial payload
-// Therefore, call .on() directly on div.container, which is always on the page, and then check to see if a.exercise-guides was clicked
+
 Guide.indexHandler = function() {
-  $('div.container').on('click', 'a.exercise-guides', function(e) {
+  $('div.container').on('click', 'a.movement-guides', function(e) {
     e.preventDefault() // prevent the default behavior of sending a regular HTTP GET request to "/movements/:movement_id/guides"
-    let movementId = $(this).data('id')
+    let id = $(this).data('id') // stores the id of the movement instance whose guides we want to retrieve
     $(this).hide()
-    $.get(`/movements/${movementId}/guides`)
+    $.get(`/movements/${id}/guides`)
       .done(Guide.index)
       .fail(handleError)
   })
