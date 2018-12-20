@@ -194,12 +194,12 @@ MovementRoutine.hideTechniqueListener = function() {
 // (with data about the movement and routine instances to which it belongs) 
 // = successful JSON response I get back from the AJAX PATCH request sent in Routine.addExerciseToExistingWorkout()
 MovementRoutine.addMovementToRoutine = function(mrObject) {
-  var newMr = new MovementRoutine(json)
-  var mrDivsArray = $("div[id^='mr']")
-  var filteredDivArray = mrDivsArray.filter(function() {
+  let newMr = new MovementRoutine(mrObject)
+  let mrDivsArray = $("div[id^='mr']")
+  let filteredDivArray = mrDivsArray.filter(function() {
     return this.id === `mr-${newMr.id}-div` // this refers to each <div> element in the mrDivsArray
   })
-  var mrDivExists = filteredDivArray.length
+  let mrDivExists = filteredDivArray.length
   if (mrDivExists) { // Reminder: 0 is falsy in JavaScript
     newMr.formatSetsAndReps()
   } else {
