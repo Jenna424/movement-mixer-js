@@ -171,7 +171,7 @@ MovementRoutine.showTechnique = function(mrJson) {
   $techniqueDiv.html(newMr.formatTechnique())
   $techniqueDiv.addClass('well well-md')
 }
-
+// Below, this refers to the newMr object on which I'm calling prototype method .formatTechnique()
 MovementRoutine.prototype.formatTechnique = function() {
   return MovementRoutine.techniqueTemplateFunction(this)
 }
@@ -182,7 +182,7 @@ MovementRoutine.compileTechniqueTemplate = function() {
 }
 
 MovementRoutine.hideTechniqueListener = function() {
-  $('div.panel-default').on('click', '.js-hide-technique', function() {
+  $('div.panel-body').on('click', '.js-hide-technique', function() {
     var mrId = $(this).data('hide-id') // Hide Technique <button class="js-hide-technique"> clicked (this) has a data-hide-id property that stores the id of the MovementRoutine instance whose technique I'm hiding
     var $techniqueDiv = $(`#technique-div-${mrId}`) // this <div> contains the technique & Hide Technique button
     $techniqueDiv.html('') // The technique and Hide Technique button will disappear when the <div> container is emptied
