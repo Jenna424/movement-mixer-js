@@ -140,6 +140,18 @@ MovementRoutine.prototype.deleteDiv = function() {
     $divTopBorder.remove()
   }
 }
+// Below, this refers to the newMr object on which I'm calling prototype method .alertDeletionSuccessful()
+MovementRoutine.prototype.alertDeletionSuccessful = function() {
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      ${this.movement.name} will no longer be performed in this workout routine.
+    </div>`
+  )
+  document.getElementById('message-container').scrollIntoView()
+}
 
 MovementRoutine.compileTechniqueTemplate = function() {
   MovementRoutine.techniqueTemplateSource = $('#technique-template').html()
