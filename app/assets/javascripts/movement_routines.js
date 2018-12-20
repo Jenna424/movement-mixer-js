@@ -39,8 +39,8 @@ $(() => {
 
 MovementRoutine.bindEventListeners = function() {
   MovementRoutine.editListener()
-  MovementRoutine.updateListener()
   MovementRoutine.cancelEditListener()
+  MovementRoutine.updateListener()
   MovementRoutine.destroyListener()
   MovementRoutine.showTechniqueListener()
   MovementRoutine.hideTechniqueListener()
