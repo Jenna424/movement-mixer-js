@@ -190,12 +190,6 @@ MovementRoutine.hideTechniqueListener = function() {
     $(`button[data-id=${id}]`).show() // display the Show Technique button for the technique that was just hidden
   })
 }
-
-MovementRoutine.compileMrTemplate = function() {
-  MovementRoutine.mrTemplateSource = $('#mr-template').html()
-  MovementRoutine.mrTemplateFunction = Handlebars.compile(MovementRoutine.mrTemplateSource)
-}
-
 // The json parameter below is the JSON object representation of the MovementRoutine instance 
 // (with data about the routine and movement instances to which it belongs). 
 // This JSON object representation of the MovementRoutine instance = response to AJAX PATCH request made in Routine.addExerciseListener()
@@ -213,7 +207,7 @@ MovementRoutine.addMovementToRoutine = function(json) {
   }
   addAssociationAlert(newMr)
 }
-
+// Below, this refers to the newMr object on which I'm calling prototype method .formatSetsAndReps()
 MovementRoutine.prototype.formatSetsAndReps = function() {
   let id = this.id
   let $setsParagraph = $(`#mr-${id}-sets-paragraph`)
@@ -226,4 +220,9 @@ MovementRoutine.prototype.formatAndAppendDiv = function() {
   var workoutRoutineDiv = $('#workout-routine') // get the <div> that contains all the movements in the routine
   var mrDivHtml = MovementRoutine.mrTemplateFunction(this) // store the Handlebars template w/ values injected from key/value pairs in newMr object (this)
   workoutRoutineDiv.append(mrDivHtml) // appending the <div> for the new movement/MR to the div containing all movements in the routine 
+}
+
+MovementRoutine.compileMrTemplate = function() {
+  MovementRoutine.mrTemplateSource = $('#mr-template').html()
+  MovementRoutine.mrTemplateFunction = Handlebars.compile(MovementRoutine.mrTemplateSource)
 }
