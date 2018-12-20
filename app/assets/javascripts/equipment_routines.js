@@ -174,7 +174,7 @@ EquipmentRoutine.prototype.alertDeletionSuccessful = function() {
 }
 // Below, equipmentRoutineObject parameter = JSON object representation of the EquipmentRoutine instance 
 // (with data about the equipment and routine instances to which it belongs) 
-// = successful JSON response I get back from the AJAX PATCH request sent in Routine.addEquipmentListener()
+// = successful JSON response I get back from the AJAX PATCH request sent in Routine.addEquipmentToExistingWorkout()
 EquipmentRoutine.addEquipmentToRoutine = function(equipmentRoutineObject) {
   let newEr = new EquipmentRoutine(equipmentRoutineObject)
   let match = $('li[id^=er]').filter(function() {
