@@ -195,7 +195,6 @@ MovementRoutine.hideTechniqueListener = function() {
 // = successful JSON response I get back from the AJAX PATCH request sent in Routine.addExerciseToExistingWorkout()
 MovementRoutine.addMovementToRoutine = function(mrObject) {
   let newMr = new MovementRoutine(mrObject)
-  let mrDivsArray = $("div[id^='mr']")
   let filteredDivArray = mrDivsArray.filter(function() {
     return this.id === `mr-${newMr.id}-div` // this refers to each <div> element in the mrDivsArray
   })
