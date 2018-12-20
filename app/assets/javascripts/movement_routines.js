@@ -192,9 +192,9 @@ MovementRoutine.hideTechniqueListener = function() {
 }
 
 MovementRoutine.prototype.formatSetsAndReps = function() {
-  var mrId = this.id
-  var $setsParagraph = $(`#sets-paragraph-${mrId}`)
-  var $repsParagraph = $(`#reps-paragraph-${mrId}`)
+  let mrId = this.id
+  let $setsParagraph = $(`#sets-paragraph-${mrId}`)
+  let $repsParagraph = $(`#reps-paragraph-${mrId}`)
   $setsParagraph.html(`<strong>Sets</strong>: ${this.sets}`)
   $repsParagraph.html(`<strong>Reps</strong>: ${this.reps}`)
 }
