@@ -155,10 +155,10 @@ MovementRoutine.prototype.alertDeletionSuccessful = function() {
 
 MovementRoutine.showTechniqueListener = function() {
   $('div.panel-body').on('click', '.js-show-technique', function() {
-    let $showTechniqueButton = $(this) // $showTechniqueButton variable stores the Show Technique button that was clicked, which has a data-id attribute value = id of MovementRoutine instance whose technique we want
+    let $showTechniqueButton = $(this) // stores the Show Technique button that was clicked, which has a data-id attribute value = id of MovementRoutine instance whose technique we want to see
     let id = $showTechniqueButton.data('id')
     $showTechniqueButton.hide()
-    $.get(`/mrs/${id}`)
+    $.get(`/mrs/${id}`) // get '/mrs/:id' => 'movements#show_technique'
       .done(MovementRoutine.showTechnique)
       .fail(handleError)
   })
