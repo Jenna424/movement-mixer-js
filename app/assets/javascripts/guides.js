@@ -84,7 +84,7 @@ Guide.createOrUpdate = function(guideObject) {
   }
   $('h3').before(alertChangesSuccessful())
 }
-
+// Below, this refers to the newGuide object on which I'm calling prototype method .formatShow()
 Guide.prototype.formatShow = function() {
   return Guide.guideTemplateFunction(this)
 }
@@ -95,9 +95,9 @@ Guide.compileGuideTemplate = function() {
 }
 
 Guide.updateCount = function() {
-  let stringCount = $('div.container').find('li')[1].innerText.split(': ').pop()
+  let stringCount = $('div.container li')[1].innerText.split(': ').pop()
   let newCount = parseInt(stringCount) + 1
-  $('div.container').find('li')[1].innerText = `Training guides available for use: ${newCount}`
+  $('div.container li')[1].innerText = `Training guides available for use: ${newCount}`
 }
 // On the movement show page, there is an a.exercise-guides link to View Training Guides that belong to that particular exercise movement
 // Since we can flip through movements, i.e. see next movement/previous movement using .fetch() call,
