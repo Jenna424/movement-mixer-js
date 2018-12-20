@@ -41,13 +41,17 @@ Guide.isValidObject = function(properForm, breathingTechnique, modification, cha
 }
 
 Guide.formSubmissionHandler = function() {
-  $('div.container').on('submit', 'form[class$=_guide]', function(e) {
+  $('div.container').on('submit', 'form[class$=_guide]', function(e) { // class is either "new_guide" or "edit_guide"
     e.preventDefault()
-    if ($('div.alert-danger').length) {
+    if ($('div.alert-danger').length) { // if div.alert-danger exists on the current page due to a prior form submission that resulted in validation errors, hide it
       $('div.alert-danger').hide()
     }
     let $form = $(this)
     let requestType = ($form.find('input[name=_method]').val() || 'post')
+    let crudVerb = 'created'
+    if (requestType === 'patch') {
+      crudVerb = 'revised'
+    }
     let action = $form.attr('action') // either POST "/movements/:movement_id/guides" or PATCH "/movements/:movement_id/guides/:id"
     let formData = $form.serialize()
     let properForm = $form.find('textarea[id=guide_proper_form]').val()
@@ -63,7 +67,7 @@ Guide.formSubmissionHandler = function() {
         data: formData
       })
         .done(Guide.createOrUpdate)
-        .fail(error => console.error(`Your training guide was not created because an error occurred:\n ${error.statusText} (status code ${error.status})`))
+        .fail(error => console.error(`Your training guide was not ${crudVerb} due to the following error: ${error.statusText} (status code ${error.status})`))
     }
   })
 }
