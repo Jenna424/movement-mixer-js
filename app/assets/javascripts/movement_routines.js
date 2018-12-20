@@ -130,10 +130,6 @@ MovementRoutine.destroy = function(mrJson) {
   newMr.deleteDiv()
 }
 // Below, this refers to the newMr object on which I'm calling prototype method .deleteDiv()
-MovementRoutine.prototype.deleteDiv = function() {
-  let id = this.id
-  $(`#mr-${id}-div`).remove()
-}
 
 MovementRoutine.compileTechniqueTemplate = function() {
   MovementRoutine.techniqueTemplateSource = $('#technique-template').html()
