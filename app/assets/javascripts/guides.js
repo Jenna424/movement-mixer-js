@@ -82,6 +82,7 @@ Guide.createOrUpdate = function(guideObject) {
     $('div#training-guides').html('') // empty div#training-guides in case it currently displays guides, since I do not automatically append data for the guide just created
     Guide.updateCount()
   }
+  $('h3').before(alertChangesSuccessful())
 }
 
 Guide.prototype.formatShow = function() {
