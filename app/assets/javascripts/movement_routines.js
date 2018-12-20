@@ -97,6 +97,17 @@ MovementRoutine.updateListener = function() {
       .fail(checkValidityOfJoinTableAttrs)
   })
 }
+// Below, mrJson parameter = JSON object representation of AR MovementRoutine instance that was just updated = successful JSON response I get back from AJAX PATCH request sent in MovementRoutine.updateListener()
+MovementRoutine.update = function(mrJson) {
+  let newMr = new MovementRoutine(mrJson)
+  let $editFormContainer = $(`#edit-mr-${newMr.id}-div`)
+  let $editLink = $(`a[href='/mrs/${newMr.id}/edit']`)
+  $editFormContainer.html('') // Now that the MovementRoutine instance is successfully updated, empty the <div> that contains the edit form so that the edit form is no longer displayed
+  $editFormContainer.removeClass('well well-md')
+  $editLink.show()
+  newMr.formatSetsAndReps()
+  manyToManyModificationMessage(newMr) // this function is declared in shared.js
+}
 
 MovementRoutine.destroyListener = function() {
   $('div.panel-default').on('submit', 'form.button_to', function(e) {
