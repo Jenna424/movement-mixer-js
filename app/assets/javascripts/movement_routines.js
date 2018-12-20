@@ -167,7 +167,7 @@ MovementRoutine.showTechniqueListener = function() {
 MovementRoutine.showTechnique = function(mrJson) {
   let newMr = new MovementRoutine(mrJson)
   let id = newMr.id
-  let $techniqueDiv = $(`#technique-div-${id}`)
+  let $techniqueDiv = $(`#mr-${id}-technique-div`)
   $techniqueDiv.html(newMr.formatTechnique()) // formatTechnique prototype method called on newMr object is defined below
   $techniqueDiv.addClass('well well-md')
 }
