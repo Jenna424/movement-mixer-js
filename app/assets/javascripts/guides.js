@@ -13,8 +13,8 @@ $(() => {
 })
 
 Guide.bindEventHandlers = function() {
-  Guide.indexHandler()
   Guide.formSubmissionHandler() // handles submission of both create AND edit forms
+  Guide.indexHandler()
   Guide.destroyHandler()
 }
 
