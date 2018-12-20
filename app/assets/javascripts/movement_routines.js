@@ -159,7 +159,8 @@ MovementRoutine.showTechniqueListener = function() {
     let id = $showTechniqueButton.data('id')
     $showTechniqueButton.hide()
     $.get(`/mrs/${id}`)
-    .done(MovementRoutine.showTechnique)
+      .done(MovementRoutine.showTechnique)
+      .fail(handleError)
   })
 }
 // Below, mrJson parameter = JSON object representation of AR MovementRoutine instance whose technique we want = response from AJAX GET request sent in MovementRoutine.showTechniqueListener()
