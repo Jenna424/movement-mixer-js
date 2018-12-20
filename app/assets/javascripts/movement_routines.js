@@ -127,12 +127,12 @@ MovementRoutine.destroyListener = function() {
 // Below, mrJson parameter = JSON object representation of the A.R. MovementRoutine instance that was just destroyed = successful JSON response I get back from AJAX DELETE request sent in MovementRoutine.destroyListener()
 MovementRoutine.destroy = function(mrJson) {
   let newMr = new MovementRoutine(mrJson)
-  newMr.deleteDiv() // calling deleteDiv() prototype method on newMr object
+  newMr.deleteDiv()
 }
-
+// Below, this refers to the newMr object on which I'm calling prototype method .deleteDiv()
 MovementRoutine.prototype.deleteDiv = function() {
-  var mrId = this.id // this refers to the newMr JSON object on which I'm calling prototype method .deleteDiv()
-  $(`#mr-${mrId}-div`).remove()
+  let id = this.id
+  $(`#mr-${id}-div`).remove()
 }
 
 MovementRoutine.compileTechniqueTemplate = function() {
