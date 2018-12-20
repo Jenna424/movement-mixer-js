@@ -13,7 +13,7 @@ $(() => {
 })
 
 Guide.bindEventHandlers = function() {
-  Guide.getGuidesHandler()
+  Guide.indexHandler()
   Guide.formSubmissionHandler() // handles submission of both create AND edit forms
   Guide.destroyHandler()
 }
@@ -106,7 +106,7 @@ Guide.updateCount = function() {
 // Since we can flip through movements, i.e. see next movement/previous movement using .fetch() call,
 // the link to view that movement's guides is not always present in the DOM on initial payload
 // Therefore, call .on() directly on div.container, which is always on the page, and then check to see if a.exercise-guides was clicked
-Guide.getGuidesHandler = function() {
+Guide.indexHandler = function() {
   $('div.container').on('click', 'a.exercise-guides', function(e) {
     e.preventDefault() // prevent the default behavior of sending a regular HTTP GET request to "/movements/:movement_id/guides"
     let movementId = $(this).data('id')
