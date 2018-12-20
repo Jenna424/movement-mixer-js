@@ -85,7 +85,7 @@ EquipmentRoutine.cancelEditListener = function() {
   $('ul.required-equipment').on('click', 'input.cancel-editing-er', function() {
     let id = $(this).data('id')
     let $editFormContainer = $(`#edit-er-${id}-div`)
-    let $editLink = $(`a[data-id=${id}]`)
+    let $editLink = $(`a[href='/ers/${id}/edit']`)
     $editFormContainer.html('')
     $editFormContainer.removeClass('well well-md')
     $editLink.show()
