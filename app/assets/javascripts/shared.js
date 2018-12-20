@@ -43,3 +43,12 @@ const checkValidityOfJoinTableAttrs = (jqXhrObject) => {
     console.error(`Your changes were unsuccessful due to the following error: ${jqXhrObject.statusText} (status code ${jqXhrObject.status})`)
   }
 }
+
+const alertChangesSuccessful = () => (
+  `<div class="alert alert-success" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    Your changes were successful!
+  </div>`
+)
