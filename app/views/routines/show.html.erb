@@ -10,7 +10,7 @@
     <p><strong>Required Equipment</strong>: <%= display_equipment_for(@routine) %></p>
   </div>
 
-  <div class="panel-body" id="workout-routine">
+  <div class="panel-body">
     <% @routine.movements.each do |movement| %>
       <div id="mr-<%= mr_instance(movement, @routine).id %>-div">
         <h5>Exercise: <%= link_to movement.name, movement_path(movement) %></h5>
