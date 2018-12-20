@@ -78,7 +78,7 @@ Guide.createOrUpdate = function(guideObject) {
   let newGuide = new Guide(guideObject)
   let guideHtml = newGuide.formatShow()
   $('div#display-guide').html(guideHtml)
-  if ($('form#new_guide').length) { // I know that the user just created a NEW training guide because form#new_guide is present on the current page
+  if ($('form#new_guide').length) { // I know that the user just created a NEW training guide if form#new_guide is present on the current page
     $('div#training-guides').html('') // empty div#training-guides in case it currently displays guide <div>s inside it, since I do not automatically append the <div> for the guide just created
     Guide.updateCount()
   }
