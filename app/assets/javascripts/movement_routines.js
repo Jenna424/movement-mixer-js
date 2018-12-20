@@ -190,10 +190,10 @@ MovementRoutine.hideTechniqueListener = function() {
     $(`button[data-id=${id}]`).show() // display the Show Technique button for the technique that was just hidden
   })
 }
-// The json parameter below is the JSON object representation of the MovementRoutine instance 
-// (with data about the routine and movement instances to which it belongs). 
-// This JSON object representation of the MovementRoutine instance = response to AJAX PATCH request made in Routine.addExerciseListener()
-MovementRoutine.addMovementToRoutine = function(json) {
+// Below, mrObject parameter = JSON object representation of the MovementRoutine instance 
+// (with data about the movement and routine instances to which it belongs) 
+// = successful JSON response I get back from the AJAX PATCH request sent in Routine.addExerciseToExistingWorkout()
+MovementRoutine.addMovementToRoutine = function(mrObject) {
   var newMr = new MovementRoutine(json)
   var mrDivsArray = $("div[id^='mr']")
   var filteredDivArray = mrDivsArray.filter(function() {
