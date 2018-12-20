@@ -28,7 +28,7 @@ Guide.isValidObject = function(properForm, breathingTechnique, modification, cha
     $guideErrorsDiv.html(
       `<div class="alert alert-danger" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">×</span>
+          <span aria-hidden="true">&times;</span>
         </button>
         <h4 class="alert-heading">${headingText}</h4>
         <p>A training guide <strong>must</strong> specify the proper form and breathing technique for performing an exercise, and it <strong>must</strong> propose a modification and a challenge.</p>
