@@ -153,16 +153,6 @@ MovementRoutine.prototype.alertDeletionSuccessful = function() {
   document.getElementById('message-container').scrollIntoView()
 }
 
-MovementRoutine.compileTechniqueTemplate = function() {
-  MovementRoutine.techniqueTemplateSource = $('#technique-template').html()
-  MovementRoutine.techniqueTemplateFunction = Handlebars.compile(MovementRoutine.techniqueTemplateSource)
-}
-
-// On the routine show page, each movement in the collection of movements that comprise the routine
-// has a Show Technique button
-// When clicked, this button should add that movement's technique for that routine
-// Technique is stored on the movement_routines join table
-
 MovementRoutine.showTechniqueListener = function() {
   $('div.panel-default').on('click', '.js-show-technique', function() {
     var $showTechniqueButton = $(this); // $showTechniqueButton variable stores the Show Technique button that was clicked, which has a data-id property = id of MovementRoutine join table instance whose technique we want
@@ -193,6 +183,11 @@ MovementRoutine.hideTechniqueListener = function() {
 
 MovementRoutine.prototype.formatTechnique = function() {
   return MovementRoutine.techniqueTemplateFunction(this)
+}
+
+MovementRoutine.compileTechniqueTemplate = function() {
+  MovementRoutine.techniqueTemplateSource = $('#technique-template').html()
+  MovementRoutine.techniqueTemplateFunction = Handlebars.compile(MovementRoutine.techniqueTemplateSource)
 }
 
 MovementRoutine.prototype.formatSetsAndReps = function() {
