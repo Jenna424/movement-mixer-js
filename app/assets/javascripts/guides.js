@@ -71,21 +71,13 @@ Guide.formSubmissionHandler = function() {
     }
   })
 }
-// Below, the guideObject parameter = JSON object representation of AR guide instance that was just created/updated = JSON response to AJAX POST/PATCH request made using $.ajax() method in Guide.formSubmissionHandler()
+// Below, guideObject parameter = JSON object representation of A.R. guide instance that was just created/updated = successful JSON response I get back from the AJAX POST/PATCH request sent in Guide.formSubmissionHandler()
 // Due to belongs_to :movement and belongs_to :user macros in GuideSerializer,
-// the response also contains data about the movement and user instances to which the guide instance belongs
+// the JSON response also contains data about the movement and user instances to which the guide instance belongs
 Guide.createOrUpdate = function(guideObject) {
   let newGuide = new Guide(guideObject)
   let guideHtml = newGuide.formatShow()
   $('div#display-guide').html(guideHtml)
-  $('div#message-container').html(
-    `<div class="alert alert-success" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">×</span>
-      </button>
-      Your changes were successful!
-    </div>`
-  )
   if ($('form#new_guide').length) { // User created a NEW training guide (form#new_guide is present on the current page)
     $('div#training-guides').html('') // empty div#training-guides in case it currently displays guides, since I do not automatically append data for the guide just created
     Guide.updateCount()
