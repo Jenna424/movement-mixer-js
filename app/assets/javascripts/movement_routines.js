@@ -69,6 +69,17 @@ MovementRoutine.compileEditMovementRoutineTemplate = function() {
   MovementRoutine.editMovementRoutineTemplateSource = $('#edit-movement-routine-template').html()
   MovementRoutine.editMovementRoutineTemplateFunction = Handlebars.compile(MovementRoutine.editMovementRoutineTemplateSource)
 }
+// <input type="button"> elements have no default behavior
+MovementRoutine.cancelEditListener = function() {
+  $('div.panel-body').on('click', 'input.cancel-editing-mr', function() {
+    let id = $(this).data('id')
+    let $editFormContainer = $(`#edit-mr-${id}-div`)
+    let $editLink = $(`a[href='/mrs/${id}/edit']`)
+    $editFormContainer.html('')
+    $editFormContainer.removeClass('well well-md')
+    $editLink.show()
+  })
+}
 
 MovementRoutine.updateListener = function() { // event delegation is necessary b/c movements are constantly being added/deleted on the routine show page
   $('div.panel-body').on('submit', 'form.edit-mr', function(e) {
