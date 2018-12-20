@@ -202,7 +202,7 @@ MovementRoutine.addMovementToRoutine = function(mrObject) {
   if (mrDivExists) { // I'm updating an existing MovementRoutine instance, which already has a <div>
     newMr.formatSetsAndReps()
   } else { // An exercise movement that is NOT already used in this workout routine was submitted, so a new <div> must be appended to div.panel-body
-    newMr.formatAndAppendDiv()
+    newMr.appendToWorkoutMovesDiv()
   }
   manyToManyModificationMessage(newMr)
 }
@@ -214,8 +214,8 @@ MovementRoutine.prototype.formatSetsAndReps = function() {
   $setsParagraph.html(`<strong>Sets</strong>: ${this.sets}`)
   $repsParagraph.html(`<strong>Reps</strong>: ${this.reps}`)
 }
-// Below, this refers to the newMr object on which I'm calling prototype method .formatAndAppendDiv()
-MovementRoutine.prototype.formatAndAppendDiv = function() {
+// Below, this refers to the newMr object on which I'm calling prototype method .appendToWorkoutMovesDiv()
+MovementRoutine.prototype.appendToWorkoutMovesDiv = function() {
   let workoutMovesDiv = $('div.panel-body') // get the <div> that contains all the movements in the routine
   let mrTemplateHtml = MovementRoutine.mrTemplateFunction(this) // store the Handlebars template w/ values injected from key/value pairs in newMr object (this)
   workoutMovesDiv.append(mrTemplateHtml)
