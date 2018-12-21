@@ -39,6 +39,15 @@ Training.prototype.showIfIndexLinkClicked = function() {
   }
 }
 
+Training.prototype.formatLi = function() {
+  return Training.trainingTemplateFunction(this)
+}
+
+Training.compileTrainingTemplate = function() {
+  Training.trainingTemplateSource = $('#training-template').html()
+  Training.trainingTemplateFunction = Handlebars.compile(Training.trainingTemplateSource)
+}
+
 Training.prototype.alertCreationSuccessful = function() {
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
@@ -51,15 +60,6 @@ Training.prototype.alertCreationSuccessful = function() {
       </p>
     </div>`
   )
-}
-
-Training.prototype.formatLi = function() {
-  return Training.trainingTemplateFunction(this)
-}
-
-Training.compileTrainingTemplate = function() {
-  Training.trainingTemplateSource = $('#training-template').html()
-  Training.trainingTemplateFunction = Handlebars.compile(Training.trainingTemplateSource)
 }
 
 Training.testValidity = function(jqXhrObject) {
