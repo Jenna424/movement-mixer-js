@@ -20,16 +20,19 @@ Training.createListener = function() {
   })
 }
 
-// Below, trainingObject parameter = JSON object representation of newly created AR training instance = response I get back from AJAX POST request sent using $.post() in Training.createListener()
+// Below, trainingObject parameter = JSON object representation of newly created A.R. training instance = successful JSON response I get back from AJAX POST request sent in Training.createListener()
 Training.create = function(trainingObject) {
   let newTraining = new Training(trainingObject)
   newTraining.showIfIndexLinkClicked()
   newTraining.alertCreationSuccessful()
 }
-
+// Below, this refers to the newTraining object on which I'm calling prototype method .showIfIndexLinkClicked()
 Training.prototype.showIfIndexLinkClicked = function() {
   if ($('ul#training-types-list li').length || $('p#no-training-types').length) { // If the user clicked the View All Training Types link prior to creating a new training type, ul#training-types-list contains an <li> for each existing training type, OR the page has <p id="no-training-types"> if none exists (i.e. the collection is empty)
     $('ul#training-types-list').append(this.formatLi()) // append the <li> for the new training type just created to ul#training-types-list
+    if ($('ul#training-types-list li').length === 1) { // the training type <li> just added is the only one inside ul#training-types-list
+      $('ul#training-types-list').before("<h3 id='all-training-types'>All Fitness Training Types</h3>")
+    }
   }
   if ($('p#no-training-types').length) { // The user clicked the View All Training Types link prior to creating a new training type, but the collection was empty at that time, so p#no-training-types was displayed
     $('p#no-training-types').remove() // Now that a new training type has been created and the collection is no longer empty, remove p#no-training-types
