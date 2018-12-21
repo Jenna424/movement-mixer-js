@@ -81,7 +81,7 @@ Target.indexListener = function() {
       .catch(error => console.error('Workout target areas could not be retrieved due to the following error:', error))
   })
 }
-// Below, targetsArray parameter = array of all target objects = successful JSON response I get back from fetch('/targets') sent in Target.indexListener()
+// Below, targetsArray parameter = array of all target objects = successful JSON response I get back from fetch('/targets', requestObject) sent in Target.indexListener()
 Target.index = function(targetsArray) {
   let $targetAreasList = $('ul#target-areas-list') // ul#target-areas-list is ALWAYS found in app/views/targets/new.html.erb
   let $link = $('a.view-target-areas')
