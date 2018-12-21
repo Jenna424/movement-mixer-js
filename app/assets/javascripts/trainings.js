@@ -70,12 +70,11 @@ Training.testValidity = function(jqXhrObject) {
     console.error(`Your attempt to create a training type was unsuccessful due to the following error: ${jqXhrObject.statusText} (status code ${jqXhrObject.status})`)
   }
 }
-// The link to View All Training Types is ALWAYS found in app/views/trainings/new.html.erb view file,
-// so that the trainer can see a list of existing fitness training types before creating a new one.
+// The link to View All Training Types is ALWAYS found in app/views/trainings/new.html.erb view file, so that the trainer can see a list of existing fitness training types before creating a new one.
 Training.indexListener = function() {
   $('a.view-training-types').on('click', function(e) {
-    $(this).hide()
     e.preventDefault() // prevent the default behavior of sending a normal HTTP GET request to "/trainings"
+    $(this).hide()
     fetch('/trainings')
       .then(response => response.json())
       .then(Training.index)
