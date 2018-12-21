@@ -110,11 +110,10 @@ Guide.indexHandler = function() {
       .fail(handleError)
   })
 }
-// Below, the guidesArray parameter = JSON array representation of all AR guide instances belonging to the particular exercise movement
-// = an array of guide objects = response from AJAX GET request sent using $.get() in Guide.getGuidesHandler()
-// The View Training Guides link is only displayed if the collection of guides belonging to the movement is NOT empty,
-// so the function below can only be triggered if training guides exist for the specific movement
-// div#training-guides is always found on the movement show view
+// Below, guidesArray parameter = JSON array representation of all A.R. guide instances belonging to the particular movement
+// = an array of guide objects = successful JSON response I get back from AJAX GET request sent in Guide.indexHandler()
+// Note: the link to View Training Guides is only displayed if the collection of guides belonging to the movement is NOT empty,
+// so the function below can only be triggered if training guides exist for the specific movement.
 Guide.index = function(guidesArray) {
   $('div#training-guides').html(`<h3>All Training Guides for Performing ${guidesArray[0].movement.name}</h3>`)
   guidesArray.forEach(function(guideObject) {
