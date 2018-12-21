@@ -70,16 +70,20 @@ Target.testValidity = function(jqXhrObject) {
 Target.indexListener = function() {
   $('a.view-target-areas').on('click', function(e) {
     e.preventDefault() // prevent the default behavior of sending a normal HTTP GET request to "/targets"
-    fetch('/targets')
+    let requestObject = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include'
+    }
+    fetch('/targets', requestObject)
       .then(response => response.json())
       .then(Target.index)
       .catch(error => console.error('Workout target areas could not be retrieved due to the following error:', error))
   })
 }
-// The targetsArray parameter below = array of all target objects = the JSON response I got back from fetch('/targets') in Target.indexListener()
-// ul#target-areas-list is ALWAYS found in app/views/targets/new.html.erb view file
+// Below, targetsArray parameter = array of all target objects = successful JSON response I get back from fetch('/targets') sent in Target.indexListener()
 Target.index = function(targetsArray) {
-  let $targetAreasList = $('ul#target-areas-list')
+  let $targetAreasList = $('ul#target-areas-list') // ul#target-areas-list is ALWAYS found in app/views/targets/new.html.erb
   let $link = $('a.view-target-areas')
   if (targetsArray.length) {
     $link.replaceWith("<h3 id='all-target-areas'>All Workout Target Areas</h3>")
