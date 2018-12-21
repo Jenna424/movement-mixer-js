@@ -66,9 +66,7 @@ Target.testValidity = function(jqXhrObject) {
     console.error(`Your attempt to create a target area was unsuccessful due to the following error: ${jqXhrObject.statusText} (status code ${jqXhrObject.status})`)
   }
 }
-
-// The link to View Workout Target Areas is ALWAYS found in app/views/targets/new.html.erb view file,
-// so that the trainer can see a list of existing workout target areas before creating a new one.
+// The link to View Workout Target Areas is ALWAYS found in app/views/targets/new.html.erb view file, so that the trainer can see a list of existing workout target areas before creating a new one.
 Target.indexListener = function() {
   $('a.view-target-areas').on('click', function(e) {
     e.preventDefault() // prevent the default behavior of sending a normal HTTP GET request to "/targets"
