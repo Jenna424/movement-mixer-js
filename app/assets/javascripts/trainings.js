@@ -38,7 +38,7 @@ Training.prototype.showIfIndexLinkClicked = function() {
     $('p#no-training-types').remove() // Now that a new training type has been created and the collection is no longer empty, remove p#no-training-types
   }
 }
-
+// Below, this refers to the newTraining object (this in showIfIndexLinkClicked) on which I'm now calling prototype method .formatLi()
 Training.prototype.formatLi = function() {
   return Training.trainingTemplateFunction(this)
 }
@@ -47,12 +47,12 @@ Training.compileTrainingTemplate = function() {
   Training.trainingTemplateSource = $('#training-template').html()
   Training.trainingTemplateFunction = Handlebars.compile(Training.trainingTemplateSource)
 }
-
+// Below, this refers to the newTraining object on which I'm calling prototype method .alertCreationSuccessful()
 Training.prototype.alertCreationSuccessful = function() {
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">x</span>
+        <span aria-hidden="true">&times;</span>
       </button>
       <h4 class="alert-heading">You successfully created a new fitness training type!</h4>
       <p>
