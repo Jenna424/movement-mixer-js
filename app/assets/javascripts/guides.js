@@ -122,7 +122,7 @@ Guide.index = function(guidesArray) {
     $('div#training-guides').append(guideHtml)
   })
 }
-
+// input.delete-guide is always found in app/views/guides/edit.html.erb. Its parent = form.button_to
 Guide.destroyHandler = function() {
   $('input.delete-guide').parent().on('submit', function(e) {
     e.preventDefault()
@@ -138,17 +138,19 @@ Guide.destroyHandler = function() {
     }
   })
 }
-// Below, guideObject parameter = JSON object representation of AR guide instance that was just destroyed = response to AJAX DELETE request sent using $.ajax() method in Guide.destroyHandler()
+// Below, guideObject parameter = JSON object representation of A.R. guide instance that was just destroyed = successful JSON response I get back from AJAX DELETE request sent in Guide.destroyHandler()
 Guide.destroy = function(guideObject) {
   let newGuide = new Guide(guideObject)
-  let exerciseName = newGuide.movement.name
-  let guideDesigner = newGuide.user.name
-  $('div.container').html(
+  newGuide.alertDeletionSuccessful()
+}
+// Below, this refers to the newGuide object on which I'm calling prototype method .alertDeletionSuccessful()
+Guide.prototype.alertDeletionSuccessful = function() {
+  $('div.container').html( // A guide is deleted from its edit page, so I must replace the contents of the entire div.container
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">x</span>
+        <span aria-hidden="true">&times;</span>
       </button>
-      Your training guide for performing ${exerciseName} was successfully deleted. Please provide more training tips soon, ${guideDesigner}!
+      Your training guide for performing ${this.movement.name} was successfully deleted. Please provide more training tips soon, ${this.user.name}!
     </div>`
   )
 }
