@@ -83,7 +83,7 @@ Training.indexListener = function() {
     fetch('/trainings', requestObject)
       .then(response => response.json())
       .then(Training.index)
-      .catch(error => console.error('The Index of Fitness Training Types could not be retrieved due to an error:\n', error))
+      .catch(error => console.error('Fitness training types could not be retrieved due to the following error:', error))
   })
 }
 // ul#training-types-list is ALWAYS found in app/views/trainings/new.html.erb view file
