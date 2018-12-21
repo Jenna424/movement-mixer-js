@@ -75,7 +75,12 @@ Training.indexListener = function() {
   $('a.view-training-types').on('click', function(e) {
     e.preventDefault() // prevent the default behavior of sending a normal HTTP GET request to "/trainings"
     $(this).hide()
-    fetch('/trainings')
+    let requestObject = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include'
+    }
+    fetch('/trainings', requestObject)
       .then(response => response.json())
       .then(Training.index)
       .catch(error => console.error('The Index of Fitness Training Types could not be retrieved due to an error:\n', error))
