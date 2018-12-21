@@ -88,15 +88,14 @@ Target.indexListener = function() {
 // Below, targetsArray parameter = array of all target objects = successful JSON response I get back from fetch('/targets', requestObject) sent in Target.indexListener()
 Target.index = function(targetsArray) {
   let $targetAreasList = $('ul#target-areas-list') // ul#target-areas-list is ALWAYS found in app/views/targets/new.html.erb
-  let $link = $('a.view-target-areas')
   if (targetsArray.length) {
-    $link.replaceWith("<h3 id='all-target-areas'>All Workout Target Areas</h3>")
+    replaceWith("<h3 id='all-target-areas'>All Workout Target Areas</h3>")
     targetsArray.forEach(function(targetObject) {
       let newTarget = new Target(targetObject)
       $targetAreasList.append(newTarget.formatLi())
     })
   } else {
-    $link.replaceWith("<p id='no-target-areas'><em>No workout target areas were found.</em></p>")
+    replaceWith("<p id='no-target-areas'><em>No workout target areas were found.</em></p>")
   }
 }
 // Below, event delegation is necessary because target area <li>s are constantly being added to/deleted from ul#target-areas-list
