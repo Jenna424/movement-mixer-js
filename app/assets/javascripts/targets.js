@@ -29,6 +29,9 @@ Target.create = function(targetObject) {
 Target.prototype.showIfIndexLinkClicked = function() {
   if ($('ul#target-areas-list li').length || $('p#no-target-areas').length) { // Prior to creating a new target area, the trainer clicked the View Workout Target Areas link
     $('ul#target-areas-list').append(this.formatLi()) // append <li> for the new target area just created to ul#target-areas-list
+    if ($('ul#target-areas-list li').length === 1) { // The <li> just added is the only one inside ul#target-areas-list
+      $('ul#target-areas-list').before("<h3 id='all-target-areas'>All Workout Target Areas</h3>")
+    }
   }
   if ($('p#no-target-areas').length) { // Prior to creating a new target area, the trainer clicked the View Workout Target Areas link, but there were none, so p#no-target-areas was displayed.
     $('p#no-target-areas').remove() // Now that a new target area has been created, the collection is no longer empty, so remove p#no-target-areas
