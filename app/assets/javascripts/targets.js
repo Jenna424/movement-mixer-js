@@ -73,6 +73,7 @@ Target.testValidity = function(jqXhrObject) {
 Target.indexListener = function() {
   $('a.view-target-areas').on('click', function(e) {
     e.preventDefault() // prevent the default behavior of sending a normal HTTP GET request to "/targets"
+    $(this).hide()
     let requestObject = {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
