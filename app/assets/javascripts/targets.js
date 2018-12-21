@@ -19,7 +19,7 @@ Target.createListener = function() {
       .fail(Target.testValidity)
   })
 }
-// targetObject parameter below = JSON object representation of newly created AR target instance = successful JSON response I get back from AJAX POST request sent using $.post() method in Target.createListener()
+// Below, targetObject parameter = JSON object representation of newly created A.R. target instance = successful JSON response I get back from AJAX POST request sent in Target.createListener()
 Target.create = function(targetObject) {
   let newTarget = new Target(targetObject)
   newTarget.showIfIndexLinkClicked()
@@ -35,6 +35,15 @@ Target.prototype.showIfIndexLinkClicked = function() {
   }
 }
 
+Target.prototype.formatLi = function() {
+  return Target.targetTemplateFunction(this)
+}
+
+Target.compileTargetTemplate = function() {
+  Target.targetTemplateSource = $('#target-template').html()
+  Target.targetTemplateFunction = Handlebars.compile(Target.targetTemplateSource)
+}
+
 Target.prototype.alertCreationSuccessful = function() {
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
@@ -47,15 +56,6 @@ Target.prototype.alertCreationSuccessful = function() {
       <p class="mb-0"><em>Get ready to feel the burn!</em></p>
     </div>`
   ) 
-}
-
-Target.prototype.formatLi = function() {
-  return Target.targetTemplateFunction(this)
-}
-
-Target.compileTargetTemplate = function() {
-  Target.targetTemplateSource = $('#target-template').html()
-  Target.targetTemplateFunction = Handlebars.compile(Target.targetTemplateSource)
 }
 
 Target.testValidity = function(jqXhrObject) {
