@@ -86,13 +86,12 @@ Training.indexListener = function() {
       .catch(error => console.error('Fitness training types could not be retrieved due to the following error:', error))
   })
 }
-// ul#training-types-list is ALWAYS found in app/views/trainings/new.html.erb view file
-// Below, trainingsArray parameter = JSON array of training objects = successful JSON response I get back from fetch('/trainings'), which is sent in Training.indexListener()
+// Below, trainingsArray parameter = JSON array of training objects = successful JSON response I get back from fetch('/trainings', requestObject), which is sent in Training.indexListener()
 Training.index = function(trainingsArray) {
-  let $trainingTypesList = $('ul#training-types-list')
-  $trainingTypesList.html('') // empty ul#training-types-list
+  let $trainingTypesList = $('ul#training-types-list') // ul#training-types-list is ALWAYS found in app/views/trainings/new.html.erb
+  $trainingTypesList.html('') // empty ul#training-types-list in case it contains any stale training type <li>s
   if (trainingsArray.length) {
-    $trainingTypesList.before('<h3 id="all-training-types">All Fitness Training Types</h3>')
+    $trainingTypesList.before("<h3 id='all-training-types'>All Fitness Training Types</h3>")
     trainingsArray.forEach(function(trainingObject) {
       let newTraining = new Training(trainingObject)
       $trainingTypesList.append(newTraining.formatLi())
