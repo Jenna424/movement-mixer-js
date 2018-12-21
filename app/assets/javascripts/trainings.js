@@ -19,9 +19,9 @@ Training.createListener = function() {
       .fail(Training.testValidity)
   })
 }
-
 // Below, trainingObject parameter = JSON object representation of newly created A.R. training instance = successful JSON response I get back from AJAX POST request sent in Training.createListener()
 Training.create = function(trainingObject) {
+  $('a.view-training-types').show() // Now that a new training type exists, make sure that the link to View All Training Types is visible
   let newTraining = new Training(trainingObject)
   newTraining.showIfIndexLinkClicked()
   newTraining.alertCreationSuccessful()
