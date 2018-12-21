@@ -100,7 +100,7 @@ Training.index = function(trainingsArray) {
     $trainingTypesList.before("<p id='no-training-types'><em>No fitness training types were found.</em></p>")
   }
 }
-
+// Below, event delegation is necessary because training type <li>s are constantly being added to/deleted from ul#training-types-list
 Training.destroyListener = function() {
   $('ul#training-types-list').on('submit', 'form.delete-training-type', function(e) {
     e.preventDefault()
@@ -116,7 +116,7 @@ Training.destroyListener = function() {
     }
   })
 }
-// Below, trainingObject parameter = JSON object representation of the AR training instance that was just destroyed = successful JSON response I got back from AJAX DELETE request sent in Training.destroyListener()
+// Below, trainingObject parameter = JSON object representation of the A.R. training instance that was just destroyed = successful JSON response I get back from AJAX DELETE request sent in Training.destroyListener()
 Training.destroy = function(trainingObject) {
   let newTraining = new Training(trainingObject)
   newTraining.deleteLi()
@@ -125,16 +125,16 @@ Training.destroy = function(trainingObject) {
   }
   newTraining.alertDeletionSuccessful()
 }
-
+// Below, this refers to the newTraining object on which I'm calling prototype method .deleteLi()
 Training.prototype.deleteLi = function() {
   $(`li#training-${this.id}`).remove()
 }
-
+// Below, this refers to the newTraining object on which I'm calling prototype method .alertDeletionSuccessful()
 Training.prototype.alertDeletionSuccessful = function() {
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">x</span>
+        <span aria-hidden="true">&times;</span>
       </button>
       <h4 class="alert-heading">You successfully deleted a training type.</h4>
       <p>Workout routines will no longer employ the ${this.fitness_type} training type.</p>
