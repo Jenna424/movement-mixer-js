@@ -73,7 +73,7 @@ Target.indexListener = function() {
     fetch('/targets')
       .then(response => response.json())
       .then(Target.index)
-      .catch(error => console.error('The Index of Workout Target Areas could not be retrieved due to an error:\n', error))
+      .catch(error => console.error('Workout target areas could not be retrieved due to the following error:', error))
   })
 }
 // The targetsArray parameter below = array of all target objects = the JSON response I got back from fetch('/targets') in Target.indexListener()
