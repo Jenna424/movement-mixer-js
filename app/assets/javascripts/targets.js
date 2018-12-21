@@ -95,7 +95,7 @@ Target.index = function(targetsArray) {
     $link.replaceWith("<p id='no-target-areas'><em>No workout target areas were found.</em></p>")
   }
 }
-
+// Below, event delegation is necessary because target area <li>s are constantly being added to/deleted from ul#target-areas-list
 Target.destroyListener = function() {
   $('ul#target-areas-list').on('submit', 'form.delete-target-area', function(e) {
     e.preventDefault()
@@ -111,7 +111,7 @@ Target.destroyListener = function() {
     }
   })
 }
-// targetObject parameter below = JSON object representation of the AR target instance that was just destroyed = JSON response to AJAX DELETE request sent in Target.destroyListener()
+// Below, targetObject parameter = JSON object representation of the A.R. target instance that was just destroyed = successful JSON response I get back from AJAX DELETE request sent in Target.destroyListener()
 Target.destroy = function(targetObject) {
   let newTarget = new Target(targetObject)
   newTarget.deleteLi()
@@ -120,16 +120,16 @@ Target.destroy = function(targetObject) {
   }
   newTarget.alertDeletionSuccessful()
 }
-
-Target.prototype.deleteLi = function() { // this refers to the newTarget object on which .deleteLi() prototype method is called
+// Below, this refers to the newTarget object on which I'm calling prototype method .deleteLi()
+Target.prototype.deleteLi = function() {
   $(`li#target-${this.id}`).remove() // find the <li> corresponding to the target that was deleted, and then remove it
 }
-
+// Below, this refers to the newTarget object on which I'm calling prototype method .alertDeletionSuccessful()
 Target.prototype.alertDeletionSuccessful = function() {
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">x</span>
+        <span aria-hidden="true">&times;</span>
       </button>
       <h4 class="alert-heading">You successfully deleted a target area.</h4>
       <p>Workout routines will no longer target one's ${this.focus.toLowerCase()}.</p>
