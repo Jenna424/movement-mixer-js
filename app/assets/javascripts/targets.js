@@ -25,16 +25,16 @@ Target.create = function(targetObject) {
   newTarget.showIfIndexLinkClicked()
   newTarget.alertCreationSuccessful()
 }
-
+// Below, this refers to the newTarget object on which I'm calling prototype method .showIfIndexLinkClicked()
 Target.prototype.showIfIndexLinkClicked = function() {
-  if ($('ul#target-areas-list li').length || $('p#no-target-areas').length) { // Prior to creating a new target area, the View Workout Target Areas link was clicked
+  if ($('ul#target-areas-list li').length || $('p#no-target-areas').length) { // Prior to creating a new target area, the trainer clicked the View Workout Target Areas link
     $('ul#target-areas-list').append(this.formatLi()) // append <li> for the new target area just created to ul#target-areas-list
   }
-  if ($('p#no-target-areas').length) { // Prior to creating a new target area, the View Workout Target Areas link was clicked, but there were none, so p#no-target-areas was displayed.
+  if ($('p#no-target-areas').length) { // Prior to creating a new target area, the trainer clicked the View Workout Target Areas link, but there were none, so p#no-target-areas was displayed.
     $('p#no-target-areas').remove() // Now that a new target area has been created, the collection is no longer empty, so remove p#no-target-areas
   }
 }
-
+// Below, this refers to the newTarget object (i.e. this in showIfIndexLinkClicked) on which I'm now calling prototype method .formatLi()
 Target.prototype.formatLi = function() {
   return Target.targetTemplateFunction(this)
 }
@@ -43,19 +43,19 @@ Target.compileTargetTemplate = function() {
   Target.targetTemplateSource = $('#target-template').html()
   Target.targetTemplateFunction = Handlebars.compile(Target.targetTemplateSource)
 }
-
+// Below, this refers to the newTarget object on which I'm calling prototype method .alertCreationSuccessful()
 Target.prototype.alertCreationSuccessful = function() {
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">x</span>
+        <span aria-hidden="true">&times;</span>
       </button>
       <h4 class="alert-heading">You successfully created a new target area!</h4>
       <p>Clients can now design workout routines that focus on sculpting and strengthening one's ${this.focus.toLowerCase()}.</p>
       <hr>
       <p class="mb-0"><em>Get ready to feel the burn!</em></p>
     </div>`
-  ) 
+  )
 }
 
 Target.testValidity = function(jqXhrObject) {
