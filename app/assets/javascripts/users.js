@@ -9,9 +9,10 @@ function User(user) {
 
 $(() => {
   loadBelongsToDeclarer() // A workout routine belongs_to a client, and a training guide belongs_to a trainer
+  User.indexListener()
   User.destroyListener()
 })
-// loading the model that declares the belongs_to :user association (i.e. loading routines/guides that belong to the user)
+// loading the associated model that declares the belongs_to :user association (i.e. loading routines/guides that belong to the user)
 const loadBelongsToDeclarer = () => {
   $('div#designer-data').on('click', 'a[class^=load-user]', function(e) {
     e.preventDefault() // prevent the default behavior of clicking the link, which would have been a normal HTTP GET request to "/users/:id", redirecting to the user show page and redrawing the DOM 
