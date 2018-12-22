@@ -13,6 +13,14 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    if user.client? || user.trainer? || user.admin?
+      true
+    else
+      false
+    end
+  end
+
   def new?
     true unless user
   end
