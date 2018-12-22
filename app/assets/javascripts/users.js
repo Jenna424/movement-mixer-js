@@ -62,6 +62,17 @@ User.indexListener = function() {
   })
 }
 
+User.alertIndexEmpty = function() {
+  $('div.container').html(
+    `<div class="alert alert-warning" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      The Index of Users is currently empty.
+    </div>`
+  )
+}
+
 User.destroyListener = function() {
   $('div.container').find('.delete-account').parent().on('submit', function(e) {
     e.preventDefault()
