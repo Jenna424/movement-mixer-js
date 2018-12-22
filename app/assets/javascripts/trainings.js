@@ -122,7 +122,7 @@ Training.destroyListener = function() {
 Training.destroy = function(trainingObject) {
   let newTraining = new Training(trainingObject)
   newTraining.deleteLi()
-  if ($('ul#training-types-list li').length === 0) { // After the training type is deleted, if there are NO <li>s for training types left in the ul#training-types-list
+  if ($('ul#training-types-list li').length === 0) { // After the training type <li> is deleted, if there are NO <li>s for training types left in the ul#training-types-list
     $('h3#all-training-types').remove()
   }
   newTraining.alertDeletionSuccessful()
