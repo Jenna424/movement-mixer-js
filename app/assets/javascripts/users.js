@@ -13,7 +13,20 @@ $(() => {
   User.destroyListener()
 })
 // loading objects of the model that declares the belongs_to :user association (i.e. loading routines/guides that belong to the user)
-
+const loadBelongsToDeclarer = () => {
+  $('a[class^=load-user]').on('click', function(e) {
+    e.preventDefault() // prevent the default behavior of clicking the link, which would have been a normal HTTP GET request to "/users/:id" 
+    let id = $(this).data('id') // stores the id of the user whose workout routines/training guides we want to view
+    let loadAssociatedObjectsFunction = User.loadUserRoutines
+    if ($(this).attr('class').split('-')[2] === 'guides') {
+      loadAssociatedObjectsFunction = User.loadUserGuides
+    }
+    $(this).hide() // hide the link (a.load-user-routines or a.load-user-guides) once it's been clicked
+    $.get(`/users/${id}.json`)
+      .done(loadAssociatedObjectsFunction)
+      .fail(handleError)
+  })
+}
 
 User.loadUserRoutines = function(userObject) {
   let newUser = new User(userObject)
