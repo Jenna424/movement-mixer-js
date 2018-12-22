@@ -7,7 +7,7 @@ class UserPolicy < ApplicationPolicy
         scope.where(id: user.clients)
       elsif user.client? # A client sees all trainers (i.e. users with role = 2) on the users index page
         scope.where(role: 2)
-      elsif user.unassigned?
+      else
         scope.none
       end
     end
