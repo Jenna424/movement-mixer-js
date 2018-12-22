@@ -21,6 +21,9 @@ Target.createListener = function() {
 }
 // Below, targetObject parameter = JSON object representation of newly created A.R. target instance = successful JSON response I get back from AJAX POST request sent in Target.createListener()
 Target.create = function(targetObject) {
+  if ($('ul#target-areas-list li').length === 0) { // If there are currently NO <li> elements for target areas inside ul#target-areas-list,
+    $('a.view-target-areas').show() // now that a new workout target area exists and I'm about to append its <li> to the ul#target-areas-list, ensure that the link to View Workout Target Areas is visible so I'll be able to click it to view the new <li>
+  }
   let newTarget = new Target(targetObject)
   newTarget.showIfIndexLinkClicked()
   newTarget.alertCreationSuccessful()
