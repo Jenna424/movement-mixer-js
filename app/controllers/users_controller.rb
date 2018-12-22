@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     authorize @user
     respond_to do |f|
       f.html
-      f.json { render json: @user, include: ['routines.equipment', 'routines.targets', 'routines.trainings', 'guides.user', 'guides.movement'] }
+      f.json { render json: @user, include: ['routines.equipment', 'routines.targets', 'routines.trainings', 'routines.user', 'guides.user', 'guides.movement'] }
     end
   end
 
