@@ -68,10 +68,10 @@ User.index = function(usersArray) {
   if (usersArray.length === 0) { // If the collection is empty (i.e. usersArray contains NO user objects)
     User.alertIndexEmpty()
   } else { // the collection is NOT empty (i.e. usersArray contains user objects)
-    $('div.container').html('<h3><em>~Movement Mixers~</em></h3>')
+    $('div.container').html('<h3><em>~Movement Mixers~</em></h3><ul></ul>')
     usersArray.forEach(function(userObject) {
       let newUser = new User(userObject)
-      $('div.container').append(newUser.formatLi())
+      $('div.container ul').append(newUser.formatLi())
     })
   }
 }
