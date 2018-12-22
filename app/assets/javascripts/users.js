@@ -37,9 +37,9 @@ User.loadUserRoutines = function(userObject) {
   })
   $belongsToUserDiv.addClass('client-routines')
 }
-
+// Below, userObject parameter = JSON object representation of A.R. user instance whose guides I want to view = successful JSON response I get back from AJAX GET request sent in loadBelongsToDeclarer()
 User.loadUserGuides = function(userObject) {
-  const $userGuidesDiv = $('div#belongs-to-user')
+  let $userGuidesDiv = $('div#belongs-to-user')
   $userGuidesDiv.html(`<h4>Here are some training pointers from ${userObject.name}:</h4>`)
   userObject.guides.forEach(function(guideObject) {
     $userGuidesDiv.append(Guide.guideTemplateFunction(guideObject))
