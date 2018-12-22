@@ -19,13 +19,13 @@
 
 <% if policy(@user).edit? %>
   <%= button_to edit_user_path(@user), method: :get, class: "btn btn-default btn-sm", form: {style: 'display:inline-block;'} do %>
-    <%= content_tag(:span, nil, class: "glyphicon glyphicon-edit") %> <%= content_tag(:small, "Edit Account") %>
+    <%= content_tag(:span, nil, class: "glyphicon glyphicon-edit") %> <%= content_tag(:span, "Edit Account") %>
   <% end %>
 <% end %>
 
 <% if policy(@user).destroy? && !current_user.admin? %>
-  <%= button_to user_path(@user), method: :delete, class: "btn btn-sm btn-default delete-account", form: {style: 'display:inline-block'} do %>
-    <%= content_tag(:span, nil, class: "glyphicon glyphicon-trash") %> <%= content_tag(:small, "Delete Account") %>
+  <%= button_to user_path(@user), method: :delete, class: "btn btn-sm btn-default delete-account", form: {style: 'display:inline-block;'} do %>
+    <%= content_tag(:span, nil, class: "glyphicon glyphicon-trash") %> <%= content_tag(:span, "Delete Account") %>
   <% end %>
 <% end %>
 <!-- Do not display Delete Account button on the admin's show page since the admin cannot delete her own account -->
