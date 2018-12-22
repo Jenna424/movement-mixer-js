@@ -33,7 +33,8 @@ User.loadUserRoutines = function(userObject) {
   let $belongsToUserDiv = $('div#belongs-to-user') // div#belongs-to-user is always present in app/views/users/show.html.erb
   $belongsToUserDiv.html(`<h3>Workout Routines Designed by ${newUser.name}</h3>`)
   newUser.routines.forEach(function(routineObject) {
-    $belongsToUserDiv.append(Routine.routineTemplateFunction(routineObject))
+    let newRoutine = new Routine(routineObject)
+    $belongsToUserDiv.append(Routine.routineTemplateFunction(newRoutine))
   })
   $belongsToUserDiv.addClass('client-routines')
 }
