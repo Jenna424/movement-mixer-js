@@ -21,7 +21,7 @@ Target.createListener = function() {
 }
 // Below, targetObject parameter = JSON object representation of newly created A.R. target instance = successful JSON response I get back from AJAX POST request sent in Target.createListener()
 Target.create = function(targetObject) {
-  if ($('ul#target-areas-list li').length === 0 && $('p#no-target-areas').length === 0) { // If there are currently NO <li>s inside ul#target-areas-list AND p#no-target-areas is NOT present on the current page,
+  if ($('ul#target-areas-list li').length === 0 && $('p#no-target-areas').length === 0) { // If there are currently NO <li> elements inside ul#target-areas-list AND p#no-target-areas is NOT present on the current page,
     $('a.view-target-areas').show() // now that a new workout target area exists, ensure that the link to View Workout Target Areas is visible so I'll be able to click it to view the new <li>
   }
   let newTarget = new Target(targetObject)
