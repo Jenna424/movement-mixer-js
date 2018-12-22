@@ -88,6 +88,7 @@ Target.indexListener = function() {
 // Below, targetsArray parameter = array of all target objects = successful JSON response I get back from fetch('/targets', requestObject) sent in Target.indexListener()
 Target.index = function(targetsArray) {
   let $targetAreasList = $('ul#target-areas-list') // ul#target-areas-list is ALWAYS found in app/views/targets/new.html.erb
+  $targetAreasList.html('') // empty ul#target-areas-list in case it contains any stale target area <li>s
   if (targetsArray.length) { // if there are target objects in the array (i.e. the collection is NOT empty)
     $targetAreasList.before("<h3 id='all-target-areas'>All Workout Target Areas</h3>")
     targetsArray.forEach(function(targetObject) {
