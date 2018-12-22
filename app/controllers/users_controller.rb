@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :login_required, only: [:new, :create]
 
+  def index
+    users = policy_scope(User)
+    render json: users, status: 200
+  end
+
   def new
     @user = User.new # instance for form_for to wrap around
     authorize @user
