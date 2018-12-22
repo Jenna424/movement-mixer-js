@@ -45,6 +45,22 @@ User.loadUserGuides = function(userObject) {
   })
   $userGuidesDiv.addClass('trainer-guides')
 }
+// The users index link is ALWAYS found in the navigation when the logged-in user is a client/trainer/admin
+User.indexListener = function() {
+  $('a.index-users').on('click', function(e) {
+    e.preventDefault() // prevent the default behavior, which would be a normal HTTP GET request to '/users'
+    history.pushState(null, null, '/users')
+    let requestObject = {
+      method: 'GET',
+      headers: { 'ContentType': 'application/json' },
+      credentials: 'include'
+    }
+    fetch('/users', requestObject)
+      .then(response => response.json())
+      .then(User.index)
+      .catch(error => console.error('The Index of Users could not be retrieved due to the following error:', error))
+  })
+}
 
 User.destroyListener = function() {
   $('div.container').find('.delete-account').parent().on('submit', function(e) {
