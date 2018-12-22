@@ -41,7 +41,7 @@ User.loadUserRoutines = function(userObject) {
 User.loadUserGuides = function(userObject) {
   let newUser = new User(userObject)
   let $belongsToUserDiv = $('div#belongs-to-user')
-  $belongsToUserDiv.html(`<h4>Here are some training pointers from ${newUser.name}:</h4>`)
+  $belongsToUserDiv.html(`<h4>Here are some exercise pointers from ${newUser.name}:</h4>`)
   newUser.guides.forEach(function(guideObject) {
     $belongsToUserDiv.append(Guide.guideTemplateFunction(guideObject))
   })
