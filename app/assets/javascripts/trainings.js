@@ -21,7 +21,7 @@ Training.createListener = function() {
 }
 // Below, trainingObject parameter = JSON object representation of newly created A.R. training instance = successful JSON response I get back from AJAX POST request sent in Training.createListener()
 Training.create = function(trainingObject) {
-  if ($('ul#training-types-list li').length === 0) { // If there are currently NO <li> elements inside ul#training-types-list,
+  if ($('ul#training-types-list li').length === 0 && $('p#no-training-types').length === 0) { // If there are currently NO <li> elements inside ul#training-types-list AND p#no-training-types is NOT present on the current page,
     $('a.view-training-types').show() // now that a new training type exists, ensure that the link to View All Training Types is visible so I'll be able to click it to view the new <li>
   }
   let newTraining = new Training(trainingObject)
