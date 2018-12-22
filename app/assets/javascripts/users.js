@@ -27,15 +27,15 @@ const loadBelongsToDeclarer = () => {
       .fail(handleError)
   })
 }
-
+// Below, userObject parameter = JSON object representation of A.R. user instance whose routines I want to view = successful JSON response I get back from AJAX GET request sent in loadBelongsToDeclarer()
 User.loadUserRoutines = function(userObject) {
   let newUser = new User(userObject)
-  const $userRoutinesDiv = $('div#belongs-to-user') // variables declared with const are immutable, but the value of the variable CAN change, e.g., $userRoutinesDiv will always point to div#belongs-to-user, but the contents of the div change as routines are appended to it in the iteration
-  $userRoutinesDiv.html(`<h3>Workout Routines Designed by ${newUser.name}</h3>`)
+  let $belongsToUserDiv = $('div#belongs-to-user') // div#belongs-to-user is always present in app/views/users/show.html.erb
+  $belongsToUserDiv.html(`<h3>Workout Routines Designed by ${newUser.name}</h3>`)
   newUser.routines.forEach(function(routineObject) {
-    $userRoutinesDiv.append(Routine.routineTemplateFunction(routineObject))
+    $belongsToUserDiv.append(Routine.routineTemplateFunction(routineObject))
   })
-  $userRoutinesDiv.addClass('client-routines')
+  $belongsToUserDiv.addClass('client-routines')
 }
 
 User.loadUserGuides = function(userObject) {
