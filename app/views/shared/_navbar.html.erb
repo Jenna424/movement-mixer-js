@@ -16,6 +16,7 @@
           <li><%= link_to "Log In", login_path %></li>
         <% else %>
           <li><%= link_to "View Your Profile", user_path(current_user), class: "profile-page" %></li>
+          <li><%= link_to users_index_link_text, users_path, class: "index-users" if !current_user.unassigned? %></li>
           <li><%= link_to routines_index_link_text, routines_path, class: "index-routines" %></li>
           <li><%= link_to "View Exercise Guide", movements_path, class: "all-movements" %></li>
           <% if current_user.client? %>
