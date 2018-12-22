@@ -61,6 +61,18 @@ User.indexListener = function() {
       .catch(error => console.error('The Index of Users could not be retrieved due to the following error:', error))
   })
 }
+// Below, usersArray parameter = JSON array of user objects (or an empty collection) = successful JSON response I get back from .fetch('/users', requestObject) sent in User.indexListener()
+User.index = function(usersArray) {
+  if (usersArray.length === 0) { // If the collection is empty (i.e. usersArray contains NO user objects)
+    User.alertIndexEmpty()
+  } else { // the collection is NOT empty (i.e. usersArray contains user objects)
+    $('div.container').html('<h3><em>~Movement Mixers~</em></h3>')
+    usersArray.forEach(function(userObject) {
+      let newUser = new User(userObject)
+      $('div.container').append(newUser.formatLi())
+    })
+  }
+}
 
 User.alertIndexEmpty = function() {
   $('div.container').html(
