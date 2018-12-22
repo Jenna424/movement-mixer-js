@@ -22,4 +22,14 @@ module UsersHelper
   def submit_button_text
     action_name == "new" ? "Submit Registration Form" : "Update Your Account"
   end
+
+  def users_index_link_text
+    if current_user.client?
+      "View Available Trainers"
+    elsif current_user.trainer?
+      "View Your Clients"
+    elsif current_user.admin?
+      "View All Users"
+    end
+  end
 end
