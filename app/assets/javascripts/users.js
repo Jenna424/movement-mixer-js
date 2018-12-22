@@ -84,6 +84,10 @@ User.alertIndexEmpty = function() {
     </div>`
   )
 }
+// Below, this refers to the newUser object on which I'm calling prototype method .formatLi()
+User.prototype.formatLi = function() {
+  return `<li><a href='/users/${this.id}'>${this.name}</a></li>`
+}
 
 User.destroyListener = function() {
   $('div.container').find('.delete-account').parent().on('submit', function(e) {
