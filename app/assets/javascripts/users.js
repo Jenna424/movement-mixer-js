@@ -128,7 +128,7 @@ User.destroy = function(userObject) {
     newUser.deleteTableRow()
     newUser.alertAdminToAccountDeletion()
   } else {
-    newUser.deleteProfilePage()
+    newUser.alertProfileDeleted()
     setLoggedOutLinks()
     history.pushState(null, null, '/')
   }
@@ -149,7 +149,7 @@ User.prototype.alertAdminToAccountDeletion = function() {
   )
 }
 
-User.prototype.deleteProfilePage = function() {
+User.prototype.alertProfileDeleted = function() {
   let farewell = `Thank you for planning your workouts with Movement Mixer, ${this.name}!`
   if (this.role === 'trainer') {
     farewell = `Thank you for providing training tips, ${this.name}!`
