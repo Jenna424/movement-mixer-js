@@ -136,6 +136,17 @@ User.prototype.deleteTableRow = function() {
   $(`#user-${this.id}-row`).remove()
   this.alertAdminToAccountDeletion()
 }
+// Below, this refers to the newUser object (this in deleteTableRow) on which I'm now calling prototype method .alertAdminToAccountDeletion()
+User.prototype.alertAdminToAccountDeletion = function() {
+  $('div#message-container').html(
+    `<div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      ${this.name}'s account was successfully deleted.
+    </div>`
+  )
+}
 
 User.prototype.deleteProfilePage = function() {
   let farewell = `Thank you for planning your workouts with Movement Mixer, ${this.name}!`
