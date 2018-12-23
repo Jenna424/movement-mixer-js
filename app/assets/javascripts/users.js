@@ -128,6 +128,7 @@ User.destroy = function(userJson) {
     newUser.deleteTableRow()
   } else {
     newUser.deleteProfilePage()
+    history.pushState(null, null, '/')
   }
 }
 
