@@ -124,7 +124,7 @@ User.destroyListener = function() {
 // Below, userObject parameter = JSON object representation of A.R. user instance that was just destroyed
 User.destroy = function(userObject) {
   let newUser = new User(userObject)
-  if ($('div.container').find('table').length) {
+  if ($('table').length) { // If a <table> is present on the current page
     newUser.deleteTableRow()
   } else {
     newUser.deleteProfilePage()
