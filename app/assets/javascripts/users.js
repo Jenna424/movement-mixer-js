@@ -148,7 +148,7 @@ User.prototype.alertAdminToAccountDeletion = function() {
     </div>`
   )
 }
-
+// Below, this refers to the newUser object on which I'm calling prototype method .alertProfileDeleted()
 User.prototype.alertProfileDeleted = function() {
   let farewell = `Thank you for planning your workouts with Movement Mixer, ${this.name}!`
   if (this.role === 'trainer') {
@@ -159,7 +159,7 @@ User.prototype.alertProfileDeleted = function() {
   $('div.container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">×</span>
+        <span aria-hidden="true">&times;</span>
       </button>
       <h4 class="alert-heading">Your account was successfully deleted.</h4>
       <p>${farewell}</p>
@@ -167,5 +167,4 @@ User.prototype.alertProfileDeleted = function() {
       <p mb-0>Good luck with your fitness training, and remember – always finish <em><strong>strong</strong>!</em></p>
     </div>`
   )
-  setLoggedOutLinks()
 }
