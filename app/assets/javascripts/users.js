@@ -134,9 +134,8 @@ User.destroy = function(userObject) {
 // Below, this refers to the newUser object on which I'm calling prototype method .deleteTableRow()
 User.prototype.deleteTableRow = function() {
   $(`#user-${this.id}-row`).remove()
-  this.alertAdminToAccountDeletion()
 }
-// Below, this refers to the newUser object (this in deleteTableRow) on which I'm now calling prototype method .alertAdminToAccountDeletion()
+// Below, this refers to the newUser object on which I'm calling prototype method .alertAdminToAccountDeletion()
 User.prototype.alertAdminToAccountDeletion = function() {
   $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
