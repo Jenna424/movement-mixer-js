@@ -126,6 +126,7 @@ User.destroy = function(userObject) {
   let newUser = new User(userObject)
   if ($('table').length) { // If a <table> is present on the current page
     newUser.deleteTableRow()
+    newUser.alertAdminToAccountDeletion()
   } else {
     newUser.deleteProfilePage()
     history.pushState(null, null, '/')
