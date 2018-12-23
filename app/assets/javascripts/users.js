@@ -129,6 +129,7 @@ User.destroy = function(userObject) {
     newUser.alertAdminToAccountDeletion()
   } else {
     newUser.deleteProfilePage()
+    setLoggedOutLinks()
     newUser.alertProfileRemoved()
     history.pushState(null, null, '/')
   }
