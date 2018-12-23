@@ -103,8 +103,8 @@ User.destroyListener = function() {
         dataType: 'json',
         data: $(this).serialize()
       })
-       .done(User.destroy)
-       .fail(handleError)
+        .done(User.destroy)
+        .fail(handleError)
     }
   })
 }
