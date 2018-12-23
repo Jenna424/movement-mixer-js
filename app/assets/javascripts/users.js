@@ -130,7 +130,6 @@ User.destroy = function(userObject) {
   } else {
     newUser.deleteProfilePage()
     setLoggedOutLinks()
-    newUser.alertProfileRemoved()
     history.pushState(null, null, '/')
   }
 }
