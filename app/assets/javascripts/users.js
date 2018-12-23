@@ -97,7 +97,6 @@ User.destroyListener = function() {
   $('div.container').find('.delete-account').parent().on('submit', function(e) {
     e.preventDefault()
     if (confirm('This account will be permanently deleted.')) {
-      history.pushState(null, null, '/')
       $.ajax({
         url: $(this).attr('action'), // "/users/:id"
         method: 'DELETE',
