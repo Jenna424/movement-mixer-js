@@ -131,17 +131,10 @@ User.destroy = function(userObject) {
     history.pushState(null, null, '/')
   }
 }
-
+// Below, this refers to the newUser object on which I'm calling prototype method .deleteTableRow()
 User.prototype.deleteTableRow = function() {
   $(`#user-${this.id}-row`).remove()
-  $('div#message-container').html(
-    `<div class="alert alert-success" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">×</span>
-      </button>
-      ${this.name}'s account was successfully deleted!
-    </div>`
-  )
+  this.alertAdminToAccountDeletion()
 }
 
 User.prototype.deleteProfilePage = function() {
