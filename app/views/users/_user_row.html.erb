@@ -24,6 +24,10 @@
     <% end %>
   </td>
   <td>
-    <%= button_to "Delete Account", user_path(user), method: :delete, class: "delete-account btn btn-danger btn-sm" %>
+    <% if user.admin? %>
+      N/A <!-- An admin cannot delete her own account -->
+    <% else %>
+      <%= button_to "Delete Account", user_path(user), method: :delete, class: "delete-account btn btn-danger btn-sm" %>
+    <% end %>
   </td>
 </tr>
