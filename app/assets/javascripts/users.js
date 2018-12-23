@@ -121,9 +121,9 @@ User.destroyListener = function() {
 // Only an admin can access app/views/users/accounts.html.erb page, which contains a <table> with the buttons (forms) to delete user accounts.
 // Check to see if there is a <table> on the current page in the DOM, and if so, we know we're on the accounts.html.erb view file, so
 // so we know the current user is an admin
-// Below, userJson parameter = JSON object representation of AR user instance that was just deleted
-User.destroy = function(userJson) {
-  let newUser = new User(userJson) // declare newUser variable with let because it will point to DIFFERENT user objects
+// Below, userObject parameter = JSON object representation of A.R. user instance that was just destroyed
+User.destroy = function(userObject) {
+  let newUser = new User(userObject)
   if ($('div.container').find('table').length) {
     newUser.deleteTableRow()
   } else {
