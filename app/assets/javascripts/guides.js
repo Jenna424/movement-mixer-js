@@ -162,7 +162,7 @@ Guide.displayDeductedCount = function() {
   let $guideCountParagraph = $('p')[2]
   let stringGuideCount = $guideCountParagraph.innerText.split(': ').pop()
   let newGuideCount = parseInt(stringGuideCount) - 1
-  $guideCountParagraph.innerHTML = (`<strong>Training Guides Published</strong>: ${newGuideCount}`)
+  $guideCountParagraph.innerHTML = `<strong>Training Guides Published</strong>: ${newGuideCount}`
 }
 // Below, this refers to the newGuide object on which I'm calling prototype method .alertDeletionSuccessful()
 Guide.prototype.alertDeletionSuccessful = function() {
