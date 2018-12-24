@@ -196,12 +196,12 @@
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <div class="field">
       <label for="routine_equipment_attributes_{{id}}_equipment_routines_quantity">Required Quantity</label>:
-      <input type="number" name="routine[equipment_attributes][{{id}}][equipment_routines][quantity]" id="routine_equipment_attributes_{{id}}_equipment_routines_quantity" value="{{quantity}}">
+      <input type="number" name="routine[equipment_attributes][{{id}}][equipment_routines][quantity]" id="routine_equipment_attributes_{{id}}_equipment_routines_quantity" value={{quantity}}>
     </div>
     <br>
     <div class="field">
       <label for="routine_equipment_attributes_{{id}}_equipment_routines_weight">Required Weight</label>:
-      <input type="number" name="routine[equipment_attributes][{{id}}][equipment_routines][weight]" id="routine_equipment_attributes_{{id}}_equipment_routines_weight" value="{{weight}}"> lb(s) each
+      <input type="number" name="routine[equipment_attributes][{{id}}][equipment_routines][weight]" id="routine_equipment_attributes_{{id}}_equipment_routines_weight" value={{weight}}> lb(s) each
     </div>
     <br>
     <div class="actions">
