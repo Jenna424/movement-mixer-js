@@ -152,9 +152,12 @@
     <p><strong>Feeling energetic? Take things up a notch with this challenge</strong>:</p>
     <p>{{challenge}}</p>
     <% if current_user && current_user.trainer? && controller_name == 'users' %>
-      <a href="/movements/{{movement.id}}/guides/{{id}}/edit" class="btn btn-sm btn-default">
-        Make Changes
-      </a>
+      <a href="/movements/{{movement.id}}/guides/{{id}}/edit" class="btn btn-sm btn-primary">Revise Guide</a>
+      <form style="display:inline-block;" class="button_to delete-guide" method="post" action="/movements/{{movement.id}}/guides/{{id}}">
+        <input type="hidden" name="_method" value="delete">
+        <input class="btn btn-danger btn-sm" type="submit" value="Delete Guide">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      </form>
     <% end %>
   </div>
 </script>
