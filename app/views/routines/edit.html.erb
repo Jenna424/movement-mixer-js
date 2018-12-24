@@ -35,11 +35,11 @@
         <div id="edit-er-<%= er_instance(equipment_piece, @routine).id %>-div"></div>
         <%= link_to "/ers/#{er_instance(equipment_piece, @routine).id}/edit", class: "edit-er btn btn-default btn-sm",
         data: {id: er_instance(equipment_piece, @routine).id} do %>
-          <span class="glyphicon glyphicon-edit"></span> <small>Edit Equipment</small>
+          <span class="glyphicon glyphicon-edit"></span> <span>Edit Equipment</span>
         <% end %>
         <%= button_to "/ers/#{er_instance(equipment_piece, @routine).id}", class: "btn btn-danger btn-sm delete-er", method: :delete,
-        form: {style: 'display:inline-block;'}, data: { confirm: "Are you sure you want to remove this piece of equipment?"} do %>
-          <span class="glyphicon glyphicon-trash"></span> <small>Remove Equipment</small>
+        form: {style: 'display:inline-block;'} do %>
+          <span class="glyphicon glyphicon-trash"></span> <span>Remove Equipment</span>
         <% end %>
         <br><br>
       </li>
