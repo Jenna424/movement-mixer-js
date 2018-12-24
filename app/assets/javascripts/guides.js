@@ -151,14 +151,14 @@ Guide.prototype.deleteDiv = function() {
 }
 
 Guide.preparePagePostDeletion = function() {
-  Guide.displayDeductedCount()
+  Guide.displayDecreasedCount()
   if ($('div#belongs-to-user div[id^=guide]').length === 0) { // If there are no guide <div>s left inside div#belongs-to-user
     $('div#belongs-to-user').html('') // remove <h4> heading inside <div>
     $('div#belongs-to-user').removeClass('trainer-guides') // removes green background color
   }
 }
 
-Guide.displayDeductedCount = function() {
+Guide.displayDecreasedCount = function() {
   let $guideCountParagraph = $('p')[2]
   let stringGuideCount = $guideCountParagraph.innerText.split(': ').pop()
   let newGuideCount = parseInt(stringGuideCount) - 1
