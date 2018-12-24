@@ -122,9 +122,9 @@ Guide.index = function(guidesArray) {
     $('div#training-guides').append(guideHtml)
   })
 }
-// input.delete-guide is always found in app/views/guides/edit.html.erb. Its parent = form.button_to
+
 Guide.destroyHandler = function() {
-  $('input.delete-guide').parent().on('submit', function(e) {
+  $().on('submit', function(e) {
     e.preventDefault()
     if (confirm('Are you sure you want to delete this training guide?')) {
       $.ajax({
