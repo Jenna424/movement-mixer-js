@@ -124,7 +124,7 @@ Guide.index = function(guidesArray) {
 }
 
 Guide.destroyHandler = function() {
-  $().on('submit', function(e) {
+  $('div#belongs-to-user').on('submit', 'form.delete-guide', function(e) {
     e.preventDefault()
     if (confirm('Are you sure you want to delete this training guide?')) {
       $.ajax({
