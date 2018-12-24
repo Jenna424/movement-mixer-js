@@ -22,9 +22,12 @@
       <li id="er-<%= er_instance(equipment_piece, @routine).id %>-li">
         <span><strong><%= equipment_piece.name %></strong></span>
         <br>
-        <small id="quantity-<%= er_instance(equipment_piece, @routine).id %>"><strong>Quantity</strong>: <%= er_instance(equipment_piece, @routine).quantity %></small>
+        <small id="quantity-<%= er_instance(equipment_piece, @routine).id %>">
+          <strong>Quantity</strong>: <%= er_instance(equipment_piece, @routine).quantity %>
+        </small>
         <br>
-        <small id="weight-<%= er_instance(equipment_piece, @routine).id %>"><strong>Weight</strong>:
+        <small id="weight-<%= er_instance(equipment_piece, @routine).id %>">
+          <strong>Weight</strong>:
           <% if er_instance(equipment_piece, @routine).weight.nil? %>
             <%= "N/A" %>
           <% else %>
@@ -32,7 +35,8 @@
           <% end %>
         </small>
         <br><br>
-        <div id="edit-er-<%= er_instance(equipment_piece, @routine).id %>-div"></div>
+        <div id="edit-er-<%= er_instance(equipment_piece, @routine).id %>-div">
+        </div>
         <%= link_to "/ers/#{er_instance(equipment_piece, @routine).id}/edit", class: "edit-er btn btn-default btn-sm",
         data: {id: er_instance(equipment_piece, @routine).id} do %>
           <span class="glyphicon glyphicon-edit"></span> <span>Edit Equipment</span>
