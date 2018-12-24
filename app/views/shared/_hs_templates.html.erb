@@ -257,7 +257,7 @@
     <form class="button_to delete-training-type" method="post" action="/trainings/{{id}}">
       <input type="hidden" name="_method" value="delete">
       <button class="btn btn-danger btn-sm" type="submit">
-        <span class="glyphicon glyphicon-trash"></span> <small>Delete {{fitness_type}}</small>
+        <span class="glyphicon glyphicon-trash"></span> <span>Delete {{fitness_type}}</span>
       </button>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     </form>
