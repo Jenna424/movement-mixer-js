@@ -56,12 +56,12 @@
     <div id="edit-mr-{{id}}-div">
     </div>
     <a class="edit-mr btn btn-default btn-sm" href="/mrs/{{id}}/edit">
-      <span class="glyphicon glyphicon-edit"></span> <small>Edit Exercise</small>
+      <span class="glyphicon glyphicon-edit"></span> <span>Edit Exercise</span>
     </a>
     <form style="display:inline-block;" class="button_to" method="post" action="/mrs/{{id}}">
       <input type="hidden" name="_method" value="delete">
       <button class="btn btn-danger btn-sm" type="submit">
-        <span class="glyphicon glyphicon-trash"></span> <small>Delete Exercise</small>
+        <span class="glyphicon glyphicon-trash"></span> <span>Delete Exercise</span>
       </button>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     </form>
