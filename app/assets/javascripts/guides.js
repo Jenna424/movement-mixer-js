@@ -147,6 +147,10 @@ Guide.destroy = function(guideObject) {
 // Below, this refers to the newGuide object on which I'm calling prototype method .deleteDiv()
 Guide.prototype.deleteDiv = function() {
   $(`#guide-${this.id}-div`).remove()
+  if ($('div#belongs-to-user div[id^=guide]').length === 0) { // If there are no guide <div>s left inside div#belongs-to-user
+    $('div#belongs-to-user').html('') // removes <h4> heading inside <div>
+    $('div#belongs-to-user').removeClass('trainer-guides') // removes green background color
+  }
 }
 // Below, this refers to the newGuide object on which I'm calling prototype method .alertDeletionSuccessful()
 Guide.prototype.alertDeletionSuccessful = function() {
