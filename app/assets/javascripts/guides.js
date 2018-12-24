@@ -144,6 +144,10 @@ Guide.destroy = function(guideObject) {
   newGuide.deleteDiv()
   newGuide.alertDeletionSuccessful()
 }
+// Below, this refers to the newGuide object on which I'm calling prototype method .deleteDiv()
+Guide.prototype.deleteDiv = function() {
+  $(`#guide-${this.id}-div`).remove()
+}
 // Below, this refers to the newGuide object on which I'm calling prototype method .alertDeletionSuccessful()
 Guide.prototype.alertDeletionSuccessful = function() {
   $('div.container').html( // A guide is deleted from its edit page, so I must replace the contents of the entire div.container
