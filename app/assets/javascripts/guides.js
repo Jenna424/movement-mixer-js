@@ -150,7 +150,7 @@ Guide.prototype.deleteDiv = function() {
 }
 // Below, this refers to the newGuide object on which I'm calling prototype method .alertDeletionSuccessful()
 Guide.prototype.alertDeletionSuccessful = function() {
-  $('div.container').html( // A guide is deleted from its edit page, so I must replace the contents of the entire div.container
+  $('div#message-container').html(
     `<div class="alert alert-success" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
