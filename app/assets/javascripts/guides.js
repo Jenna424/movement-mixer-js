@@ -141,6 +141,7 @@ Guide.destroyHandler = function() {
 // Below, guideObject parameter = JSON object representation of A.R. guide instance that was just destroyed = successful JSON response I get back from AJAX DELETE request sent in Guide.destroyHandler()
 Guide.destroy = function(guideObject) {
   let newGuide = new Guide(guideObject)
+  newGuide.deleteDiv()
   newGuide.alertDeletionSuccessful()
 }
 // Below, this refers to the newGuide object on which I'm calling prototype method .alertDeletionSuccessful()
