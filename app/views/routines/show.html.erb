@@ -28,14 +28,13 @@
         <div id="edit-mr-<%= mr_instance(movement, @routine).id %>-div"></div>
 
         <% if policy(@routine).edit? %>
-          <%= link_to "/mrs/#{mr_instance(movement, @routine).id}/edit", class: "edit-mr btn btn-default btn-sm", data: { id: "#{mr_instance(movement, @routine).id}" }  do
+          <%= link_to "/mrs/#{mr_instance(movement, @routine).id}/edit", class: "edit-mr btn btn-default btn-sm", data: { id: mr_instance(movement, @routine).id }  do
             content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:span, " Edit Exercise")
           end %>
 
           <%= button_to "/mrs/#{mr_instance(movement, @routine).id}", class: "btn btn-danger btn-sm", method: :delete, form: {style: 'display:inline-block;'} do %>
             <span class="glyphicon glyphicon-trash"></span> <span>Delete Exercise</span>
           <% end %>
-          <br>
         <% end %>
         
         <%= content_tag(:hr) unless movement == @routine.movements.last %>
