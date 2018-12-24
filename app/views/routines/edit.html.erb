@@ -37,7 +37,7 @@
         data: {id: er_instance(equipment_piece, @routine).id} do %>
           <span class="glyphicon glyphicon-edit"></span> <span>Edit Equipment</span>
         <% end %>
-        <%= button_to "/ers/#{er_instance(equipment_piece, @routine).id}", class: "btn btn-danger btn-sm delete-er", method: :delete,
+        <%= button_to "/ers/#{er_instance(equipment_piece, @routine).id}", class: "btn btn-danger btn-sm", method: :delete,
         form: {style: 'display:inline-block;'} do %>
           <span class="glyphicon glyphicon-trash"></span> <span>Remove Equipment</span>
         <% end %>
