@@ -226,12 +226,12 @@
     <div id="edit-er-{{id}}-div">
     </div>
     <a href="/ers/{{id}}/edit" class="edit-er btn btn-default btn-sm">
-      <span class="glyphicon glyphicon-edit"></span> <small>Edit Equipment</small>
+      <span class="glyphicon glyphicon-edit"></span> <span>Edit Equipment</span>
     </a>
     <form style="display:inline-block;" class="button_to" method="post" action="/ers/{{id}}">
       <input type="hidden" name="_method" value="delete">
       <button class="btn btn-danger btn-sm" type="submit">
-        <span class="glyphicon glyphicon-trash"></span> <small>Remove Equipment</small>
+        <span class="glyphicon glyphicon-trash"></span> <span>Remove Equipment</span>
       </button>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     </form>
