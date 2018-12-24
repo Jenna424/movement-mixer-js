@@ -1,6 +1,3 @@
-<p>
-  <strong>Training Guides Published</strong>: 
-  <%= user.name %> published <%= user.guides.count %> training <%= 'guide'.pluralize(user.guides.count) %>.
-</p>
+<p><strong>Training Guides Published</strong>: <%= user.guides.count %></p>
 
 <%= link_to "View Training Guides by #{user.name}", user_path(user), class: "load-user-guides", data: {id: user.id } unless user.guides.empty? %>
