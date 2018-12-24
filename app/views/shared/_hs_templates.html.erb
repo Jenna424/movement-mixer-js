@@ -189,7 +189,7 @@
 </script>
 
 <script id="edit-equipment-routine-template" type="text/x-handlebars-template">
-  <form class="edit_routine edit-er edit-er-{{id}}" id="edit_routine_{{routine.id}}" action="/ers/{{id}}" accept-charset="UTF-8" method="post">
+  <form class="edit_routine edit-er" id="edit_routine_{{routine.id}}" action="/ers/{{id}}" accept-charset="UTF-8" method="post">
     <h4><em>Editing Specifications for {{equipment.name}}</em></h4>
     <input name="utf8" type="hidden" value="✓">
     <input type="hidden" name="_method" value="patch">
