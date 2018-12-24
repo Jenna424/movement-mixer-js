@@ -189,8 +189,8 @@
 </script>
 
 <script id="edit-equipment-routine-template" type="text/x-handlebars-template">
+  <h4><em>Editing Specifications for {{equipment.name}}</em></h4>
   <form class="edit_routine edit-er" id="edit_routine_{{routine.id}}" action="/ers/{{id}}" accept-charset="UTF-8" method="post">
-    <h4><em>Editing Specifications for {{equipment.name}}</em></h4>
     <input name="utf8" type="hidden" value="✓">
     <input type="hidden" name="_method" value="patch">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -206,7 +206,7 @@
     <br>
     <div class="actions">
       <input type="submit" name="commit" value="Update Equipment" data-disable-with="Update Equipment" class="btn btn-default btn-sm">
-      <input type="button" class="btn btn-default btn-sm cancel-editing-er" data-id={{id}} value="X">
+      <input type="button" class="btn btn-default btn-sm cancel-editing-er" data-id={{id}} value=&times;>
     </div>
   </form>
 </script>
