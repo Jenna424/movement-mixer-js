@@ -110,7 +110,7 @@ MovementRoutine.update = function(mrJson) {
 }
 
 MovementRoutine.destroyListener = function() {
-  $('div.panel-body').on('submit', 'form.button_to', function(e) {
+  $('div.panel-body').on('submit', 'form.delete-mr', function(e) {
     e.preventDefault()
     if (confirm('Are you sure you want to remove this exercise?')) {
       $.ajax({
