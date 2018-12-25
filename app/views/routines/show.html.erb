@@ -32,7 +32,7 @@
             content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:span, " Edit Exercise")
           end %>
 
-          <%= button_to "/mrs/#{mr_instance(movement, @routine).id}", class: "btn btn-danger btn-sm", method: :delete, form: {style: 'display:inline-block;'} do %>
+          <%= button_to "/mrs/#{mr_instance(movement, @routine).id}", class: "btn btn-danger btn-sm", method: :delete, form: {style: 'display:inline-block;', class: "button_to delete-mr"} do %>
             <span class="glyphicon glyphicon-trash"></span> <span>Delete Exercise</span>
           <% end %>
         <% end %>
