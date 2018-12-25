@@ -80,7 +80,7 @@ Guide.createOrUpdate = function(guideObject) {
   $('div#display-guide').html(guideHtml)
   if ($('form#new_guide').length) { // I know that the user just created a NEW training guide if form#new_guide is present on the current page
     $('div#training-guides').html('') // empty div#training-guides in case it currently displays guide <div>s inside it, since I do not automatically append the <div> for the guide just created
-    Guide.updateCount()
+    Guide.displayIncreasedCount()
   }
   $('h3').before(alertChangesSuccessful())
 }
@@ -94,7 +94,7 @@ Guide.compileGuideTemplate = function() {
   Guide.guideTemplateFunction = Handlebars.compile(Guide.guideTemplateSource)
 }
 
-Guide.updateCount = function() {
+Guide.displayIncreasedCount = function() {
   let stringCount = $('div.container li')[1].innerText.split(': ').pop()
   let newCount = parseInt(stringCount) + 1
   $('div.container li')[1].innerText = `Training guides available for use: ${newCount}`
