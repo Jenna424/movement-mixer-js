@@ -12,7 +12,7 @@ en:
       index?: "Access denied! You must be assigned a role before you can view the Index of Users."
       accounts?: "Access denied! Only admins can manage Movement Mixer accounts."
       show?: "Access denied! You are not authorized to view that user's profile page."
-      edit?: "Access denied! You are not authorized to edit that user's account information."
+      edit?: "Access denied! You are only authorized to view the page where you edit your own account information."
       destroy?: "As an admin, you cannot delete your own account!"
     training_policy:
       new?: "Access denied! Only personal trainers can create new fitness training types."
