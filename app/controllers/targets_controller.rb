@@ -4,12 +4,6 @@ class TargetsController < ApplicationController
     authorize @target_area
   end
 
-  def index
-    target_areas = policy_scope(Target)
-    authorize target_areas
-    render json: target_areas, status: 200
-  end
-
   def create
     target_area = Target.new(target_params)
     authorize target_area
@@ -19,6 +13,12 @@ class TargetsController < ApplicationController
     else
       render json: { errors: target_area.errors.full_messages }, status: :unprocessable_entity # status: 422
     end
+  end
+
+  def index
+    target_areas = policy_scope(Target)
+    authorize target_areas
+    render json: target_areas, status: 200
   end
 
   def destroy # delete '/targets/:id' => 'targets#destroy'
