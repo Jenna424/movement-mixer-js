@@ -17,7 +17,6 @@ class TargetsController < ApplicationController
 
   def index
     target_areas = policy_scope(Target)
-    authorize target_areas
     render json: target_areas, status: 200
   end
 
