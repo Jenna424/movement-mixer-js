@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'welcome#welcome'
+  root 'welcome#home'
   get '/accounts' => 'users#accounts'
   # Routes for Signing Up / Logging In / Logging Out:
   get '/signup' => 'users#new'
