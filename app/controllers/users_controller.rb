@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
 
   def index
+    authorize current_user
     users = policy_scope(User)
-    authorize users
     render json: users, status: 200
   end
 
