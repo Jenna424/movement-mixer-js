@@ -6,8 +6,6 @@ en:
       edit?: "Access denied! You are not authorized to edit that workout routine."
     target_policy:
       new?: "Access denied! Only personal trainers can create new workout target areas."
-      index?: "Access denied! Only personal trainers can view the Index of Workout Target Areas."
-      destroy?: "Access denied! Only personal trainers can delete workout target areas."
     user_policy:
       new?: "Access denied! You cannot view the registration form since you already have a Movement Mixer account."
       index?: "Access denied! You must be assigned a role before you can view the Index of Users."
@@ -17,5 +15,3 @@ en:
       destroy?: "As an admin, you cannot delete your own account!"
     training_policy:
       new?: "Access denied! Only personal trainers can create new fitness training types."
-      index?: "Access denied! Only personal trainers can view the Index of Fitness Training Types."
-      destroy?: "Access denied! Only personal trainers can delete fitness training types."
