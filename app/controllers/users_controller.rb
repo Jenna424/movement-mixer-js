@@ -13,14 +13,6 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-  def show
-    authorize @user
-    respond_to do |format|
-      format.html
-      format.json { render json: @user, include: ['routines.equipment', 'routines.targets', 'routines.trainings', 'routines.user', 'guides.user', 'guides.movement'] }
-    end
-  end
-
   def create
     @user = User.new(user_params)
     if @user.save
@@ -29,6 +21,14 @@ class UsersController < ApplicationController
     else
       flash.now[:error] = "Your registration attempt was unsuccessful. Please try again."
       render :new # present the registration form so the user can try signing up again
+    end
+  end
+
+  def show
+    authorize @user
+    respond_to do |format|
+      format.html
+      format.json { render json: @user, include: ['routines.equipment', 'routines.targets', 'routines.trainings', 'routines.user', 'guides.user', 'guides.movement'] }
     end
   end
 
