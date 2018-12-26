@@ -73,7 +73,7 @@ class UserPolicy < ApplicationPolicy
 
   private
 
-    def oneself # the user logged in is the selfsame user (record) whose profile is being viewed
+    def oneself # the logged-in user is the same user (record) whose profile is being viewed
       user == record
     end
 end
