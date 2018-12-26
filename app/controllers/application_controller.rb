@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  before_action :login_required, except: [:welcome]
+  before_action :login_required, except: [:home]
 
   private
 
@@ -15,7 +15,6 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user
-      #@current_user ||= User.find(session[:user_id]) if session[:user_id]
       @current_user ||= User.find_by(id: session[:user_id]) # find_by returns the user instance or nil if session[:user_id] is nil
     end
 
