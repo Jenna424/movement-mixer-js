@@ -8,6 +8,7 @@ en:
       new?: "Access denied! Only professional fitness trainers can create new target areas in which to classify clients' workouts!"
       index?: "Access denied! Only professional fitness trainers can manage Movement Mixer's Index of Workout Target Areas!"
     user_policy:
+      new?: "Access denied! You cannot view the registration form since you already have a Movement Mixer account."
       index?: "Access denied! You must be assigned a role before you can view the Index of Users."
       accounts?: "Access denied! Only admins can manage Movement Mixer accounts."
       show?: "Access denied! You are not authorized to view that user's profile page."
