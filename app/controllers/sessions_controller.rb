@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
-  before_action :prevent_logged_in_users_from_viewing_login, only: [:new]
+  before_action :prevent_logged_in_user_from_viewing_login_form, only: [:new]
 
   def new # implicitly renders app/views/sessions/new.html.erb (login form template)
   end
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
   private
 
-    def prevent_logged_in_users_from_viewing_login
+    def prevent_logged_in_user_from_viewing_login_form
       redirect_to root_path, alert: "You cannot view the login form since you're already logged in!" if current_user
     end
 end
