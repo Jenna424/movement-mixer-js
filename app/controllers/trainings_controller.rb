@@ -21,7 +21,7 @@ class TrainingsController < ApplicationController
     render json: training_types, status: 200
   end
 
-  def destroy # '/trainings/:id' => 'trainings#destroy'
+  def destroy # DELETE '/trainings/:id' => 'trainings#destroy'
     training_type = Training.find(params[:id])
     authorize training_type
     training_type.destroy
