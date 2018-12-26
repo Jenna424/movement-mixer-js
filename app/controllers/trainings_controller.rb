@@ -17,6 +17,7 @@ class TrainingsController < ApplicationController
 
   def index
     training_types = policy_scope(Training)
+    authorize training_types
     render json: training_types, status: 200
   end
 
