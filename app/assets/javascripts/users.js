@@ -29,13 +29,13 @@ const loadBelongsToDeclarer = () => {
 // Below, userObject parameter = JSON object representation of A.R. user instance whose routines I want to view = successful JSON response I get back from AJAX GET request sent in loadBelongsToDeclarer()
 User.loadUserRoutines = function(userObject) {
   let newUser = new User(userObject)
-  let $belongsToUserDiv = $('div#belongs-to-user') // div#belongs-to-user is always present in app/views/users/show.html.erb
-  $belongsToUserDiv.html(`<h3>Workout Routines Designed by ${newUser.name}</h3>`)
+  const $userRoutinesDiv = $('div#belongs-to-user') // div#belongs-to-user is always present in app/views/users/show.html.erb
+  $userRoutinesDiv.html(`<h3>Workout Routines Designed by ${newUser.name}</h3>`)
   newUser.routines.forEach(function(routineObject) {
     let newRoutine = new Routine(routineObject)
-    $belongsToUserDiv.append(Routine.routineTemplateFunction(newRoutine))
+    $userRoutinesDiv.append(Routine.routineTemplateFunction(newRoutine))
   })
-  $belongsToUserDiv.addClass('client-routines')
+  $userRoutinesDiv.addClass('client-routines')
 }
 // Below, userObject parameter = JSON object representation of A.R. user instance whose guides I want to view = successful JSON response I get back from AJAX GET request sent in loadBelongsToDeclarer()
 User.loadUserGuides = function(userObject) {
