@@ -25,13 +25,13 @@ class GuidesController < ApplicationController
   end
   # If the training guide is NOT valid (and therefore is NOT updated), the AJAX PATCH request will not fire at all
   def update # PATCH '/movements/:movement_id/guides/:id' => 'guides#update'
-    render json: guide, status: 200 if guide.update(guide_params)
+    render json: @guide, status: 200 if @guide.update(guide_params)
   end
-
+  # In guides#update and guides#destroy, @guide is retrieved from before_action :set_guide
   def destroy # DELETE '/movements/:movement_id/guides/:id' => 'guides#destroy'
-    authorize guide # Only the trainer who created the training guide can delete that guide
-    guide.destroy
-    render json: guide, status: 200
+    authorize @guide # Only the trainer who created the training guide can delete that guide
+    @guide.destroy
+    render json: @guide, status: 200
   end
 
   private
