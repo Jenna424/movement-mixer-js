@@ -15,3 +15,5 @@ en:
       destroy?: "As an admin, you cannot delete your own account!"
     training_policy:
       new?: "Access denied! Only personal trainers can create new fitness training types."
+    guide_policy:
+      edit?: "Access denied! You are not authorized to revise that training guide."
