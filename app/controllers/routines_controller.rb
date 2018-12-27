@@ -82,7 +82,7 @@ class RoutinesController < ApplicationController
 
   def edit_equipment_routine # get '/ers/:id/edit' => 'routines#edit_equipment_routine'
     equipment_routine = EquipmentRoutine.find(params[:id])
-    render json: equipment_routine
+    render json: equipment_routine, status: 200
   end
 
   def update_equipment_routine # patch '/ers/:id' => 'routines#update_equipment_routine'
