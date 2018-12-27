@@ -96,11 +96,11 @@ class RoutinesController < ApplicationController
       render json: { errors: equipment_routine.errors.full_messages }, status: :unprocessable_entity # status code 422
     end
   end
-  
+
   def destroy_equipment_routine # delete '/ers/:id' => 'routines#destroy_equipment_routine'
     equipment_routine = EquipmentRoutine.find(params[:id])
     equipment_routine.destroy
-    render json: equipment_routine
+    render json: equipment_routine, status: 200
   end
 
   def destroy # delete '/routines/:id' => 'routines#destroy'
