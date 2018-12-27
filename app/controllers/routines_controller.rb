@@ -47,10 +47,10 @@ class RoutinesController < ApplicationController
       if @routine.update(routine_params)
         if request.referrer == "http://localhost:3000/routines/#{@routine.id}/edit" # User is updating equipment used in the workout on the Edit Routine page
           last_updated_er = @routine.equipment_routines.order(:updated_at).last
-          render json: last_updated_er
+          render json: last_updated_er, status: 200
         elsif request.referrer == "http://localhost:3000/routines/#{@routine.id}" # User is updating exercise movements performed in the workout on the Routine Show page
           last_updated_mr = @routine.movement_routines.order(:updated_at).last
-          render json: last_updated_mr
+          render json: last_updated_mr, status: 200
         end
       end
     end
