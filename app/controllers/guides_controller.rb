@@ -1,4 +1,6 @@
 class GuidesController < ApplicationController
+  before_action :set_guide, only: [:update, :destroy]
+
   def new # get '/movements/:movement_id/guides/new' => 'guides#new' (The form to create a new guide belonging to a movement is found in the movement show view AND in script#show-movement-template in app/views/shared/_hs_templates.html.erb)
     @movement = Movement.find(params[:movement_id]) # finding the parent
     @guide = Guide.new # instance for nested resource form to wrap around
@@ -35,6 +37,10 @@ class GuidesController < ApplicationController
   end
 
   private
+
+    def set_guide
+      @guide = Movement.find(params[:movement_id]).guides.find(params[:id])
+    end
 
     def guide_params
       params.require(:guide).permit(
