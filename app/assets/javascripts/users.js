@@ -40,13 +40,13 @@ User.loadUserRoutines = function(userObject) {
 // Below, userObject parameter = JSON object representation of A.R. user instance whose guides I want to view = successful JSON response I get back from AJAX GET request sent in loadBelongsToDeclarer()
 User.loadUserGuides = function(userObject) {
   let newUser = new User(userObject)
-  let $belongsToUserDiv = $('div#belongs-to-user')
-  $belongsToUserDiv.html(`<h4>Here are some pointers from ${newUser.name}:</h4>`)
+  const $userGuidesDiv = $('div#belongs-to-user')
+  $userGuidesDiv.html(`<h4>Here are some pointers from ${newUser.name}:</h4>`)
   newUser.guides.forEach(function(guideObject) {
     let newGuide = new Guide(guideObject)
-    $belongsToUserDiv.append(Guide.guideTemplateFunction(newGuide))
+    $userGuidesDiv.append(Guide.guideTemplateFunction(newGuide))
   })
-  $belongsToUserDiv.addClass('trainer-guides')
+  $userGuidesDiv.addClass('trainer-guides')
 }
 // The users index link is ALWAYS found in the navigation when the logged-in user is a client/trainer/admin
 User.indexListener = function() {
