@@ -8,9 +8,9 @@ class MovementsController < ApplicationController
 
   def show # @movement is retrieved from before_action :set_movement
     @guide = Guide.new # instance for nested resource form to wrap around
-    respond_to do |f|
-      f.html
-      f.json { render json: @movement, status: 200 }
+    respond_to do |format|
+      format.html
+      format.json { render json: @movement, status: 200 }
     end
   end
 
