@@ -61,9 +61,9 @@ class RoutinesController < ApplicationController
     render json: movement_routine, status: 200
   end
 
-  def update_movement_routine # PATCH '/mrs/:id' => 'routines#update_movement_routine'
+  def update_movement_routine # patch '/mrs/:id' => 'routines#update_movement_routine'
     movement_routine = MovementRoutine.find(params[:id])
-    mr_id = movement_routine.id.to_s
+    mr_id = params[:id]
     movement_routine.reps = params['routine']['movements_attributes'][mr_id]['movement_routines']['reps']
     movement_routine.sets = params['routine']['movements_attributes'][mr_id]['movement_routines']['sets']
     movement_routine.technique = params['routine']['movements_attributes'][mr_id]['movement_routines']['technique']
