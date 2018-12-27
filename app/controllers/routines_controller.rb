@@ -74,10 +74,10 @@ class RoutinesController < ApplicationController
     end
   end
 
-  def destroy_movement_routine # DELETE '/mrs/:id' => 'routines#destroy_movement_routine'
+  def destroy_movement_routine # delete '/mrs/:id' => 'routines#destroy_movement_routine'
     movement_routine = MovementRoutine.find(params[:id])
     movement_routine.destroy
-    render json: movement_routine
+    render json: movement_routine, status: 200
   end
 
   def edit_equipment_routine # get '/ers/:id/edit' => 'routines#edit_equipment_routine'
