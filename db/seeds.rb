@@ -8,6 +8,8 @@ admin = User.new(
   trainer_id: nil
 )
 
+admin.save(valid: false)
+
 targets = Target.create([
   { focus: 'Biceps' }, 
   { focus: 'Triceps' },
