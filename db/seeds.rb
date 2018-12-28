@@ -20,6 +20,8 @@ trainer = User.new(
   trainer_id: nil
 )
 
+trainer.save(valid: false)
+
 targets = Target.create([
   { focus: 'Biceps' }, 
   { focus: 'Triceps' },
