@@ -1,3 +1,13 @@
+admin = User.new(
+  name: "Addison",
+  email: "addison@mm.com",
+  password: "adminaddison",
+  password_confirmation: "adminaddison",
+  role_requested: nil,
+  role: 3,
+  trainer_id: nil
+)
+
 targets = Target.create([
   { focus: 'Biceps' }, 
   { focus: 'Triceps' },
