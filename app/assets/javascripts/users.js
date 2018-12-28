@@ -15,7 +15,7 @@ $(() => {
 const loadBelongsToDeclarer = () => {
   $('a[class^=load-user]').on('click', function(e) {
     e.preventDefault() // prevent the default behavior of clicking the link, which would have been a normal HTTP GET request to "/users/:id" 
-    let id = $(this).data('id') // stores the id of the user whose workout routines/training guides we want to view
+    let id = $(this).attr('href').split('/').pop() // stores the id of the user whose workout routines/training guides we want to view
     let loadAssociatedObjectsFunction = User.loadUserRoutines
     if ($(this).attr('class').split('-').pop() === 'guides') {
       loadAssociatedObjectsFunction = User.loadUserGuides
