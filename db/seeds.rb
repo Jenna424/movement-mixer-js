@@ -9,8 +9,8 @@
 User.create(
   name: "Addison",
   email: "addison@mm.com",
-  password: "ballerina",
-  password_confirmation: "ballerina",
+  password: "adminaddison",
+  password_confirmation: "adminaddison",
   role_requested: nil,
   role: 3,
   trainer_id: nil
