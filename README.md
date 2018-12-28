@@ -8,3 +8,11 @@ Movement Mixer is a Ruby on Rails application that utilizes JavaScript and a JSO
 4. Seed your database by running rake db:seed
 5. Run the command rails s to start up your application's local server
 6. Navigate to http://localhost:3000/ to start using Movement Mixer!
+
+# Contributors' Guide
+1. Please fork and clone this repository.
+2. Run bundle install (or bundle) to install/update gems
+3. Make any changes you see fit, such as the addition of a new feature or a bug fix.
+4. Concisely and clearly document any changes you make with a descriptive commit message!
+5. Send a pull request.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Jenna424/movement-mixer-js. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
