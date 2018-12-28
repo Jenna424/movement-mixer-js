@@ -10,6 +10,16 @@ admin = User.new(
 
 admin.save(valid: false)
 
+trainer = User.new(
+  name: "Tracy",
+  email: "tracy@mm.com",
+  password: "trainertracy",
+  password_confirmation: "trainertracy",
+  role_requested: nil,
+  role: 2,
+  trainer_id: nil
+)
+
 targets = Target.create([
   { focus: 'Biceps' }, 
   { focus: 'Triceps' },
