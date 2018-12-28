@@ -1,1 +1,2 @@
-Rails & JavaScript Assessment for Flatiron School by Jenna Leopold
+# README
+Movement Mixer is a Ruby on Rails application that utilizes JavaScript and a JSON API to allow clients and personal trainers to design workout routines together. Clients are authorized to create workout routines and the exercise movements that comprise these routines, and to specify the fitness equipment requirements of their workouts. Personal trainers are authorized to edit workout routines designed by their clients and to create training guides that demonstrate the proper performance of exercise movements. Additionally, personal trainers can add fitness training types and workout target areas, which clients use to categorize their workout plans.
