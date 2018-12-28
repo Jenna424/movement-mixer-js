@@ -23,22 +23,23 @@ trainer = User.new(
 trainer.save(valid: false)
 
 targets = Target.create([
-  { focus: 'Biceps' }, 
+  { focus: 'Biceps' },
   { focus: 'Triceps' },
   { focus: 'Upper Arms' },
-  { focus: 'Lower Arms' },
+  { focus: 'Forearms' },
   { focus: 'Shoulders' },
   { focus: 'Back' },
-  { focus: 'Pectorals' },
-  { focus: 'Lower Legs' },
+  { focus: 'Chest' },
+  { focus: 'Legs' },
   { focus: 'Quadriceps' },
   { focus: 'Hamstrings' },
-  { focus: 'Upper Legs' },
   { focus: 'Thighs' },
   { focus: 'Glutes' },
-  { focus: 'Calf Muscles' },
+  { focus: 'Calves' },
   { focus: 'Adductors' },
-  { focus: 'Hips' }
+  { focus: 'Hips' },
+  { focus: 'Abs' },
+  { focus: 'Trapezius' }
 ])
 
 trainings = Training.create([
