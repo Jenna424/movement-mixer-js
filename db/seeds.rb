@@ -8,7 +8,7 @@ admin = User.new(
   trainer_id: nil
 )
 
-admin.save(valid: false)
+admin.save(validate: false)
 
 trainer = User.new(
   name: "Tracy",
@@ -20,7 +20,7 @@ trainer = User.new(
   trainer_id: nil
 )
 
-trainer.save(valid: false)
+trainer.save(validate: false)
 
 targets = Target.create([
   { focus: 'Biceps' },
