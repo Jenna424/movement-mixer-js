@@ -8,6 +8,6 @@ module RoutinesHelper
   end
 
   def display_equipment_for(routine)
-    routine.equipment.empty? ? "None" : routine.equipment.map{|e| e.name}.uniq.join(", ")
+    routine.equipment.empty? ? "None" : routine.equipment.map{|e| e.name.downcase}.uniq.join(", ")
   end
 end
