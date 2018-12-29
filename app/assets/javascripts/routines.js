@@ -48,12 +48,12 @@ Routine.createListener = function() {
     e.preventDefault()
     let createFormData = $(this).serialize()
     $.post('/routines', createFormData)
-      .done(Routine.createWorkout)
+      .done(Routine.create)
       .fail(Routine.revealErrors)
   })
 }
 // Below, routineResponse parameter = JSON object representation of AR routine instance that was just created and saved to DB = successful JSON response I get back from AJAX POST request sent using $.post() method in Routine.createListener()
-Routine.createWorkout = function(routineResponse) {
+Routine.create = function(routineResponse) {
   Routine.emptyCreateForm() // empty the form once I get back a successful JSON response so that a user can create another new routine if she wants to. (The form is NOT emptied if I get back a failed response, so the user does NOT have to retype every form field if there are validation errors)
   let newRoutine = new Routine(routineResponse)
   newRoutine.formatAndPresentPreview()
