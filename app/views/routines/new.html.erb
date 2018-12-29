@@ -8,24 +8,28 @@
 
   <hr>
 
-  <div class="movement-fields">
-  	<%= f.fields_for :movements do |m| %>
-  	  <%= m.label :name, "Add an exercise movement to your workout routine" %>:
-  	  <%= m.text_field :name, placeholder: "Enter an exercise...", class: "form-control" %>
-  	  <br>
-  	  <%= m.fields_for :movement_routines do |mr| %>
-  	    <%= mr.label :technique, "Describe your technique for performing this exercise" %>:
-  	    <br>
-  	    <%= mr.text_area :technique %>
-  	    <br>
-  	    <%= mr.label :sets, "Number of Sets" %>:
-  	    <%= mr.number_field :sets %>
-  	    <br>
-  	    <%= mr.label :reps, "Number of Reps" %>:
-  	    <%= mr.number_field :reps %>
-  	  <% end %>
-  	<% end %>
-  </div>
+  <%= f.fields_for :movements do |m| %>
+    <div class="field">
+      <%= m.label :name, "Add an exercise movement to your workout routine" %>:
+      <%= m.text_field :name, placeholder: "Enter an exercise...", class: "form-control" %>
+    </div>
+  	<br>
+  	<%= m.fields_for :movement_routines do |mr| %>
+      <div class="field">
+        <%= mr.label :technique, "Describe your technique for performing this exercise" %>:
+        <br>
+        <%= mr.text_area :technique %>
+      </div>
+      <div class="field">
+        <%= mr.label :sets, "Number of Sets" %>:
+        <%= mr.number_field :sets %>
+      </div>
+      <div class="field">
+        <%= mr.label :reps, "Number of Reps" %>:
+        <%= mr.number_field :reps %>
+      </div>
+    <% end %>
+  <% end %>
 
   <br><br>
 
