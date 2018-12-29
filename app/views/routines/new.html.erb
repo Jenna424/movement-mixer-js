@@ -5,14 +5,16 @@
 
 <%= form_for @routine do |f| %>
   <%= render partial: "routine_form_fields", locals: {f: f} %>
+
   <hr>
+  
   <%= f.fields_for :movements do |m| %>
     <div class="field">
       <%= m.label :name, "Add an exercise movement to your workout routine" %>:
       <%= m.text_field :name, placeholder: "Enter an exercise...", class: "form-control" %>
     </div>
-  	<br>
-  	<%= m.fields_for :movement_routines do |mr| %>
+    <br>
+    <%= m.fields_for :movement_routines do |mr| %>
       <div class="field">
         <%= mr.label :technique, "Describe your technique for performing this exercise" %>:
         <br>
