@@ -37,7 +37,7 @@
 
   <hr>
 
-  <div class="equipment-fields">
+  
   	<%= f.fields_for :equipment do |e| %>
   	  <%= e.label :name, "What type of equipment, if any, will you use during this workout?" %>:
   	  <%= e.text_field :name, placeholder: "Enter a piece of equipment...", class: "form-control" %>
@@ -50,7 +50,7 @@
   	    <%= er.number_field :weight, min: 1, step: 'any' %> lbs each
   	  <% end %>
   	<% end %>
-  </div>
+  
 
   <br><br>
 
