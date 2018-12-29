@@ -5,9 +5,7 @@
 
 <%= form_for @routine do |f| %>
   <%= render partial: "routine_form_fields", locals: {f: f} %>
-
   <hr>
-
   <%= f.fields_for :movements do |m| %>
     <div class="field">
       <%= m.label :name, "Add an exercise movement to your workout routine" %>:
