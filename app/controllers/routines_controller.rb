@@ -1,7 +1,7 @@
 class RoutinesController < ApplicationController
   before_action :set_routine, only: [:show, :edit, :update, :destroy]
 
-  def index
+  def index # Unassigned users, clients and admins view all workouts. A trainer only views routines designed by her clients.
     routines = policy_scope(Routine)
     render json: routines, status: 200
   end
@@ -9,8 +9,8 @@ class RoutinesController < ApplicationController
   def new
     @routine = Routine.new # instance for form_for to wrap around
     authorize @routine # only let clients view the form to create a new routine
-    @routine.movements.build
-    @routine.equipment.build
+    @routine.movements.build # create a blank movement for nested fields_for :movements
+    @routine.equipment.build # create a blank equipment for nested fields_for :equipment
   end
 
   def create
@@ -18,7 +18,7 @@ class RoutinesController < ApplicationController
     authorize routine
 
     if routine.save
-      render json: routine, status: 201
+      render json: routine, status: 201 # indicates that a new routine resource was successfully created
     else
       render json: { errors: routine.errors.full_messages }, status: :unprocessable_entity # status: 422
     end
@@ -31,7 +31,7 @@ class RoutinesController < ApplicationController
     end
   end
 
-  def edit
+  def edit # Only the client who created a routine & that client's trainer can view the form to edit that routine
     authorize @routine
   end
 
@@ -104,7 +104,7 @@ class RoutinesController < ApplicationController
   end
 
   def destroy # delete '/routines/:id' => 'routines#destroy'
-    authorize @routine
+    authorize @routine # Only the client who created the routine can delete that routine
     @routine.destroy
     render json: @routine, status: 200
   end
