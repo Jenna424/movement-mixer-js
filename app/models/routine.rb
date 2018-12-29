@@ -18,6 +18,8 @@ class Routine < ApplicationRecord
   validates :target_ids, presence: true
   validates :training_ids, presence: true
 
+  delegate :name, to: :user, prefix: "designer" # I can call #designer_name on a routine instance to return the name of the client who created the routine
+  
   def movements_attributes=(movements_attributes)
     movements_attributes.values.each do |movements_attribute|
       if !movements_attribute["name"].blank?
