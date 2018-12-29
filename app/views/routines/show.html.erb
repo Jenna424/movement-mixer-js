@@ -43,9 +43,8 @@
   </div>
 </div>
 
-<%= render partial: "add_exercise_form", locals: {routine: @routine} if policy(@routine).edit? %>
-
 <% if policy(@routine).edit? %>
+  <%= render partial: "add_exercise_form", locals: { routine: @routine } %>
   <%= link_to edit_routine_path(@routine), class: 'btn btn-primary btn-md edit-workout', data: {id: @routine.id} do
     content_tag(:span, nil, class: "glyphicon glyphicon-edit") + content_tag(:span, " Edit Workout")
   end %>
