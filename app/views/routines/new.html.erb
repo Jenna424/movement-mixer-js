@@ -22,11 +22,11 @@
       </div>
       <div class="field">
         <%= mr.label :sets, "Number of Sets" %>:
-        <%= mr.number_field :sets %>
+        <%= mr.number_field :sets, min: 1 %>
       </div>
       <div class="field">
         <%= mr.label :reps, "Number of Reps" %>:
-        <%= mr.number_field :reps %>
+        <%= mr.number_field :reps, min: 1 %>
       </div>
     <% end %>
   <% end %>
