@@ -10,7 +10,7 @@
     </div>
 
     <div class="movement-fields">
-      <label for="routine_movements_attributes_0_name">Add another exercise to this workout routine</em></label>:
+      <label for="routine_movements_attributes_0_name">Add another exercise to this workout routine</label>:
       <input placeholder="Enter another exercise..." class="form-control" type="text" name="routine[movements_attributes][0][name]" id="routine_movements_attributes_0_name">
       <br>
       <label for="routine_movements_attributes_0_movement_routines_technique">Describe your technique for performing this exercise</label>:
@@ -18,10 +18,10 @@
       <textarea name="routine[movements_attributes][0][movement_routines][technique]" id="routine_movements_attributes_0_movement_routines_technique"></textarea>
       <br>
       <label for="routine_movements_attributes_0_movement_routines_sets">Number of Sets</label>:
-      <input type="number" name="routine[movements_attributes][0][movement_routines][sets]" id="routine_movements_attributes_0_movement_routines_sets">
+      <input min="1" type="number" name="routine[movements_attributes][0][movement_routines][sets]" id="routine_movements_attributes_0_movement_routines_sets">
       <br>
       <label for="routine_movements_attributes_0_movement_routines_reps">Number of Reps</label>:
-      <input type="number" name="routine[movements_attributes][0][movement_routines][reps]" id="routine_movements_attributes_0_movement_routines_reps">
+      <input min="1" type="number" name="routine[movements_attributes][0][movement_routines][reps]" id="routine_movements_attributes_0_movement_routines_reps">
     </div>
 
     <br>
