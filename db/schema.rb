@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_02_212808) do
+ActiveRecord::Schema.define(version: 2018_12_29_214554) do
 
   create_table "equipment", force: :cascade do |t|
     t.string "name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2018_12_02_212808) do
   create_table "equipment_routines", force: :cascade do |t|
     t.integer "equipment_id"
     t.integer "routine_id"
-    t.integer "weight"
+    t.float "weight"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
